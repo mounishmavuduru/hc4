@@ -233,8 +233,47 @@ only over C. No prior art located — but not claimed as new pending review.
    Jacobian constants from the parsed polynomials (a 1-in-astronomically-
    many coincidence if mis-parsed); still, referees can re-parse.
 
+## 1d. NEW REFORMULATION (Lemma R) — main_result.tex §"A derivation reformulation"
+
+For f with det Hess f ∈ C^×, Meng's HC for f is EQUIVALENT to any of:
+(b) **f is a polynomial in its own first partials**, f ∈ C[∂₁f,…,∂ₙf];
+(c) Λ = ⟨x,∇f⟩ − f ∈ C[∇f]; (d) the n commuting polynomial derivations
+W_i = adj(Hess f)·e_i are all locally nilpotent. So **HC_4 ⟺ every
+4-variable constant-Hessian potential is a polynomial in its four
+partials.** (d) is the LND form of JC specialized to gradient maps
+(van den Essen, *Polynomial Automorphisms*, Ch. 1); (b) and the framing
+(I3) we have not located for gradient maps — flagged for referees.
+
+Structural identities (all fully generic ⇒ proofs; n = 2,3,4): (I1)
+div(adj(H)∇f) = n·det H; (I2) W_i(∂_j f) = det H·δ_ij, W_i(x_j) symmetric;
+(I3) [W_i,W_j] = 0 and [V,W_i] = −W_i (the pullback of {∂_i, Euler} along
+∇f is a Lie-algebra homomorphism — a commuting polynomial framing off
+{det H = 0}); (I4) W_iΛ = x_i, Vf = B/det H. Cert:
+`euler_pullback_reformulation.py`.
+
+**Necessary condition + a self-correction referees should note.** (b) ⟹
+fibre-constancy (∇f(p)=∇f(q) ⟹ f(p)=f(q)). An earlier draft claimed the
+Meng–Yang HC_5 counterexample VIOLATES this at its collision — FALSE, and
+caught by a fail-closed assert: the Ψ-values there both equal 0. Ψ ∉ C[∇Ψ]
+follows instead from ∇Ψ being non-injective (two distinct points, equal
+gradients) via (a)⇔(b). Fibre-constancy is necessary, not sufficient, and
+a given collision need not witness it.
+
+**Frontier attack via Lemma R (degree 5).** The rank-3,
+no-isotropic-direction, pivot-free branch of degree-5 HC_4 is reduced to a
+finite decision (`d5_rank3_pivotfree_decision.py`): the weighted leading
+form F = a5 + x4·b3 + x4²y1/2 must have det Hess_4 F ≡ 0; E4 = 0 gives two
+rational branches (the b3 = 0 sub-branch is EMPTY by a domain argument);
+each residual E2=E1=E0 is exported as a Singular radical-membership
+decision; 400-point exact sampling of each residual variety finds NO
+rank-3 survivor. A YES from the exported ideal computation would close
+degree-5 HC_4 in this branch; a NO would give the first pivot-free
+4-variable constant-Hessian potential. Singular/Macaulay2 is NOT installed
+here — that is the single blocker on this decision.
+
 ## 5. Exact checks a referee can run (minutes each)
 
+    py certificates\run_all.py                 # NEW: one-shot pass/fail table (fast suite)
     py certificates\verify_alpoge_3d.py        # JC_3 counterexample
     py certificates\verify_mengyang_fast.py    # HC_5/HC_6 + family
     py certificates\pivot_obstruction_d1.py    # D1/D1+

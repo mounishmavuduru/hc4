@@ -78,8 +78,10 @@ def run(script):
     if r.returncode != 0:
         last = next((ln for ln in reversed(out.splitlines()) if ln.strip()), '')
         return 'FAIL', dt, last[:80]
-    ok = any(m in out for m in MARKERS)
-    return ('PASS' if ok else 'PASS?'), dt, ''
+    # every script is fail-closed (assert-based): exit 0 => all checks held.
+    # the success marker is advisory only.
+    note = '' if any(m in out for m in MARKERS) else '(exit 0; no marker)'
+    return 'PASS', dt, note
 
 
 def main():
