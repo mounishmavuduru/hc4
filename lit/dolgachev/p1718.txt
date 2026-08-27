@@ -1,0 +1,60 @@
+18 Polarity
+Repeating the same procedure but this time with the columns, we ﬁnally get
+det(He(f)) = (d− 1)2
+t2
+0
+det
+
+
+d
+d−1f ∂ 1f ... ∂ nf
+∂1f f 11 ... f 1n
+... ... ... ...
+∂nf f n1 ... f nn
+
+. (1.20)
+Letφ(z1,...,z n) be the dehomogenization off with respect tot0, i.e.,
+f(t0,...,t d) =td
+0φ(t1
+t0
+,..., tn
+t0
+).
+We have
+∂f
+∂ti
+=td−1
+0 φi(z1,...,z n), ∂2f
+∂ti∂tj
+=td−2
+0 φij(z1,...,z n), i,j = 1,...,n,
+where
+φi = ∂φ
+∂zi
+, φ ij = ∂2φ
+∂zi∂zj
+.
+Plugging these expressions in (1.20), we obtain, that up to a nonzero constant
+factor,
+t−(n+1)(d−2)
+0 det(He(φ)) = det
+
+
+d
+d−1φ(z) φ1(z) ... φ n(z)
+φ1(z) φ11(z) ... φ 1n(z)
+... ... ... ...
+φn(z) φn1(z) ... φ nn(z)
+
+,
+(1.21)
+wherez = (z1,...,z n),zi =ti/t0, i= 1,...,n .
+Remark 1.1.18 If f(x,y ) is a real polynomial in three variables, the value of
+(1.21) at a pointv∈ Rn with [v]∈V (f) multiplied by −1
+f1(a)2+f2(a)2+f3(a)2 is
+equal to the Gauss curvature ofX(R) at the pointa (see [220]).
+1.1.5 Parabolic points
+Let us see where He(X) intersectsX. We assume that He(X) is a hypersurface
+of degree (n + 1)(d− 2) > 0. A glance at the expression (1.21) reveals the
+following fact.
+Proposition 1.1.19 Each singular point ofX belongs to He(X).

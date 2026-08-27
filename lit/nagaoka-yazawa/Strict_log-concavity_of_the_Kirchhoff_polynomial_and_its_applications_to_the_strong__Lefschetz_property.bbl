@@ -1,0 +1,107 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{MR3862944}
+Karim Adiprasito, June Huh, and Eric Katz, \emph{Hodge theory for combinatorial
+  geometries}, Ann. of Math. (2) \textbf{188} (2018), no.~2, 381--452, URL
+  \url{https://doi.org/10.4007/annals.2018.188.2.1}. \MR{3862944}
+
+\bibitem{AGV2018}
+Nima Anari, Shayan~Oveis Gharan, and Cynthia Vinzant, \emph{Log-concave
+  polynomials i: Entropy and a deterministic approximation algorithm for
+  counting bases of matroids}, arXiv:1807.00929, URL
+  \url{https://arxiv.org/abs/1807.00929}.
+
+\bibitem{BH2019}
+Petter Br{\"a}nd\'{e}n and June Huh, \emph{Lorentzian polynomials},
+  arXiv:1902.03719, URL \url{https://arxiv.org/abs/1902.03719}.
+
+\bibitem{MR2037144}
+Young-Bin Choe, James~G. Oxley, Alan~D. Sokal, and David~G. Wagner,
+  \emph{Homogeneous multivariate polynomials with the half-plane property},
+  Adv. in Appl. Math. \textbf{32} (2004), no.~1-2, 88--187, Special issue on
+  the Tutte polynomial, URL
+  \url{https://doi.org/10.1016/S0196-8858(03)00078-2}. \MR{2037144}
+
+\bibitem{MR2431661}
+Ciro Ciliberto, Francesco Russo, and Aron Simis, \emph{Homaloidal hypersurfaces
+  and hypersurfaces with vanishing {H}essian}, Adv. Math. \textbf{218} (2008),
+  no.~6, 1759--1805, URL \url{https://doi.org/10.1016/j.aim.2008.03.025}.
+  \MR{2431661}
+
+\bibitem{MR2683227}
+Leonid Gurvits, \emph{On multivariate {N}ewton-like inequalities}, Advances in
+  combinatorial mathematics, Springer, Berlin, 2009, pp.~61--78, URL
+  \url{https://doi.org/10.1007/978-3-642-03562-3_4}. \MR{2683227}
+
+\bibitem{MR2978290}
+Roger~A. Horn and Charles~R. Johnson, \emph{Matrix analysis}, second ed.,
+  Cambridge University Press, Cambridge, 2013. \MR{2978290}
+
+\bibitem{MR3733101}
+June Huh and Botong Wang, \emph{Enumeration of points, lines, planes, etc},
+  Acta Math. \textbf{218} (2017), no.~2, 297--317, URL
+  \url{https://doi.org/10.4310/ACTA.2017.v218.n2.a2}. \MR{3733101}
+
+\bibitem{MR1944442}
+Tatsuo Kimura, \emph{Introduction to prehomogeneous vector spaces},
+  Translations of Mathematical Monographs, vol. 215, American Mathematical
+  Society, Providence, RI, 2003, Translated from the 1998 Japanese original by
+  Makoto Nagura and Tsuyoshi Niitani and revised by the author. \MR{1944442}
+
+\bibitem{MN32012}
+Toshiaki Maeno and Yasuhide Numata, \emph{On the sperner property and
+  gorenstein algebras associated to matroids}, DMTCS Proceedings AR, 2012,
+  pp.~157--168.
+
+\bibitem{MR2985388}
+\bysame, \emph{Sperner property, matroids and finite-dimensional {G}orenstein
+  algebras}, Tropical geometry and integrable systems, Contemp. Math., vol.
+  580, Amer. Math. Soc., Providence, RI, 2012, pp.~73--84, URL
+  \url{https://doi.org/10.1090/conm/580/11496}. \MR{2985388}
+
+\bibitem{MR3566530}
+\bysame, \emph{Sperner property and finite-dimensional {G}orenstein algebras
+  associated to matroids}, J. Commut. Algebra \textbf{8} (2016), no.~4,
+  549--570, URL \url{https://doi.org/10.1216/JCA-2016-8-4-549}. \MR{3566530}
+
+\bibitem{MR2594646}
+Toshiaki Maeno and Junzo Watanabe, \emph{Lefschetz elements of {A}rtinian
+  {G}orenstein algebras and {H}essians of homogeneous polynomials}, Illinois J.
+  Math. \textbf{53} (2009), no.~2, 591--603, URL
+  \url{http://projecteuclid.org/euclid.ijm/1266934795}. \MR{2594646}
+
+\bibitem{MR2849819}
+James Oxley, \emph{Matroid theory}, second ed., Oxford Graduate Texts in
+  Mathematics, vol.~21, Oxford University Press, Oxford, 2011, URL
+  \url{https://doi.org/10.1093/acprof:oso/9780198566946.001.0001}. \MR{2849819}
+
+\bibitem{MR0430336}
+M.~Sato and T.~Kimura, \emph{A classification of irreducible prehomogeneous
+  vector spaces and their relative invariants}, Nagoya Math. J. \textbf{65}
+  (1977), 1--155, URL \url{http://projecteuclid.org/euclid.nmj/1118796150}.
+  \MR{0430336}
+
+\bibitem{MR1813436}
+W.~T. Tutte, \emph{Graph theory}, Encyclopedia of Mathematics and its
+  Applications, vol.~21, Cambridge University Press, Cambridge, 2001, With a
+  foreword by Crispin St. J. A. Nash-Williams, Reprint of the 1984 original.
+  \MR{1813436}
+
+\bibitem{W2000}
+Junzo Watanabe, \emph{A remark on the {H}essian of homogeneous polynomials},
+  The curves seminar at {Q}ueen's, vol.\ {XIII}, Queen's Papers in Pure and
+  Appl. Math., vol. 119, Queen's Univ., Kingston, ON, 2000, pp.~171--178.
+
+\bibitem{Y2018}
+Akiko Yazawa, \emph{The {H}essians of the complete and complete bipartite
+  graphs and its application to the strong {L}efschetz property},
+  arXiv:1812.07199, URL \url{https://arxiv.org/abs/1812.07199}.
+
+\end{thebibliography}

@@ -1,0 +1,262 @@
+﻿PROCEEDINGS OF THE
+AMERICAN MA THEMA TICAL SOCIETY
+Volume 133, Number 8, Pages 2201–2205
+S 0002-9939(05)07570-2
+Article electronically published on March 4, 2005
+A REDUCTION OF THE JACOBIAN CONJECTURE
+TO THE SYMMETRIC CASE
+MICHIEL DE BONDT AND ARNO VAN DEN ESSEN
+(Communicated by Bernd Ulrich)
+Abstract. The main result of this paper asserts that it suﬃces to prove the
+Jacobian Conjecture for all polynomial maps of the form x + H,w h e r eH is
+homogeneous (of degree 3) and JH is nilpotent and symmetric. Also a 6-
+dimensional counterexample is given to a dependence problem posed by de
+Bondt and van den Essen (2003).
+Introduction
+Let F =( F1,...,F n): Cn → Cn be a polynomial map, i.e. each Fi is a polyno-
+mial in n variables over C, and denote by JF := (∂Fi
+∂xj
+)1≤i,j≤n the Jacobian matrix
+of F. Then the Jacobian Conjecture asserts that if det JF ∈ C∗,t h e nF is in-
+vertible. It was shown in the classical papers [1] and [13] by Bass-Connell-Wright
+and Yagzhev, respectively, that it suﬃces to prove the Jacobian Conjecture for all
+n ≥ 2 and all polynomial maps of the form F = x + H,w h e r eH is homogeneous
+(of degree 3) and JH is nilpotent.
+In [12] and [7] the cubic homogeneous cases in dimension 3 (resp. 4) were treated
+by Wright (resp. Hubbers).
+Recently, in [6] Washburn and the secondauthor treated one more special case,
+namely they showed that if n ≤ 4, then the Jacobian Conjecture holds for all
+polynomial maps of the form F = x+ H,w h e r eJH is homogeneous, nilpotent and
+symmetric.
+At ﬁrst glance the condition thatJH is symmetric seems rather special. However
+the main result of this paper, Theorem 1.1, asserts that it suﬃces to prove the
+Jacobian Conjecture for all n ≥ 2 and all polynomial maps of the form F = x + H,
+where JH is homogeneous, nilpotent and symmetric!
+The technique to obtain this result is used in section 2 to give a negative answer
+in dimension 6 to a dependence problem posed in [2] (which, if true, would have
+implied the Jacobian Conjecture). We ref er to section 2 for more details. Finally
+we would like to mention that in [3] the authors have obtained the following exten-
+sions of the results from [6]: the Jacobian Conjecture holds for all F of the form
+x + H,w h e r eJH is nilpotent and symmetric in the case n ≤ 4( H need not be
+homogeneous) and in the case n =5w h e nH is homogeneous.
+Received by the editors June 30, 2003.
+2000 Mathematics Subject Classiﬁcation. Primary 14R15, 14R10.
+Key words and phrases. Jacobian Conjecture, Hessian Conjecture, dependence problems.
+c©2005 American Mathematical Society
+2201
+========================================
+2202 MICHIEL DE BONDT AND ARNO V AN DEN ESSEN
+1. Reduction to symmetric matrices
+Throughout this paper we use the following notation:
+C[x]: = C[x1,...,x n] is the polynomial ring in n variables over C and H :=
+(H1,...,H n): Cn → Cn is a polynomial map. Its Jacobian matrix is denoted by
+JH . It follows from the Poincar´e lemma (see for example [5], 1.3.53) that JH is
+symmetric iﬀ there exists f ∈ C[x] such that H =( fx1 ,...,f xn )o re q u i v a l e n t l y
+such that JH =( ∂2f
+∂xi∂xj
+), the Hessian matrix of f. W ed e n o t et h i sm a t r i xb y
+h(f).
+Observe that
+(1) h(f)= J(fx1 ,...,f xn ).
+For A ∈ Mn(C) we put f ◦ A := f(Ax). It is well known that
+(2) h(f ◦ A)= Ath(f)|AxA.
+Now we introduce n new variables y1,...,y n and to H as above we associate the
+polynomial fH ∈ C[x, y] deﬁned by
+(3) fH := (−i)H1(x1 +iy1,...,x n +iyn)y1+... +(−i)Hn(x1 +iy1,...,x n +iyn)yn.
+So if S is the (invertible) linear map given by
+S := (x1 − iy1,...,x n − iyn,y 1,...,y n),
+then gH := fH ◦ S =( −i)H1(x)y1 + ... +( −i)Hn(x)yn.
+One readily veriﬁes that h(gH)i so ft h ef o r m
+(4) h(gH)=
+(
+∗ (−i)(JH )t
+(−i)JH 0
+)
+.
+In order to formulate the main result of this paper we introduce
+Hessian Conjecture HC(n). Let f ∈ C[x]. If h(f) is nilpotent, then F :=
+(x1 + fx1 ,...,x n + fxn ) is invertible.
+It follows from (1) that if the n-dimensional Jacobian Conjecture is true, then
+HC(n) is true as well. The surprising point is now
+Theorem 1.1. The Jacobian Conjecture is equivalent to the Hessian Conjecture.
+More precisely, if HC(2n) holds, then x + H is invertible for every H : Cn → Cn
+with JH nilpotent.
+The proof of this result is based on the following lemma.
+Lemma 1.2. Let H =( H1,...,H n): Cn → Cn and let fH ∈ C[x, y] be as deﬁned
+in (3).T h e nJH is nilpotent iﬀ h(fH) is nilpotent.
+Proof. Introduce an extra variablez and write f (resp. g) instead of fH (resp. gH).
+Then h(f) is nilpotent iﬀ det( zI2n − h(f)) = z2n.P u t q := (1/2) ∑n
+j=1(x2
+j + y2
+j ).
+Then h(zq)= zI2n,s o
+(5) h(zq − f)= zI2n − h(f).
+Since det S =1 ,i tf o l l o w sf r o m( 2 )a n d( 5 )t h a t
+(6) det h(zq ◦ S − g)=d e th(zq − f)|S(x,y).
+========================================
+REDUCTION OF THE JACOBIAN CONJECTURE 2203
+Since q ◦ S = 1
+2
+∑n
+j=1 x2
+j − ∑n
+j=1 ixj yj, it follows from (4) that
+h(zq ◦ S − g)=
+(
+∗− izIn + i(JH )t
+−izIn + iJH 0
+)
+.
+Consequently
+(7) det h(zq ◦ S − g)=d e t (zIn − JH )d e t (zIn − (JH )t).
+So by (6) and (7) we obtain
+det(zI2n − h(f))|S(x,y) =d e t (zIn − JH )d e t (zIn − (JH )t).
+Hence h(f)i sn i l p o t e n ti ﬀd e t (zI2n − h(f)) = z2n iﬀ det(zIn − JH )= zn iﬀ JH
+is nilpotent. □
+Proof of Theorem 1.1. Let H =( H1,...,H n) be such that JH is nilpotent and
+let fH be as in (3). Then by Lemma 1.2 h(f) is nilpotent. So the assumption
+HC(2n) implies that F =( x1 + fx1 ,...,x n + fxn ,y 1 + fy1 ,...,y n + fyn ) is invertible.
+Consequently F ◦ S is invertible. An easy calculation shows that
+F ◦ S =
+
+x1 − iy1 − i
+∑
+j
+Hjx1 (x)yj ,...,x n − iyn − i
+∑
+j
+Hjxn (x)yj ,
+y1 +
+∑
+j
+Hjx1 (x)yj − iH1,...,y n +
+∑
+j
+Hjxn (x)yj − iHn
+
+ .
+Hence S−1 ◦ F ◦ S =( x1 + H1(x),...,x n + Hn(x), ∗,..., ∗) is invertible, which in
+turn implies that x + H is invertible. □
+Corollary 1.3. It suﬃces to prove the Jacobian Conjecture for all n ≥ 2 and
+all F of the form F =( x1 + fx1 ,...,x n + fxn ),w h e r eh(f) is nilpotent and f
+is homogeneous of degree 4 (or equivalently for all n ≥ 2 and all F of the form
+F = x + H with JH nilpotent and symmetric and H homogeneous of degree 3).
+Proof. Follows immediately from Theorem 1.1 and Corollary 2.2 of [1]. □
+2. Dependence problems
+In the search for the Jacobian Conjecture the following problems were formulated
+by several authors (see [8], Conjecture 1, p. 80, [10], Conjecture B, p. 135, [11],
+Conjecture 11.3, [4] and [5], 7.1.7)
+(Homogeneous) Dependence Problem (H)DP(n). Let H := ( H
+1,...,H n)
+with H(0) = 0 be (homogeneous of degree d ≥ 1) such that JH is nilpotent. Are
+the Hi linearly dependent over C?
+One easily veriﬁes that the linear dependence of theHi is equivalent to the linear
+dependence of the rows ofJH over C. It is shown in [5], Theorem 7.1.7, that DP(2)
+has an aﬃrmative answer and that for each n ≥ 3 there are counterexamples. The
+easiest such example is the following:
+(8) H1 = x2 − x2
+1,H 2 = x3 +2 x1(x2 − x2
+1),H 3 = −(x2 − x2
+1)2.
+The homogeneous dependence problem is still open; but in the casesn =3 ,d =3
+and n =4 ,d = 3, aﬃrmative answers were obtained by Wright in [12] and Hubbers
+========================================
+2204 MICHIEL DE BONDT AND ARNO V AN DEN ESSEN
+in [7]. Recently in [2] the corresponding dependence problems were formulated for
+Hessian matrices, i.e.
+(Homogeneous) Symmetric Depe ndence Problem (H)SDP(n). Let H with
+H(0) = 0 be (homogeneous of degree d ≥ 1) such that JH is nilpotent and sym-
+metric. Are the Hi linearly dependent over C?
+The importance of these problems becomes clear if one combines Theorem 1.1
+with the following result of [2].
+Theorem 2.1 ([2, Theorem 2.1]). i) If SDP(p) has an aﬃrmative answer for all
+p ≤ n, then HC(n) holds.
+ii) If SDP(p) has an aﬃrmative answer for all p ≤ n − 2 and HSDP(p) for
+p = n − 1 and p = n, then HC(n) holds for all homogeneous f ∈ C[x].
+The aim of this section is to relate the dependence problems stated before with
+the symmetric dependence problems. As a consequence we obtain a negative answer
+to SDP(6). More precisely
+Example. Let H =( H
+1,H 2,H 3)b ea si n( 8 ) . T h e nJH is nilpotent andH1,H 2,H 3
+are linearly independent over C.N o w l e tfH be as in (3). Then it follows from
+the next result and the fact that DP(2) holds, that h(fH) is a counterexample to
+SDP(6).
+Proposition 2.2. If n is minimal such that (H)DP(n) does not hold, then
+(H)SDP(2n) does not hold either.
+Proof. i) Suppose (H)DP(n) does not hold and n is minimal with this property.
+Then there exists H : Cn → Cn with H(0) = 0 such that JH is nilpotent and the
+rows of JH are independent over C.
+Claim. The columns of JH are also independent over C.
+Namely, if the columns ofJH are dependent overC, then there exists 0⁄= v ∈ Cn
+with JH · v =0 . L e t T ∈ Gln(C) be such that its last column equals v.T h e n
+the last column of JH · T equals zero. So if we put ˜H := T −1 ◦ H ◦ T,t h e n
+J ˜H = T −1JH (Tx)T is nilpotent and also its last column equals zero. In particular
+˜H1,..., ˜Hn−1 ∈ C[x1,...,x n−1]. Finally put H∗ := ( ˜H1,..., ˜Hn−1). Since the last
+column of J ˜H is zero, it follows readily that JH∗ is nilpotent and that the rows
+of JH∗ are linearly independent over C (since the rows of J ˜H a r eb e c a u s et h o s eo f
+JH are by hypothesis). So H∗ contradicts the minimality of n.
+ii) Therefore, the colums of JH are independent over C.L e t gH and fH be as
+above. Then h(gH) has the form (4).
+Claim. The rows Rj of h(gH) are independent over C: namely suppose that ∑ 2n
+j=1
+cj Rj =0f o rs o m ecj ∈ C.S i n c e t h e r o w s o f (−i)(JH )t are independent over C
+(since the columns of JH are by i)), the zero matrix in the right corner of h(gH)
+in (4) implies that c1 = ... = cn =0 . S o ∑ 2n
+j=n+1 cj Rj = 0. However the rows of
+(−i)JH are also independent over C (by hypothesis), so also cj =0i f j>n ,w h i c h
+proves the claim.
+iii) Finally, since fH = gH ◦ T (T := S−1)i tf o l l o w sf r o m( 2 )t h a th(fH)=
+Tth(gH)|T (x,y)T. Therefore, the rows of h(fH) are also independent over C,w h i c h
+concludes the proof. □
+========================================
+REDUCTION OF THE JACOBIAN CONJECTURE 2205
+3. Final remarks
+Almost three months after this paper was submitted, the authors were notiﬁed by
+David Wright that the paper [9] by Guowu Meng had appeared on the internet, in
+which he obtained a result similar to ours. He also formulates a Hessian Conjecture
+and shows that the Jacobian Conjecture is equivalent to his Hessian Conjecture.
+Meng’s Hessian Conjecture states that the Jacobian Conjecture holds for all gradi-
+ent maps ∇f := (f
+x1 ,...,f xn ). The diﬀerence between our Hessian Conjecture and
+the one formulated by Meng is that he considers all polynomial maps of the form
+∇f with deth(f) ∈ C∗, where we only need to consider all polynomial maps of the
+form x + ∇f,w i t hh(f) nilpotent. So our reduction is more reﬁned in the sense
+that it preserves the nilpotency as formul ated in the classical reduction theorems
+of [1] and [13].
+Added in proof
+In a recent paper the authors gave an aﬃrmative answer to HDP(3). Also, the
+ﬁrst author found counterexamples to HDP(n) for all n ≥ 5.
+References
+[1] H. Bass, E. Connell and D. Wright, The Jacobian Conjecture: Reduction of degree and formal
+Expansion of the Inverse, Bulletin of the AMS, 7 (1982), 287-330. MR0663785 (83k:14028)
+[2] M. de Bondt and A. van den Essen, Nilpotent symmetric Jacobian matrices and the Jacobian
+Conjecture, J. Pure Appl. Algebra, 193 (2004), no. 1-3, 61-70. MR2076378
+[3] M. de Bondt and A. van den Essen, Nilpotent symmetric Jacobian matrices and the Jacobian
+Conjecture II, Pure Appl. Algebra, 196 (2005), 135-148.
+[4] A.Cima, A,Gasull and F. Ma˜nosas, The discrete Markus-Yamabe problem, Nonlinear Anal-
+ysis: Theory, Methods & Applications, 35 (1999), no. 3, 343-354. MR1643454 (2000j:37030)
+[5] A. van den Essen, Polynomial Automorphisms and the Jacobian Conjecture, Vol. 190, in
+Progress in Mathematics, Birkh¨auser, 2000. MR1790619 (2001j:14082)
+[6] A. van den Essen and S. Washburn, The Jacobian Conjecture for symmetric matrices, J. Pure
+Appl. Algebra, 189 (2004), no. 1-3, 123-133. MR2038568 (2004m:14133)
+[7] E. Hubbers, The Jacobian Conjecture: Cubic homogeneous maps in Dimension Four, Mas-
+ters’s thesis, University of Nijmegen, 1994.
+[8] G. Meisters, Polyomorphisms conjugate to Dilatations, pp. 67-88 in Automorphisms of Aﬃne
+Spaces, Kluwer Academic Publishers (ed. A. van den Essen), 1995. MR1352691 (97m:14020)
+[9] G. Meng, Legendre Transform, Hessian Conjecture and Tree Formula,
+http://front.math.ucdavis.edu/math-ph/0308035.
+[10] C. Olech, On the Markus-Yamabe stability conjecture, pp. 127-137 in Proc. of the Intern.
+Meeting on Ordinary Diﬀerential Equations and their Applications, University of Florence,
+1995.
+[11] K. Rusek, Polynomial Automorphisms, preprint 456, Inst. of Math. Polish Acad. of Sciences,
+IMPAN, Warsaw, 1989.
+[12] D. Wright, The Jacobian Conjecture: linear triangularization for cubics in dimension three,
+Linear and Multilinear Algebra, 34 (1993), 85-97. MR1334679 (96j:14008)
+[13] A. Yagzhev, On Keller’s problem, Siberian Math. J., 21 (1980), 747-754.
+Department of Mathematics, Radboud University of Nijmegen, Postbus 9010, 6500 GL
+Nijmegen, The Netherlands
+E-mail address: debondt@math.kun.nl
+Department of Mathematics, Radboud University of Nijmegen, Postbus 9010, 6500 GL
+Nijmegen, The Netherlands
+E-mail address: essen@math.kun.nl
+========================================

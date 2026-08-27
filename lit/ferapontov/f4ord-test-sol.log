@@ -1,0 +1,119 @@
+FORM by J.Vermaseren,version 3.1(06/19/03) Run at: Tue Jul  6 18:38:41 2004
+    ****   This program simply tests that the derivatives
+    ****   of the Lagrangian of order 4 found by Maple
+    ****   are correct (or better, were correctly edited back into FORM).
+    ****   The solutions are read from the file f4ord.frm
+    ****   and the previous output of the FORM program 2-Lagr3dim.frm
+    ****   is read from all.sav
+    
+    CFunctions f,D,diff,mu,la,B,nB,dB,U;
+    Symbols xx,a,b,c,i,j,k,[1/Hess],[Hess],[1/f(2*b)];
+    load all.sav;
+ all loaded
+    .sort
+    
+    L aaa=all;
+    Brackets mu,la;
+    .sort
+
+Time =       0.21 sec    Generated terms =       2596
+              aaa        Terms in output =       2596
+                         Bytes used      =     290050
+    
+    #include- f4ord.frm;
+    .sort
+
+Time =       0.37 sec    Generated terms =       2596
+              aaa        Terms in output =       2596
+                         Bytes used      =     141640
+
+Time =       0.38 sec    Generated terms =         29
+       [f(3*b+a)]        Terms in output =         29
+                         Bytes used      =       3260
+
+Time =       0.39 sec    Generated terms =         29
+       [f(3*a+c)]        Terms in output =         29
+                         Bytes used      =       3294
+
+Time =       0.40 sec    Generated terms =         38
+     [f(2*c+b+a)]        Terms in output =         38
+                         Bytes used      =       4318
+
+Time =       0.40 sec    Generated terms =         29
+       [f(3*c+a)]        Terms in output =         29
+                         Bytes used      =       3324
+
+Time =       0.40 sec    Generated terms =         21
+         [f(4*c)]        Terms in output =         21
+                         Bytes used      =       2564
+
+Time =       0.40 sec    Generated terms =         38
+     [f(2*b+a+c)]        Terms in output =         38
+                         Bytes used      =       4274
+
+Time =       0.40 sec    Generated terms =         38
+     [f(2*a+b+c)]        Terms in output =         38
+                         Bytes used      =       4402
+
+Time =       0.40 sec    Generated terms =         36
+     [f(2*a+2*b)]        Terms in output =         36
+                         Bytes used      =       4186
+
+Time =       0.40 sec    Generated terms =         29
+       [f(3*a+b)]        Terms in output =         29
+                         Bytes used      =       3294
+
+Time =       0.40 sec    Generated terms =         29
+       [f(3*c+b)]        Terms in output =         29
+                         Bytes used      =       3302
+
+Time =       0.40 sec    Generated terms =         21
+         [f(4*a)]        Terms in output =         21
+                         Bytes used      =       2446
+
+Time =       0.40 sec    Generated terms =         36
+     [f(2*b+2*c)]        Terms in output =         36
+                         Bytes used      =       4014
+
+Time =       0.40 sec    Generated terms =         21
+         [f(4*b)]        Terms in output =         21
+                         Bytes used      =       2518
+
+Time =       0.40 sec    Generated terms =         36
+     [f(2*a+2*c)]        Terms in output =         36
+                         Bytes used      =       4180
+
+Time =       0.40 sec    Generated terms =         29
+       [f(3*b+c)]        Terms in output =         29
+                         Bytes used      =       3286
+    
+    skip;
+    nskip aaa;
+    #do i ={f(4*a),f(4*b),f(4*c),f(3*a+b),f(3*a+c),f(3*b+a),f(3*b+c),f(3*c+a),f(3*c+
+    b),f(2*a+2*b),f(2*b+2*c),f(2*a+2*c),f(2*a+b+c),f(2*b+a+c),f(2*c+b+a)}
+    
+     id `i'=[`i'];
+    #enddo
+    .sort
+
+Time =       0.88 sec    Generated terms =       5461
+              aaa        Terms in output =       1475
+                         Bytes used      =     103676
+    
+    skip;
+    nskip aaa;
+    repeat; 
+    id [Hess]*[1/Hess]=1;
+    id f(a + b)^2*f(2*c) = -( - f(2*a)*f(2*b)*f(2*c) + f(2*b)*f(a + c)^2
+         - 2*f(a + b)*f(a + c)*f(b + c) + f(2*a)*f(b + c)^2) - [Hess];
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    print aaa;
+    .end
+
+Time =       0.97 sec    Generated terms =       1591
+              aaa        Terms in output =          0
+                         Bytes used      =          2
+
+   aaa = 0;
+

@@ -1,0 +1,1552 @@
+Computer Aided Geometric Design 22 (2005) 632­658
+
+                                                   www.elsevier.com/locate/cagd
+
+         Curvature formulas for implicit curves and surfaces
+
+                                            Ron Goldman
+
+               Department of Computer Science, Rice University, 6100 Main Street, Houston, TX 77005-1892, USA
+                                                          Available online 21 July 2005
+
+Abstract
+   Curvature formulas for implicit curves and surfaces are derived from the classical curvature formulas in Differ-
+
+ential Geometry for parametric curves and surfaces. These closed formulas include curvature for implicit planar
+curves, curvature and torsion for implicit space curves, and mean and Gaussian curvature for implicit surfaces.
+Some extensions of these curvature formulas to higher dimensions are also provided.
+ 2005 Elsevier B.V. All rights reserved.
+Keywords: Curvature; Torsion; Gaussian curvature; Mean curvature; Gradient; Hessian; Implicit curves; Implicit surface
+
+1. Introduction
+
+   Curvature formulas for parametrically defined curves and surfaces are well-known both in the classical
+literature on Differential Geometry (Spivak, 1975; Stoker, 1969; Struik, 1950) and in the contemporary
+literature on Geometric Modeling (Farin, 2002; Hoschek and Lasser, 1993).
+
+   Curvature formulas for implicitly defined curves and surfaces are more scattered and harder to lo-
+cate. In the classical geometry literature, a curvature formula for implicit planar curves is presented in
+(Fulton, 1974); an algorithm, but no explicit formulas, for finding the curvature and torsion of implic-
+itly defined space curves is provided in (Willmore, 1959). Mean and Gaussian curvature formulas for
+implicit surfaces can be found in (Spivak, 1975, vol. 3), but, somewhat surprisingly, almost nowhere
+else in Differential Geometry texts in the English language. German geometry papers and texts with
+curvature formulas for implicit surfaces seem to be more common (Dombrowski, 1968; Gromoll et al.,
+1975; Knoblauch, 1888, 1913), but these references remain largely inaccessible to most English speaking
+researchers in Geometric Modeling.
+
+    E-mail address: rng@cs.rice.edu.
+
+0167-8396/$ ­ see front matter  2005 Elsevier B.V. All rights reserved.
+doi:10.1016/j.cagd.2005.06.005
+R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658  633
+
+   Nevertheless, curvature formulas for implicitly defined curves and surfaces are important in Geomet-
+ric Modeling applications, and many of these formulas do appear scattered throughout the Geometric
+Modeling literature. Curvature formulas for implicit curves and surfaces in normal form appear in (Hart-
+menn, 1999). A curvature formula for arbitrary implicit planar curves appears in (Bajaj and Kim, 1991;
+Blinn, 1997); mean and Gaussian curvature formulas for arbitrary implicitly defined surfaces are fur-
+nished by (Belyaev et al., 1998; Turkiyyah et al., 1997). To derive these curvature formulas for implicit
+surfaces, (Belyaev et al., 1998) refer to (Turkiyyah et al., 1997) who in turn refer to (Spivak, 1975,
+vol. 3). Procedures for finding curvature and torsion formulas for implicit space curves as well as mean
+and Gaussian curvature formulas for implicit surfaces are given in (Patrikalakis and Maekawa, 2002), but
+explicit closed formulas are not provided.
+
+   Curvature formulas for implicit curves and surfaces also appear in some recent texts on level set
+methods (Osher and Fedkiw, 2003; Sethian, 1999). A curvature formula for implicit planar curves is
+presented in both of these texts; (Osher and Fedkiw, 2003) also contains explicit formulas for the mean
+and Gaussian curvature of implicit surfaces.
+
+   The purpose of this paper is to provide a service to the Geometric Modeling community by collect-
+ing in one easily accessible place curvature formulas for implicitly defined curves and surfaces. In order
+to better understand the relationships between curvature formulas in different dimensions and different
+co-dimensions, we shall develop, in each case, not just one closed formula, but several equivalent expres-
+sions. We shall also provide a bridge between the parametric and implicit formulations by deriving these
+curvature formulas for implicit curves and surfaces from the more commonly known curvature formulas
+for parametric curves and surfaces.
+
+   In Section 2, we review the classical curvature formulas for parametric curves and surfaces. We use
+these formulas in Section 3 to derive curvature formulas for implicit planar curves and in Section 4 to
+derive mean and Gaussian curvature formulas for implicit surfaces. Section 5 is devoted to deriving cur-
+vature and torsion formulas for implicit space curves. In Section 6 we collect all our curvature formulas
+for implicit curves and surfaces together in one easily accessible location. Readers interested only in the
+formulas, but not their derivations, can skip directly to Section 6. We close in Section 7 with a few open
+questions for future research.
+
+2. Curvature formulas for parametric curves and surfaces
+
+   For planar curves, curvature has several equivalent definitions:
+
+ (i) amount of deviation of the curve from the tangent line;
+(ii) rate of change of the tangent direction;
+(iii) reciprocal of the radius of the osculating circle;
+(iv) element of area of circular image/element of arclength.
+
+   For surfaces, curvature is more complicated. In analogy with curves, curvature for surfaces should
+capture the deviation of the surface from the tangent plane. But, unlike planar curves, there is more than
+one way to measure this deviation. The shape of the osculating paraboloid gives a rough measure of how
+the surface deviates locally from the tangent plane. More precise information is provided by the mean
+and Gaussian curvatures.
+634                       R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+   Gaussian curvature
+
+(i) product of the principal curvatures;
+(ii) element of area of spherical image/element of surface area.
+
+   Mean curvature
+
+(iii) average of the principal curvatures;
+(iv) rate of change of surface area under small deformations in the normal direction.
+
+   From these first principles, explicit curvature formulas can be derived for parametric curves and sur-
+faces. We shall review these formulas in the following two subsections.
+
+2.1. Curvature formulas for parametric curves
+
+   Consider a parametric curve P (s) in 3-dimensions parametrized by arc length. Let P (t) be any other
+parametrization of P , and let P , P , and P denote the first, second, and third derivatives of P with
+respect to t. The unit tangent vector of P is given by
+
+     T  =  dP  =  P   |.
+           ds     |P
+
+Therefore, in 3-dimensions, the curvature
+
+     k = dT    = |P   ×P         |
+                                  .
+           ds         |P |
+
+In 2-dimensions, this curvature formula reduces to
+
+           dT | Det(P P )|
+     k=        =                     .
+           ds             |P |3
+
+Torsion measures deviation from the osculating plane. We shall see shortly that the torsion
+
+          Det  T  dT  d2 T  =    Det(P P P )    .
+     =            ds  ds2
+
+                  k2                 |P × P |2
+
+   The Frenet equations (see below) express the derivatives of the tangent (T ), normal (N ), and binormal
+(T × N ) in terms of the tangent, normal, binormal, curvature and torsion. We can use the Frenet equations
+to generate explicit formulas for the curvature and torsion in terms of the tangent and normal vectors and
+their derivatives (see Table 1). We shall make use of these explicit formulas in Sections 3 and 5, when we
+develop closed formulas for the curvature and torsion of implicit curves.
+
+2.2. Curvature formulas for parametric surfaces
+
+   Let P (s, t) be a parametric surface, and let Ps and Pt denote the partial derivatives of P with respect
+to s and t. (Higher order derivatives will be denoted in the usual way by repeating s and t the appropriate
+                            R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658                     635
+
+Table 1
+Explicit formulas for the curvature and torsion in terms of the tangent and normal vectors and their derivatives. These formulas
+follow easily from the Frenet equations
+
+Frenet equations (Stoker, 1969)                               Curvature formulas             Torsion formulas
+
+dT  = kN                                                      k=    dT  ·N                     =  dN   · (T  × N)
+ds                                                                  ds                            ds
+
+dN  = -kT    +  (T  × N)                                      k  =  -  dN  ·  T                =  -  d(T ×N )  ·  N
+ds                                                                     ds                                ds
+
+d(T ×N )  =  - N                                              k=    dT  ×T                    = Det    T  N    dN
+    ds                                                              ds                                         ds
+
+                                                              k=    dN  ×N          if  = 0    =  Det  T  dT   d2 T
+                                                                    ds                                     ds  ds2
+
+                                                                                                          k2
+
+number of times.) The normal vector to the surface is perpendicular to the tangent vectors Ps and Pt .
+Therefore, the unit normal is given by
+
+    N     =  N (s,  t)  =   Ps   ×  Pt  |  .
+                            |Ps  ×  Pt
+
+    Mean and Gaussian curvature for a parametric surface are usually defined in terms of the first and
+
+second fundamental forms of the surface. These forms are given by the following matrices (Stoker, 1969):
+
+    First fundamental form:
+
+    I=          Ps · Ps     Ps · Pt        ;
+                Pt · Ps     Pt · Pt
+
+    Second fundamental form:
+
+    II =        Pss · N     Pst · N           =-     Ps · Ns     Ps · Nt         .
+                Pts · N     Ptt · N                  Pt · Ns     Pt · Nt
+
+   Notice that in our two matrices for the second fundamental form Pss · N = -Ps · Ns because Ps · N =
+0. Differentiating Ps · N = 0 with respect to s yields Pss · N + Ps · Ns = 0. The other equalities in these
+matrices for the second fundamental form can be established in a similar manner.
+
+   In terms of the first and second fundamental forms, the mean and Gaussian curvatures are computed
+by the expressions given below. In the formula for the mean curvature, II denotes the adjoint of II--that
+
+is,
+
+    II =         Ptt · N         -Pts · N         =  -Pt · Nt           Pt · Ns     .
+                -Pst · N          Pss · N             Ps · Nt          -Ps · Ns
+
+    Gaussian curvature:
+
+    KG       =  Det(II)
+                         .
+
+                Det(I )
+
+    Mean curvature:
+
+    KM       =  Trace(I  II)        .
+                   2 Det(I )
+
+   Though these curvature formulas are the classical formulas found in most standard books on Differen-
+tial Geometry (Stoker, 1969), we need to massage these formulas slightly in order to use them effectively
+when we study implicit surfaces.
+636                       R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+Lemma 2.1.
+
+(i) Det(I ) = |Ps × Pt |2.
+(ii) Det(II) = (Ps × Pt ) · (Ns × Nt ).
+
+Proof. (i) This result follows by expanding the determinant and invoking the vector identity:
+      (a · a)(b · b) - (a · b)2 = |a × b|2.
+
+   (ii) This result follows by expanding the determinant and invoking the vector identity:
+      (a · c)(b · d) - (a · d)(b · c) = (a × b) · (c × d). 2
+
+Corollary 2.2.
+
+     KG  =  (Ps  × Pt ) · (Ns ×  Nt ) .
+                   |Ps × Pt |2
+
+Lemma 2.3. Trace(I  II) = (Ps × Pt ) · (Pt × Ns) - (Ps × Pt ) · (Ps × Nt ).
+
+Proof. This result follows by computing the trace and then twice invoking the vector identity:
+      (a · c)(b · d) - (a · d)(b · c) = (a × b) · (c × d). 2
+
+Corollary 2.4.
+
+     KM  =  (Ps  ×  Pt )  ·  ((Pt × Ns) -  (Ps  ×  Nt )) .
+                             2|Ps × Pt |2
+
+3. Curvature formulas for implicit planar curves
+
+Curvature is a second order effect--only the first and second derivatives appear in the curvature for-
+
+mula for parametric curves. Therefore, for implicit planar curves F (x, y) = 0, the curvature should
+
+depend only on the gradient F and the hessian H (F ). We shall adopt the following notation:
+
+     F =    F F              = (Fx Fy),
+                             2F 
+             x        y
+                    2F
+
+     H (F ) =    x2          xy    =       Fxx     Fxy      = (F ).
+                 2F          2F            Fyx     Fyy
+
+                 yx y2
+
+Here  applied to a row vector means take the gradient of each component and write these component
+
+gradients in a matrix as consecutive column vectors.
+   Since the gradient of F (x, y) is perpendicular to the level curves F (x, y) = c, the gradient F is
+
+parallel to the normal of F (x, y) = 0. Therefore we have the following formulas:
+
+Planar implicit curves:
+
+(1) Implicit curve: F (x, y) = 0.
+                  R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658  637
+
+(2) Normal: F = (Fx, Fy).
+(3) Unit normal:
+
+      N (F ) = F = (Fx, Fy) .
+                |F |
+                               Fx2 + Fy2
+
+(4) Tangent: Tan(F ) = k × F = (-Fy, Fx).
+(5) Unit tangent:
+
+      T (F ) = Tan(F ) = (-Fy, Fx) .
+                | Tan(F )|
+                               Fx2 + Fy2
+
+Proposition 3.1 (Curvature formula for implicit planar curves).
+
+k  =  -T  (F )    H (F )    T  (F )T  =    (-Fy  Fx)       Fxx Fxy  -Fy  .        (3.1)
+                   |F |                  -         (Fx2              Fx
+                                                           Fyx Fyy
+
+                                                         + Fy2)3/2
+
+Proof. From the Frenet equations,
+
+      k = - dN · T .
+               ds
+
+Hence by the chain rule,
+
+k = - N dx + N dy · T = -T  N  T T.
+          x ds y ds
+
+But by the quotient rule,
+
+N =       F           =    |F  |(F        ) - (|F  |)T     F  .
+          |F |                             |F |2
+
+Moreover
+
+(F ) = H (F ),
+F  T T = F · T = 0.
+
+Therefore we conclude that
+
+k=-       T (F )  H (F )  T (F )T     .2
+
+                  |F |
+
+   A word about invariance is in order here. The curve F (x, y) = 0 is identical to the curve cF (x, y) = 0
+for any constant c = 0. Therefore we would expect that the curvature of F (x, y) = 0 should be the same
+as the curvature of cF (x, y) = 0. If c > 0, then replacing F by cF on the right hand side of Eq. (3.1)
+introduces a factor of c3 in both the numerator and the denominator, so the curvature k is unchanged.
+However, replacing F by -F on the right hand side of Eq. (3.1) changes the sign of the numerator,
+but not the sign of the denominator, thus changing the sign of k. Replacing F by -F also changes the
+direction of the unit normal N (F ) = F /|F |. Therefore the curvature vector,
+
+      k = kN (F ) = kF /|F |
+638                    R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+is invariant, but the sign of the scalar curvature k depends on the choice of the direction of the unit normal,
+
+which, in turn, depends on the sign of F . This sign dependence shows up in the parametric setting as
+
+well. By the Frenet equations  dT  = kN . The derivative     dT  is an invariant; the signs of k  and N  are not
+                               ds                            ds
+
+invariants, but rather are mutually dependent. Nevertheless, we shall continue to focus on expressions for
+
+the scalar curvature k rather than the curvature vector k, since it is expressions for the scalar curvature
+
+that we plan to extend to curvature formulas for implicit space curves and implicit surfaces.
+
+Example 3.1 (Circles). We can check our curvature formula on the circles
+
+     F (x, y)  x2 + y2 - R2 = 0.
+
+By Proposition 3.1 to compute the curvature, we need to compute
+
+            (-Fy Fx)   Fxx Fxy          -Fy  .
+     k=-               Fyx Fyy           Fx
+
+           (Fx2 + Fy2)3/2
+
+Substituting for the derivatives of F , we find that
+
+            (-2y 2x)   20          -2y   =-      8(x2 + y2)     = - 8R2 = - 1 .
+     k=-               02           2x
+
+           ((2x)2 + (2y)2)3/2                   (4x2 + 4y2)3/2   8R3            R
+
+Notice that the curvature here is negative, but notice too that F = (2x, 2y) is the outward pointing
+normal. Thus, as one would expect, the curvature vector k = kF /|F | points into the circle and has
+magnitude |k| = 1/R.
+
+   Eq. (3.1) allows us to calculate the curvature of implicit planar curves, but it is difficult to see how
+this formula can be extended either to implicit space curves or to implicit surfaces. Implicit space curves
+are defined by the intersection of two implicit surfaces: {F1(x, y, z) = 0}  {F2(x, y, z) = 0}. Thus for
+implicit space curves we have two hessians to consider: H (F1) and H (F2). How then are we to replace the
+hessian H (F ) in Eq. (3.1)? For implicit surfaces F (x, y, z) = 0, we have analogues of the gradient and
+the hessian, but no analogue of the tangent vector Tan(F ), so once again it is unclear how to generalize
+Eq. (3.1). To overcome these shortcomings, we shall seek alternative ways to package Eq. (3.1)--that
+is, we shall seek equivalent expressions for the curvature for implicit planar curves that can be extended
+either to implicit space curves or to implicit surfaces.
+
+   To find new expressions for the curvature, we can proceed in the following fashion. In Table 1, we pre-
+sented four formulas for the curvature in terms of the unit tangent, the unit normal, and their derivatives
+with respect to arclength. Using these formulas and proceeding as in Proposition 3.1 applying the chain
+rule and the quotient rule, we arrive at the following results.
+
+Alternative curvature formulas
+
+Curvature  formula--k  =   -   dN  ·  T
+                               ds
+
+          Tan(F )  H (F )  Tan(F )T (-Fy Fx)                    Fxx Fxy    -Fy
+     k=-                                     =-                 Fyx Fyy     Fx  .                        (3.1)
+
+           |F |3                                      (Fx2 + Fy2)3/2
+                 R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658                       639
+
+Curvature  formula--k  =   dT     ·N
+                           ds
+
+k  =  Tan(F )    (Tan(F ))          F T  =    (-Fy      Fx)   -Fxy Fxx    Fx    .                     (3.2)
+                  |F |3                     -                 -Fyy Fxy    Fy
+
+                                                        (Fx2 + Fy2)3/2
+
+Curvature  formula--k  =   |  dN  ×  N|  (  =  0)
+                              ds
+
+k = |(Tan(F )  H (F )) × F | =              (-Fy Fx)    Fxx Fxy       × (Fx Fy)                       (3.3)
+                                                        Fyx Fyy                    .
+
+                 |F |3                                  (Fx2 + Fy2)3/2
+
+Curvature  formula--k  =   |  dT  ×T|
+                              ds
+
+k = |(Tan(F )  (Tan(F ))) × Tan(F )| =                  (-Fy Fx)      -Fxy Fxx     × (-Fy Fx)         (3.4)
+                                                                      -Fyy Fxy                     .
+
+                 | Tan(F )|3                                     (Fx2 + Fy2)3/2
+
+   Note that in the plane, the cross products that appear in Eqs. (3.3) and (3.4) are really scalars--
+the determinants of the two factors. Thus if we want the signed curvature, we should compute these
+determinants and ignore the absolute value.
+
+   We can easily check the validity of Eqs. (3.2)­(3.4) by expanding the right hand sides and observ-
+ing that these expressions are each the same as the right hand side of Eq. (3.1). Eq. (3.4) is particularly
+interesting because the right hand side depends only on Tan(F ). For implicit space curves, the tan-
+gent direction is known, since if the space curve is given by the intersection of two implicit surfaces
+{F1(x, y, z) = 0}  {F2(x, y, z) = 0}, then the tangent is parallel to F1 × F2. Thus we expect that
+Eq. (3.4) for the curvature of implicit planar curves will readily extend to implicit space curves; we shall
+have more to say about this extension in Section 5.
+
+   What about curvature formulas for implicit surfaces? For implicit surfaces we want to consider both
+the mean and the Gaussian curvature. Therefore we need two different expressions for the curvature
+of an implicit planar curve that readily extend, but in different ways, to implicit surfaces. None of the
+expressions in Eqs. (3.1)­(3.4) will do, since these expressions all depend on Tan(F ), and for implicit
+surfaces there is no analogue of Tan(F ). For implicit surfaces, we need formulas that depend only on the
+gradient and the hessian. Therefore, we must take another approach.
+
+   One device for developing new expressions for the curvature is to exploit the adjoint operator (see
+Table 2).
+
+   Adopting the notation in Table 2, it is easy to verify the following identities:
+
+                 Table 2
+                 The adjoint operator  for constants, 2-dimensional row and column vectors,
+                 and 2 × 2 matrices
+
+                 Constants               k                            k = k
+                 Row vectors             r = (r1, r2)                 r = (-r2, r1)T
+                 Column vectors          c = (c1, c2)T                c = -(-c2, c1)
+
+                 Matrices                M=        m11  m12           M =        m22  -m21
+                                                   m21  m22                     -m12   m11
+640                         R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+     c  r = r  c,
+     (M  c) = c  M,
+     (r  M) = M  r.
+
+Therefore for any 2-dimensional row and column vectors r, c and any 2 × 2 matrix M
+      r  M  c = (r  M  c) = c  M  r.
+
+The adjoint H (F ) of the hessian is given by
+
+                     2F     -   2F              Fyy  -Fyx
+                                yx             -Fxy   Fxx
+     H (F ) =        y2             =                      = - Tan(F ) .
+
+               -        2F      2F
+                        xy
+                                x2
+
+Moreover, by construction, the adjoint of the gradient is the tangent and the adjoint of the tangent is the
+
+negative of the gradient--that is,
+
+     (F ) = Tan(F )T,
+     Tan(F ) = -(F )T.
+
+Therefore, applying the adjoint operator to the curvature formula
+
+     k  =  -  Tan(F  )    H (F  )   Tan(F  )T
+                          |F    |3
+
+generates the following adjoint hessian formula for the curvature of an implicit planar curve:
+
+Adjoint hessian formula
+
+     k = -F     H (F )  F T              (Fx   Fy)    Fyy -Fyx         Fx  .                    (3.5)
+                  |F |3             =-               -Fxy Fxx          Fy
+
+                                                     (Fx2 + Fy2)3/2
+
+   Again it is easy to verify directly that the right hand side of Eq. (3.5) agrees with the right hand side
+of Eq. (3.1), so Eq. (3.5) is indeed yet another valid expression for the curvature of an implicit planar
+curve. Moreover, this expression in terms of the gradient and the adjoint of the hessian readily extends to
+implicit surfaces, so we can expect this adjoint hessian formula to represent the curvature of an implicit
+surface. We shall return to this topic again in Section 4.
+
+   The adjoint hessian formula may extend to one of the two curvatures--mean or Gaussian--for an
+implicit surface, but we need still another equivalent curvature expression if we hope to represent the
+other curvature for implicit surfaces. Also we might like to work directly with the hessian rather than
+with the adjoint of the hessian. Fortunately there is another equivalent formulation for the curvature of
+an implicit planar curve that uses only the gradient and the hessian.
+
+   To eliminate H (F ) from Eq. (3.5), simply observe that
+
+     H (F ) + H (F ) = Trace H (F ) I,
+
+where I is the identity matrix. Now substituting for H (F ) in Eq. (3.5) leads to the following expression
+for the curvature:
+                       R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658  641
+
+Hessian formula
+
+k=  F  H (F )  F T - |F |2 Trace(H (F ))              .                                (3.6)
+
+                             |F |3
+
+   We close this section with two additional alternative expressions for the curvature of an implicit planar
+curve that will show up again when we study curvature for implicit surfaces. As usual the validity of these
+formulas can be verified by direct computation of the right hand sides.
+
+Determinant computation
+
+     Det     H (F ) F T   .                                                            (3.7)
+k=            F 0
+
+             |F |3
+
+Divergence formula
+
+k = - · N (F ) = - ·              F                                                    (3.8)
+                                  |F | .
+
+   The divergence of the unit normal is often taken as the definition of the curvature for an implicit
+planar curve. We have not used this definition here because we wanted to develop curvature formulas
+for implicit curves directly from known curvature formulas for parametric curves. Also, although of
+theoretical interest, this divergence formula is less practical as a computational tool than many of the
+other expressions for the curvature developed in this section.
+
+4. Curvature formulas for implicit surfaces
+
+   We expect curvature formulas for implicit surfaces F (x, y, z) = 0, just like curvature formulas for
+
+implicit curves F (x, y) = 0, to depend only on the gradient F , the hessian H (F ), and the adjoint of
+the hessian H (F ). As with curves, we shall adopt the following notation for surfaces:
+
+F   =     (  F   F  F  )  =  (Fx  Fy  Fz),
+             x   y  z
+              2F                  2F 
+                         2F                 Fxx  Fxy     Fxz
+                                            Fyx  Fyy     Fyz
+H  (F  )  =      x2    xy    xz         =                     = (F ),
+                 2F    2F    2F
+                       y2                   Fzx Fzy Fzz
+                 yx          yz
+
+                 2F 2F 2F
+
+                 zx zy z2
+
+              Cofactor(Fxx) Cofactor(Fxy) Cofactor(Fxz)
+H (F ) = Cofactor(Fyx) Cofactor(Fyy) Cofactor(Fyz)
+
+              Cofactor(Fzx) Cofactor(Fzy) Cofactor(Fzz)
+
+               Fyy Fzz - FyzFzy FyzFzx - Fyx Fzz Fyx Fzy - Fyy Fzx
+          = FxzFzy - Fxy Fzz Fxx Fzz - FxzFzx Fxy Fzx - Fxx Fzy .
+
+               Fxy Fyz - FxzFyy Fyx Fxz - Fxx Fyz Fxx Fyy - Fxy Fyx
+642                      R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+Here again  applied to a row vector means take the gradient of each component and write these com-
+ponent gradients in a matrix as consecutive column vectors. As with curves, the gradient F is parallel
+to the normal of the surface F (x, y, z) = 0. Therefore, the unit normal is given by
+
+     N (F ) = F = (Fx Fy Fz) .
+              |F |
+                            Fx2 + Fy2 + Fz2
+
+With this notation in hand, we are now ready to develop curvature formulas for implicit surfaces.
+   The following curvature formulas for implicit surfaces appear in (Spivak, 1975, vol. 3, p. 204) (Spivak
+
+gives only the expressions on the far right); see also (Knoblauch, 1913, pp. 89­94):
+
+Gaussian curvature
+
+     KG =   F  H (F )  F T        =-    H (F ) F T  .                                        (4.1)
+                                         F 0
+                  |F |4
+                                         |F |4
+
+Mean curvature
+
+     KM  =  F     H  (F  )    F T - |F  |2   Trace(H  )  =  -  coeff() in  H (F )-I  F T  .  (4.2)
+                               2|F |3                                          F       0
+
+                                                               2|F |3
+
+   Notice that Eq. (4.1) for Gaussian curvature is an extension to surfaces of the adjoint hessian formula
+(Eq. (3.5)) for the curvature of implicit planar curves. The normalizing factor |F |4 that appears in the
+denominator insures that cF (x, y, z) = 0 has the same curvature as F (x, y, z) = 0. In addition, Eq. (4.2)
+for the mean curvature is an extension to implicit surfaces of the hessian formula (Eq. (3.6)) for the cur-
+vature of implicit planar curves. The factor of two in the denominator occurs because the mean curvature
+is the average of the two principal curvatures.
+
+   The principal curvatures k1, k2 can be computed from the mean and Gaussian curvatures KM , KG by
+the standard formula
+
+     k1, k2 = KM ± KM2 - KG.                                                                 (4.3)
+
+One can also verify that
+
+               - roots   H (F )-I F T
+     k1, k2 =
+                            F     0                                                          (4.4)
+
+                         |F |
+
+by using Eqs. (4.1) and (4.2) to demonstrate that Eq. (4.4) is equivalent to Eq. (4.3).
+   We shall now derive Eqs. (4.1) and (4.2) for the Gaussian and mean curvatures of implicit surfaces
+
+from the corresponding curvature formulas for parametric surfaces.
+
+Theorem 4.1.
+
+     KG =   F  H (F )  F       .
+
+                  |F |4
+                          R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658         643
+
+Proof. We shall only consider regular points on the implicit surface--points where F = 0--since the
+Gaussian curvature in not defined at points on the surface that are not regular. By the implicit function
+theorem, if F = 0, then the surface has a local parametrization P (s, t). Let
+
+      N = N (s, t) = Ps × Pt ;
+                         |Ps × Pt |
+
+then N is the unit normal to the surface. Therefore by Corollary 2.2
+
+KG     =   (Ps  × Pt ) · (Ns ×     Nt ) .
+                  |Ps × Pt |2
+
+We shall now show how to transform the right hand side of this equation into the right hand side of
+
+Eq. (4.1). Since the unit normal to the surface is also given by the formula
+
+N      =   F
+           |F | ,
+
+it follows by the chain rule that if u = s, t, then
+
+Nu     =   Pu   H (F   )  +  term  parallel    to  F.
+               |F |
+
+Hence
+
+Ns     ×   Nt  =  (Ps     H (F  )) ×  (Ps     H (F   ))  +  terms  perpendicular  to  F.
+                                |F    |2
+
+But for all 3-dimensional vectors a, b and all 3 × 3 matrices M,
+
+(a  M) × (b  M) = (a × b)  M,
+
+where M denotes the adjoint of M. Therefore
+
+Ns     ×   Nt  =  (Ps  ×  Pt )  H  (F    )  +  terms     perpendicular  to  F.
+                          |F |2
+
+Now since F and Ps × Pt are both parallel to the surface normal, there is a constant  such that
+
+Ps × Pt = F.
+
+Thus,
+
+(Ps × Pt ) · (Ns × Nt ) =          2F  H (F )  F T             ,
+
+                                               |F |2
+
+|Ps × Pt |2 = 2|F |2.
+
+Therefore
+
+KG     =   (Ps  × Pt ) · (Ns ×     Nt )  =  F        H (F )    F T          2
+                  |Ps × Pt |2                         |F |4          .
+
+Corollary 4.2.
+
+                H (F ) F T
+
+KG = -          F 0          .
+
+                |F |4
+644                           R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+Proof. This corollary follows by expanding the right-hand side and verifying that the result gives the
+same expression as the expansion of the right-hand side in the curvature formula in Theorem 4.1. 2
+
+Theorem 4.3.
+
+     KM  =  F          H  (F  )     F T - |F             |2  Trace(H     )
+                                     2|F |3                               .
+
+Proof. Again we shall only consider regular points on the implicit surface--points where F = 0--
+since the mean curvature in not defined at points on the surface that are not regular. By the implicit
+function theorem, if F = 0, then the surface has a local parametrization P (s, t). Let
+
+     N   =  N (s,  t)  =  Ps    ×   Pt  |  ;
+                          |Ps   ×   Pt
+
+then N is the unit normal to the surface. Therefore by Corollary 2.4
+
+     KM  =  (Ps    ×   Pt )  ·  ((Pt × Ns) -           (Ps   ×  Nt )) .
+                                2|Ps × Pt |2
+
+We shall now show how to transform the right-hand side of this equation into the right-hand side of
+Eq. (4.2). Since the unit normal to the surface is also given by the formula
+
+     N   =  F
+            |F | ,
+
+it follows by the chain rule exactly as in the proof of Theorem 4.1 that if u = s, t, then
+
+     Nu  =  Pu   H (F     )  +   term      parallel      to  F.
+                |F |
+
+Hence
+
+     Pt  ×  Ns  =  Pt  ×  (Ps       H   (F    ))  +    terms    perpendicular     to  F,
+                           |F       |
+
+     Ps  ×  Nt  =  Ps  ×     (Pt    H   (F    ))  +    terms    perpendicular     to  F,
+                              |F    |
+
+so
+
+     Pt  ×  Ns  -  Ps  ×  Nt     =  Pt     ×  (Ps      H (F )) - Ps      ×   (Pt    H (F ))  +  terms  perpendicular  to  F.
+                                                              |F |
+
+But for all 3-dimensional vectors a, b and all symmetric 3 × 3 matrices M,
+
+     b × (a  M) - a × (b  M) = (a × b)  M - Trace(M)(a × b).
+
+(Since this identity is not well known, and is perhaps even new, we verified this identity in Mathematica
+using symbolic computation.) Therefore
+
+     Pt  ×  Ns  -  Ps  ×  Nt     =  (Ps       ×  Pt )    H (F )  - Trace(H (F       ))(Ps  ×  Pt )  +  terms  perpendicular  to  F.
+                                                                  |F |
+
+Now since F and Ps × Pt are both parallel to the surface normal, there is a constant  such that
+
+     Ps × Pt = F.
+                              R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658                    645
+
+Thus
+
+      (Ps × Pt ) ·  (Pt × Ns) - (Ps × Nt )        = 2F  H (F )  F T - 2 Trace(H (F ))|F |2 ,
+                                                                              |F |
+
+      |Ps × Pt |2 = 2|F |2.
+
+Therefore
+
+      KM  =  (Ps  ×  Pt )  ·  ((Ps × Nt ) -  (Pt  ×  Ns ))  =  F    H (F )    F T - |F |2     Trace(H )      2
+                              2|Ps × Pt |2                                     2|F |3                     .
+
+Corollary 4.4.
+
+      KM  =  -  coeff() in    H (F )-I  F T  .
+                                  F       0
+
+                           2|F |3
+
+Proof. This corollary follows by expanding the right hand side and verifying that the result gives the
+same expression as the expansion of the right hand side in the curvature formula in Theorem 4.3. 2
+
+Corollary 4.5 (Divergence formula for mean curvature).
+
+      KM = - · N (F ) = - ·             F         .
+                                        |F |
+
+Proof. Again this corollary follows by expanding the right hand side and verifying that the result gives
+the same expression as the expansion of the right hand side in the curvature formula in Theorem 4.3. 2
+
+   The divergence of the unit normal is often taken as the definition of the mean curvature for implicit
+surfaces. This divergence formula mimics the corresponding divergence formula for the curvature of
+an implicit curve. We have not used this definition here because, just as in the curve case, we wanted
+to develop the mean curvature formula for implicit surfaces directly from the well-known formula for
+the mean curvature of parametric surfaces. Moreover, although of theoretical interest, this divergence
+formula is less practical as a computational tool than Eq. (4.2).
+
+   Before computing some examples, let us pause here for a moment and comment upon the invariance
+of these curvature formulas. The surface F (x, y, z) = 0 is identical to the surface cF (x, y, z) = 0 for any
+constant c = 0. Therefore, naively, we would expect that the curvature of F (x, y, z) = 0 should be the
+same as the curvature of cF (x, y, z) = 0. For implicit curves, we saw that this invariance does not quite
+hold if c < 0. What about curvature invariance for implicit surfaces?
+
+   For Gaussian curvature, this invariance does indeed hold. If c = 0, then replacing F by cF on the
+right hand side of Eq. (4.1) introduces a factor of c4 in both the numerator and the denominator, so the
+Gaussian curvature KG is unchanged.
+
+   The mean curvature, however, behaves more like the curvature of implicit planar curves. If c > 0, then
+replacing F by cF on the right hand side of Eq. (4.2) introduces a factor of c3 in both the numerator
+and the denominator, so the mean curvature KM is unchanged. However, replacing F by -F on the
+right hand side of Eq. (4.2) changes the sign of the numerator, but not the sign of the denominator, thus
+646                       R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+changing the sign of KM . Of course, replacing F by -F also changes the direction of the unit normal
+N (F ) = F /|F |. Therefore the mean curvature vector,
+
+      KM = KM N (F ) = KM F /|F |
+
+is invariant, but the sign of the mean curvature KM depends on the choice of the direction of the unit nor-
+mal, which, in turn, depends on the sign of F . This sign dependence is exactly the same sign dependence
+we observed in the curvature formula for implicit planar curves. In this way the mean curvature, more
+than the Gaussian curvature, resembles the curvature of implicit planar curves. The divergence formula
+is yet another way that the mean curvature more closely mimics the behavior of the curvature of implicit
+planar curves.
+
+Example 4.1 (Spheres). We can check our curvature formulas on the spheres
+      F (x, y, z)  x2 + y2 + z2 - R2 = 0.
+
+To compute the mean and Gaussian curvatures, we need
+
+     F = (Fx Fy Fz) = (2x 2y 2z),
+
+                 Fxx Fxy Fxz                   200
+
+     H (F ) = Fyx Fyy Fyz = 0 2 0 ,
+
+                 Fzx Fzy Fzz                   002
+
+                 Cofactor(Fxx) Cofactor(Fxy) Cofactor(Fxz)                   400
+
+     H (F ) = Cofactor(Fyx) Cofactor(Fyy) Cofactor(Fyz) = 0 4 0 ,
+
+                 Cofactor(Fzx) Cofactor(Fzy) Cofactor(Fzz)                   004
+
+     Trace H (F ) = 6.
+
+Gaussian curvature:
+
+     KG  =  F      H (F )      F T       ,
+                    |F |4
+
+            (2x 2y 2z)    400    2x            16(x2 + y2 + z2)       1
+                          040    2y            16(x2 + y2 + z2)2      R2
+
+     KG =                      0 0 4 2z     =                     =       .
+
+            (4x2 + 4y2 + 4z2)2
+
+Mean curvature:
+
+     KM  =  F      H  (F  )    F T - |F        |2  Trace(H  )
+                                2|F |3                       ,
+
+            (2x  2y  2z)  200    2x         - 6(4x2 + 4y2  +    4z2)     8R2 - 24R2     -1.
+                          020    2y                                         2(8R3)        R
+
+     KM  =                002    2z                                   =              =
+
+                          2(4x2  + 4y2 + 4z2)3/2
+
+   Notice that the mean curvature here is negative, but notice too that F = (2x, 2y, 2z) is the outward
+pointing normal. Thus, as one would expect, the mean curvature vector KM = KM F /|F | points into
+the sphere and has magnitude |KM | = 1/R.
+                     R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658  647
+
+Example 4.2 (Explicit functions). Surfaces defined by explicit functions are special cases both of para-
+metric and of implicit surfaces. Therefore, we can check our curvature formulas on the explicitly defined
+surfaces:
+
+F (x, y, z)  z - f (x, y, z) = 0.
+
+To compute the mean and Gaussian curvatures, we first calculate
+
+F = (fx fy 1),
+
+             fxx fxy 0
+H (F ) = fyx fyy 0 ,
+
+              0 00
+
+            00             0
+
+H (F ) = 0 0               0         ,
+
+            0 0 Det(H (F ))
+
+Trace H (F ) = Trace H (f ) .
+
+Gaussian curvature:
+
+KG =   F  H (F )  F T Det(H (f ))
+                                  =                .
+               |F |4                 (|f |2 + 1)2
+
+Mean curvature:
+
+KM  =  F       H (F  )    F T - |F   |2  Trace(H      )
+                           2|F |3                      ,
+
+KM =   f  H (f )  f T - (|f |2 + 1) Trace(H (f ))         .
+
+                          2(|f |2 + 1)3/2
+
+   The reader can easily verify that we get exactly these same expressions for the mean and Gaussian
+curvatures using the classical formulas presented in Section 2.2 for the mean and Gaussian curvature of
+a parametric surface.
+
+   Our formulas for Gaussian and mean curvature readily extend to implicit hypersurfaces in higher
+dimensions. If F (x1, . . . , xn+1) = 0 represents an implicit n-dimensional hypersurface lying in an (n+1)-
+dimensional space, then we have the following general formulas for the Gaussian and mean curvatures
+(Dombrowski, 1968, pp. 167, 168; Gromoll et al., 1975, pp. 1091­1111):
+
+(KG)n(F )   =  (-1)n    F   H (F )      F T  ,
+                            |F |n+2
+
+(KM )n(F )  =  F        H (F )    F T - |F |2   Trace(H (F ))
+                                     n|F |3                     .
+
+Notice that the only essential differences between mean and Gaussian curvature formulas for surfaces in
+3-dimensions and mean and Gaussian curvature formulas for hypersurfaces in (n + 1)-dimensions are
+the normalizations in the denominators.
+648                      R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+Example 4.3 (Hyperspheres). We can check these curvature formulas on the hyperspheres Sn in Rn+1
+      Sn: x12 + · · · + xn2+1 - R2 = 0.
+
+Here we easily compute
+
+     H (Sn) = Diag(2),
+     H (Sn) = Diag(2n),
+     Trace H (Sn) = 2(n + 1).
+
+Therefore
+
+     (KG)n(Sn)       =  (-1)n  2n+2R2   =  (-1)n  ,
+                               (2R)n+2      Rn
+
+     (KM )n(Sn)      =  8R2  - (8n +  8)R2  =  -1.
+                              n(2R)3             R
+
+5. Curvature and torsion formulas for implicit space curves and beyond
+
+Implicit space curves are defined by the intersection of two implicit surfaces:
+
+     F (x, y, z) = 0  G(x, y, z) = 0 .
+
+Since the gradients F and G are normal to their respective surfaces, their cross product is tangent to
+the intersection curve. As with planar curves, we shall adopt the following notation for space curves:
+
+   Curve tangent:
+
+     Tan(F, G) = F × G.                                                                        (5.1)
+
+Unit tangent:
+
+     T  (F ,  G)  =  F   ×   G                                                                 (5.2)
+                     |F  ×   G| .
+
+5.1. Curvature for implicit space curves
+
+For implicit planar curves, we showed in Section 3 (Eq. (3.4)) that the curvature is given by
+
+     k=    |(Tan(F )  (Tan(F ))) × Tan(F )|          .                                         (3.4)
+
+                         | Tan(F )|3
+
+Since we derived this curvature formula from the Frenet equations, this same curvature formula is also
+valid for space curves. Substituting Eq. (5.1) for Tan(F ), we arrive at the following curvature formula
+for implicit space curves:
+
+     k=    |((F × G)  (F × G)) × (F × G)|               .                                      (5.3)
+
+                               |F × G|3
+                         R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658  649
+
+Example 5.1 (Spheres  Cylinders). We can check this curvature formula on circles generated by spheres
+intersecting cylinders tangentially from the inside. Consider the following surfaces:
+
+       Spheres                                  Cylinders
+       F (x, y, z)  x2 + y2 + z2 - R2 = 0,      G(x, y, z)  x2 + y2 - R2 = 0,
+       F = (2x 2y 2z),                          G = (2x 2y 0).
+
+The tangents to the intersection curve are given by
+
+Tan(F, G) = F × G = (-4yz 4xz 0).
+
+Hence
+
+|F × G|3 = 16z2(x2 + y2) 3/2 = 64z3R3,
+
+                         0 4z 0
+(F × G) = -4z 0 0 ,
+
+                       -4y 4x 0
+
+                                                                0 4z 0
+(F × G)  (F × G) = (-4yz 4xz 0)  -4z 0 0 = (-16xz2 -16yz2 0),
+
+                                                              -4y 4x 0
+
+  (F × G)  (F × G) × (F × G) = (-16xz2 -16yz2 0) × (-4yz 4xz 0)
+
+                                                     = 0 0 -64z3(x2 + y2) = 64z3R2.
+
+Therefore, as expected,
+
+k      =  |((F  × G)       (F × G)) ×       (F  ×  G)|  =  64z3R2  =  1
+                            |F × G|3                       64z3R3       .
+
+                                                                      R
+
+   We would like to extend our curvature formula--Eq. (5.3)--for implicit space curves to a curvature
+formula for implicit curves in (n + 1)-dimensions--that is, to curves generated by the intersection of n
+implicit equations:
+
+        F1(x1, . . . , xn+1) = 0  · · ·  Fn(x1, . . . , xn+1) .
+
+However, in order to generalize Eq. (5.3), we first need to generalize the cross product from 3-dimensions
+to (n + 1)-dimensions. Actually there are two ways to extend the cross product from 3-dimensions to
+(n + 1)-dimensions and we shall require both techniques.
+
+   The first cross product in Eq. (5.3) is used to compute the tangent to the intersection curve. Recall that
+the gradients
+
+      F1 = (F1x1 , . . . , F1xn+1 ), . . . , Fn = (Fnx1 , . . . , Fnxn+1 )
+
+are normal to their respective hypersurfaces. Therefore the tangent to the intersection curve is a vector
+perpendicular to each of these gradient vectors.
+650                              R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+The extension of the cross product to (n + 1)-dimensions that generates a vector perpendicular to a
+
+collection of n vectors is given by a determinant. Let e = (e1, . . . , en+1) be the canonical basis for Rn+1,
+
+where ei is the vector that has a one in the ith position and a zero everywhere else. Then
+                                         e                   e1 . . . en+1 
+
+     Tan(F1,    .  .  .  ,  Fn)  =  Det      F1     =  Det    F1x1   ...   F1xn+1    .
+                                             ...                ...   ...     ...
+
+                                            Fn                Fnx1 . . . Fnxn+1
+
+This expression for Tan(F1, . . . , Fn) is perpendicular to F1, . . . , Fn because taking the dot product of
+Tan(F1, . . . , , Fn) with Fi is equivalent to substituting Fi for e, and the determinant of a matrix with
+
+two identical rows is identically zero.
+
+The other cross product in Eq. (5.3)--corresponding to the cross product in Eq. (3.1)--is the cross
+
+product of two, rather than n, vectors. To generalize this cross product from vectors in 3-dimensions to
+
+vectors in (n + 1)-dimensions, we introduce the wedge product (Northcott, 1984). The wedge product of
+
+two vectors in an (n + 1)-dimensional space spanned by e1, . . . , en+1 is a vector in a space of dimension
+n+1
+  2  spanned by a new collection of vectors denoted by {ei  ej }, where i < j . Let u = u1e1 + · · · +
+
+un+1en+1 and v = v1e1 + · · · + vn+1en+1. Then we define
+
+     u  v = (u1e1 + · · · + un+1en+1)  (v1e1 + · · · + vn+1en+1) =                      ui                                     uj  (ei  ej ).
+                                                                                        vi                                     vj
+                                                                                   i<j
+
+Notice that the wedge product, just like the cross product, is anti-commutative and distributes through
+addition.
+
+   Actually to extend Eq. (5.3), we need only compute the magnitude of the wedge product. The magni-
+tude of the wedge product is given by the formula
+
+     |u  v|2 = (u1e1 + · · · + un+1en+1)  (v1e1 + · · · + vn+1en+1) 2 =                                                        ui  uj  2
+                                                                                                                               vi  vj
+                                                                                                                          i<j           .
+
+Notice that        uj       2         u2i            vj2 -                   2
+
+            ui     vj        =      i             j              ukvk .
+       i<j vi
+                                                              k
+
+Therefore, much like the cross product, wedge product satisfies the identity
+
+     |u  v|2 = |u|2|v|2 - (u · v)2.
+
+Using this identity, we can avoid altogether the computation of u  v. Thus in the curvature formula we
+
+present below, the wedge product is used only as a device to compress the notation.
+
+   The curvature formula for a curve defined by the intersection of n implicit hypersurfaces F1(x1, . . . ,
+xn+1) = 0, . . . , Fn(x1, . . . , xn+1) = 0 now becomes
+
+     k = |(Tan(F1, . . . , Fn)  (Tan(F1, . . . , Fn)))  Tan(F1, . . . , Fn)| ,                                                                 (5.4)
+                                           | Tan(F1, . . . , Fn)|3
+
+where (Tan(F1, . . . , Fn)) is interpreted in the usual fashion to mean that we take the gradient of each
+component of Tan(F1, . . . , Fn) and write these gradients in a matrix as consecutive column vectors.
+                         R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658                     651
+
+Example 5.2 (3-sphere  2-sphere  cylinder). We can check this curvature formula on circles generated
+by 3-spheres intersecting 2-spheres intersecting cylinders tangentially. Consider the following surfaces:
+
+   3-Spheres:
+
+   F1(x, y, z, w)  x2 + y2 + z2 + w2 - R2 = 0,
+   F1 = (2x 2y 2z 2w).
+
+2-Spheres:
+
+   F2(x, y, z, w)  x2 + y2 + z2 - R2 = 0,
+   F2 = (2x 2y 2z 0).
+
+Cylinders:
+
+F3(x, y, z, w)  x2 + y2 - R2 = 0,
+F3 = (2x 2y 0 0).
+
+The tangents to the intersection curve are given by
+
+                               e   e1 e2 e3 e4 
+
+Tan(F1,   F2,  F3)  =    Det      F1    =    2x     2y    2z  2w    =  -(8y     zw)e1  +  (8x  zw)e2.
+                                  F2         2x     2y    2z   0
+
+                                 F3          2x 2y 0 0
+
+Hence
+
+Tan(F1, F2, F3) 3 = 512z3w3R3,
+
+                               0 8zw 0 0 
+
+       Tan(F1, F2, F3)   =      -8zw      0      0   0    ,
+                                -8yw    8xw      0   0
+
+                                -8yz 8xz 0 0
+
+                                                                              0 8zw 0 0 
+
+Tan(F1, F2, F3)          Tan(F1, F2, F3)     = (-8yzw         8xzw  0  0)       -8zw        0     0    0  
+                                                                                -8yw      8xw     0    0
+
+                                                                                -8yz 8xz 0 0
+
+                                             = -(64z2w2x)e1 - (64z2w2y)e2,
+
+       Tan(F1, F2, F3)   Tan(F1, F2, F3)  Tan(F1, F2, F3)
+
+       = -(64z2w2x)e1 - (64z2w2y)e2  -(8yzw)e1 + (8xzw)e2
+
+       = -(512z3w3R2)(e1  e2).
+
+Therefore, as expected,
+
+k      =  |(Tan(F1, F2, F3)     (Tan(F1, F2, F3)))        Tan(F1, F2, F3)|   =  512z3w3R2      =  1
+                                | Tan(F1, F2, F3)|3                             512z3w3R3           .
+
+                                                                                                  R
+652                            R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+5.2. Torsion for implicit space curves
+
+   To develop a closed form expression for the torsion of an implicit space curve, we begin, as usual, with
+a classical formula for the torsion of a parametric curve. In Section 2.1, Table 1 provides four formulas
+for the torsion of a space curve in terms of the unit tangent, the unit normal, and their derivatives. For
+implicit space curves, however, we know only the unit tangent (Eq. (5.2)); therefore only the last formula
+in Table 1 is readily applied. Thus starting with
+
+          Det     T  dT  d2 T  ,
+     =               ds  ds2
+
+                     k2
+
+     T  (F ,  G)  =  F     ×   G
+                     |F    ×   G| ,
+
+we shall now derive a closed expression for the torsion of an implicit space curve.
+
+Theorem 5.1 (Torsion of an implicit space curve).
+
+        =  Det(T  T  T )                                                                       (5.5)
+              |T  × T |2 ,
+
+where
+
+     T  = F × G,
+     T  = T   T  = (F × G)  (F × G),
+     T  = T   (T )  T T + T   T   T 
+
+           = (F × G)   (F × G)  (F × G)T
+
+              + (F × G)  (F × G)  (F × G).
+
+Here  applied to a matrix such as T  means apply  to each column vector of the matrix to generate
+a list of three consecutive matrices.
+
+Proof. We start with the formula
+
+        =  Det    T  dT  d2 T  .
+                     ds  ds2
+
+                     k2
+
+To compute the determinant in the numerator, observe that
+
+     T  =  T
+           |T | .
+
+Moreover, by the chain rule,
+
+     dT    =  T    T       =   T   T 
+      ds                          |T | .
+
+Therefore, by the quotient rule,
+
+     dT       T   T               d|T |  T       T 
+     ds         |T |2               ds           |T |2
+           =               -                  =         +  term  parallel  to  T  .
+                                  |T |2
+                             R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658       653
+
+Differentiating one more time by the chain rule and the quotient rule, we find that
+
+d2T T   (T )  T T T   T   T 
+ds2 =                                   +
+                       |T |3                      |T |3
+
+                                        T    T                                  
+                                            |T |
+              +  terms    parallel  to              +  terms   parallel  to  T
+
+              T                                T    T                                    .
+              |T |3                                |T |
+           =           +  terms  parallel  to               +  terms  parallel    to  T
+
+Therefore
+
+       =   Det  T  dT  d2 T  =   Det(T  T  T )         .
+                   ds  ds2
+
+                   k2                   k2|T |6
+
+But by Eq. (5.3),
+
+k2     =   |((F    ×   G)        (F × G))           ×  (F   ×   G)|2     =   |T    × T      |2
+                                  |F × G|6                                        |T |6        .
+
+Hence
+
+       =   Det(T  T  T )                   2
+               |T  × T |2 .
+
+Example 5.3 (Explicit functions of one variable). Space curves defined by the intersection of explicit
+functions of a single variable are special cases of both parametric and implicit curves. Therefore, we can
+check our torsion formula on the intersection of two explicitly defined surfaces:
+
+       Equations                               Gradients
+       F (x, y, z)  y - f (x) = 0,             F = (f 1 0),
+       G(x, y, z)  z - g(x) = 0,               G = (g 0 1).
+
+Now we have the following matrices:
+
+T  = F × G = (1 -f -g ),
+
+                0 -f -g
+T  = 0 0
+                                 0,
+
+                00 0
+
+                       0 0 0 -f 0 0 -g 0 0
+(T ) = 0 0 0
+                                           0 00                0 00 ,
+
+                       000                 0 00                0 00
+
+T   T  = 0.
+
+To compute the numerator of the torsion, observe that
+
+                                                  0 -f -g
+T  = T   T  = (1 -f -g )  0 0
+                                                               0 = (0 -f g ),
+
+                                                  00 0
+
+T  = T   (T )  T T
+654                  R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+                               0 0 0 -f 0 0 -g 0 0                                   1
+
+           = (1 -f -g )  0 0 0            0 00               0 0 0  -f
+
+                               000        0 00               0 00                    -g
+
+           = (0 -f -g ).
+
+Hence                                               =f g -f g .
+
+                                         10 0
+      Det(T  T  T ) = Det -f -f -f
+
+                                       -g -g -g
+
+Similarly, for the denominator we have
+
+     |T  × T |2 = (1 -f -g ) × (0 -f -g ) 2 = |f g - f g g -f |2
+                    = (f g - f g )2 + (g )2 + (f )2.
+
+Therefore
+
+       =   Det(T  T  T )  =    (f  g     f g -f g            )2 .
+               |T  × T |              - f g )2 + (g )2 + (f
+
+The reader can easily verify that in this case we get exactly the same expression for the torsion using the
+classical equation given in Section 2.1 for the torsion of a parametric curve:
+
+          Det(P P P )
+      = |P × P |2 .
+
+6. Summary
+
+   Here we collect in one location for easy reference all of our curvature formulas for implicit curves and
+surfaces.
+
+6.1. Curvature formulas for implicit planar curves
+
+Notation
+   Implicit curve: F (x, y) = 0.
+   Normal: F = (Fx, Fy).
+   Tangent: Tan(F ) = k × F = (-Fy, Fx).
+   Hessian:
+
+     H (F ) =  Fxx  Fxy   = (F ).
+               Fyx  Fyy
+
+Adjoint of the hessian:
+
+     H (F ) =   Fyy      -Fyx  = - Tan(F ) .
+               -Fxy       Fxx
+                          R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658                            655
+
+Curvature formulas
+
+   k=-       Tan(F )  H (F )  Tan(F )T            ,        k=      Tan(F )  (Tan(F ))  F T       ,
+
+                          |F |3                                             |F |3
+
+   k  =   Det((Tan(F )  H (F      ))T      F      T)       k   =   Det((Tan(F  )    (Tan(F )))T  (Tan(F  ))T)
+                        |F |3                       ,                               | Tan(F )|3               ,
+
+   k=-       F  H (F )  F T             ,                  k=      F  H (F )  F T - |F |2 Trace(H (F ))          ,
+
+                       |F |3                                                           |F |3
+
+             H (F ) F                                                       F
+                                                                            |F |
+   k=        F 0       ,                                   k = - ·                  .
+
+             |F |3
+
+6.2. Curvature formulas in co-dimension 1
+
+Notation
+
+Implicit hypersurface: F (x1, . . . , xn+1) = 0.
+
+Gradient: F = (Fx1 , . . . , Fxn+1 ).
+
+Hessian:
+               Fx1x1 . . . Fx1xn+1 
+H (F ) =  ...                              ...  = (F ).
+                             ...
+
+                Fxn+1x1 . . . Fxn+1xn+1
+
+Adjoint of the hessian:
+
+              Cofactor(Fx1x1 ) . . . Cofactor(Fx1xn+1 ) 
+                             ...                                  ...
+H (F ) =                                      ...                           .
+
+                Cofactor(Fxn+1x1 ) . . . Cofactor(Fxn+1xn+1 )
+
+Gaussian curvature
+
+k=-          F  H (F )  F T       ,
+
+                   |F |3
+
+KG =         F  H (F )  F T       ,
+
+                   |F |4
+
+(KG)n(F )       =  (-1)n     F     H (F )         F T  ,
+                                   |F |n+2
+
+                            H (F ) F T
+
+(KG)n = (-1)n-1              F 0           .
+
+                             |F |n+2
+
+Mean curvature
+
+k  =      F     H  (F  )    F T - |F          |2  Trace(H  (F  ))
+                                |F |3                            ,
+
+KM        =  F     H (F   )       F T - |F        |2  Trace(H  (F      ))
+                                     2|F |3                              ,
+656                          R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+     (KM )n(F ) =     F  H (F )  F T - |F |2 Trace(H (F ))     ,
+
+                                  n|F |3
+
+     (KM )n =  (-1)n-1 coeff(n-1) in   H (F )-I      F T  ,
+                                           F           0
+
+                               n|F |3
+
+                           F
+     (KM )n = - · |F | .
+
+6.3. Curvature and torsion formulas for implicit space curves
+
+Notation
+   Implicit space curve: {F (x, y, z) = 0}  {G(x, y, z) = 0}.
+   Curve tangent: T  = F × G.
+   Additional notation:
+
+ · T  = T   T  = (F × G)  (F × G)
+ · T  = T   (T )  T T + T   T   T 
+
+           = (F × G)  ((F × G))  (F × G)T
+              + (F × G)  (F × G)  (F × G).
+
+Curvature and torsion formulas
+   Parametric curves:
+
+     k  =  |P × P     |        =  Det(P P   P    )
+             |P |3     ,            |P × P  |2    .
+
+Implicit curves:
+
+     k  =  |T  ×T     |        =  Det(T  T  T )
+               |T |3     ,           |T  × T |2 .
+
+6.4. Curvature formulas for implicit curves in (n + 1)-dimensions
+
+Notation
+
+   Implicit curve: {F1(x1, . . . , xn+1) = 0}  · · ·  {Fn(x1, . . . , xn+1) = 0}.
+   Gradients of scalars: F1 = (F1x1 , . . . , F1xn+1 ), . . . , Fn = (Fnx1 , . . . , Fnxn+1 ).
+   Gradients of vectors: (F1, . . . , Fn) = ((F1)T, . . . , (Fn)T).
+
+Curvature formulas
+   Curves in 2-dimensions:
+
+     k  =  Det((Tan(F     )   (Tan(F )))T(Tan(F  ))T)
+                              | Tan(F )|3             ,
+
+     Tan(F ) = (-Fy, Fx).
+
+Curves in 3-dimensions:
+                     R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658  657
+
+k  =  |(Tan(F ,  G)     (Tan(F ,  G)))  ×  Tan(F ,  G)|
+                                                        ,
+                       | Tan(F, G)|3
+
+Tan(F, G) = F × G.
+
+Curves in (n + 1)-dimensions:
+
+k = |(Tan(F1, . . . , Fn)  (Tan(F1, . . . , Fn)))  Tan(F1, . . . , Fn)| ,
+                              | Tan(F1, . . . , Fn)|3
+
+Tan(F1, . . . , Fn) = Det eT (F1)T . . . (Fn)T ,
+|u  v|2 = |u|2|v|2 - (u · v)2.
+
+7. Open questions
+
+   Although we have presented many elegant curvature formulas for implicit curves and surfaces, there
+still remains some work to be done. We close with a few open problems for future research.
+
+Problem 1. Derive closed formulas for higher order curvatures for implicit curves in (n + 1)-dimensions.
+Here we have derived closed formulas only for the curvature in (n + 1)-dimensions and for the torsion in
+3-dimensions. Can elegant closed formulas be derived for the higher order analogues of the torsion for
+implicit curves in (n + 1)-dimensions?
+
+Problem 2. Develop curvature formulas for curves lying on implicit surfaces. Here we have developed
+curvature formulas only for curves lying in n-dimensional space. What can be said about the curvature
+for curves lying on implicit surfaces?
+
+Problem 3. Compute curvature formulas for implicit surfaces in (n + 1)-dimensions with co-dimension
+> 1. Apparently at least some of these formulas are known in the German literature (Dombrowski, 1968,
+p. 164), but I have been unable to derive these expressions or to find these formulas in an easily accessible
+form.
+
+Problem 4. Investigate numerical efficiency and robustness. We have provided many different equivalent
+formulations for the curvature of an implicit planar curve. In theory, all of these expression are mathe-
+matically equivalent, but, in practice, some of these expressions may be more computationally efficient
+or numerically robust for performing actual calculations. We have not considered these issues here, but
+these questions should be looked at in the future.
+
+Acknowledgement
+
+   I would like to thank the participants of the Erbach Workshop on Differential Geometry and Geometric
+Modeling, who provided me with several pertinent references both in English and in German and who
+encouraged me to complete work on this paper.
+658  R. Goldman / Computer Aided Geometric Design 22 (2005) 632­658
+
+References
+
+Bajaj, C., Kim, M.-S., 1991. Convex hulls of objects bounded by algebraic curves. Algorithmica 6, 533­553.
+Belyaev, A., Pasko, A., Kunii, T. 1998. Ridges and ravines on implicit surfaces. In: Proceedings of Computer Graphics Interna-
+
+    tional '98, Hanover, pp. 530­535.
+Blinn, J., 1997. The algebraic properties of second-order surfaces. In: Bloomenthal, J. (Ed.), Introduction to Implicit Surfaces.
+
+    Morgan Kaufmann, San Francisco, CA.
+Dombrowski, P., 1968. Krummungsgrossen gleichungsdefinierter Untermannigfaltigkeiten Riemannscher Mannigfaltigkeiten.
+
+    Math. Nachr. 38, 133­180.
+Farin, G., 2002. Curves and Surfaces for Computer Aided Geometric Design: A Practical Guide, fifth ed. Academic Press, San
+
+    Diego, CA.
+Fulton, W., 1974. Algebraic Curves: An Introduction to Algebraic Geometry. Mathematical Lecture Notes Series.
+Gromoll, D., Klingenberg, W., Meyer, W., 1975. Riemannsche Geometric im Grossen. Lecture Notes in Mathematics, vol. 55.
+
+    Springer, Berlin.
+Hartmenn, E., 1999. On the curvature of curves and surfaces defined by normalforms. Computer Aided Geometric Design 16,
+
+    355­376.
+Hoschek, J., Lasser, D., 1993. Fundamentals of Computer Aided Geometric Design. A.K. Peters, Wellesley, MA.
+Knoblauch, J., 1888. Einleitung in die Allgemeine Theorie der Krummen Flachen. Druck und Verlag von B.G. Teubner, Leipzig.
+Knoblauch, J., 1913. Grundlagen der Differentialgeometrie. Druck und Verlag von B.G. Teubner, Leipzig.
+Northcott, D.G., 1984. Multilinear Algebra. Cambridge University Press, Cambridge.
+Osher, S., Fedkiw, R., 2003. Level Set Methods and Dynamic Implicit Surfaces. Appl. Math. Sci., vol. 153. Springer-Verlag,
+
+    New York.
+Patrikalakis, N.M., Maekawa, T., 2002. Shape Interrogation for Computer Aided Design and Manufacturing. Springer-Verlag,
+
+    New York.
+Sethian, J.A., 1999. Level Set Methods and Fast Marching Method, second ed. Cambridge Monogr. Appl. Comput. Math.
+
+    Cambridge University Press, Cambridge.
+Spivak, M., 1975. A Comprehensive Introduction to Differential Geometry, vol. 3. Publish or Perish, Boston.
+Stoker, J.J., 1969. Differential Geometry. Wiley, New York.
+Struik, D.J., 1950. Lectures on Classical Differential Geometry. Addison-Wesley, Reading, MA.
+Turkiyyah, G.M., Storti, D.W., Ganter, M., Chen, H., Vimawala, M., 1997. An accelerated triangulation method for computing
+
+    the skeletons of free-form solid models. Computer-Aided Design 29, 5­19.
+Willmore, T.J., 1959. An Introduction to Differential Geometry. Clarendon Press, Oxford. p. 16.
+

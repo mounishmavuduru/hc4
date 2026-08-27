@@ -1,0 +1,749 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{problem}[theorem]{Problem}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\kk}{\Bbbk}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\HC}{\mathrm{HC}}
+\newcommand{\JC}{\mathrm{JC}}
+
+\title{Pivots, descents, and the four-variable Hessian conjecture:\\
+$\HC_4$ in degree at most four, and obstructions to the known
+counterexample mechanisms}
+\author{HC$_4$ research project\thanks{All computations are in exact
+rational arithmetic with fail-closed certificate scripts
+(\texttt{certificates/}); every literature input was verified against a
+primary source (\texttt{status.md}, \texttt{lit/}). Novelty caveat: the
+results below were obtained and verified within this project during
+2026-08-08/10; a novelty search (documented in \texttt{status.md} and the
+reviewer packet) found no prior statements, but expert referees should
+check Theorem~\ref{thm:pivot} in particular against the unpublished
+folklore of the polynomial-automorphism community.}}
+\date{August 10, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $\HC_n$ denote Meng's Hessian conjecture: a polynomial
+$f\in\C[x_1,\dots,x_n]$ with $\det\Hess f\in\C^\times$ has polynomial
+formal Legendre transform (equivalently, $\nabla f$ is a polynomial
+automorphism). Following the July 2026 refutations of $\JC_n$ ($n\ge3$,
+Alp\"oge; Gao) and $\HC_n$ ($n\ge5$, Meng--Yang), exactly $\JC_2$ and
+$\HC_4$ remain open, linked by $\HC_4\Rightarrow\JC_2$. We prove:
+(1) a \emph{pivot theorem}: $\HC_4$ holds for every $f$ which, in some
+affine coordinates, is quadratic in a variable with nonzero constant
+leading coefficient --- with no restriction on the pivot coefficient ---
+and also when that leading coefficient vanishes provided the pivot
+coefficient has degree $\le2$, where we classify the potentials completely;
+consequently a counterexample can have no quadratic pivot at all;
+(2) $\HC_4$ holds for every $f$ of degree $\le4$;
+(3) a dimension-free \emph{rigidity theorem}: if all level hypersurfaces of
+a polynomial are developable, its Hessian determinant vanishes identically;
+(4) consequently a \emph{trichotomy}: a four-variable potential with
+constant nonzero Hessian determinant that admits a pivot is either settled
+outright (quadratic pivot, or affine pivot with pivot coefficient of
+degree $1$) or is exactly a Meng doubling of a planar Keller map plus an
+inert planar potential (affine pivot with pivot coefficient of degree
+$\ge2$) --- so $\HC_4$ restricted to potentials admitting a pivot is
+\emph{equivalent} to $\JC_2$, an exact localization of the planar Jacobian
+conjecture inside $\HC_4$; the degree-$1$ case is settled unconditionally
+but is \emph{not} exhausted by doublings (Remark~\ref{rem:notdoubling});
+(5) the Meng--Yang $\HC_5$ counterexample family admits no pivot of either
+kind in any affine coordinates, so the Schur descent that produced it
+cannot be iterated to reach $\HC_4$;
+(6) neither of Gao's dimension-four Jacobian counterexamples is equivalent
+to a gradient map under two-sided affine composition.
+$\HC_4$ itself remains open: what our results leave is exactly the class of
+potentials admitting no pivot at all.
+All lemmas carry machine-checkable exact certificates, and the underlying
+2026 counterexamples were independently re-verified (for the Meng--Yang
+polynomial, apparently for the first time).
+\end{abstract}
+
+\section{Setting and inputs}
+
+$\kk$ has characteristic $0$; results are stated over $\C$.
+For the verified statements of the inputs --- Gordan--Noether ($n\le4$),
+Dillen/de Bondt ($\HC_n$, $n\le3$, with polynomial inverse), Wang/Oda
+(degree $\le2$ Keller maps), injectivity $\Rightarrow$ automorphism
+(BBR/Ax/Cynk--Rusek), and the two bridges with the stabilization lemmas ---
+see \texttt{definitions\_and\_reductions.tex}. We freely use:
+non-injectivity of a gradient Keller map is certified by two points with
+equal gradient, and injectivity implies polynomial invertibility.
+
+Write $f=\sum_kf_k$ in homogeneous parts, $x'=(x_1,x_2,x_3)$.
+The graded tower (machine-verified; \texttt{src/hc4lib.py}):
+$[\det\Hess f]_0=\det\Hess f_2=c$;
+for $d=\deg f\ge3$, $\det\Hess f_d\equiv0$, so by Gordan--Noether
+$f_d\in\C[x']$ WLOG; and
+$[\det\Hess f]_{4d-9}=\det_3(\Hess_3f_d)\cdot\partial_{x_4}^2f_{d-1}$.
+For $\deg f\le4$ the midpoint identity
+$\nabla f(m+v)-\nabla f(m-v)=2[\Hess f(m)v+\nabla f_4(v)]$
+holds (fully symbolic certificate), giving Wang's case $\deg f\le3$
+immediately.
+
+\section{The pivot theorem}
+
+\begin{theorem}[pivot theorem]\label{thm:pivot}
+Let $f\in\C[x_1,\dots,x_4]$, $\det\Hess f=c\in\C^\times$. Suppose some
+$v\ne0$ has $D_v^2f\equiv\gamma$ constant, i.e.\ in affine coordinates
+with $v=e_4$,
+\[
+f=e_0(x')+x_4\,e_1(x')+\tfrac\gamma2x_4^2 .
+\]
+Then $\nabla f$ is a polynomial automorphism provided either
+\emph{(i)} $\gamma\ne0$ --- with \emph{no hypothesis on} $\deg e_1$ --- or
+\emph{(ii)} $\gamma=0$ and $\deg e_1\le2$.
+\end{theorem}
+
+\begin{corollary}\label{cor:nopivot}
+A counterexample to $\HC_4$ admits no quadratic pivot in any affine
+coordinates: for every $v\ne0$, either $D_v^2f$ is non-constant, or
+$D_v^2f\equiv0$ with pivot coefficient of degree $\ge3$.
+\end{corollary}
+
+\begin{proof}[Proof outline, by cases (full details:
+\texttt{lemma\_ledger.md} entries Q2, AP0--AP3; certificates
+\texttt{verify\_q2\_core.py}, \texttt{ap4\_rank\_reduction.py},
+\texttt{ap4\_pivot\_closure.py})]
+\emph{Case $\gamma\ne0$.} Set $\tilde e_0=e_0-e_1^2/(2\gamma)$ and
+$K(x')=\Hess_3e_1$ --- in general \emph{not} constant. The product rule
+gives $\Hess_3(\tilde e_0)+uK=\Hess_3(e_0+x_4e_1)-gg^\top/\gamma$ with
+$u=x_4+e_1(x')/\gamma$, so the bordered expansion yields
+$\det\Hess f=\gamma\det_3(\Hess_3\tilde e_0(x')+u\,K(x'))$. Now
+\emph{fix} $x'$: then $K(x')$ is a constant matrix and $u$ still sweeps
+$\C$ as $x_4$ does, so the \emph{pencil identity}
+$\det_3(\Hess_3\tilde e_0(x')+sK(x'))\equiv c/\gamma$ holds for every
+$s\in\C$ and every $x'$. Hence for each \emph{scalar} $\lambda$ the
+three-variable polynomial $\tilde e_0+\lambda e_1$ has constant nonzero
+Hessian determinant. A collision forces a common
+$\lambda=p_4+e_1(p')/\gamma=q_4+e_1(q')/\gamma$ and a collision of
+$\nabla'(\tilde e_0+\lambda e_1)$, injective by de Bondt's theorem. Hence
+$p=q$. Constancy of $K$ is never used --- the sweep is per-point in $x'$.
+
+\emph{Case $\gamma=0$.} Here $g:=\nabla'e_1$, $P:=\Hess_3e_0$,
+$K:=\Hess_3e_1$, and the bordered determinant gives
+$-g^\top\adj(P+x_4K)\,g\equiv c$, equivalently
+$(c_0)\ g^\top(\adj P)g\equiv-c$, $(c_1)\ g^\top L(P,K)g\equiv0$,
+$(c_2)\ g^\top(\adj K)g\equiv0$, where
+$\adj(P+tK)=\adj P+tL+t^2\adj K$.
+
+If $\deg e_1\le1$ ($K=0$): $g$ is a nonzero constant; normalize $e_1=x_3$;
+then $(c_0)$ reads $\det_2\Hess_{(x_1,x_2)}e_0\equiv-c$, so every
+$x_3$-fiber of $e_0$ is a planar polynomial with constant Hessian
+determinant. A collision of
+$\nabla f=(\partial_1e_0,\partial_2e_0,\partial_3e_0+x_4,x_3)$ forces
+equal $x_3$, then equal $(x_1,x_2)$ by Dillen's theorem applied fiberwise,
+then equal $x_4$.
+
+If $\deg e_1=2$: write $e_1=\tfrac12x'^\top Kx'+\gamma'\!\cdot x'+\delta$.
+The $x'$-quadratic part of $(c_2)$ is $\det K\cdot x'^\top Kx'$ (identity
+$K\adj(K)K=\det K\cdot K$), so $\det K=0$. If $\operatorname{rank}K=2$,
+normalize $K=\mathrm{diag}(1,1,0)$; translations kill the $\mathrm{Im}\,K$
+part of $\gamma'$, $(c_2)=\gamma_3'^2$ kills the rest, and then $g(0)=0$
+makes $(c_0)$ read $0=-c$: impossible. Hence $\operatorname{rank}K=1$;
+normalizing and using $(c_0)$ on $\{x_1=0\}$ forces the affine part to
+survive off $\mathrm{Im}\,K$, giving the normal form
+$e_1=\tfrac12x_1^2+x_2$, $g=(x_1,1,0)$.
+Now $\adj(P+tE_{11})$ is \emph{linear} in $t$ with
+$g^\top(\partial_t\adj)g=P_{33}$, so the determinant identity forces
+$\partial_{x_3}^2e_0\equiv0$: $e_0=a(x_1,x_2)+x_3b(x_1,x_2)$. The cofactor
+identity $g^\top(\adj P)g=-(x_1b_{x_2}-b_{x_1})^2$ turns $(c_0)$ into the
+linear PDE $x_1b_{x_2}-b_{x_1}=\kappa$, $\kappa^2=c$, whose polynomial
+solutions are exactly $b=-\kappa x_1+\beta(\xi)$, $\xi=x_2+\tfrac12x_1^2$,
+$\beta\in\C[\xi]$. Thus, after the affine normalizations,
+\[
+f=a(x_1,x_2)+x_3\bigl(-\kappa x_1+\beta(\xi)\bigr)+x_4\,\xi ,
+\qquad \det\Hess f=\kappa^2 ,
+\]
+for \emph{arbitrary} $a$ and $\beta$ --- a complete classification of this
+case. Injectivity is explicit: the fourth gradient component equalizes
+$\xi$; the third ($=b$) then forces $p_1=q_1$ since $\kappa\ne0$, hence
+$p_2=q_2$; the remaining $2\times2$ linear system in $(\Delta x_3,\Delta
+x_4)$ has determinant $b_{x_1}-x_1b_{x_2}=-\kappa\ne0$.
+\end{proof}
+
+\section{Structure of the affine-pivot class}
+
+The case analysis above is explained by two structural theorems, valid in
+all degrees.
+
+\begin{theorem}[doubling structure]\label{thm:doubling}
+For any $a,b,e\in\C[x_1,x_2]$ the potential
+$f=a(x_1,x_2)+x_3b(x_1,x_2)+x_4e(x_1,x_2)$ has Hessian
+$\left(\begin{smallmatrix}A&B\\B^\top&0\end{smallmatrix}\right)$ with
+$B=\partial(b,e)/\partial(x_1,x_2)$, hence
+\[
+\det\Hess f=\bigl(\Jac(b,e)\bigr)^2 ,
+\]
+\emph{independently of $a$}. Thus $f$ is exactly the Meng doubling
+$\langle(x_3,x_4),(b,e)\rangle$ plus an inert planar potential, and
+$\det\Hess f\in\C^\times$ iff $(b,e)$ is a planar Keller map. Moreover
+$\nabla f$ is injective if and only if $(b,e)$ is, for \emph{every} inert
+$a$ (a collision of $(b,e)$ at $p\ne q$ lifts to a collision of $\nabla f$
+by solving the linear system $\mathcal B_q^{\top}w=\nabla a(p)-\nabla a(q)
++\mathcal B_p^{\top}u$; certificate (W12) of
+\texttt{paperG\_writeup\_checks.py}). Hence
+$\HC_4$ restricted to this class is \emph{equivalent} to $\JC_2$.
+\end{theorem}
+
+So case (ii) of Theorem~\ref{thm:pivot} says precisely: a planar Keller map
+one of whose components is (affinely) $x_1^2/2+x_2$ has the form
+$b=-\kappa x_1+\beta(x_2+\tfrac12x_1^2)$ and is invertible. This explains
+why the degree hypothesis is unavoidable in case (ii) and absent in case
+(i): the \emph{affine}-pivot class is where $\JC_2$ is embedded, and
+raising $\deg e_1$ there eventually reaches genuine planar Jacobian
+problems, whereas a quadratic pivot ($\gamma\ne0$) always descends to
+$\HC_3$ regardless of degree. (de Bondt's anti-triangularization
+obstruction example $f=(x_1+x_2^2)x_3+(x_2+(x_1+x_2^2)^2)x_4$ is the
+doubling of a planar Keller map with $\deg e_1=4$: an affine pivot outside
+case (ii), as it must be.)
+
+What restricts the pivot coefficient in general is the following. Write
+$g=\nabla'e_1$, $K=\Hess_3e_1$.
+
+\begin{theorem}[developability]\label{thm:dev}
+The identity $\det\left(\begin{smallmatrix}K&g\\g^\top&0\end{smallmatrix}
+\right)=-g^\top\adj(K)g$ shows that constraint $(c_2)$ says exactly: the
+pivot coefficient $e_1$ has identically vanishing bordered Hessian, i.e.\
+all its level surfaces are developable. In particular nondegenerate
+quadric pivots are impossible ($e_1=x_1x_2+x_3$ has bordered Hessian
+$\equiv1$).
+\end{theorem}
+
+\begin{lemma}[Euler contraction; \emph{known}]\label{lem:euler}
+For $e$ homogeneous of degree $d\ge2$ in any number of variables,
+\[
+\nabla e^\top\adj(\Hess e)\,\nabla e=\frac{d}{d-1}\,e\,\det\Hess e .
+\]
+\end{lemma}
+
+This is due to Fox \cite{Fox2017}, \S3 (see also Del Pia--Hildebrand--%
+Weismantel--Zemmer \cite{DHWZ}, Lemma 5.2, for any $C^2$ homogeneous
+function, attributed there to a 1995 manuscript of Hemmer); it is also the
+cone-specialisation of Dolgachev's affine equation of the Hessian
+\cite[(1.20)]{Dolgachev}. We include the one-line proof only for
+completeness: $(\Hess e)x=(d-1)\nabla e$ and $\nabla e\cdot x=de$ (Euler)
+give $\nabla e^\top\adj(H)\nabla e=(d-1)^{-2}x^\top H\adj(H)Hx
+=(d-1)^{-1}\det(H)(\nabla e\cdot x)$, using $H\adj(H)H=\det(H)H$.
+
+\begin{theorem}[cone leading form]\label{thm:cone}
+In every affine-pivot potential with $\det\Hess f\in\C^\times$, the
+leading form $e_d$ of the pivot coefficient satisfies
+$\det\Hess_3(e_d)\equiv0$; hence by Gordan--Noether ($n=3$) $e_d$ is a
+\emph{cone}: after a linear change it involves at most two variables.
+\end{theorem}
+
+\begin{proof}
+The degree-$(4d-6)$ part of $(c_2)$ is
+$\nabla e_d^\top\adj(\Hess e_d)\nabla e_d$, which vanishes; by
+Lemma~\ref{lem:euler} it equals $\tfrac{d}{d-1}e_d\det\Hess e_d$, and
+$e_d\ne0$ in the domain $\C[x']$. For $d=2$ this recovers the rank
+collapse used in Theorem~\ref{thm:pivot}.
+\end{proof}
+
+Write $B(e)=\nabla e^\top\adj(\Hess e)\nabla e$; up to sign this is the
+bordered Hessian $\det\left(\begin{smallmatrix}\Hess e&\nabla e\\
+\nabla e^\top&0\end{smallmatrix}\right)$, so $B(e)\equiv0$ says every level
+hypersurface of $e$ has identically vanishing Gaussian curvature. The
+following rigidity theorem, of independent interest and valid in every
+dimension, is the key to closing the affine-pivot class.
+
+\begin{theorem}[rigidity]\label{thm:G}
+Let $e\in\C[x_1,\dots,x_n]$. If $B(e)\equiv0$ then $\det\Hess e\equiv0$.
+Equivalently: \emph{if all level hypersurfaces of a polynomial are
+developable, its Hessian determinant vanishes identically.}
+\end{theorem}
+
+\begin{proof}
+Suppose $\det\Hess e\not\equiv0$, so $\varphi:=\nabla e$ is dominant. On the
+open set where $H:=\Hess e$ is invertible put $V:=H^{-1}g$, $g:=\nabla e$.
+Then $D\varphi\cdot V=HH^{-1}g=g=\varphi$, so $V$ is $\varphi$-related to
+the Euler field $E=\sum p_i\partial_{p_i}$ on the target; and
+$D_Ve=g^\top H^{-1}g=B/\det H$. Thus $B\equiv0$ says exactly that $e$ is a
+first integral of $V$.
+
+Fix $x_0$ generic with $\det H(x_0)\ne0$ and $p_0:=\varphi(x_0)\ne0$, let
+$\psi$ be the local inverse of $\varphi$ near $p_0$, and let
+$L(p):=\langle\psi(p),p\rangle-e(\psi(p))$ be the local Legendre transform,
+so that $\nabla L=\psi$ and
+\[
+EL-L=\langle\psi,p\rangle-\bigl(\langle\psi,p\rangle-e(\psi)\bigr)=e\circ\psi .
+\]
+Since $V$ is $\varphi$-related to $E$, $D_Ve=0$ gives $E(e\circ\psi)=0$,
+that is
+\[
+(E^2-E)\,L=0 .
+\]
+On a cone neighbourhood write $p=t\,\sigma(z)$ with $\sigma$ a local
+holomorphic section of the $\C^\times$-bundle; the displayed equation reads
+$t^2\partial_t^2L=0$, so $L$ is affine in $t$ along every ray. Hence
+$L=A+\widetilde B$ with $A,\widetilde B$ holomorphic and homogeneous of
+Euler-degree $0$ and $1$, and since any analytic continuation of $L$ solves
+the same equation, this expression \emph{is} the continuation of $L$ over
+the whole cone. As $\nabla A$ is homogeneous of degree $-1$ and
+$\nabla\widetilde B$ of degree $0$,
+\[
+\psi(tp)=\nabla L(tp)=t^{-1}\nabla A(p)+\nabla\widetilde B(p)=:t^{-1}a+b .
+\]
+The identity $\varphi(\psi(q))=q$ continues along the cone as well, so
+\[
+\nabla e\bigl(t^{-1}a+b\bigr)=t\,p\qquad\text{for all }t .
+\]
+The left-hand side is a polynomial map evaluated at $t^{-1}a+b$, hence a
+polynomial in $t^{-1}$: it contains no positive power of $t$. Comparing the
+coefficients of $t^1$ gives $p=0$, contradicting $p_0\ne0$.
+\end{proof}
+
+\begin{remark}
+The converse fails: $e=\tfrac12x_1^2+x_2$ has $\det\Hess e\equiv0$ but
+$B(e)\equiv1$. For $n=2$ the theorem admits a completely elementary proof:
+with $J=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$ one has
+$\adj H=J^\top HJ$, so $B=T^\top(\Hess e)T$ with $T=Jg$ tangent to the
+level curves; $B\equiv0$ therefore says all level curves are lines, a
+generic fibre avoids the critical values of $e$, hence is smooth, so its
+line components are parallel, and comparing two generic fibres forces a
+single direction $L$ with $e\in\C[L]$. The elementary $n=2$ argument is in
+\texttt{theorem\_G\_n2\_elementary.py}; its accompanying machine scan
+dropped linear terms (on which $B$ depends), so it was \emph{not}
+exhaustive as first claimed --- the genuinely full-coefficient-space
+radical-membership decision, linear terms included, degrees $\le4$, is
+\texttt{pzG\_n2\_decision.py} (degrees $\le4$) and
+\texttt{atkG\_n2\_decision.py} (degrees $\le5$, via a certified
+normalization $e=x_2^d+{}$lower terms); \texttt{theorem\_G\_n2\_deg45.py}
+adds exact adversarial sampling in degrees $4$--$6$ (its own ``slice
+decision'' covers only the homogeneous top form and is not a decision
+for inhomogeneous $e$).
+
+On the proof of Theorem~\ref{thm:G} itself: an earlier version of the
+argument continued $\psi$ analytically along the punctured ray and
+justified this by an ODE argument; an independent audit rejected that
+justification as written ($\psi$ is only a local inverse and the ray may
+meet the branch locus). Three repaired proofs now stand, none continuing
+$\psi$: the Euler-eigensplit extension (in
+\texttt{theorem\_G\_paper.tex}), an elementary local-flow argument
+($x''+x'=0$; \texttt{advG\_flow\_proof.py}), and a purely algebraic
+Puiseux-series-at-infinity argument valid over any field of
+characteristic $0$ (\texttt{pzG\_audit\_identities.py}).
+\end{remark}
+
+\begin{lemma}[affine equation of the Hessian; \emph{known}]\label{lem:hom}
+For $e\in\C[x_1,\dots,x_n]$ of degree $d$ with degree-$d$ homogenization
+$E$,
+\[
+\det\Hess_{n+1}(E)\big|_{x_0=1}
+=d(d-1)\,e\det\Hess_n(e)-(d-1)^2\,B(e).
+\]
+\end{lemma}
+
+This is Dolgachev \cite[\S1.1.4, (1.20)--(1.21)]{Dolgachev}, stated there in
+the equivalent bordered form and proved by exactly the argument we used
+(row reduction by Euler's relation, then the mirrored column reduction);
+Cauchy's bordered expansion converts one form into the other. We had at
+first presented it as new; that was an error of attribution, recorded in
+\texttt{prior\_art.md}.
+
+\begin{theorem}\label{thm:F}
+If $e\in\C[x_1,x_2,x_3]$ satisfies $B(e)\equiv0$ and
+$\det\Hess_3(e)\equiv0$, then $e$ is affinely $2$-variable.
+\end{theorem}
+
+\begin{proof}
+Lemma~\ref{lem:hom} gives $\det\Hess_4(E)|_{x_0=1}\equiv0$, hence
+$\det\Hess_4(E)\equiv0$. By Gordan--Noether in \emph{four} variables $E$ is
+a cone: $D_vE\equiv0$ for some $v=(v_0,v')\ne0$. If $v_0=0$, restricting to
+$x_0=1$ gives $D_{v'}e\equiv0$ and $e$ is linearly $2$-variable. If
+$v_0\ne0$, normalize $v_0=1$; Euler's relation gives
+$E_0|_{x_0=1}=de-x\!\cdot\!\nabla e$, so $D_vE\equiv0$ reads
+$de=(x-v')\!\cdot\!\nabla e$. Setting $\tilde e(y)=e(y+v')$ this is
+$y\!\cdot\!\nabla\tilde e=d\tilde e$, so $\tilde e$ is homogeneous of
+degree $d$. Since $B$ is translation invariant, $B(\tilde e)\equiv0$, and
+Lemma~\ref{lem:euler} turns this into $\det\Hess_3(\tilde e)\equiv0$;
+Gordan--Noether ($n=3$) makes $\tilde e$ a cone, so $e$ is affinely
+$2$-variable.
+\end{proof}
+
+Theorems~\ref{thm:G} and~\ref{thm:F} now combine to settle the pivot
+coefficient completely.
+
+\begin{corollary}[pivot planarity]\label{cor:E}
+Every $e\in\C[x_1,x_2,x_3]$ with $B(e)\equiv0$ is affinely $2$-variable.
+Likewise every $e\in\C[x_1,x_2]$ with $B(e)\equiv0$ is affinely
+$1$-variable: $e=\phi(L)$ for a univariate polynomial $\phi$ and an affine
+form $L$.
+\end{corollary}
+
+\begin{proof}
+For $n=3$: Theorem~\ref{thm:G} gives $\det\Hess_3e\equiv0$;
+Theorem~\ref{thm:F} applies. For $n=2$: $\adj(\Hess e)=J^\top(\Hess e)J$
+with $J$ the rotation by $\pi/2$, so $B(e)=T^\top(\Hess e)T$ with
+$T=J^\top\nabla e$ tangent to the level curves; $B\equiv0$ says every
+level curve has vanishing second fundamental form, i.e.\ is a union of
+lines. A generic fibre $\{e=c\}$ avoids the finitely many critical values
+of $e$, hence is smooth, so its line components are pairwise disjoint,
+i.e.\ parallel; comparing two generic fibres forces a single direction
+$v$ with $D_ve$ vanishing on a Zariski-dense set, so $D_ve\equiv0$ and
+$e\in\C[L]$ for any $L$ with $L(v)\ne0$ completing $v$ to coordinates.
+(Machine decision over the full coefficient space, linear terms included,
+in degrees $\le4$: \texttt{pzG\_n2\_decision.py}.)
+\end{proof}
+
+The conclusion is strictly stronger than $\det\Hess_3e\equiv0$ alone: de
+Bondt--van den Essen's classification of zero-Hessian polynomials in three
+variables contains members that are not affinely $2$-variable, such as
+$h=x_1x_2+x_1^2x_3$; consistently, $B(h)=-x_1^4\ne0$.
+
+\begin{theorem}[the pivot trichotomy]\label{thm:main}
+Let $f\in\C[x_1,\dots,x_4]$ with $\det\Hess f\in\C^\times$, let $v$ be a
+pivot of $f$, and put $\gamma=D_v^2f$, $e_1=D_vf$ (so $\deg e_1\ge1$).
+Then exactly one of the following holds.
+\begin{enumerate}
+\item[\rm(i)] $\gamma\ne0$ (quadratic pivot); then $\nabla f$ is a
+polynomial automorphism.
+\item[\rm(ii)] $\gamma=0$ and $\deg e_1=1$; then $\nabla f$ is a
+polynomial automorphism.
+\item[\rm(iii)] $\gamma=0$ and $\deg e_1\ge2$; then, after an affine
+change carrying $v$ to $e_4$,
+$f=a(x_1,x_2)+x_3b(x_1,x_2)+x_4e(x_1,x_2)$ --- a Meng doubling of the
+planar Keller map $(b,e)$ together with an inert planar potential --- and
+$\nabla f$ is injective if and only if $(b,e)$ is.
+\end{enumerate}
+\emph{Consequently $\HC_4$, restricted to potentials admitting a pivot, is
+equivalent to $\JC_2$}: case \rm{(iii)} is exactly $\JC_2$, and cases
+\rm{(i)} and \rm{(ii)} are unconditional. The three cases are mutually
+exclusive because $\gamma$ and $\deg e_1$ are determined by $(f,v)$.
+\end{theorem}
+
+\begin{proof}
+Case (i) is Theorem~\ref{thm:pivot}(i). For an affine pivot write
+$f=e_0(x')+x_4e_1(x')$; condition $(c_2)$ says $B(e_1)\equiv0$, so by
+Corollary~\ref{cor:E} $e_1$ is affinely $2$-variable and we may take
+$e_1=e(x_1,x_2)$. With $A$ the upper-left $3\times3$ block of $\Hess f$ and
+$w=(e_{x_1},e_{x_2},0)^\top$ we have $\det\Hess f=-w^\top\adj(A)w$, which is
+affine in $x_4$ with
+\[
+[x_4]\,\det\Hess f=-(e_0)_{x_3x_3}\cdot B_2(e),
+\qquad
+B_2(e)=e_{22}e_1^2-2e_{12}e_1e_2+e_{11}e_2^2 ,
+\]
+the two-variable bordered Hessian of $e$. Constancy of $\det\Hess f$ forces
+$(e_0)_{x_3x_3}\,B_2(e)\equiv0$, and $\C[x]$ is a domain, so
+$(e_0)_{x_3x_3}\equiv0$ or $B_2(e)\equiv0$.
+
+If $B_2(e)\equiv0$ then the two-variable case of Corollary~\ref{cor:E}
+gives $e=\phi(L)$ for an \emph{affine} form $L$ (caution: this does
+\emph{not} follow from $\det\Hess_2e\equiv0$ alone --- $h=x_1+x_2^2$ has
+$\det\Hess_2h\equiv0$ and is not a function of one affine form, but
+$B_2(h)=2\ne0$; the implication needs $B_2(e)\equiv0$, whose elementary
+proof --- level curves straight, then parallel --- is recorded in
+\texttt{theorem\_G\_n2\_elementary.py} and certified in
+\texttt{pzG\_n2\_decision.py}); after an affine
+change $e=\phi(x_1)$ and the same expansion yields
+$\det\Hess f=-\phi'(x_1)^2\det_2\Hess_{(x_2,x_3)}e_0$. For this to be a
+nonzero constant $\phi'(x_1)^2$ must divide a nonzero constant, so $\phi'$
+is a nonzero constant and $e_1$ is affine: $\deg e_1=1$, and we are in case
+(ii), settled unconditionally by the affine-pivot argument in the proof of
+Theorem~\ref{thm:pivot} (fibrewise application of Dillen's theorem).
+
+If $\deg e_1\ge2$, the previous paragraph shows $B_2(e)\not\equiv0$, so
+$(e_0)_{x_3x_3}\equiv0$; then $e_0=a(x_1,x_2)+x_3b(x_1,x_2)$ and
+Theorem~\ref{thm:doubling} gives case (iii).
+\end{proof}
+
+\begin{remark}
+Case (ii) is easy to miss --- an earlier draft of this proof asserted
+$(e_0)_{x_3x_3}\equiv0$ outright --- but it does not weaken the
+equivalence, since it is unconditional. The displayed $x_4$-coefficient
+identity is verified with fully generic coefficients in
+\texttt{pivot\_dichotomy.py}.
+\end{remark}
+
+\begin{remark}[the affine-pivot class is not exhausted by doublings]
+\label{rem:notdoubling}
+An earlier draft claimed that \emph{every} affine-pivot potential is a
+doubling plus an inert planar potential. That is false: case (ii) is a
+genuine third class. The witness
+\[
+w=\tfrac12x_1^2+x_1x_2(1+x_3)+\tfrac12x_2^2(2x_3+x_3^2)+x_3x_4,
+\qquad\det\Hess w=1,
+\]
+has the affine pivot $e_4$ with pivot coefficient $x_3$ of degree $1$,
+and its isotropic cone $\{v:D_v^2w\equiv0\}$ is the single line $\C e_4$
+(radical membership of $v_1,v_2,v_3$, certificate (W13) of
+\texttt{paperG\_writeup\_checks.py}), whereas any doubling contains the
+$2$-plane $\mathrm{span}(e_3,e_4)$ in its isotropic cone --- an affine
+invariant. Hence $w$ is not affinely equivalent to any doubling. The
+equivalence with $\JC_2$ is unaffected, case (ii) being unconditional.
+\end{remark}
+
+\section{$\HC_4$ in degree at most four}
+
+\begin{lemma}[isotropic-vector lemma; \emph{known}]\label{lem:iso}
+Every linear subspace $W\subseteq\mathrm{Sym}_n(\C)$ consisting of
+singular matrices has a common isotropic vector: $\exists v\ne0$ with
+$v^\top Mv=0$ for all $M\in W$.
+\end{lemma}
+
+This is Gow \cite[Thm.~1]{Gow}, in greater generality (bounded upper rank,
+any field with enough elements), attributed there to
+Fillmore--Laurie--Radjavi \cite{FLR}; equivalently it is the classical
+Bertini theorem for a linear system of quadrics, stated with exactly this
+maximal-rank mechanism by Landsberg \cite{Landsberg}. The proof we used is
+theirs: if $M_0\in W$ has maximal rank $n-1$ then $\adj M_0=\kappa
+v_0v_0^\top$ with $M_0v_0=0$, and the $t$-coefficient of the identically
+vanishing $\det(M_0+tM)$ is $\operatorname{tr}(\adj M_0\cdot M)=\kappa\,
+v_0^\top Mv_0$.
+
+\begin{theorem}\label{thm:deg4}
+$\HC_4$ holds for every $f\in\C[x_1,\dots,x_4]$ of degree $\le4$.
+\end{theorem}
+
+\begin{proof}
+$\deg f\le3$ is Wang's case. Let $\deg f=4$; the tower puts
+$f_4\in\C[x']$. Let $r$ be the essential rank of $f_4$ (minimal number of
+variables; $r=0$ returns to $\deg\le3$).
+
+$r=3$: $\det_3\Hess_3f_4\ne0$, so the $[\det]_7$ identity forces
+$\partial_{x_4}^2f_3\equiv0$ in the integral domain $\C[x]$. Then
+$D_{e_4}^2f=S_{44}$ is constant and the pivot coefficient
+$e_1$ has degree $\le2$; apply Theorem~\ref{thm:pivot}.
+
+$r=2$ (WLOG $f_4\in\C[x_1,x_2]$, $\det_2\Hess_2f_4\not\equiv0$): the fully
+generic identity $[\det\Hess f]_6=\det_2(\Hess_2f_4)\cdot
+\det_2(\Hess_{(x_3,x_4)}f_3)$ forces
+$\det_2\Hess_{(x_3,x_4)}f_3\equiv0$; by the $2\times2$ lemma
+$\Hess_{(x_3,x_4)}f_3=\ell\,uu^\top$ with $u$ constant. Any
+$0\ne v\in\mathrm{span}(e_3,e_4)$ with $u\cdot v=0$ has $D_v^2f=v^\top
+Sv$ constant, with pivot coefficient of degree $\le2$ after rotating $v$
+to $e_4$; apply Theorem~\ref{thm:pivot}.
+
+$r=1$ (WLOG $f_4=x_1^4$): the generic identity
+$[\det\Hess f]_5=12x_1^2\det_3(\Hess_{(x_2,x_3,x_4)}f_3)$ forces
+$M(x):=\Hess_{(x_2,x_3,x_4)}f_3$ to be an all-singular linear family; by
+Lemma~\ref{lem:iso} a constant isotropic $v\in\mathrm{span}(e_2,e_3,e_4)$
+exists, $D_v^2f=v^\top Sv$ is constant, the pivot coefficient has degree
+$\le2$ ($f_4$ contributes nothing along $v$); apply
+Theorem~\ref{thm:pivot}.
+\end{proof}
+
+\begin{corollary}
+A counterexample to $\HC_4$, if one exists, has degree $\ge5$ and, by
+Corollary~\ref{cor:nopivot}, admits no quadratic pivot in any affine
+coordinates; every affine pivot it admits has pivot coefficient of degree
+$\ge3$, whose leading form is a Gordan--Noether cone
+(Theorem~\ref{thm:cone}) and whose level surfaces are developable
+(Theorem~\ref{thm:dev}).
+\end{corollary}
+
+\section{Obstructions to the known mechanisms}
+
+\begin{theorem}[no pivot on the known $\HC_5$ family]\label{thm:d1}
+For every $\lambda\in\C^\times$, $\mu\in\C$, the Meng--Yang potential
+$\psi_{\lambda,\mu}=B+\tfrac\lambda2A^2+\mu A$ (five variables) admits no
+$v\ne0$ with $D_v^2\psi_{\lambda,\mu}$ constant (zero or not). Hence no
+affine coordinates exhibit either an affine (Schur) pivot or a quadratic
+pivot on any member of the known counterexample family: the descent
+$6\to5$ cannot be repeated $5\to4$ on the known family, and the
+quadratic-pivot reduction cannot touch it either. \emph{(This is the
+rigorous form, for the known family, of Meng--Yang's heuristic
+Remark~4.2.)}
+\end{theorem}
+
+\begin{proof}
+$D_v^2\psi=D_v^2B+\mu D_v^2A+\lambda(AD_v^2A+(D_vA)^2)$ with
+$\deg_wD_v^2B,\deg_wD_v^2A\le5$: every $w$-monomial coefficient of degree
+$\ge6$ equals $\lambda\times$ the corresponding ($\mu$-free) coefficient
+of $A D_v^2A+(D_vA)^2$. If $D_v^2\psi$ is constant, all these vanish.
+The 95 such coefficients are homogeneous quadratics in $v$; a Gr\"obner
+basis of them has leading-term ideal containing a pure power of each
+$v_i$, so their common zero cone is $\{0\}$
+(\texttt{pivot\_obstruction\_d1.py}).
+\end{proof}
+
+\begin{theorem}[known dimension-4 counterexamples are not gradients]
+\label{thm:g1}
+For $F\in\{$Gao $F_4$, Gao $F_5\}$ (the two explicit non-injective Keller
+maps of $\C^4$), no $W\in GL_4(\C)$ makes $W\cdot J_F(x)$ symmetric
+identically --- the symmetrizer space is $\{0\}$ --- hence $F$ is not a
+gradient map after any two-sided affine composition, and these
+counterexamples do not refute $\HC_4$ by affine equivalence.
+(For Alp\"oge's three-dimensional $F$ the same computation returns
+$\{0\}$, exactly as de Bondt's theorem requires --- a consistency control
+of the entire pipeline. The maps were parsed from Gao's LaTeX source and
+checksummed by re-deriving $\det J_{F_4}\equiv-\tfrac{44}9$ and $\det
+J_{F_5}\equiv\tfrac{160}{29}$ by direct symbolic determinants ---
+incidentally an independent verification of Gao's determinant claims.)
+\end{theorem}
+
+\section{The remaining question, and one route that fails}
+
+Theorem~\ref{thm:main} reduces $\HC_4$ to a single named class.
+
+\begin{problem}
+Does there exist $f\in\C[x_1,\dots,x_4]$ with $\det\Hess f\in\C^\times$
+admitting \emph{no} pivot, i.e.\ no $v\ne0$ with $D_v^2f$ constant?
+\end{problem}
+
+If the answer is no, then $\HC_4\Leftrightarrow\JC_2$ and the two surviving
+statements of the Jacobian/Hessian families collapse to one. If yes, that
+class is the only place a counterexample to $\HC_4$ can live, and a search
+has a precise target. Such potentials do exist one dimension up: the
+Meng--Yang $\HC_5$ counterexample has empty pivot cone
+(Theorem~\ref{thm:d1}), which is why the Schur descent self-terminates.
+
+We record one route that does \emph{not} work, since it is the first one
+that suggests itself. The tower lemma $\det\Hess f_d\equiv0$ (\S2) plus
+Gordan--Noether force the
+leading form of any $\HC_4$ candidate to be a cone, hence to supply a
+direction $v$ with $D_vf_d\equiv0$; Gordan--Noether fails for $n\ge5$, so
+one might hope the dimension gap is explained by leading forms. It is not.
+The leading form of the Meng--Yang counterexample is the single monomial
+$x_1^6x_2^6y_1^2$, which \emph{is} a cone, in a two-dimensional space of
+directions; those candidate pivots are destroyed by lower graded pieces
+(at graded degrees $12$ and $8$ respectively). So the no-pivot question in
+dimension four cannot be settled by leading-form arguments alone
+(\texttt{why\_dimension\_four.py}).
+
+\section{Two further conjectures}
+
+The surviving frontier for $\HC_4$ consists of potentials with no pivot
+direction at all. By Theorem~\ref{thm:main} every potential \emph{with} a
+pivot is governed by $\JC_2$ and nothing more, so no argument can close
+that part without proving planar Jacobian statements.
+Degree-for-degree, $\deg f=5$ meets planar Keller maps of degree $\le4$,
+which are invertible by Moh's theorem \cite{Moh}; so proving that every
+degree-$5$ potential admits a pivot would extend
+Theorem~\ref{thm:deg4} to degree $5$ unconditionally.
+
+\begin{conjecture}[descent rigidity]\label{conj:c2}
+Let $\Phi=tA(w)+B(w)$, $w\in\C^4$, satisfy $\det\Hess_{t,w}\Phi\in
+\C^\times$ and $\det(\Hess_wB+s\Hess_wA)\equiv0$ (identically in $s,w$),
+and suppose $\nabla\Phi$ has a collision over a common $t$-value. Then a
+$\JC_2$ counterexample exists. Equivalently: the Schur-descent mechanism
+cannot settle $\HC_4$ negatively without first refuting the planar
+Jacobian conjecture.
+\end{conjecture}
+
+Evidence: the collision-transfer analysis shows the descended potential's
+non-injectivity is equivalent to a collision of the bordered data; the
+known realizations of the pencil-degeneracy hypothesis in five variables
+are the doubling-type ones, for which the statement is exact. A structure
+theory of corank-one symmetric pencils $M(s,w)$ (Kronecker theory over
+$\C(w)$) is the natural route; this remains open.
+
+\section{What is new here, and what is not}
+
+An adversarial prior-art audit (recorded in \texttt{prior\_art.md})
+established that several ingredients we had at first presented as our own
+are in the literature. We record this plainly.
+
+\emph{Known, and cited above:} the Euler contraction
+(Lemma~\ref{lem:euler}; \cite{Fox2017,DHWZ,Dolgachev}); the affine
+equation of the Hessian (Lemma~\ref{lem:hom}; \cite{Dolgachev}); the
+equivalence of $B(e)\equiv0$ with vanishing Gauss--Kronecker curvature of
+the level sets (\cite{Reilly}, and \cite{Fox2017} --- our invariant $B$ is
+their $U(F)$); the isotropic-vector lemma (Lemma~\ref{lem:iso};
+\cite{Gow,FLR,Landsberg}); the $2\times2$ lemma (Meshulam,
+Loewy--Radwan); and Theorem~\ref{thm:F}, which is a short corollary of the
+$n=3$ classification of zero-Hessian polynomials of de Bondt--van den
+Essen \cite{dBvdESingular}. Theorem~\ref{thm:doubling} is elementary given
+Meng's doubling \cite{Meng2006}. The inputs used throughout ---
+Gordan--Noether \cite{WdB}, $\HC_2$ \cite{Dillen}, $\HC_3$
+\cite{deBondt2015}, Wang/Oda and the Keller-map basics \cite{BCW}, and the
+2026 counterexamples \cite{MengYang,Gao} --- are of course not ours. The
+identity of \cite{NY} (Prop.~2.3) is an equivalent published form of
+Lemma~\ref{lem:euler}: the lemma is its $s$-linear coefficient, and
+conversely the rank-one expansion
+$\det(M+suv^\top)=\det M+s\,v^\top\adj(M)u$ recovers their identity from the
+lemma (both directions certified in \texttt{identityE\_is\_known.py} and
+\texttt{gcv\_ny\_homogeneous\_converse.py}). In particular, for
+\emph{homogeneous} $e$ the converse of Theorem~\ref{thm:G} also holds:
+$B(e)=\tfrac{d}{d-1}e\det\Hess e$, so $B(e)\equiv0\iff\det\Hess e\equiv0$ on
+cones --- both directions being corollaries of \cite{NY}.
+
+\emph{No prior art located:} Theorem~\ref{thm:G} and its corollaries. Fox
+and Reilly supply exactly the framework and the identity
+$B=\det\Hess e\cdot\langle\nabla e,(\Hess e)^{-1}\nabla e\rangle$, but both
+work under the standing hypothesis that this quantity does \emph{not}
+vanish; Fox's subject is affine spheres. The content of
+Theorem~\ref{thm:G} is precisely the complementary case, which is vacuous
+over $\rea$ for a definite Hessian and has bite only over $\C$. Also
+without located prior art: the pivot trichotomy
+(Theorem~\ref{thm:main}), the $\sigma=0$ classification in
+Theorem~\ref{thm:pivot}, and the obstruction results
+Theorems~\ref{thm:d1} and~\ref{thm:g1}. We claim none of these as
+definitively new pending expert review.
+
+\begin{thebibliography}{99}
+\bibitem{Dolgachev} I.~V. Dolgachev, \emph{Classical Algebraic Geometry: A
+Modern View}, Cambridge Univ. Press, 2012, \S1.1.4.
+\bibitem{Fox2017} D.~J.~F. Fox, \emph{Equiaffine geometry of level sets and
+ruled hypersurfaces with equiaffine mean curvature zero}, Math. Nachr.
+\textbf{290} (2017), 293--320; arXiv:1503.09108.
+\bibitem{Reilly} R.~C. Reilly, \emph{Affine geometry and the form of the
+equation of a hypersurface}, Rocky Mountain J. Math. \textbf{16} (1986),
+553--565.
+\bibitem{DHWZ} A.~Del Pia, R.~Hildebrand, R.~Weismantel, K.~Zemmer,
+\emph{Minimizing cubic and homogeneous polynomials over integers in the
+plane}, arXiv:1408.4711, Lemma 5.2.
+\bibitem{Gow} R.~Gow, \emph{Dimension bounds for constant rank subspaces of
+symmetric bilinear forms over a finite field}, arXiv:1502.05547, Thm.~1.
+\bibitem{FLR} P.~A. Fillmore, C.~Laurie, H.~Radjavi, \emph{On matrix spaces
+with zero determinant}, Linear and Multilinear Algebra \textbf{18} (1985),
+255--266.
+\bibitem{Landsberg} J.~M. Landsberg, arXiv:math/0609507.
+\bibitem{dBvdESingular} M.~de Bondt, A.~van den Essen, \emph{Singular
+Hessians}, J. Algebra \textbf{282} (2004), 195--204, Thm.~3.3.
+\bibitem{deBondt2015} M.~de Bondt, \emph{Polynomials with constant Hessian
+determinants in dimension three}, J. Pure Appl. Algebra \textbf{219}
+(2015), 3743--3754; arXiv:1203.6605.
+\bibitem{Meng2006} G.~Meng, \emph{Legendre transform, Hessian conjecture and
+tree formula}, Appl. Math. Lett. \textbf{19} (2006), 503--510.
+\bibitem{MengYang} G.~Meng, L.~Yang, \emph{A five-variable counterexample to
+the Hessian conjecture\dots}, arXiv:2607.22198.
+\bibitem{Gao} S.~Gao, \emph{Counterexamples to the Jacobian conjecture in
+dimensions greater than two}, arXiv:2608.00222.
+\bibitem{Dillen} F.~Dillen, J. Pure Appl. Algebra \textbf{71} (1991),
+13--18.
+\bibitem{WdB} J.~Watanabe, M.~de Bondt, \emph{On the theory of
+Gordan--Noether on homogeneous forms with zero Hessian}, arXiv:1703.07624.
+\bibitem{Moh} T.~T. Moh, J. Reine Angew. Math. \textbf{340} (1983),
+140--212.
+\bibitem{BCW} H.~Bass, E.~H. Connell, D.~Wright, Bull. Amer. Math. Soc.
+\textbf{7} (1982), 287--330.
+\bibitem{NY} T.~Nagaoka, A.~Yazawa, \emph{Strict log-concavity of the
+Kirchhoff polynomial and its applications to the strong Lefschetz property},
+J. Algebra \textbf{577} (2021), 175--202; arXiv:1904.01800, Prop.~2.3.
+\end{thebibliography}
+
+\section*{Verification appendix}
+Every theorem above is backed by fail-closed exact scripts in
+\texttt{certificates/}: the landscape verifications
+(\texttt{verify\_alpoge\_3d.py}, \texttt{verify\_meng\_yang\_hc5.py},
+\texttt{verify\_mengyang\_fast.py}), the tower and midpoint identities
+(\texttt{src/hc4lib.py} self-tests), the pivot theorem chain
+(\texttt{verify\_q2\_core.py}, \texttt{ap4\_rank\_reduction.py},
+\texttt{ap4\_pivot\_closure.py}), the degree-4 branch closures
+(\texttt{deg4\_branch\_closures.py}), the obstruction certificates
+(\texttt{pivot\_obstruction\_d1.py},
+\texttt{gradient\_equivalence\_test.py}), and the known-good control
+(\texttt{dillen4\_ap4\_control.py}). Symbolic checks that are linear in
+generic coefficients are proofs; all other machine checks are labelled
+consistency checks and the corresponding hand proofs are recorded in
+\texttt{lemma\_ledger.md}.
+
+\end{document}

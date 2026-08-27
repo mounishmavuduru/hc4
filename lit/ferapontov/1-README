@@ -1,0 +1,86 @@
+In this file we describe the contents of the attached files.
+
+The LaTeX file of the paper is "FKT-3dimL.tex".
+
+00README.XXX is a file needed for the automated
+ arxive.org processing system - ignore it!
+
+The file "progs.tar" contains the program files
+necessary to perform the computations used
+in Sections 2 and 4 of the paper.
+
+Most of the computations were performed by using a free
+symbolic computation systems FORM, version 3.1. Its complete 
+distribution as well as tutorials and the reference
+manual are downloadable from 
+http://www.nikhef.nl/~form/
+
+Some computations in this paper were performed by using Maple(TM).
+Maple is a trademark of Waterloo Maple Inc.
+
+The actual programs were run on Macintosh PowerPC G4 
+(1.3 GHz, 512 Mb RAM)
+and required from 1 to 15 minutes CPU time each.
+
+All program files are tar-compressed so please do
+tar -xvf progs.tar
+to uncompress them.
+The files with Maple code (Maple text input) have the extension "mpl".
+The files with FORM code have the extension "frm".
+We have included the log-files of FORM runs for the main
+parts of the computations, they are gzip-compressed and have
+the extension *.log.gz
+
+The contents of the files:
+
+1-README - this file
+
+2-Lagr3dim.frm  - the main file for derivation of
+                the equations for the Lagrangian,
+                it performs the most of the computations
+                necessary to prove Theorem 1 (Section 2).
+                It contains explanation of the used notations
+                and comments the main steps of the simplification
+                procedures. The result of this computation
+                is stored in internal FORM format in the file "all.sav"
+                and in Maple text input format in "3-Lagr3dim4maple".
+
+4-solveEq.mpl - this Maple program solves the system of 45
+                equations for the 15 derivatives of the Lagrangian
+                of order 4. The result is stored in Maple text input
+                format in the file "f4ord.mpl" and in FORM text input
+                format in the file "f4ord.frm".
+                We check that these data give the correct
+                solution of the system obtained in "2-Lagr3dim.frm"
+                by a substitution in the file "f4ord-test-sol.frm".
+
+f4ord-test-compat.frm - we test here that the expressions for
+                       the fourth order derivatives of the Lagrangian
+                       give an involutive system (are compatible).
+
+7-final-form.mpl - here we check that the expressions for
+                  the fourth order derivatives of the Lagrangian
+                  are equivalent to the form (2) given
+                  in the paper.
+
+The files performing the computations necessary to prove
+Theorem 2 (Section 4) are collected below. The straighforward
+Maple computation of the second-order derivatives of F(a,b,c,\xi)
+(in terms of its first-order derivatives and the derivatives
+of the Lagrangian) is not included, as well as the huge results
+of this computation: they occupy more than 5 megabytes
+in FORM text input format and are in fact not necessary:
+we give the simplified expressions (in the file "F2ordReduced",
+FORM text input format) and check in "5-test-F2-reduced.frm"
+that they ARE the needed expressions modulo the relation (23).
+The simplification procedure is given in 
+"psevdopot-F2ord-simplification.frm" just for reference.
+In the FORM program "6-pseudopot-F3.frm"
+we form the 3rd-order compatibility conditions for F
+and check that they are satisfied modulo the 4th-order 
+relations (2) for the Lagrangian. The fact that these compatibility
+conditions are equivalent to (2) was checked by a straighforward
+Maple program; it simply verified that the matrix 
+of the coefficients of 4th-order derivatives of the Lagrangian
+in these compatibility conditions have the necessary rank 15.
+

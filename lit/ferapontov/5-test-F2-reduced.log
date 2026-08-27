@@ -1,0 +1,4754 @@
+FORM by J.Vermaseren,version 3.1(06/19/03) Run at: Wed Jul 14 12:29:05 2004
+    #: SmallSize 30000000 
+    #: LargeSize 100000000 
+    #: TermsInSmall 1000000 
+    * off statistics;
+    CFunctions F,G,f,D,diff,mu,la,B,nB,dB,U;
+    Symbols xx,a,b,c,d,i,j,k,l,[1/Hess],[Hess];
+    S [1/det20],x,[1/x],y,[1/y],z,[1/z ],[1/f(2*b)],[1/F(b)];
+    L Hess= - (-(f(2*a)*f(2*b)*f(2*c)) + f(a + b)^2*f(2*c)
+     + f(2*b)*f(a + c)^2 - 2*f(a + b)*f(a + c)*f(b + c) + f(2*a)*f(b + c)^2);
+    Local U1=F(d)*G(a)-F(a)*G(d)-f(a+a)*[1/f(2*b)]*F(b);
+    Local U2=F(d)*G(b)-F(b)*G(d)-2*f(a+b)*[1/f(2*b)]*F(b)+F(a);
+    Local U3=F(d)*G(c)-F(c)*G(d)-2*f(a+c)*[1/f(2*b)]*F(b)-G(a);
+    Local U4=G(c)+f(c+c)*[1/f(2*b)]*F(b);
+    Local U5=G(b)+2*f(b+c)*[1/f(2*b)]*F(b)-F(c);
+    L [det20] = [Hess] * (  - F(b)^2 );
+    .sort
+
+Time =       0.00 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.00 sec    Generated terms =          3
+               U1        Terms in output =          3
+                         Bytes used      =         98
+
+Time =       0.00 sec    Generated terms =          4
+               U2        Terms in output =          4
+                         Bytes used      =        124
+
+Time =       0.00 sec    Generated terms =          4
+               U3        Terms in output =          4
+                         Bytes used      =        132
+
+Time =       0.00 sec    Generated terms =          2
+               U4        Terms in output =          2
+                         Bytes used      =         72
+
+Time =       0.00 sec    Generated terms =          3
+               U5        Terms in output =          3
+                         Bytes used      =        100
+
+Time =       0.00 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+    
+    **** We differentiate the equations (??) for
+    **** the first order derivatives of F(a,b,c,d) and G(a,b,c,d)
+    #do i={1,2,3,4,5}
+    
+    #do j={a,b,c,d}
+    
+    L U`i'`j'= diff(`j')*U`i';
+    #enddo
+    #enddo
+    repeat;
+    id diff(i?)*F(j?)=F(j+i)+  D(F(j))*diff(i);
+    id diff(i?)*G(j?)=G(j+i)+  D(G(j))*diff(i);
+    id diff(i?{a,b,c})*f(j?)=f(j+i)+  D(f(j))*diff(i);
+    ** !!!!! ****
+    id diff(i?{a,b,c})*[1/f(2*b)] = - [1/f(2*b)]^2*f(2*b+i)
+        +  D([1/f(2*b)])*diff(i);
+    endrepeat;
+    id diff(?a)=0;
+    id D(a?)=a;
+    id D(a?,a)=1;
+    .sort
+
+Time =       0.00 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.00 sec    Generated terms =          3
+               U1        Terms in output =          3
+                         Bytes used      =         98
+
+Time =       0.00 sec    Generated terms =          4
+               U2        Terms in output =          4
+                         Bytes used      =        124
+
+Time =       0.00 sec    Generated terms =          4
+               U3        Terms in output =          4
+                         Bytes used      =        132
+
+Time =       0.00 sec    Generated terms =          2
+               U4        Terms in output =          2
+                         Bytes used      =         72
+
+Time =       0.00 sec    Generated terms =          3
+               U5        Terms in output =          3
+                         Bytes used      =        100
+
+Time =       0.00 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.00 sec    Generated terms =          7
+              U1a        Terms in output =          7
+                         Bytes used      =        370
+
+Time =       0.00 sec    Generated terms =          7
+              U1b        Terms in output =          7
+                         Bytes used      =        420
+
+Time =       0.00 sec    Generated terms =          7
+              U1c        Terms in output =          7
+                         Bytes used      =        438
+
+Time =       0.00 sec    Generated terms =          5
+              U1d        Terms in output =          5
+                         Bytes used      =        274
+
+Time =       0.01 sec    Generated terms =          8
+              U2a        Terms in output =          8
+                         Bytes used      =        442
+
+Time =       0.01 sec    Generated terms =          8
+              U2b        Terms in output =          8
+                         Bytes used      =        444
+
+Time =       0.01 sec    Generated terms =          8
+              U2c        Terms in output =          8
+                         Bytes used      =        494
+
+Time =       0.01 sec    Generated terms =          6
+              U2d        Terms in output =          6
+                         Bytes used      =        300
+
+Time =       0.01 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        454
+
+Time =       0.01 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        502
+
+Time =       0.02 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        468
+
+Time =       0.02 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        340
+
+Time =       0.02 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.02 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.02 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.02 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.02 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.02 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.02 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.02 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+    
+    **** We have to eliminate ALL derivatives of G from
+    **** the obtained expressions, for this we first
+    **** define a preprocessor macroprocedure "sol"
+    **** which solves a linear equation u in one unknown p
+    **** and substitutes the obtained expression into
+    **** all equations
+    #procedure sol(u,p)
+    skip;
+    L tsol=`u';
+    id `p'=0;
+    .sort
+    skip;
+    nskip tsol,co;
+    L co=`u'-tsol;
+    id `p'=1;
+    .sort;
+    G [`p']=-(tsol)/co;
+    id `p'=[`p'];
+    .sort
+    repeat; 
+    id F(b)*[1/F(b)]=1;
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    .sort
+    #endprocedure
+    
+    
+    **** now we solve first-order equations for G
+    **** so in fact we get the expression (??)
+    **** (and substitute the results into all equations)
+    **** 
+    #call sol(U3,G(a))
+
+Time =       0.02 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        114
+
+Time =       0.03 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        114
+
+Time =       0.03 sec    Generated terms =          7
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.03 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.03 sec    Generated terms =          5
+               U1        Terms in output =          5
+                         Bytes used      =        210
+
+Time =       0.03 sec    Generated terms =          4
+               U2        Terms in output =          4
+                         Bytes used      =        124
+
+Time =       0.03 sec    Generated terms =          6
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.03 sec    Generated terms =          2
+               U4        Terms in output =          2
+                         Bytes used      =         72
+
+Time =       0.03 sec    Generated terms =          3
+               U5        Terms in output =          3
+                         Bytes used      =        100
+
+Time =       0.03 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.04 sec    Generated terms =          9
+              U1a        Terms in output =          9
+                         Bytes used      =        568
+
+Time =       0.04 sec    Generated terms =          9
+              U1b        Terms in output =          9
+                         Bytes used      =        602
+
+Time =       0.04 sec    Generated terms =          9
+              U1c        Terms in output =          9
+                         Bytes used      =        620
+
+Time =       0.04 sec    Generated terms =          7
+              U1d        Terms in output =          7
+                         Bytes used      =        412
+
+Time =       0.04 sec    Generated terms =          8
+              U2a        Terms in output =          8
+                         Bytes used      =        442
+
+Time =       0.04 sec    Generated terms =          8
+              U2b        Terms in output =          8
+                         Bytes used      =        444
+
+Time =       0.04 sec    Generated terms =          8
+              U2c        Terms in output =          8
+                         Bytes used      =        494
+
+Time =       0.04 sec    Generated terms =          6
+              U2d        Terms in output =          6
+                         Bytes used      =        300
+
+Time =       0.04 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        454
+
+Time =       0.04 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        502
+
+Time =       0.04 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        468
+
+Time =       0.04 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        340
+
+Time =       0.04 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.04 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.04 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.04 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.04 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.04 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.04 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.04 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.04 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        114
+
+Time =       0.04 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.04 sec    Generated terms =          3
+           [G(a)]        Terms in output =          3
+                         Bytes used      =        114
+
+Time =       0.04 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.04 sec    Generated terms =          5
+               U1        Terms in output =          5
+                         Bytes used      =        210
+
+Time =       0.04 sec    Generated terms =          4
+               U2        Terms in output =          4
+                         Bytes used      =        124
+
+Time =       0.04 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.04 sec    Generated terms =          2
+               U4        Terms in output =          2
+                         Bytes used      =         72
+
+Time =       0.04 sec    Generated terms =          3
+               U5        Terms in output =          3
+                         Bytes used      =        100
+
+Time =       0.04 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.04 sec    Generated terms =          9
+              U1a        Terms in output =          9
+                         Bytes used      =        568
+
+Time =       0.04 sec    Generated terms =          9
+              U1b        Terms in output =          9
+                         Bytes used      =        602
+
+Time =       0.04 sec    Generated terms =          9
+              U1c        Terms in output =          9
+                         Bytes used      =        620
+
+Time =       0.04 sec    Generated terms =          7
+              U1d        Terms in output =          7
+                         Bytes used      =        412
+
+Time =       0.04 sec    Generated terms =          8
+              U2a        Terms in output =          8
+                         Bytes used      =        442
+
+Time =       0.04 sec    Generated terms =          8
+              U2b        Terms in output =          8
+                         Bytes used      =        444
+
+Time =       0.04 sec    Generated terms =          8
+              U2c        Terms in output =          8
+                         Bytes used      =        494
+
+Time =       0.04 sec    Generated terms =          6
+              U2d        Terms in output =          6
+                         Bytes used      =        300
+
+Time =       0.04 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        454
+
+Time =       0.04 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        502
+
+Time =       0.04 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        468
+
+Time =       0.04 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        340
+
+Time =       0.04 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.04 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.04 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.04 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.04 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.04 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.04 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.04 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.04 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        114
+
+Time =       0.04 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.04 sec    Generated terms =          3
+           [G(a)]        Terms in output =          3
+                         Bytes used      =        114
+    #call sol(U4,G(c))
+
+Time =       0.04 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.04 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.04 sec    Generated terms =          3
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.04 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.04 sec    Generated terms =          5
+               U1        Terms in output =          5
+                         Bytes used      =        232
+
+Time =       0.04 sec    Generated terms =          4
+               U2        Terms in output =          4
+                         Bytes used      =        124
+
+Time =       0.04 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.04 sec    Generated terms =          2
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.04 sec    Generated terms =          3
+               U5        Terms in output =          3
+                         Bytes used      =        100
+
+Time =       0.04 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.04 sec    Generated terms =          9
+              U1a        Terms in output =          9
+                         Bytes used      =        600
+
+Time =       0.04 sec    Generated terms =          9
+              U1b        Terms in output =          9
+                         Bytes used      =        634
+
+Time =       0.04 sec    Generated terms =          9
+              U1c        Terms in output =          9
+                         Bytes used      =        652
+
+Time =       0.04 sec    Generated terms =          7
+              U1d        Terms in output =          7
+                         Bytes used      =        444
+
+Time =       0.04 sec    Generated terms =          8
+              U2a        Terms in output =          8
+                         Bytes used      =        442
+
+Time =       0.04 sec    Generated terms =          8
+              U2b        Terms in output =          8
+                         Bytes used      =        444
+
+Time =       0.04 sec    Generated terms =          8
+              U2c        Terms in output =          8
+                         Bytes used      =        494
+
+Time =       0.04 sec    Generated terms =          6
+              U2d        Terms in output =          6
+                         Bytes used      =        300
+
+Time =       0.04 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        510
+
+Time =       0.04 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        558
+
+Time =       0.04 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        508
+
+Time =       0.04 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        368
+
+Time =       0.04 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.04 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.04 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.04 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.04 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.04 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.04 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.04 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.04 sec    Generated terms =          3
+           [G(a)]        Terms in output =          3
+                         Bytes used      =        146
+
+Time =       0.04 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.04 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.04 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.04 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.04 sec    Generated terms =          5
+               U1        Terms in output =          5
+                         Bytes used      =        232
+
+Time =       0.04 sec    Generated terms =          4
+               U2        Terms in output =          4
+                         Bytes used      =        124
+
+Time =       0.04 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.04 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.04 sec    Generated terms =          3
+               U5        Terms in output =          3
+                         Bytes used      =        100
+
+Time =       0.04 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.04 sec    Generated terms =          9
+              U1a        Terms in output =          9
+                         Bytes used      =        600
+
+Time =       0.04 sec    Generated terms =          9
+              U1b        Terms in output =          9
+                         Bytes used      =        634
+
+Time =       0.04 sec    Generated terms =          9
+              U1c        Terms in output =          9
+                         Bytes used      =        652
+
+Time =       0.04 sec    Generated terms =          7
+              U1d        Terms in output =          7
+                         Bytes used      =        444
+
+Time =       0.04 sec    Generated terms =          8
+              U2a        Terms in output =          8
+                         Bytes used      =        442
+
+Time =       0.04 sec    Generated terms =          8
+              U2b        Terms in output =          8
+                         Bytes used      =        444
+
+Time =       0.04 sec    Generated terms =          8
+              U2c        Terms in output =          8
+                         Bytes used      =        494
+
+Time =       0.04 sec    Generated terms =          6
+              U2d        Terms in output =          6
+                         Bytes used      =        300
+
+Time =       0.04 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        510
+
+Time =       0.04 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        558
+
+Time =       0.04 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        508
+
+Time =       0.04 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        368
+
+Time =       0.05 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.05 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.05 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.05 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.05 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.05 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.05 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.05 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.05 sec    Generated terms =          3
+           [G(a)]        Terms in output =          3
+                         Bytes used      =        146
+
+Time =       0.05 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.05 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.05 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+    #call sol(U5,G(b))
+
+Time =       0.05 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.05 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.05 sec    Generated terms =          5
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.05 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.05 sec    Generated terms =          5
+               U1        Terms in output =          5
+                         Bytes used      =        232
+
+Time =       0.05 sec    Generated terms =          5
+               U2        Terms in output =          5
+                         Bytes used      =        194
+
+Time =       0.05 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.05 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.05 sec    Generated terms =          4
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.05 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.06 sec    Generated terms =          9
+              U1a        Terms in output =          9
+                         Bytes used      =        600
+
+Time =       0.06 sec    Generated terms =          9
+              U1b        Terms in output =          9
+                         Bytes used      =        634
+
+Time =       0.06 sec    Generated terms =          9
+              U1c        Terms in output =          9
+                         Bytes used      =        652
+
+Time =       0.06 sec    Generated terms =          7
+              U1d        Terms in output =          7
+                         Bytes used      =        444
+
+Time =       0.06 sec    Generated terms =          9
+              U2a        Terms in output =          9
+                         Bytes used      =        568
+
+Time =       0.06 sec    Generated terms =          9
+              U2b        Terms in output =          9
+                         Bytes used      =        554
+
+Time =       0.06 sec    Generated terms =          9
+              U2c        Terms in output =          9
+                         Bytes used      =        604
+
+Time =       0.06 sec    Generated terms =          7
+              U2d        Terms in output =          7
+                         Bytes used      =        380
+
+Time =       0.06 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        510
+
+Time =       0.06 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        558
+
+Time =       0.06 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        508
+
+Time =       0.06 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        368
+
+Time =       0.06 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.06 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.06 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.06 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.06 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.06 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.06 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.06 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.06 sec    Generated terms =          3
+           [G(a)]        Terms in output =          3
+                         Bytes used      =        146
+
+Time =       0.06 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.06 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.06 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.06 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.06 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.06 sec    Generated terms =          5
+               U1        Terms in output =          5
+                         Bytes used      =        232
+
+Time =       0.06 sec    Generated terms =          5
+               U2        Terms in output =          5
+                         Bytes used      =        194
+
+Time =       0.06 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.06 sec    Generated terms =          9
+              U1a        Terms in output =          9
+                         Bytes used      =        600
+
+Time =       0.06 sec    Generated terms =          9
+              U1b        Terms in output =          9
+                         Bytes used      =        634
+
+Time =       0.06 sec    Generated terms =          9
+              U1c        Terms in output =          9
+                         Bytes used      =        652
+
+Time =       0.06 sec    Generated terms =          7
+              U1d        Terms in output =          7
+                         Bytes used      =        444
+
+Time =       0.06 sec    Generated terms =          9
+              U2a        Terms in output =          9
+                         Bytes used      =        568
+
+Time =       0.06 sec    Generated terms =          9
+              U2b        Terms in output =          9
+                         Bytes used      =        554
+
+Time =       0.06 sec    Generated terms =          9
+              U2c        Terms in output =          9
+                         Bytes used      =        604
+
+Time =       0.06 sec    Generated terms =          7
+              U2d        Terms in output =          7
+                         Bytes used      =        380
+
+Time =       0.06 sec    Generated terms =          8
+              U3a        Terms in output =          8
+                         Bytes used      =        510
+
+Time =       0.06 sec    Generated terms =          8
+              U3b        Terms in output =          8
+                         Bytes used      =        558
+
+Time =       0.06 sec    Generated terms =          8
+              U3c        Terms in output =          8
+                         Bytes used      =        508
+
+Time =       0.06 sec    Generated terms =          6
+              U3d        Terms in output =          6
+                         Bytes used      =        368
+
+Time =       0.06 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.06 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.06 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.06 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.06 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.06 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.06 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.06 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.06 sec    Generated terms =          3
+           [G(a)]        Terms in output =          3
+                         Bytes used      =        146
+
+Time =       0.06 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.06 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.06 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.06 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+    
+    **** it's better to solve the next equation "by hand"
+    *#call sol(U2,G(d))
+    G [G(d)] = (+ F(a) - 2*F(b)*F(d)*f(b + c)*[1/f(2*b)]
+        - 2*F(b)*f(a + b)*[1/f(2*b)] + F(c)*F(d)) * [1/F(b)];
+    **** This expression is in fact the relation (??)
+    L U1F= -U1*f(2*b)*F(b);
+    id G(d) = [G(d)];
+    repeat; 
+    id F(b)*[1/F(b)]=1;
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    .sort
+
+Time =       0.06 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.06 sec    Generated terms =         11
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.06 sec    Generated terms =          8
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.06 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.06 sec    Generated terms =         15
+              U1a        Terms in output =         15
+                         Bytes used      =       1102
+
+Time =       0.06 sec    Generated terms =         15
+              U1b        Terms in output =         15
+                         Bytes used      =       1170
+
+Time =       0.06 sec    Generated terms =         15
+              U1c        Terms in output =         15
+                         Bytes used      =       1188
+
+Time =       0.06 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.06 sec    Generated terms =         12
+              U2a        Terms in output =         10
+                         Bytes used      =        680
+
+Time =       0.06 sec    Generated terms =         12
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.06 sec    Generated terms =         12
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.06 sec    Generated terms =         10
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.06 sec    Generated terms =         11
+              U3a        Terms in output =         11
+                         Bytes used      =        784
+
+Time =       0.06 sec    Generated terms =         11
+              U3b        Terms in output =         11
+                         Bytes used      =        832
+
+Time =       0.06 sec    Generated terms =         11
+              U3c        Terms in output =         11
+                         Bytes used      =        734
+
+Time =       0.06 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.06 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.06 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.06 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.06 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.06 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.06 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.06 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.06 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.06 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.06 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.06 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.06 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.06 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.06 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.07 sec    Generated terms =         11
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+    
+    
+    **** now we solve second-order equations for G
+    #call sol(U3a,G(2*a))
+
+Time =       0.07 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.07 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.07 sec    Generated terms =         21
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.07 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.07 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.07 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.07 sec    Generated terms =         24
+              U1a        Terms in output =         23
+                         Bytes used      =       1722
+
+Time =       0.07 sec    Generated terms =         15
+              U1b        Terms in output =         15
+                         Bytes used      =       1170
+
+Time =       0.07 sec    Generated terms =         15
+              U1c        Terms in output =         15
+                         Bytes used      =       1188
+
+Time =       0.07 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.07 sec    Generated terms =         10
+              U2a        Terms in output =         10
+                         Bytes used      =        680
+
+Time =       0.07 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.07 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.07 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.07 sec    Generated terms =         20
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =         11
+              U3b        Terms in output =         11
+                         Bytes used      =        832
+
+Time =       0.07 sec    Generated terms =         11
+              U3c        Terms in output =         11
+                         Bytes used      =        734
+
+Time =       0.07 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.07 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.07 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.07 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.07 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.07 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.07 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.07 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.07 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.07 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.07 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.07 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.07 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.07 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.07 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.07 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.07 sec    Generated terms =         10
+         [G(2*a)]        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.07 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.07 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.07 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.07 sec    Generated terms =         23
+              U1a        Terms in output =         23
+                         Bytes used      =       1722
+
+Time =       0.07 sec    Generated terms =         15
+              U1b        Terms in output =         15
+                         Bytes used      =       1170
+
+Time =       0.07 sec    Generated terms =         15
+              U1c        Terms in output =         15
+                         Bytes used      =       1188
+
+Time =       0.07 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.07 sec    Generated terms =         10
+              U2a        Terms in output =         10
+                         Bytes used      =        680
+
+Time =       0.07 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.07 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.07 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.07 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =         11
+              U3b        Terms in output =         11
+                         Bytes used      =        832
+
+Time =       0.07 sec    Generated terms =         11
+              U3c        Terms in output =         11
+                         Bytes used      =        734
+
+Time =       0.07 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.07 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.07 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.07 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.07 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.07 sec    Generated terms =          5
+              U5a        Terms in output =          5
+                         Bytes used      =        356
+
+Time =       0.07 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.07 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.07 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.07 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.07 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.07 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.07 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.07 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.07 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.07 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.07 sec    Generated terms =         10
+         [G(2*a)]        Terms in output =         10
+                         Bytes used      =        750
+    #call sol(U3b,G(a+b))
+
+Time =       0.07 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.07 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.07 sec    Generated terms =         21
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.07 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.07 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.07 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.07 sec    Generated terms =         23
+              U1a        Terms in output =         23
+                         Bytes used      =       1722
+
+Time =       0.07 sec    Generated terms =         24
+              U1b        Terms in output =         23
+                         Bytes used      =       1792
+
+Time =       0.07 sec    Generated terms =         15
+              U1c        Terms in output =         15
+                         Bytes used      =       1188
+
+Time =       0.07 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.07 sec    Generated terms =         19
+              U2a        Terms in output =         19
+                         Bytes used      =       1402
+
+Time =       0.07 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.07 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.07 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.07 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =         20
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.07 sec    Generated terms =         11
+              U3c        Terms in output =         11
+                         Bytes used      =        734
+
+Time =       0.08 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.08 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.08 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.08 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.08 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.08 sec    Generated terms =         14
+              U5a        Terms in output =         12
+                         Bytes used      =        914
+
+Time =       0.08 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.08 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.08 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.08 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.08 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.08 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.08 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.08 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.08 sec    Generated terms =         10
+         [G(2*a)]        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.08 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.08 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.08 sec    Generated terms =         10
+         [G(a+b)]        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.08 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.08 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.08 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.08 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.08 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.09 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.09 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.09 sec    Generated terms =         23
+              U1a        Terms in output =         23
+                         Bytes used      =       1722
+
+Time =       0.09 sec    Generated terms =         23
+              U1b        Terms in output =         23
+                         Bytes used      =       1792
+
+Time =       0.09 sec    Generated terms =         15
+              U1c        Terms in output =         15
+                         Bytes used      =       1188
+
+Time =       0.09 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.09 sec    Generated terms =         19
+              U2a        Terms in output =         19
+                         Bytes used      =       1402
+
+Time =       0.09 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.09 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.09 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.09 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.09 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.09 sec    Generated terms =         11
+              U3c        Terms in output =         11
+                         Bytes used      =        734
+
+Time =       0.09 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.09 sec    Generated terms =          4
+              U4a        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.09 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.09 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.09 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.09 sec    Generated terms =         12
+              U5a        Terms in output =         12
+                         Bytes used      =        914
+
+Time =       0.09 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.09 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.09 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.09 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.09 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.09 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.09 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.09 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.09 sec    Generated terms =         10
+         [G(2*a)]        Terms in output =         10
+                         Bytes used      =        750
+
+Time =       0.09 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.09 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.09 sec    Generated terms =         10
+         [G(a+b)]        Terms in output =         10
+                         Bytes used      =        782
+    #call sol(U3c,G(a+c))
+
+Time =       0.09 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.10 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.10 sec    Generated terms =         21
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.10 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.10 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.10 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.10 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.10 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.10 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.10 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.10 sec    Generated terms =         32
+              U1a        Terms in output =         32
+                         Bytes used      =       2346
+
+Time =       0.10 sec    Generated terms =         23
+              U1b        Terms in output =         23
+                         Bytes used      =       1792
+
+Time =       0.10 sec    Generated terms =         24
+              U1c        Terms in output =         23
+                         Bytes used      =       1712
+
+Time =       0.10 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.10 sec    Generated terms =         19
+              U2a        Terms in output =         19
+                         Bytes used      =       1402
+
+Time =       0.10 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.10 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.11 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.11 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =         20
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.11 sec    Generated terms =         13
+              U4a        Terms in output =         12
+                         Bytes used      =        838
+
+Time =       0.11 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.11 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.11 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.11 sec    Generated terms =         12
+              U5a        Terms in output =         12
+                         Bytes used      =        914
+
+Time =       0.11 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.11 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.11 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.11 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.11 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.11 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.11 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.11 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.11 sec    Generated terms =         19
+         [G(2*a)]        Terms in output =         19
+                         Bytes used      =       1374
+
+Time =       0.11 sec    Generated terms =         10
+         [G(a+b)]        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.11 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.11 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.11 sec    Generated terms =         10
+         [G(a+c)]        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.11 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.11 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.11 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.11 sec    Generated terms =         32
+              U1a        Terms in output =         32
+                         Bytes used      =       2346
+
+Time =       0.11 sec    Generated terms =         23
+              U1b        Terms in output =         23
+                         Bytes used      =       1792
+
+Time =       0.11 sec    Generated terms =         23
+              U1c        Terms in output =         23
+                         Bytes used      =       1712
+
+Time =       0.11 sec    Generated terms =         13
+              U1d        Terms in output =         13
+                         Bytes used      =        946
+
+Time =       0.11 sec    Generated terms =         19
+              U2a        Terms in output =         19
+                         Bytes used      =       1402
+
+Time =       0.11 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.11 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.11 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.11 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          9
+              U3d        Terms in output =          9
+                         Bytes used      =        642
+
+Time =       0.11 sec    Generated terms =         12
+              U4a        Terms in output =         12
+                         Bytes used      =        838
+
+Time =       0.11 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.11 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.11 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.11 sec    Generated terms =         12
+              U5a        Terms in output =         12
+                         Bytes used      =        914
+
+Time =       0.11 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.11 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.11 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.11 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.11 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.11 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.11 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.11 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.11 sec    Generated terms =         19
+         [G(2*a)]        Terms in output =         19
+                         Bytes used      =       1374
+
+Time =       0.11 sec    Generated terms =         10
+         [G(a+b)]        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.11 sec    Generated terms =         10
+             tsol        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.11 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.11 sec    Generated terms =         10
+         [G(a+c)]        Terms in output =         10
+                         Bytes used      =        684
+    #call sol(U3d,G(a+d))
+
+Time =       0.11 sec    Generated terms =          8
+             tsol        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.11 sec    Generated terms =          8
+             tsol        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.11 sec    Generated terms =         17
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.11 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.11 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.11 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.11 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.11 sec    Generated terms =         46
+              U1a        Terms in output =         44
+                         Bytes used      =       3262
+
+Time =       0.11 sec    Generated terms =         23
+              U1b        Terms in output =         23
+                         Bytes used      =       1792
+
+Time =       0.11 sec    Generated terms =         23
+              U1c        Terms in output =         23
+                         Bytes used      =       1712
+
+Time =       0.11 sec    Generated terms =         20
+              U1d        Terms in output =         19
+                         Bytes used      =       1394
+
+Time =       0.12 sec    Generated terms =         26
+              U2a        Terms in output =         26
+                         Bytes used      =       1902
+
+Time =       0.12 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.12 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.12 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.12 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.12 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.12 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.12 sec    Generated terms =         16
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.12 sec    Generated terms =         12
+              U4a        Terms in output =         12
+                         Bytes used      =        838
+
+Time =       0.12 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.12 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.12 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.12 sec    Generated terms =         12
+              U5a        Terms in output =         12
+                         Bytes used      =        914
+
+Time =       0.12 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.12 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.12 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.12 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.12 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.12 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.12 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.12 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.13 sec    Generated terms =         26
+         [G(2*a)]        Terms in output =         25
+                         Bytes used      =       1836
+
+Time =       0.13 sec    Generated terms =         10
+         [G(a+b)]        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.13 sec    Generated terms =         10
+         [G(a+c)]        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.13 sec    Generated terms =          8
+             tsol        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.13 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.13 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.13 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.13 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.13 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.13 sec    Generated terms =         44
+              U1a        Terms in output =         44
+                         Bytes used      =       3262
+
+Time =       0.13 sec    Generated terms =         23
+              U1b        Terms in output =         23
+                         Bytes used      =       1792
+
+Time =       0.13 sec    Generated terms =         23
+              U1c        Terms in output =         23
+                         Bytes used      =       1712
+
+Time =       0.13 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1394
+
+Time =       0.13 sec    Generated terms =         26
+              U2a        Terms in output =         26
+                         Bytes used      =       1842
+
+Time =       0.13 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.13 sec    Generated terms =         10
+              U2c        Terms in output =         10
+                         Bytes used      =        730
+
+Time =       0.13 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.13 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =         12
+              U4a        Terms in output =         12
+                         Bytes used      =        838
+
+Time =       0.13 sec    Generated terms =          4
+              U4b        Terms in output =          4
+                         Bytes used      =        256
+
+Time =       0.13 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.13 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.13 sec    Generated terms =         12
+              U5a        Terms in output =         12
+                         Bytes used      =        914
+
+Time =       0.13 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.13 sec    Generated terms =          5
+              U5c        Terms in output =          5
+                         Bytes used      =        320
+
+Time =       0.13 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.13 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.13 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.13 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.13 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.13 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.13 sec    Generated terms =         25
+         [G(2*a)]        Terms in output =         25
+                         Bytes used      =       1836
+
+Time =       0.13 sec    Generated terms =         10
+         [G(a+b)]        Terms in output =         10
+                         Bytes used      =        782
+
+Time =       0.13 sec    Generated terms =         10
+         [G(a+c)]        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.13 sec    Generated terms =          8
+             tsol        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.13 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.13 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        592
+    
+    #call sol(U4b,G(b+c))
+
+Time =       0.13 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.13 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.13 sec    Generated terms =          7
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.13 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.13 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.13 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.13 sec    Generated terms =         44
+              U1a        Terms in output =         44
+                         Bytes used      =       3262
+
+Time =       0.13 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.13 sec    Generated terms =         23
+              U1c        Terms in output =         23
+                         Bytes used      =       1712
+
+Time =       0.13 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1394
+
+Time =       0.13 sec    Generated terms =         28
+              U2a        Terms in output =         28
+                         Bytes used      =       1994
+
+Time =       0.13 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.13 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.13 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.13 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =         12
+              U4a        Terms in output =         12
+                         Bytes used      =        838
+
+Time =       0.13 sec    Generated terms =          6
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.13 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.13 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.13 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.13 sec    Generated terms =          7
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.13 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.13 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.13 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.13 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.13 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.13 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.13 sec    Generated terms =         25
+         [G(2*a)]        Terms in output =         25
+                         Bytes used      =       1836
+
+Time =       0.13 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.13 sec    Generated terms =         10
+         [G(a+c)]        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.13 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.13 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.13 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.13 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.13 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.13 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.13 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.13 sec    Generated terms =         44
+              U1a        Terms in output =         44
+                         Bytes used      =       3262
+
+Time =       0.13 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.13 sec    Generated terms =         23
+              U1c        Terms in output =         23
+                         Bytes used      =       1712
+
+Time =       0.13 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1394
+
+Time =       0.13 sec    Generated terms =         28
+              U2a        Terms in output =         28
+                         Bytes used      =       1994
+
+Time =       0.13 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.13 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.13 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.13 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =         12
+              U4a        Terms in output =         12
+                         Bytes used      =        838
+
+Time =       0.13 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.13 sec    Generated terms =          4
+              U4c        Terms in output =          4
+                         Bytes used      =        238
+
+Time =       0.13 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.13 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.13 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.13 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.13 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.13 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.13 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.13 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.13 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.13 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.13 sec    Generated terms =         25
+         [G(2*a)]        Terms in output =         25
+                         Bytes used      =       1836
+
+Time =       0.13 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.13 sec    Generated terms =         10
+         [G(a+c)]        Terms in output =         10
+                         Bytes used      =        684
+
+Time =       0.13 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.13 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.13 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.13 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+    #call sol(U4c,G(2*c))
+
+Time =       0.13 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.14 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.14 sec    Generated terms =          7
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.14 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.14 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.14 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.14 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3428
+
+Time =       0.14 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.14 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1878
+
+Time =       0.14 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1394
+
+Time =       0.14 sec    Generated terms =         28
+              U2a        Terms in output =         28
+                         Bytes used      =       1994
+
+Time =       0.14 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.14 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.14 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.14 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1004
+
+Time =       0.14 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          6
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.14 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.14 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.14 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.14 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.14 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.14 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.14 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.14 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.14 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.14 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2002
+
+Time =       0.14 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.14 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        850
+
+Time =       0.14 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.14 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.14 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.14 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.14 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.14 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.14 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.14 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.14 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3428
+
+Time =       0.14 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.14 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1878
+
+Time =       0.14 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1394
+
+Time =       0.14 sec    Generated terms =         28
+              U2a        Terms in output =         28
+                         Bytes used      =       1994
+
+Time =       0.14 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.14 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.14 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.14 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1004
+
+Time =       0.14 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.14 sec    Generated terms =          2
+              U4d        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.14 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.14 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.14 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.14 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.14 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.14 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.14 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.14 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.14 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.14 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2002
+
+Time =       0.14 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.14 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        850
+
+Time =       0.14 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        592
+
+Time =       0.14 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.14 sec    Generated terms =          3
+             tsol        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.14 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.14 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+    #call sol(U4d,G(c+d))
+
+Time =       0.15 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.15 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.15 sec    Generated terms =          3
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.15 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.15 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.15 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.15 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.15 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.15 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.15 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.16 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3464
+
+Time =       0.16 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.16 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.16 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1412
+
+Time =       0.16 sec    Generated terms =         28
+              U2a        Terms in output =         26
+                         Bytes used      =       1872
+
+Time =       0.16 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.16 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.16 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.16 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.16 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          2
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.16 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.16 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.16 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.16 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.16 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.16 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.16 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.16 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.16 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2020
+
+Time =       0.16 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.16 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.16 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        610
+
+Time =       0.16 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.16 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.16 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.16 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.16 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.16 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.16 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.16 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.16 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3464
+
+Time =       0.16 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.16 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.16 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1412
+
+Time =       0.16 sec    Generated terms =         26
+              U2a        Terms in output =         26
+                         Bytes used      =       1872
+
+Time =       0.16 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        634
+
+Time =       0.16 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.16 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.16 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.16 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.16 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.16 sec    Generated terms =          5
+              U5b        Terms in output =          5
+                         Bytes used      =        322
+
+Time =       0.16 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.16 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.16 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.16 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.17 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.17 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.17 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.17 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2020
+
+Time =       0.17 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.17 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.17 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        610
+
+Time =       0.17 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.17 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.17 sec    Generated terms =          1
+             tsol        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.17 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.17 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+    
+    #call sol(U5b,G(2*b))
+
+Time =       0.17 sec    Generated terms =          4
+             tsol        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.17 sec    Generated terms =          4
+             tsol        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.17 sec    Generated terms =          9
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.17 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.17 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.17 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.17 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3464
+
+Time =       0.17 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.17 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.17 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1412
+
+Time =       0.17 sec    Generated terms =         26
+              U2a        Terms in output =         26
+                         Bytes used      =       1872
+
+Time =       0.17 sec    Generated terms =         13
+              U2b        Terms in output =         11
+                         Bytes used      =        716
+
+Time =       0.17 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.17 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.17 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.17 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.17 sec    Generated terms =          8
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.17 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.17 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.17 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.17 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.17 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.17 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.17 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.17 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2020
+
+Time =       0.17 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.17 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.17 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        610
+
+Time =       0.17 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.17 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.17 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.17 sec    Generated terms =          4
+             tsol        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.17 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.17 sec    Generated terms =          4
+         [G(2*b)]        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.17 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.18 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.18 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.18 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3464
+
+Time =       0.18 sec    Generated terms =         25
+              U1b        Terms in output =         25
+                         Bytes used      =       1944
+
+Time =       0.18 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.18 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1412
+
+Time =       0.18 sec    Generated terms =         26
+              U2a        Terms in output =         26
+                         Bytes used      =       1872
+
+Time =       0.18 sec    Generated terms =         11
+              U2b        Terms in output =         11
+                         Bytes used      =        716
+
+Time =       0.18 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.18 sec    Generated terms =          8
+              U2d        Terms in output =          8
+                         Bytes used      =        506
+
+Time =       0.18 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.18 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =         14
+              U5a        Terms in output =         14
+                         Bytes used      =       1066
+
+Time =       0.18 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.18 sec    Generated terms =          3
+              U5d        Terms in output =          3
+                         Bytes used      =        188
+
+Time =       0.18 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.18 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.18 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.18 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.18 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.18 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2020
+
+Time =       0.18 sec    Generated terms =         12
+         [G(a+b)]        Terms in output =         12
+                         Bytes used      =        934
+
+Time =       0.18 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.18 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        610
+
+Time =       0.18 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.18 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.18 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.18 sec    Generated terms =          4
+             tsol        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.18 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.18 sec    Generated terms =          4
+         [G(2*b)]        Terms in output =          4
+                         Bytes used      =        288
+    #call sol(U5d,G(b+d))
+
+Time =       0.18 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.18 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.18 sec    Generated terms =          5
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.18 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.18 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.18 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.18 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3464
+
+Time =       0.18 sec    Generated terms =         27
+              U1b        Terms in output =         26
+                         Bytes used      =       1998
+
+Time =       0.18 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.18 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1412
+
+Time =       0.18 sec    Generated terms =         27
+              U2a        Terms in output =         25
+                         Bytes used      =       1870
+
+Time =       0.18 sec    Generated terms =         12
+              U2b        Terms in output =         10
+                         Bytes used      =        614
+
+Time =       0.18 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.18 sec    Generated terms =          9
+              U2d        Terms in output =          7
+                         Bytes used      =        404
+
+Time =       0.18 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.18 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =         15
+              U5a        Terms in output =         15
+                         Bytes used      =       1150
+
+Time =       0.18 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.18 sec    Generated terms =          4
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.18 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.18 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.18 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.18 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.18 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2020
+
+Time =       0.18 sec    Generated terms =         13
+         [G(a+b)]        Terms in output =         13
+                         Bytes used      =       1018
+
+Time =       0.18 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.18 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        610
+
+Time =       0.18 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.18 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.18 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.18 sec    Generated terms =          4
+         [G(2*b)]        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.18 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.18 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.18 sec    Generated terms =          2
+         [G(b+d)]        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.18 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.18 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.18 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.18 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.19 sec    Generated terms =         46
+              U1a        Terms in output =         46
+                         Bytes used      =       3464
+
+Time =       0.19 sec    Generated terms =         26
+              U1b        Terms in output =         26
+                         Bytes used      =       1998
+
+Time =       0.19 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.19 sec    Generated terms =         19
+              U1d        Terms in output =         19
+                         Bytes used      =       1412
+
+Time =       0.19 sec    Generated terms =         25
+              U2a        Terms in output =         25
+                         Bytes used      =       1870
+
+Time =       0.19 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        614
+
+Time =       0.19 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.19 sec    Generated terms =          7
+              U2d        Terms in output =          7
+                         Bytes used      =        404
+
+Time =       0.19 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.19 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =         15
+              U5a        Terms in output =         15
+                         Bytes used      =       1150
+
+Time =       0.19 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.19 sec    Generated terms =          0
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.19 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.19 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.19 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.19 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.19 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.19 sec    Generated terms =         27
+         [G(2*a)]        Terms in output =         27
+                         Bytes used      =       2020
+
+Time =       0.19 sec    Generated terms =         13
+         [G(a+b)]        Terms in output =         13
+                         Bytes used      =       1018
+
+Time =       0.19 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.19 sec    Generated terms =          8
+         [G(a+d)]        Terms in output =          8
+                         Bytes used      =        610
+
+Time =       0.19 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.19 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.19 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.19 sec    Generated terms =          4
+         [G(2*b)]        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.19 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.19 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.19 sec    Generated terms =          2
+         [G(b+d)]        Terms in output =          2
+                         Bytes used      =        138
+    
+    **** again it's better to do "by hand"
+    L [G(2*d)] =    (F(a + d) - F(a)*F(b + d)*[1/F(b)]
+           - 2*F(b)*F(2*d)*f(b + c)*[1/f(2*b)]  + F(c)*F(2*d)
+           - F(c)*F(d)*F(b + d)*[1/F(b)] + F(d)*F(c + d))*[1/F(b)];
+    id G(2*d) = [G(2*d)];
+    repeat; 
+    id F(b)*[1/F(b)]=1;
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    .sort
+
+Time =       0.20 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.20 sec    Generated terms =         10
+               U1        Terms in output =         10
+                         Bytes used      =        542
+
+Time =       0.20 sec    Generated terms =          0
+               U2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+               U3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+               U4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+               U5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          1
+          [det20]        Terms in output =          1
+                         Bytes used      =         38
+
+Time =       0.20 sec    Generated terms =         56
+              U1a        Terms in output =         49
+                         Bytes used      =       3750
+
+Time =       0.20 sec    Generated terms =         26
+              U1b        Terms in output =         26
+                         Bytes used      =       1998
+
+Time =       0.20 sec    Generated terms =         25
+              U1c        Terms in output =         25
+                         Bytes used      =       1914
+
+Time =       0.20 sec    Generated terms =         29
+              U1d        Terms in output =         21
+                         Bytes used      =       1622
+
+Time =       0.20 sec    Generated terms =         30
+              U2a        Terms in output =         29
+                         Bytes used      =       2124
+
+Time =       0.20 sec    Generated terms =         10
+              U2b        Terms in output =         10
+                         Bytes used      =        614
+
+Time =       0.20 sec    Generated terms =         12
+              U2c        Terms in output =         12
+                         Bytes used      =        900
+
+Time =       0.20 sec    Generated terms =         12
+              U2d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =         14
+              U4a        Terms in output =         14
+                         Bytes used      =       1036
+
+Time =       0.20 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =         15
+              U5a        Terms in output =         15
+                         Bytes used      =       1150
+
+Time =       0.20 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          6
+              U5c        Terms in output =          6
+                         Bytes used      =        392
+
+Time =       0.20 sec    Generated terms =          0
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       0.20 sec    Generated terms =          6
+           [G(a)]        Terms in output =          6
+                         Bytes used      =        316
+
+Time =       0.20 sec    Generated terms =          1
+           [G(c)]        Terms in output =          1
+                         Bytes used      =         54
+
+Time =       0.20 sec    Generated terms =          2
+           [G(b)]        Terms in output =          2
+                         Bytes used      =         82
+
+Time =       0.20 sec    Generated terms =          4
+           [G(d)]        Terms in output =          4
+                         Bytes used      =        178
+
+Time =       0.20 sec    Generated terms =         10
+              U1F        Terms in output =         10
+                         Bytes used      =        570
+
+Time =       0.20 sec    Generated terms =         32
+         [G(2*a)]        Terms in output =         31
+                         Bytes used      =       2308
+
+Time =       0.20 sec    Generated terms =         13
+         [G(a+b)]        Terms in output =         13
+                         Bytes used      =       1018
+
+Time =       0.20 sec    Generated terms =         12
+         [G(a+c)]        Terms in output =         12
+                         Bytes used      =        882
+
+Time =       0.20 sec    Generated terms =         13
+         [G(a+d)]        Terms in output =         12
+                         Bytes used      =        898
+
+Time =       0.20 sec    Generated terms =          3
+         [G(b+c)]        Terms in output =          3
+                         Bytes used      =        206
+
+Time =       0.20 sec    Generated terms =          3
+         [G(2*c)]        Terms in output =          3
+                         Bytes used      =        204
+
+Time =       0.20 sec    Generated terms =          1
+         [G(c+d)]        Terms in output =          1
+                         Bytes used      =         86
+
+Time =       0.20 sec    Generated terms =          4
+         [G(2*b)]        Terms in output =          4
+                         Bytes used      =        288
+
+Time =       0.20 sec    Generated terms =          2
+             tsol        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.20 sec    Generated terms =          1
+               co        Terms in output =          1
+                         Bytes used      =         10
+
+Time =       0.20 sec    Generated terms =          2
+         [G(b+d)]        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.20 sec    Generated terms =          6
+         [G(2*d)]        Terms in output =          6
+                         Bytes used      =        388
+    
+    **** Now we input the simplified expressions for
+    **** the second-order derivatives of F(a,b,c,d)
+    **** (in terms of its first-order derivatives and the derivatives
+    **** of the Lagrangian)
+    skip;
+    #include- F2ordReduced;
+    .sort
+
+Time =       0.34 sec    Generated terms =        367
+         [F(2*a)]        Terms in output =        367
+                         Bytes used      =      38562
+
+Time =       0.35 sec    Generated terms =         70
+         [F(2*b)]        Terms in output =         70
+                         Bytes used      =       7396
+
+Time =       0.35 sec    Generated terms =         53
+         [F(2*c)]        Terms in output =         53
+                         Bytes used      =       5402
+
+Time =       0.36 sec    Generated terms =        129
+         [F(2*d)]        Terms in output =        129
+                         Bytes used      =      13828
+
+Time =       0.37 sec    Generated terms =        183
+         [F(a+b)]        Terms in output =        183
+                         Bytes used      =      19388
+
+Time =       0.39 sec    Generated terms =        173
+         [F(a+c)]        Terms in output =        173
+                         Bytes used      =      18048
+
+Time =       0.41 sec    Generated terms =        237
+         [F(a+d)]        Terms in output =        237
+                         Bytes used      =      25302
+
+Time =       0.41 sec    Generated terms =         58
+         [F(b+c)]        Terms in output =         58
+                         Bytes used      =       5804
+
+Time =       0.41 sec    Generated terms =        108
+         [F(b+d)]        Terms in output =        108
+                         Bytes used      =      11176
+
+Time =       0.42 sec    Generated terms =         99
+         [F(c+d)]        Terms in output =         99
+                         Bytes used      =      10164
+    
+    **** Here we assign the second-order derivatives of F(a,b,c,d)
+    **** to their values given in "F2ordReduced"
+    **** and substitute them into the equations Uij
+    skip;
+    nskip
+    #do i={1,2,3,4,5}
+    
+    #do j={a,b,c,d}
+    
+    U`i'`j'
+    #enddo
+    #enddo
+    ;
+    #do j={F(2*a),F(2*b),F(2*c),F(2*d),F(a+b),F(a+c),F(a+d),F(b+c),F(b+d),F(c+d)}
+    
+    id `j'=[`j'];
+    #enddo
+    .sort
+
+Time =       0.73 sec    Generated terms =       6132
+              U1a        Terms in output =       1616
+                         Bytes used      =     182808
+
+Time =       0.82 sec    Generated terms =       2134
+              U1b        Terms in output =        619
+                         Bytes used      =      68388
+
+Time =       0.89 sec    Generated terms =       1894
+              U1c        Terms in output =        495
+                         Bytes used      =      56394
+
+Time =       1.01 sec    Generated terms =       2895
+              U1d        Terms in output =        988
+                         Bytes used      =     112970
+
+Time =       1.13 sec    Generated terms =       2983
+              U2a        Terms in output =        683
+                         Bytes used      =      73404
+
+Time =       1.15 sec    Generated terms =        592
+              U2b        Terms in output =        228
+                         Bytes used      =      24308
+
+Time =       1.17 sec    Generated terms =        727
+              U2c        Terms in output =        300
+                         Bytes used      =      31542
+
+Time =       1.17 sec    Generated terms =          0
+              U2d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.17 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.17 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.17 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.17 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.20 sec    Generated terms =        723
+              U4a        Terms in output =        223
+                         Bytes used      =      26174
+
+Time =       1.20 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.20 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.20 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.24 sec    Generated terms =       1047
+              U5a        Terms in output =        330
+                         Bytes used      =      34134
+
+Time =       1.24 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.25 sec    Generated terms =        184
+              U5c        Terms in output =         83
+                         Bytes used      =       8680
+
+Time =       1.25 sec    Generated terms =          0
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+    
+    **** We get rid of the common denominator to make them
+    **** easier to inspect
+    skip;
+    nskip
+    #do i={1,2,3,4,5}
+    
+    #do j={a,b,c,d}
+    
+    U`i'`j'
+    #enddo
+    #enddo
+    ;
+    Multiply [det20]^3;
+    repeat; 
+    id F(b)*[1/F(b)]=1;
+    id [Hess]*[1/Hess]=1;
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    .sort
+
+Time =       1.45 sec    Generated terms =       1616
+              U1a        Terms in output =       1024
+                         Bytes used      =     108634
+
+Time =       1.52 sec    Generated terms =        619
+              U1b        Terms in output =        383
+                         Bytes used      =      42860
+
+Time =       1.57 sec    Generated terms =        495
+              U1c        Terms in output =        355
+                         Bytes used      =      39952
+
+Time =       1.70 sec    Generated terms =        988
+              U1d        Terms in output =        608
+                         Bytes used      =      64510
+
+Time =       1.77 sec    Generated terms =        683
+              U2a        Terms in output =        281
+                         Bytes used      =      30280
+
+Time =       1.80 sec    Generated terms =        228
+              U2b        Terms in output =        156
+                         Bytes used      =      17186
+
+Time =       1.83 sec    Generated terms =        300
+              U2c        Terms in output =        162
+                         Bytes used      =      17644
+
+Time =       1.83 sec    Generated terms =          0
+              U2d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.83 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.83 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.83 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.83 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.85 sec    Generated terms =        223
+              U4a        Terms in output =        155
+                         Bytes used      =      18074
+
+Time =       1.85 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.85 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.85 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.89 sec    Generated terms =        330
+              U5a        Terms in output =        163
+                         Bytes used      =      17952
+
+Time =       1.89 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       1.90 sec    Generated terms =         83
+              U5c        Terms in output =         18
+                         Bytes used      =       2316
+
+Time =       1.90 sec    Generated terms =          0
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+    
+    **** Now comes the first simplification:
+    **** we cancel the Hessian (of the Lagrangian)
+    **** if it is present 
+    skip;
+    nskip
+    #do i={1,2,3,4,5}
+    
+    #do j={a,b,c,d}
+    
+    U`i'`j'
+    #enddo
+    #enddo
+    ;
+    repeat; 
+    id [Hess]*[1/Hess]=1;
+    id f(a + b)^2*f(2*c) = -( - f(2*a)*f(2*b)*f(2*c) + f(2*b)*f(a + c)^2
+         - 2*f(a + b)*f(a + c)*f(b + c) + f(2*a)*f(b + c)^2) - [Hess];
+    id F(b)*[1/F(b)]=1;
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    .sort
+
+Time =       1.97 sec    Generated terms =       1200
+              U1a        Terms in output =        985
+                         Bytes used      =     104576
+
+Time =       1.99 sec    Generated terms =        435
+              U1b        Terms in output =        366
+                         Bytes used      =      41170
+
+Time =       2.03 sec    Generated terms =        491
+              U1c        Terms in output =        384
+                         Bytes used      =      43384
+
+Time =       2.07 sec    Generated terms =        664
+              U1d        Terms in output =        597
+                         Bytes used      =      63144
+
+Time =       2.09 sec    Generated terms =        369
+              U2a        Terms in output =        214
+                         Bytes used      =      22386
+
+Time =       2.10 sec    Generated terms =        156
+              U2b        Terms in output =        156
+                         Bytes used      =      17186
+
+Time =       2.11 sec    Generated terms =        210
+              U2c        Terms in output =        130
+                         Bytes used      =      13866
+
+Time =       2.11 sec    Generated terms =          0
+              U2d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.11 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.11 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.11 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.11 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.12 sec    Generated terms =        199
+              U4a        Terms in output =        136
+                         Bytes used      =      15816
+
+Time =       2.12 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.12 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.12 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.13 sec    Generated terms =        199
+              U5a        Terms in output =        130
+                         Bytes used      =      13866
+
+Time =       2.13 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.13 sec    Generated terms =         30
+              U5c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.13 sec    Generated terms =          0
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+    
+    ****  the main simplification: we take (??)
+    **** into account and print the resulting Uij
+    **** - they are zeros as expected
+    skip;
+    nskip
+    #do i={1,2,3,4,5}
+    
+    #do j={a,b,c,d}
+    
+    U`i'`j'
+    #enddo
+    #enddo
+    ;
+    repeat; 
+    id [Hess]*[1/Hess]=1;
+    id F(a)^2= - [1/f(2*b)]*
+    ( - 2*F(a)*F(b)*F(d)*f(b + c) - 2*F(a)*F(b)*f(a + b) + 2*
+     F(a)*F(c)*F(d)*f(2*b) + F(b)^2*F(d)^2*f(2*c) + 2*F(b)^2*F(d)*f(a + c)
+     + F(b)^2*f(2*a) - 2*F(b)*F(c)*F(d)^2*f(b + c) - 2*F(b)*F(c)*F(d)*f(a
+              + b) + F(c)^2*F(d)^2*f(2*b));
+    id f(a + b)^2*f(2*c) = -( - f(2*a)*f(2*b)*f(2*c) + f(2*b)*f(a + c)^2
+         - 2*f(a + b)*f(a + c)*f(b + c) + f(2*a)*f(b + c)^2) - [Hess];
+    id F(b)*[1/F(b)]=1;
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    print;
+    .end
+
+Time =       2.61 sec    Generated terms =       4213
+              U1a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.67 sec    Generated terms =        718
+              U1b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.73 sec    Generated terms =        760
+              U1c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.94 sec    Generated terms =       2237
+              U1d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       2.98 sec    Generated terms =        414
+              U2a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.01 sec    Generated terms =        292
+              U2b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.03 sec    Generated terms =        242
+              U2c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.03 sec    Generated terms =          0
+              U2d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.03 sec    Generated terms =          0
+              U3a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.03 sec    Generated terms =          0
+              U3b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.03 sec    Generated terms =          0
+              U3c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.03 sec    Generated terms =          0
+              U3d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.06 sec    Generated terms =        256
+              U4a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.06 sec    Generated terms =          0
+              U4b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.06 sec    Generated terms =          0
+              U4c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.06 sec    Generated terms =          0
+              U4d        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.08 sec    Generated terms =        242
+              U5a        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.08 sec    Generated terms =          0
+              U5b        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.08 sec    Generated terms =          0
+              U5c        Terms in output =          0
+                         Bytes used      =          2
+
+Time =       3.08 sec    Generated terms =          0
+              U5d        Terms in output =          0
+                         Bytes used      =          2
+
+   U1a = 0;
+
+   U1b = 0;
+
+   U1c = 0;
+
+   U1d = 0;
+
+   U2a = 0;
+
+   U2b = 0;
+
+   U2c = 0;
+
+   U2d = 0;
+
+   U3a = 0;
+
+   U3b = 0;
+
+   U3c = 0;
+
+   U3d = 0;
+
+   U4a = 0;
+
+   U4b = 0;
+
+   U4c = 0;
+
+   U4d = 0;
+
+   U5a = 0;
+
+   U5b = 0;
+
+   U5c = 0;
+
+   U5d = 0;
+

@@ -1,0 +1,2188 @@
+####  Here we just removed all "[" and "]" aroud 1/Hess, 1/f(2*b)  and 
+####  substituted ":=" instead of "=" as well as ":" instead of ";" in the end
+####  Maple happily eats this expression!
+  all :=
+       + 1/Hess * (  - 2*f(a + b)^3*f(a + 2*c)*f(2*b + c)*mu(i)*la(j)*
+         1/f(2*b) - 2*f(a + b)^3*f(a + 2*c)*f(2*b + c)*mu(i)*la(k)*
+         1/f(2*b) - 2*f(a + b)^3*f(2*a + c)*f(2*b + c)*mu(i)*1/f(2*b) + 6*
+         f(a + b)^3*f(2*b + c)^2*mu(i)*mu(j)*mu(k)*1/f(2*b) + 2*f(a + b)^2*
+         f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*la(j)*1/f(2*b) + 2*f(a + b)^2*
+         f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*la(k)*1/f(2*b) + 3*f(a + b)^2*
+         f(a + 2*b)*f(a + 2*c)*mu(i)*mu(j) + 3*f(a + b)^2*f(a + 2*b)*f(a + 2*c
+         )*mu(i)*mu(k) + 2*f(a + b)^2*f(a + 2*b)*f(2*a + c)*f(b + c)*mu(i)*
+         1/f(2*b) - 12*f(a + b)^2*f(a + 2*b)*f(b + c)*f(2*b + c)*mu(i)*mu(j)
+         *mu(k)*1/f(2*b) + 12*f(a + b)^2*f(a + 2*b)*f(b + 2*c)*mu(i)*mu(j)*
+         mu(k) - 2*f(a + b)^2*f(a + c)*f(a + 2*c)*f(2*b + c)*la(i)*la(j)*
+         1/f(2*b) - 2*f(a + b)^2*f(a + c)*f(a + 2*c)*f(2*b + c)*la(i)*la(k)*
+         1/f(2*b) + 2*f(a + b)^2*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i)*
+         1/f(2*b) - 2*f(a + b)^2*f(a + c)*f(2*a + c)*f(2*b + c)*la(i)*
+         1/f(2*b) + 6*f(a + b)^2*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(j)*
+         la(k)*1/f(2*b) + 4*f(a + b)^2*f(a + c)*f(2*b + c)*f(a + b + c)*mu(i
+         )*la(j)*1/f(2*b) + 4*f(a + b)^2*f(a + c)*f(2*b + c)*f(a + b + c)*
+         mu(i)*la(k)*1/f(2*b) + 6*f(a + b)^2*f(a + c)*f(2*b + c)^2*mu(i)*mu(
+         j)*la(k)*1/f(2*b) + 6*f(a + b)^2*f(a + c)*f(2*b + c)^2*mu(i)*mu(k)*
+         la(j)*1/f(2*b) + 6*f(a + b)^2*f(a + c)*f(2*b + c)^2*mu(j)*mu(k)*la(
+         i)*1/f(2*b) + 2*f(a + b)^2*f(a + 2*c)*f(a + b + c)*mu(i)*la(j) + 2*
+         f(a + b)^2*f(a + 2*c)*f(a + b + c)*mu(i)*la(k) - 2*f(a + b)^2*f(a + 2
+         *c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*1/f(2*b) - 2*f(a + b)^2*
+         f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(k)*1/f(2*b) + 2*f(a
+          + b)^2*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*la(j)*la(k)*1/f(2*b)
+          + 2*f(a + b)^2*f(a + 2*c)*f(b + 2*c)*mu(i)*la(i)*la(j) + 2*f(a + b)^
+         2*f(a + 2*c)*f(b + 2*c)*mu(i)*la(i)*la(k) + f(a + b)^2*f(a + 2*c)*f(b
+          + 2*c)*mu(j)*la(i)^2 + 2*f(a + b)^2*f(a + 2*c)*f(b + 2*c)*mu(j)*la(i
+         )*la(k) + f(a + b)^2*f(a + 2*c)*f(b + 2*c)*mu(k)*la(i)^2 + 2*f(a + b)
+         ^2*f(a + 2*c)*f(b + 2*c)*mu(k)*la(i)*la(j) + 2*f(a + b)^2*f(a + 2*c)*
+         f(2*b + c)*mu(i)*mu(j)*la(i) - f(a + b)^2*f(a + 2*c)*f(2*b + c)*mu(i)
+         *mu(j)*la(k) + 2*f(a + b)^2*f(a + 2*c)*f(2*b + c)*mu(i)*mu(k)*la(i)
+          - f(a + b)^2*f(a + 2*c)*f(2*b + c)*mu(i)*mu(k)*la(j) + 2*f(a + b)^2*
+         f(a + 2*c)*f(2*b + c)*mu(j)*mu(k)*la(i) + 2*f(a + b)^2*f(2*a + c)*f(a
+          + b + c)*mu(i) - 3*f(a + b)^2*f(2*a + c)^2 - 2*f(a + b)^2*f(2*a + c)
+         *f(b + c)*f(2*b + c)*mu(i)*la(i)*1/f(2*b) + 2*f(a + b)^2*f(2*a + c)
+         *f(b + c)*f(2*b + c)*mu(i)*la(j)*1/f(2*b) + 2*f(a + b)^2*f(2*a + c)
+         *f(b + c)*f(2*b + c)*mu(i)*la(k)*1/f(2*b) + 2*f(a + b)^2*f(2*a + c)
+         *f(b + 2*c)*mu(i)*la(i) + 2*f(a + b)^2*f(2*a + c)*f(b + 2*c)*mu(j)*
+         la(i) + f(a + b)^2*f(2*a + c)*f(b + 2*c)*mu(j)*la(k) + 2*f(a + b)^2*
+         f(2*a + c)*f(b + 2*c)*mu(k)*la(i) + f(a + b)^2*f(2*a + c)*f(b + 2*c)*
+         mu(k)*la(j) - f(a + b)^2*f(2*a + c)*f(2*b + c)*mu(i)*mu(j) - f(a + b)
+         ^2*f(2*a + c)*f(2*b + c)*mu(i)*mu(k) + f(a + b)^2*f(2*a + c)*f(2*b + 
+         c)*mu(j)*mu(k) + 6*f(a + b)^2*f(b + c)*f(2*b + c)^2*mu(i)*mu(j)*mu(k)
+         *la(i)*1/f(2*b) - 12*f(a + b)^2*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)
+         *mu(k) + 6*f(a + b)*f(a + 2*b)^2*f(b + c)^2*mu(i)*mu(j)*mu(k)*
+         1/f(2*b) - 6*f(a + b)*f(a + 2*b)*f(a + c)*f(a + b + c)*mu(i)*mu(j)
+          - 6*f(a + b)*f(a + 2*b)*f(a + c)*f(a + b + c)*mu(i)*mu(k) - 2*f(a + 
+         b)*f(a + 2*b)*f(a + c)^2*f(2*b + c)*mu(i)*la(j)*1/f(2*b) - 2*f(a + 
+         b)*f(a + 2*b)*f(a + c)^2*f(2*b + c)*mu(i)*la(k)*1/f(2*b) + 2*f(a + 
+         b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*f(b + c)*la(i)*la(j)*1/f(2*b) + 2
+         *f(a + b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*f(b + c)*la(i)*la(k)*
+         1/f(2*b) - f(a + b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*mu(i)*la(j) - f(
+         a + b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*mu(i)*la(k) + 3*f(a + b)*f(a + 
+         2*b)*f(a + c)*f(a + 2*c)*mu(j)*la(i) + 3*f(a + b)*f(a + 2*b)*f(a + c)
+         *f(a + 2*c)*mu(k)*la(i) - 2*f(a + b)*f(a + 2*b)*f(a + c)*f(2*a + b)*
+         f(b + c)*mu(i)*1/f(2*b) + 2*f(a + b)*f(a + 2*b)*f(a + c)*f(2*a + c)
+         *f(b + c)*la(i)*1/f(2*b) - 4*f(a + b)*f(a + 2*b)*f(a + c)*f(2*a + c
+         )*mu(i) - 4*f(a + b)*f(a + 2*b)*f(a + c)*f(b + c)*f(a + b + c)*mu(i)*
+         la(j)*1/f(2*b) - 4*f(a + b)*f(a + 2*b)*f(a + c)*f(b + c)*f(a + b + 
+         c)*mu(i)*la(k)*1/f(2*b) - 6*f(a + b)*f(a + 2*b)*f(a + c)*f(b + c)*
+         f(b + 2*c)*mu(i)*la(j)*la(k)*1/f(2*b) - 12*f(a + b)*f(a + 2*b)*f(a
+          + c)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*la(k)*1/f(2*b) - 12*f(a + b)*
+         f(a + 2*b)*f(a + c)*f(b + c)*f(2*b + c)*mu(i)*mu(k)*la(j)*1/f(2*b)
+          - 12*f(a + b)*f(a + 2*b)*f(a + c)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*
+         la(i)*1/f(2*b) + 3*f(a + b)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(i)*
+         mu(j)*la(k) + 3*f(a + b)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(i)*mu(k)*
+         la(j) + 12*f(a + b)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(j)*mu(k)*la(i)
+          + 2*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)^2*mu(i)*la(i)*la(j)*
+         1/f(2*b) + 2*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)^2*mu(i)*la(i)*
+         la(k)*1/f(2*b) - 2*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)^2*mu(i)*
+         la(j)*la(k)*1/f(2*b) + f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i
+         )*mu(j)*la(i) - 5*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*mu(j)
+         *la(k) + f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*mu(k)*la(i) - 
+         5*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*mu(k)*la(j) - 2*f(a
+          + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(j)*mu(k)*la(i) + 2*f(a + b)*
+         f(a + 2*b)*f(2*a + c)*f(b + c)^2*mu(i)*la(i)*1/f(2*b) - 2*f(a + b)*
+         f(a + 2*b)*f(2*a + c)*f(b + c)^2*mu(i)*la(j)*1/f(2*b) - 2*f(a + b)*
+         f(a + 2*b)*f(2*a + c)*f(b + c)^2*mu(i)*la(k)*1/f(2*b) - 5*f(a + b)*
+         f(a + 2*b)*f(2*a + c)*f(b + c)*mu(i)*mu(j) - 5*f(a + b)*f(a + 2*b)*f(
+         2*a + c)*f(b + c)*mu(i)*mu(k) - f(a + b)*f(a + 2*b)*f(2*a + c)*f(b + 
+         c)*mu(j)*mu(k) - 12*f(a + b)*f(a + 2*b)*f(b + c)*f(a + b + c)*mu(i)*
+         mu(j)*mu(k) - 12*f(a + b)*f(a + 2*b)*f(b + c)^2*f(2*b + c)*mu(i)*mu(j
+         )*mu(k)*la(i)*1/f(2*b) + 12*f(a + b)*f(a + 2*b)*f(b + c)*f(b + 2*c)
+         *mu(i)*mu(j)*mu(k)*la(i) - 4*f(a + b)*f(a + c)*f(a + b + c)^2*mu(i)*
+         la(j) - 4*f(a + b)*f(a + c)*f(a + b + c)^2*mu(i)*la(k) + 2*f(a + b)*
+         f(a + c)^2*f(2*a + b)*f(2*b + c)*la(i)*1/f(2*b) + 6*f(a + b)*f(a + 
+         c)^2*f(b + 2*c)*f(2*b + c)*la(i)*la(j)*la(k)*1/f(2*b) + 4*f(a + b)*
+         f(a + c)^2*f(2*b + c)*f(a + b + c)*la(i)*la(j)*1/f(2*b) + 4*f(a + b
+         )*f(a + c)^2*f(2*b + c)*f(a + b + c)*la(i)*la(k)*1/f(2*b) + 6*f(a
+          + b)*f(a + c)^2*f(2*b + c)^2*mu(j)*la(i)*la(k)*1/f(2*b) + 6*f(a + 
+         b)*f(a + c)^2*f(2*b + c)^2*mu(k)*la(i)*la(j)*1/f(2*b) + 2*f(a + b)*
+         f(a + c)*f(a + 2*c)*f(a + b + c)*la(i)*la(j) + 2*f(a + b)*f(a + c)*f(
+         a + 2*c)*f(a + b + c)*la(i)*la(k) - 2*f(a + b)*f(a + c)*f(a + 2*c)*f(
+         b + c)*f(2*b + c)*la(i)^2*la(j)*1/f(2*b) - 2*f(a + b)*f(a + c)*f(a
+          + 2*c)*f(b + c)*f(2*b + c)*la(i)^2*la(k)*1/f(2*b) + 2*f(a + b)*f(a
+          + c)*f(a + 2*c)*f(b + c)*f(2*b + c)*la(i)*la(j)*la(k)*1/f(2*b) - 2
+         *f(a + b)*f(a + c)*f(a + 2*c)*f(b + 2*c)*la(i)*la(j)*la(k) - 4*f(a + 
+         b)*f(a + c)*f(a + 2*c)*f(2*b + c)*mu(i)*la(j)*la(k) - 3*f(a + b)*f(a
+          + c)*f(a + 2*c)*f(2*b + c)*mu(j)*la(i)*la(k) - 3*f(a + b)*f(a + c)*
+         f(a + 2*c)*f(2*b + c)*mu(k)*la(i)*la(j) - 2*f(a + b)*f(a + c)*f(2*a
+          + b)*f(a + b + c)*mu(i) + 6*f(a + b)*f(a + c)*f(2*a + b)*f(2*a + c)
+          + 2*f(a + b)*f(a + c)*f(2*a + b)*f(b + c)*f(2*b + c)*mu(i)*la(i)*
+         1/f(2*b) - 2*f(a + b)*f(a + c)*f(2*a + b)*f(b + c)*f(2*b + c)*mu(i)
+         *la(j)*1/f(2*b) - 2*f(a + b)*f(a + c)*f(2*a + b)*f(b + c)*f(2*b + c
+         )*mu(i)*la(k)*1/f(2*b) - 2*f(a + b)*f(a + c)*f(2*a + b)*f(b + 2*c)*
+         mu(i)*la(i) - 2*f(a + b)*f(a + c)*f(2*a + b)*f(b + 2*c)*mu(j)*la(i)
+          - f(a + b)*f(a + c)*f(2*a + b)*f(b + 2*c)*mu(j)*la(k) - 2*f(a + b)*
+         f(a + c)*f(2*a + b)*f(b + 2*c)*mu(k)*la(i) - f(a + b)*f(a + c)*f(2*a
+          + b)*f(b + 2*c)*mu(k)*la(j) + f(a + b)*f(a + c)*f(2*a + b)*f(2*b + c
+         )*mu(i)*mu(j) + f(a + b)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i)*mu(k)
+          - f(a + b)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(j)*mu(k) + 2*f(a + b)*
+         f(a + c)*f(2*a + c)*f(a + b + c)*la(i) - 2*f(a + b)*f(a + c)*f(2*a + 
+         c)*f(b + c)*f(2*b + c)*la(i)^2*1/f(2*b) + 2*f(a + b)*f(a + c)*f(2*a
+          + c)*f(b + c)*f(2*b + c)*la(i)*la(j)*1/f(2*b) + 2*f(a + b)*f(a + c
+         )*f(2*a + c)*f(b + c)*f(2*b + c)*la(i)*la(k)*1/f(2*b) - f(a + b)*f(
+         a + c)*f(2*a + c)*f(b + 2*c)*la(i)^2 - 4*f(a + b)*f(a + c)*f(2*a + c)
+         *f(b + 2*c)*la(i)*la(j) - 4*f(a + b)*f(a + c)*f(2*a + c)*f(b + 2*c)*
+         la(i)*la(k) - f(a + b)*f(a + c)*f(2*a + c)*f(b + 2*c)*la(j)*la(k) - 2
+         *f(a + b)*f(a + c)*f(2*a + c)*f(2*b + c)*mu(i)*la(i) - 3*f(a + b)*f(a
+          + c)*f(2*a + c)*f(2*b + c)*mu(i)*la(j) - 3*f(a + b)*f(a + c)*f(2*a
+          + c)*f(2*b + c)*mu(i)*la(k) - 5*f(a + b)*f(a + c)*f(2*a + c)*f(2*b
+          + c)*mu(j)*la(i) - f(a + b)*f(a + c)*f(2*a + c)*f(2*b + c)*mu(j)*la(
+         k) - 5*f(a + b)*f(a + c)*f(2*a + c)*f(2*b + c)*mu(k)*la(i) - f(a + b)
+         *f(a + c)*f(2*a + c)*f(2*b + c)*mu(k)*la(j) + 6*f(a + b)*f(a + c)*f(b
+          + c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + 4*f(
+         a + b)*f(a + c)*f(b + c)*f(2*b + c)*f(a + b + c)*mu(i)*la(i)*la(j)*
+         1/f(2*b) + 4*f(a + b)*f(a + c)*f(b + c)*f(2*b + c)*f(a + b + c)*mu(
+         i)*la(i)*la(k)*1/f(2*b) - 4*f(a + b)*f(a + c)*f(b + c)*f(2*b + c)*
+         f(a + b + c)*mu(i)*la(j)*la(k)*1/f(2*b) + 6*f(a + b)*f(a + c)*f(b
+          + c)*f(2*b + c)^2*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b) + 6*f(a + b)*f(
+         a + c)*f(b + c)*f(2*b + c)^2*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 6*
+         f(a + b)*f(a + c)*f(b + c)*f(2*b + c)^2*mu(j)*mu(k)*la(i)^2*
+         1/f(2*b) - 4*f(a + b)*f(a + c)*f(b + 2*c)*f(a + b + c)*mu(i)*la(i)*
+         la(j) - 4*f(a + b)*f(a + c)*f(b + 2*c)*f(a + b + c)*mu(i)*la(i)*la(k)
+          - 6*f(a + b)*f(a + c)*f(b + 2*c)*f(a + b + c)*mu(i)*la(j)*la(k) - 2*
+         f(a + b)*f(a + c)*f(b + 2*c)*f(a + b + c)*mu(j)*la(i)^2 - 4*f(a + b)*
+         f(a + c)*f(b + 2*c)*f(a + b + c)*mu(j)*la(i)*la(k) - 2*f(a + b)*f(a
+          + c)*f(b + 2*c)*f(a + b + c)*mu(k)*la(i)^2 - 4*f(a + b)*f(a + c)*f(b
+          + 2*c)*f(a + b + c)*mu(k)*la(i)*la(j) - 6*f(a + b)*f(a + c)*f(b + 2*
+         c)^2*mu(i)*la(i)*la(j)*la(k) - 3*f(a + b)*f(a + c)*f(b + 2*c)^2*mu(j)
+         *la(i)^2*la(k) - 3*f(a + b)*f(a + c)*f(b + 2*c)^2*mu(k)*la(i)^2*la(j)
+          - 6*f(a + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(i)*mu(j)*la(i)*la(k)
+          - 6*f(a + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(i)*mu(k)*la(i)*la(j)
+          - 3*f(a + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(j)*mu(k)*la(i)^2 - 4*
+         f(a + b)*f(a + c)*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)*la(i) - 10*f(a
+          + b)*f(a + c)*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)*la(k) - 4*f(a + b)
+         *f(a + c)*f(2*b + c)*f(a + b + c)*mu(i)*mu(k)*la(i) - 10*f(a + b)*f(a
+          + c)*f(2*b + c)*f(a + b + c)*mu(i)*mu(k)*la(j) - 16*f(a + b)*f(a + c
+         )*f(2*b + c)*f(a + b + c)*mu(j)*mu(k)*la(i) - 6*f(a + b)*f(a + c)*f(2
+         *b + c)^2*mu(i)*mu(j)*mu(k)*la(i) - 3*f(a + b)*f(a + 2*c)^2*f(b + c)*
+         la(i)^2*la(j) - 3*f(a + b)*f(a + 2*c)^2*f(b + c)*la(i)^2*la(k) - 6*f(
+         a + b)*f(a + 2*c)^2*f(b + c)*la(i)*la(j)*la(k) - 2*f(a + b)*f(a + 2*c
+         )*f(2*a + b)*f(b + c)*mu(i)*la(j) - 2*f(a + b)*f(a + 2*c)*f(2*a + b)*
+         f(b + c)*mu(i)*la(k) - 3*f(a + b)*f(a + 2*c)*f(2*a + c)*f(b + c)*la(i
+         )^2 - 6*f(a + b)*f(a + 2*c)*f(2*a + c)*f(b + c)*la(i)*la(j) - 6*f(a
+          + b)*f(a + 2*c)*f(2*a + c)*f(b + c)*la(i)*la(k) - 3*f(a + b)*f(a + 2
+         *c)*f(2*a + c)*f(b + c)*la(j)*la(k) - 2*f(a + b)*f(a + 2*c)*f(b + c)*
+         f(a + b + c)*mu(i)*la(i)*la(j) - 2*f(a + b)*f(a + 2*c)*f(b + c)*f(a
+          + b + c)*mu(i)*la(i)*la(k) - 2*f(a + b)*f(a + 2*c)*f(b + c)*f(a + b
+          + c)*mu(i)*la(j)*la(k) - 2*f(a + b)*f(a + 2*c)*f(b + c)*f(a + b + c)
+         *mu(j)*la(i)^2 - 4*f(a + b)*f(a + 2*c)*f(b + c)*f(a + b + c)*mu(j)*
+         la(i)*la(k) - 2*f(a + b)*f(a + 2*c)*f(b + c)*f(a + b + c)*mu(k)*la(i)
+         ^2 - 4*f(a + b)*f(a + 2*c)*f(b + c)*f(a + b + c)*mu(k)*la(i)*la(j) + 
+         2*f(a + b)*f(a + 2*c)*f(b + c)^2*f(2*b + c)*mu(i)*la(i)*la(j)*la(k)*
+         1/f(2*b) - 2*f(a + b)*f(a + 2*c)*f(b + c)*f(b + 2*c)*mu(i)*la(i)*
+         la(j)*la(k) - 5*f(a + b)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*
+         la(i)*la(k) - 5*f(a + b)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*mu(k)*
+         la(i)*la(j) - f(a + b)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*la(
+         i)^2 - 2*f(a + b)*f(2*a + b)*f(2*a + c)*f(b + c)*mu(i) + 12*f(a + b)*
+         f(2*a + b)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*mu(k) - 6*f(a + b)*f(2*a
+          + c)^2*f(b + c)*la(i) - 3*f(a + b)*f(2*a + c)^2*f(b + c)*la(j) - 3*
+         f(a + b)*f(2*a + c)^2*f(b + c)*la(k) - 2*f(a + b)*f(2*a + c)*f(b + c)
+         *f(a + b + c)*mu(i)*la(i) - 2*f(a + b)*f(2*a + c)*f(b + c)*f(a + b + 
+         c)*mu(i)*la(j) - 2*f(a + b)*f(2*a + c)*f(b + c)*f(a + b + c)*mu(i)*
+         la(k) - 4*f(a + b)*f(2*a + c)*f(b + c)*f(a + b + c)*mu(j)*la(i) - 2*
+         f(a + b)*f(2*a + c)*f(b + c)*f(a + b + c)*mu(j)*la(k) - 4*f(a + b)*f(
+         2*a + c)*f(b + c)*f(a + b + c)*mu(k)*la(i) - 2*f(a + b)*f(2*a + c)*f(
+         b + c)*f(a + b + c)*mu(k)*la(j) + 2*f(a + b)*f(2*a + c)*f(b + c)^2*f(
+         2*b + c)*mu(i)*la(i)*la(j)*1/f(2*b) + 2*f(a + b)*f(2*a + c)*f(b + c
+         )^2*f(2*b + c)*mu(i)*la(i)*la(k)*1/f(2*b) - 2*f(a + b)*f(2*a + c)*
+         f(b + c)*f(b + 2*c)*mu(i)*la(i)*la(j) - 2*f(a + b)*f(2*a + c)*f(b + c
+         )*f(b + 2*c)*mu(i)*la(i)*la(k) - 5*f(a + b)*f(2*a + c)*f(b + c)*f(2*b
+          + c)*mu(i)*mu(j)*la(i) + f(a + b)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(
+         i)*mu(j)*la(k) - 5*f(a + b)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*mu(k
+         )*la(i) + f(a + b)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*mu(k)*la(j)
+          - 2*f(a + b)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*la(i) - 12*
+         f(a + b)*f(b + c)*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)*mu(k)*la(i) + 6
+         *f(a + 2*b)^2*f(a + c)^2*f(b + c)*mu(j)*la(i)*1/f(2*b) + 6*f(a + 2*
+         b)^2*f(a + c)^2*f(b + c)*mu(k)*la(i)*1/f(2*b) + 3*f(a + 2*b)^2*f(a
+          + c)^2*mu(i)*mu(j) + 3*f(a + 2*b)^2*f(a + c)^2*mu(i)*mu(k) + 6*f(a
+          + 2*b)^2*f(a + c)*f(b + c)^2*mu(i)*mu(j)*la(i)*1/f(2*b) + 6*f(a + 
+         2*b)^2*f(a + c)*f(b + c)^2*mu(i)*mu(k)*la(i)*1/f(2*b) + 6*f(a + 2*b
+         )^2*f(a + c)*f(b + c)^2*mu(j)*mu(k)*la(i)*1/f(2*b) - 6*f(a + 2*b)^2
+         *f(a + c)*f(b + c)*mu(i)*mu(j)*mu(k) + 6*f(a + 2*b)^2*f(b + c)^3*mu(i
+         )*mu(j)*mu(k)*la(i)*1/f(2*b) + 4*f(a + 2*b)*f(a + c)^2*f(a + b + c)
+         *mu(i)*la(j) + 4*f(a + 2*b)*f(a + c)^2*f(a + b + c)*mu(i)*la(k) - 6*
+         f(a + 2*b)*f(a + c)^2*f(a + b + c)*mu(j)*la(i) - 6*f(a + 2*b)*f(a + c
+         )^2*f(a + b + c)*mu(k)*la(i) - 2*f(a + 2*b)*f(a + c)^3*f(2*b + c)*la(
+         i)*la(j)*1/f(2*b) - 2*f(a + 2*b)*f(a + c)^3*f(2*b + c)*la(i)*la(k)*
+         1/f(2*b) - f(a + 2*b)*f(a + c)^2*f(a + 2*c)*la(i)*la(j) - f(a + 2*b
+         )*f(a + c)^2*f(a + 2*c)*la(i)*la(k) + 6*f(a + 2*b)*f(a + c)^2*f(2*a
+          + b)*f(b + c)*la(i)*1/f(2*b) + 4*f(a + 2*b)*f(a + c)^2*f(2*a + b)*
+         mu(i) - 4*f(a + 2*b)*f(a + c)^2*f(2*a + c)*la(i) + 4*f(a + 2*b)*f(a
+          + c)^2*f(b + c)*f(a + b + c)*la(i)*la(j)*1/f(2*b) + 4*f(a + 2*b)*
+         f(a + c)^2*f(b + c)*f(a + b + c)*la(i)*la(k)*1/f(2*b) + 2*f(a + 2*b
+         )*f(a + c)^2*f(b + c)*f(b + 2*c)*la(i)*la(j)*la(k)*1/f(2*b) - 2*f(a
+          + 2*b)*f(a + c)^2*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*1/f(2*b)
+          - 2*f(a + 2*b)*f(a + c)^2*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(k)*
+         1/f(2*b) + 2*f(a + 2*b)*f(a + c)^2*f(b + 2*c)*mu(i)*la(i)*la(j) + 2
+         *f(a + 2*b)*f(a + c)^2*f(b + 2*c)*mu(i)*la(i)*la(k) + 6*f(a + 2*b)*f(
+         a + c)^2*f(b + 2*c)*mu(i)*la(j)*la(k) + f(a + 2*b)*f(a + c)^2*f(b + 2
+         *c)*mu(j)*la(i)^2 + 5*f(a + 2*b)*f(a + c)^2*f(b + 2*c)*mu(j)*la(i)*
+         la(k) + f(a + 2*b)*f(a + c)^2*f(b + 2*c)*mu(k)*la(i)^2 + 5*f(a + 2*b)
+         *f(a + c)^2*f(b + 2*c)*mu(k)*la(i)*la(j) + 2*f(a + 2*b)*f(a + c)^2*f(
+         2*b + c)*mu(i)*mu(j)*la(i) + 8*f(a + 2*b)*f(a + c)^2*f(2*b + c)*mu(i)
+         *mu(j)*la(k) + 2*f(a + 2*b)*f(a + c)^2*f(2*b + c)*mu(i)*mu(k)*la(i)
+          + 8*f(a + 2*b)*f(a + c)^2*f(2*b + c)*mu(i)*mu(k)*la(j) + 2*f(a + 2*b
+         )*f(a + c)^2*f(2*b + c)*mu(j)*mu(k)*la(i) - 2*f(a + 2*b)*f(a + c)*f(a
+          + 2*c)*f(b + c)^2*la(i)*la(j)*la(k)*1/f(2*b) - 3*f(a + 2*b)*f(a + 
+         c)*f(a + 2*c)*f(b + c)*mu(i)*la(i)*la(j) - 3*f(a + 2*b)*f(a + c)*f(a
+          + 2*c)*f(b + c)*mu(i)*la(i)*la(k) - 2*f(a + 2*b)*f(a + c)*f(a + 2*c)
+         *f(b + c)*mu(i)*la(j)*la(k) - f(a + 2*b)*f(a + c)*f(a + 2*c)*f(b + c)
+         *mu(j)*la(i)^2 - 5*f(a + 2*b)*f(a + c)*f(a + 2*c)*f(b + c)*mu(j)*la(i
+         )*la(k) - f(a + 2*b)*f(a + c)*f(a + 2*c)*f(b + c)*mu(k)*la(i)^2 - 5*
+         f(a + 2*b)*f(a + c)*f(a + 2*c)*f(b + c)*mu(k)*la(i)*la(j) + 6*f(a + 2
+         *b)*f(a + c)*f(2*a + b)*f(b + c)^2*mu(i)*la(i)*1/f(2*b) - 6*f(a + 2
+         *b)*f(a + c)*f(2*a + b)*f(b + c)*mu(i)*mu(j) - 6*f(a + 2*b)*f(a + c)*
+         f(2*a + b)*f(b + c)*mu(i)*mu(k) - 3*f(a + 2*b)*f(a + c)*f(2*a + b)*f(
+         b + c)*mu(j)*mu(k) - 2*f(a + 2*b)*f(a + c)*f(2*a + c)*f(b + c)^2*la(i
+         )*la(j)*1/f(2*b) - 2*f(a + 2*b)*f(a + c)*f(2*a + c)*f(b + c)^2*la(i
+         )*la(k)*1/f(2*b) - 4*f(a + 2*b)*f(a + c)*f(2*a + c)*f(b + c)*mu(i)*
+         la(i) - 3*f(a + 2*b)*f(a + c)*f(2*a + c)*f(b + c)*mu(j)*la(i) - 3*f(a
+          + 2*b)*f(a + c)*f(2*a + c)*f(b + c)*mu(k)*la(i) - 10*f(a + 2*b)*f(a
+          + c)*f(b + c)*f(a + b + c)*mu(i)*mu(j)*la(i) - 4*f(a + 2*b)*f(a + c)
+         *f(b + c)*f(a + b + c)*mu(i)*mu(j)*la(k) - 10*f(a + 2*b)*f(a + c)*f(b
+          + c)*f(a + b + c)*mu(i)*mu(k)*la(i) - 4*f(a + 2*b)*f(a + c)*f(b + c)
+         *f(a + b + c)*mu(i)*mu(k)*la(j) - 16*f(a + 2*b)*f(a + c)*f(b + c)*f(a
+          + b + c)*mu(j)*mu(k)*la(i) + 4*f(a + 2*b)*f(a + c)*f(b + c)^2*f(a + 
+         b + c)*mu(i)*la(i)*la(j)*1/f(2*b) + 4*f(a + 2*b)*f(a + c)*f(b + c)^
+         2*f(a + b + c)*mu(i)*la(i)*la(k)*1/f(2*b) + 2*f(a + 2*b)*f(a + c)*
+         f(b + c)^2*f(b + 2*c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + f(a + 2*b)
+         *f(a + c)*f(b + c)*f(b + 2*c)*mu(i)*mu(j)*la(i)*la(k) + f(a + 2*b)*f(
+         a + c)*f(b + c)*f(b + 2*c)*mu(i)*mu(k)*la(i)*la(j) - f(a + 2*b)*f(a
+          + c)*f(b + c)*f(b + 2*c)*mu(j)*mu(k)*la(i)^2 - 2*f(a + 2*b)*f(a + 2*
+         c)*f(b + c)^3*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - f(a + 2*b)*f(a + 2
+         *c)*f(b + c)^2*mu(i)*mu(j)*la(i)*la(k) - f(a + 2*b)*f(a + 2*c)*f(b + 
+         c)^2*mu(i)*mu(k)*la(i)*la(j) + f(a + 2*b)*f(a + 2*c)*f(b + c)^2*mu(j)
+         *mu(k)*la(i)^2 - 2*f(a + 2*b)*f(2*a + c)*f(b + c)^3*mu(i)*la(i)*la(j)
+         *1/f(2*b) - 2*f(a + 2*b)*f(2*a + c)*f(b + c)^3*mu(i)*la(i)*la(k)*
+         1/f(2*b) - f(a + 2*b)*f(2*a + c)*f(b + c)^2*mu(i)*mu(j)*la(i) + 2*
+         f(a + 2*b)*f(2*a + c)*f(b + c)^2*mu(i)*mu(j)*la(k) - f(a + 2*b)*f(2*a
+          + c)*f(b + c)^2*mu(i)*mu(k)*la(i) + 2*f(a + 2*b)*f(2*a + c)*f(b + c)
+         ^2*mu(i)*mu(k)*la(j) + 2*f(a + 2*b)*f(2*a + c)*f(b + c)^2*mu(j)*mu(k)
+         *la(i) - 12*f(a + 2*b)*f(b + c)^2*f(a + b + c)*mu(i)*mu(j)*mu(k)*la(i
+         ) - 4*f(a + c)^2*f(a + b + c)^2*la(i)*la(j) - 4*f(a + c)^2*f(a + b + 
+         c)^2*la(i)*la(k) + f(a + c)^2*f(a + 2*c)*f(2*b + c)*la(i)^2*la(j) + 
+         f(a + c)^2*f(a + 2*c)*f(2*b + c)*la(i)^2*la(k) - 4*f(a + c)^2*f(a + 2
+         *c)*f(2*b + c)*la(i)*la(j)*la(k) - 2*f(a + c)^2*f(2*a + b)*f(a + b + 
+         c)*la(i) - 3*f(a + c)^2*f(2*a + b)^2 + f(a + c)^2*f(2*a + b)*f(b + 2*
+         c)*la(i)^2 + 4*f(a + c)^2*f(2*a + b)*f(b + 2*c)*la(i)*la(j) + 4*f(a
+          + c)^2*f(2*a + b)*f(b + 2*c)*la(i)*la(k) + f(a + c)^2*f(2*a + b)*f(b
+          + 2*c)*la(j)*la(k) + 2*f(a + c)^2*f(2*a + b)*f(2*b + c)*mu(i)*la(i)
+          + 3*f(a + c)^2*f(2*a + b)*f(2*b + c)*mu(i)*la(j) + 3*f(a + c)^2*f(2*
+         a + b)*f(2*b + c)*mu(i)*la(k) + 5*f(a + c)^2*f(2*a + b)*f(2*b + c)*
+         mu(j)*la(i) + f(a + c)^2*f(2*a + b)*f(2*b + c)*mu(j)*la(k) + 5*f(a + 
+         c)^2*f(2*a + b)*f(2*b + c)*mu(k)*la(i) + f(a + c)^2*f(2*a + b)*f(2*b
+          + c)*mu(k)*la(j) + f(a + c)^2*f(2*a + c)*f(2*b + c)*la(i)^2 - f(a + 
+         c)^2*f(2*a + c)*f(2*b + c)*la(i)*la(j) - f(a + c)^2*f(2*a + c)*f(2*b
+          + c)*la(i)*la(k) - 2*f(a + c)^2*f(b + 2*c)*f(a + b + c)*la(i)*la(j)*
+         la(k) - 3*f(a + c)^2*f(b + 2*c)^2*la(i)^2*la(j)*la(k) + 2*f(a + c)^2*
+         f(2*b + c)*f(a + b + c)*mu(i)*la(j)*la(k) - 6*f(a + c)^2*f(2*b + c)*
+         f(a + b + c)*mu(j)*la(i)*la(k) - 6*f(a + c)^2*f(2*b + c)*f(a + b + c)
+         *mu(k)*la(i)*la(j) - 3*f(a + c)^2*f(2*b + c)^2*mu(j)*mu(k)*la(i)^2 - 
+         f(a + c)*f(a + 2*c)*f(2*a + b)*f(b + c)*la(i)^2 - 4*f(a + c)*f(a + 2*
+         c)*f(2*a + b)*f(b + c)*la(i)*la(j) - 4*f(a + c)*f(a + 2*c)*f(2*a + b)
+         *f(b + c)*la(i)*la(k) - f(a + c)*f(a + 2*c)*f(2*a + b)*f(b + c)*la(j)
+         *la(k) + 2*f(a + c)*f(a + 2*c)*f(b + c)*f(a + b + c)*la(i)*la(j)*la(k
+         ) + 6*f(a + c)*f(a + 2*c)*f(b + c)*f(b + 2*c)*la(i)^2*la(j)*la(k) - 4
+         *f(a + c)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k) - 6*
+         f(a + c)*f(2*a + b)^2*f(b + c)*mu(i) - 3*f(a + c)*f(2*a + b)^2*f(b + 
+         c)*mu(j) - 3*f(a + c)*f(2*a + b)^2*f(b + c)*mu(k) - 2*f(a + c)*f(2*a
+          + b)*f(2*a + c)*f(b + c)*la(i) - 6*f(a + c)*f(2*a + b)*f(b + c)*f(a
+          + b + c)*mu(i)*la(i) - 4*f(a + c)*f(2*a + b)*f(b + c)*f(a + b + c)*
+         mu(i)*la(j) - 4*f(a + c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(i)*la(k)
+          - 4*f(a + c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(j)*la(i) - 2*f(a + 
+         c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(j)*la(k) - 4*f(a + c)*f(2*a + 
+         b)*f(b + c)*f(a + b + c)*mu(k)*la(i) - 2*f(a + c)*f(2*a + b)*f(b + c)
+         *f(a + b + c)*mu(k)*la(j) - 2*f(a + c)*f(2*a + b)*f(b + c)*f(b + 2*c)
+         *mu(i)*la(j)*la(k) - f(a + c)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(j)*
+         la(i)^2 - 2*f(a + c)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(j)*la(i)*la(k)
+          - f(a + c)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(k)*la(i)^2 - 2*f(a + c)
+         *f(2*a + b)*f(b + c)*f(b + 2*c)*mu(k)*la(i)*la(j) + 3*f(a + c)*f(2*a
+          + b)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*la(i) + 3*f(a + c)*f(2*a + b)*
+         f(b + c)*f(2*b + c)*mu(i)*mu(k)*la(i) + 12*f(a + c)*f(2*a + b)*f(b + 
+         c)*f(2*b + c)*mu(j)*mu(k)*la(i) + 2*f(a + c)*f(2*a + c)*f(b + c)*f(a
+          + b + c)*la(i)*la(j) + 2*f(a + c)*f(2*a + c)*f(b + c)*f(a + b + c)*
+         la(i)*la(k) - f(a + c)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(
+         j) - f(a + c)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(k) + 3*f(
+         a + c)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(j)*la(i)*la(k) + 3*f(a + c)*
+         f(2*a + c)*f(b + c)*f(2*b + c)*mu(k)*la(i)*la(j) - 4*f(a + c)*f(b + c
+         )*f(a + b + c)^2*mu(i)*la(i)*la(j) - 4*f(a + c)*f(b + c)*f(a + b + c)
+         ^2*mu(i)*la(i)*la(k) - 2*f(a + c)*f(b + c)*f(b + 2*c)*f(a + b + c)*
+         mu(i)*la(i)*la(j)*la(k) - 6*f(a + c)*f(b + c)*f(2*b + c)*f(a + b + c)
+         *mu(i)*mu(j)*la(i)*la(k) - 6*f(a + c)*f(b + c)*f(2*b + c)*f(a + b + c
+         )*mu(i)*mu(k)*la(i)*la(j) - 3*f(a + 2*c)^2*f(b + c)^2*la(i)^2*la(j)*
+         la(k) + 2*f(a + 2*c)*f(2*a + b)*f(b + c)^2*mu(i)*la(j)*la(k) + f(a + 
+         2*c)*f(2*a + b)*f(b + c)^2*mu(j)*la(i)^2 + 2*f(a + 2*c)*f(2*a + b)*f(
+         b + c)^2*mu(j)*la(i)*la(k) + f(a + 2*c)*f(2*a + b)*f(b + c)^2*mu(k)*
+         la(i)^2 + 2*f(a + 2*c)*f(2*a + b)*f(b + c)^2*mu(k)*la(i)*la(j) + 2*f(
+         a + 2*c)*f(b + c)^2*f(a + b + c)*mu(i)*la(i)*la(j)*la(k) - f(2*a)*f(a
+          + b)^2*f(a + 2*c)*f(2*b + c)*la(j)*1/f(2*b) - f(2*a)*f(a + b)^2*f(
+         a + 2*c)*f(2*b + c)*la(k)*1/f(2*b) - f(2*a)*f(a + b)^2*f(2*a + c)*
+         f(2*b + c)*1/f(2*b) + f(2*a)*f(a + b)^2*f(b + 2*c)*f(2*b + c)*mu(i)
+         *la(j)*1/f(2*b) + f(2*a)*f(a + b)^2*f(b + 2*c)*f(2*b + c)*mu(i)*la(
+         k)*1/f(2*b) + 2*f(2*a)*f(a + b)^2*f(2*b + c)*f(a + b + c)*mu(i)*
+         1/f(2*b) + 3*f(2*a)*f(a + b)^2*f(2*b + c)^2*mu(i)*mu(j)*1/f(2*b)
+          + 3*f(2*a)*f(a + b)^2*f(2*b + c)^2*mu(i)*mu(k)*1/f(2*b) + 3*f(2*a)
+         *f(a + b)^2*f(2*b + c)^2*mu(j)*mu(k)*1/f(2*b) - 2*f(2*a)*f(a + b)*
+         f(a + b + c)^2*mu(i) - 2*f(2*a)*f(a + b)*f(a + 2*b)*f(a + c)*f(2*b + 
+         c)*mu(i)*1/f(2*b) + f(2*a)*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*
+         la(j)*1/f(2*b) + f(2*a)*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*la(
+         k)*1/f(2*b) + 3*f(2*a)*f(a + b)*f(a + 2*b)*f(a + 2*c)*mu(i) + 3/2*
+         f(2*a)*f(a + b)*f(a + 2*b)*f(a + 2*c)*mu(j) + 3/2*f(2*a)*f(a + b)*f(a
+          + 2*b)*f(a + 2*c)*mu(k) + f(2*a)*f(a + b)*f(a + 2*b)*f(2*a + c)*f(b
+          + c)*1/f(2*b) - 2*f(2*a)*f(a + b)*f(a + 2*b)*f(b + c)*f(a + b + c)
+         *mu(i)*1/f(2*b) - f(2*a)*f(a + b)*f(a + 2*b)*f(b + c)*f(b + 2*c)*
+         mu(i)*la(j)*1/f(2*b) - f(2*a)*f(a + b)*f(a + 2*b)*f(b + c)*f(b + 2*
+         c)*mu(i)*la(k)*1/f(2*b) - 6*f(2*a)*f(a + b)*f(a + 2*b)*f(b + c)*f(2
+         *b + c)*mu(i)*mu(j)*1/f(2*b) - 6*f(2*a)*f(a + b)*f(a + 2*b)*f(b + c
+         )*f(2*b + c)*mu(i)*mu(k)*1/f(2*b) - 6*f(2*a)*f(a + b)*f(a + 2*b)*f(
+         b + c)*f(2*b + c)*mu(j)*mu(k)*1/f(2*b) + 9/2*f(2*a)*f(a + b)*f(a + 
+         2*b)*f(b + 2*c)*mu(i)*mu(j) + 9/2*f(2*a)*f(a + b)*f(a + 2*b)*f(b + 2*
+         c)*mu(i)*mu(k) + 6*f(2*a)*f(a + b)*f(a + 2*b)*f(b + 2*c)*mu(j)*mu(k)
+          + f(2*a)*f(a + b)*f(a + c)*f(2*a + b)*f(2*b + c)*1/f(2*b) + f(2*a)
+         *f(a + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*la(i)*la(j)*1/f(2*b) + f(2
+         *a)*f(a + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*la(i)*la(k)*1/f(2*b) + 
+         3*f(2*a)*f(a + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*la(j)*la(k)*
+         1/f(2*b) + 2*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)*f(a + b + c)*la(i)
+         *1/f(2*b) + 2*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)*f(a + b + c)*la(j
+         )*1/f(2*b) + 2*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)*f(a + b + c)*la(
+         k)*1/f(2*b) + f(2*a)*f(a + b)*f(a + c)*f(2*b + c)^2*mu(i)*la(j)*
+         1/f(2*b) + f(2*a)*f(a + b)*f(a + c)*f(2*b + c)^2*mu(i)*la(k)*
+         1/f(2*b) + 3*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)^2*mu(j)*la(i)*
+         1/f(2*b) + 3*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)^2*mu(j)*la(k)*
+         1/f(2*b) + 3*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)^2*mu(k)*la(i)*
+         1/f(2*b) + 3*f(2*a)*f(a + b)*f(a + c)*f(2*b + c)^2*mu(k)*la(j)*
+         1/f(2*b) + f(2*a)*f(a + b)*f(a + 2*c)*f(a + b + c)*la(j) + f(2*a)*
+         f(a + b)*f(a + 2*c)*f(a + b + c)*la(k) - 6*f(2*a)*f(a + b)*f(a + 2*c)
+         *f(2*a + b) + f(2*a)*f(a + b)*f(a + 2*c)*f(b + c)*f(2*b + c)*la(j)*
+         la(k)*1/f(2*b) + f(2*a)*f(a + b)*f(a + 2*c)*f(b + 2*c)*la(i)^2 + 2*
+         f(2*a)*f(a + b)*f(a + 2*c)*f(b + 2*c)*la(i)*la(j) + 2*f(2*a)*f(a + b)
+         *f(a + 2*c)*f(b + 2*c)*la(i)*la(k) + 2*f(2*a)*f(a + b)*f(a + 2*c)*f(2
+         *b + c)*mu(i)*la(i) + 3/2*f(2*a)*f(a + b)*f(a + 2*c)*f(2*b + c)*mu(i)
+         *la(j) + 3/2*f(2*a)*f(a + b)*f(a + 2*c)*f(2*b + c)*mu(i)*la(k) + 2*f(
+         2*a)*f(a + b)*f(a + 2*c)*f(2*b + c)*mu(j)*la(i) - 1/2*f(2*a)*f(a + b)
+         *f(a + 2*c)*f(2*b + c)*mu(j)*la(k) + 2*f(2*a)*f(a + b)*f(a + 2*c)*f(2
+         *b + c)*mu(k)*la(i) - 1/2*f(2*a)*f(a + b)*f(a + 2*c)*f(2*b + c)*mu(k)
+         *la(j) - 4*f(2*a)*f(a + b)*f(2*a + b)*f(b + c)*f(2*b + c)*mu(i)*
+         1/f(2*b) - 3/2*f(2*a)*f(a + b)*f(2*a + b)*f(b + 2*c)*mu(j) - 3/2*f(
+         2*a)*f(a + b)*f(2*a + b)*f(b + 2*c)*mu(k) + 7*f(2*a)*f(a + b)*f(2*a
+          + c)*f(a + b + c) + f(2*a)*f(a + b)*f(2*a + c)*f(b + c)*f(2*b + c)*
+         la(j)*1/f(2*b) + f(2*a)*f(a + b)*f(2*a + c)*f(b + c)*f(2*b + c)*la(
+         k)*1/f(2*b) + 3*f(2*a)*f(a + b)*f(2*a + c)*f(b + 2*c)*la(i) + 1/2*
+         f(2*a)*f(a + b)*f(2*a + c)*f(b + 2*c)*la(j) + 1/2*f(2*a)*f(a + b)*f(2
+         *a + c)*f(b + 2*c)*la(k) + f(2*a)*f(a + b)*f(2*a + c)*f(2*b + c)*mu(i
+         ) + f(2*a)*f(a + b)*f(b + c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(i)*la(j)*
+         1/f(2*b) + f(2*a)*f(a + b)*f(b + c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(
+         i)*la(k)*1/f(2*b) - 4*f(2*a)*f(a + b)*f(b + c)*f(b + 2*c)*f(2*b + c
+         )*mu(i)*la(j)*la(k)*1/f(2*b) + 2*f(2*a)*f(a + b)*f(b + c)*f(2*b + c
+         )*f(a + b + c)*mu(i)*la(i)*1/f(2*b) - 4*f(2*a)*f(a + b)*f(b + c)*f(
+         2*b + c)*f(a + b + c)*mu(i)*la(j)*1/f(2*b) - 4*f(2*a)*f(a + b)*f(b
+          + c)*f(2*b + c)*f(a + b + c)*mu(i)*la(k)*1/f(2*b) + 3*f(2*a)*f(a
+          + b)*f(b + c)*f(2*b + c)^2*mu(i)*mu(j)*la(i)*1/f(2*b) - 3*f(2*a)*
+         f(a + b)*f(b + c)*f(2*b + c)^2*mu(i)*mu(j)*la(k)*1/f(2*b) + 3*f(2*a
+         )*f(a + b)*f(b + c)*f(2*b + c)^2*mu(i)*mu(k)*la(i)*1/f(2*b) - 3*f(2
+         *a)*f(a + b)*f(b + c)*f(2*b + c)^2*mu(i)*mu(k)*la(j)*1/f(2*b) - 2*
+         f(2*a)*f(a + b)*f(b + 2*c)*f(a + b + c)*mu(i)*la(i) - f(2*a)*f(a + b)
+         *f(b + 2*c)*f(a + b + c)*mu(i)*la(j) - f(2*a)*f(a + b)*f(b + 2*c)*f(a
+          + b + c)*mu(i)*la(k) - 2*f(2*a)*f(a + b)*f(b + 2*c)*f(a + b + c)*mu(
+         j)*la(i) - f(2*a)*f(a + b)*f(b + 2*c)*f(a + b + c)*mu(j)*la(k) - 2*f(
+         2*a)*f(a + b)*f(b + 2*c)*f(a + b + c)*mu(k)*la(i) - f(2*a)*f(a + b)*
+         f(b + 2*c)*f(a + b + c)*mu(k)*la(j) - f(2*a)*f(a + b)*f(b + 2*c)^2*
+         mu(i)*la(i)*la(j) - f(2*a)*f(a + b)*f(b + 2*c)^2*mu(i)*la(i)*la(k) - 
+         1/2*f(2*a)*f(a + b)*f(b + 2*c)^2*mu(j)*la(i)^2 - f(2*a)*f(a + b)*f(b
+          + 2*c)^2*mu(j)*la(i)*la(k) - 1/2*f(2*a)*f(a + b)*f(b + 2*c)^2*mu(k)*
+         la(i)^2 - f(2*a)*f(a + b)*f(b + 2*c)^2*mu(k)*la(i)*la(j) - f(2*a)*f(a
+          + b)*f(b + 2*c)*f(2*b + c)*mu(i)*mu(j)*la(i) + 1/2*f(2*a)*f(a + b)*
+         f(b + 2*c)*f(2*b + c)*mu(i)*mu(j)*la(k) - f(2*a)*f(a + b)*f(b + 2*c)*
+         f(2*b + c)*mu(i)*mu(k)*la(i) + 1/2*f(2*a)*f(a + b)*f(b + 2*c)*f(2*b
+          + c)*mu(i)*mu(k)*la(j) - f(2*a)*f(a + b)*f(b + 2*c)*f(2*b + c)*mu(j)
+         *mu(k)*la(i) - 5*f(2*a)*f(a + b)*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)
+          - 5*f(2*a)*f(a + b)*f(2*b + c)*f(a + b + c)*mu(i)*mu(k) - 7*f(2*a)*
+         f(a + b)*f(2*b + c)*f(a + b + c)*mu(j)*mu(k) - 3*f(2*a)*f(a + b)*f(2*
+         b + c)^2*mu(i)*mu(j)*mu(k) + 3*f(2*a)*f(a + 2*b)^2*f(a + c)*f(b + c)*
+         mu(j)*1/f(2*b) + 3*f(2*a)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(k)*
+         1/f(2*b) + 3*f(2*a)*f(a + 2*b)^2*f(b + c)^2*mu(i)*mu(j)*1/f(2*b)
+          + 3*f(2*a)*f(a + 2*b)^2*f(b + c)^2*mu(i)*mu(k)*1/f(2*b) + 3*f(2*a)
+         *f(a + 2*b)^2*f(b + c)^2*mu(j)*mu(k)*1/f(2*b) - 3*f(2*a)*f(a + 2*b)
+         *f(a + c)*f(a + b + c)*mu(j) - 3*f(2*a)*f(a + 2*b)*f(a + c)*f(a + b
+          + c)*mu(k) - 2*f(2*a)*f(a + 2*b)*f(a + c)^2*f(2*b + c)*la(i)*
+         1/f(2*b) - f(2*a)*f(a + 2*b)*f(a + c)^2*f(2*b + c)*la(j)*1/f(2*b)
+          - f(2*a)*f(a + 2*b)*f(a + c)^2*f(2*b + c)*la(k)*1/f(2*b) + 3*f(2*a
+         )*f(a + 2*b)*f(a + c)*f(a + 2*c)*la(i) - 1/2*f(2*a)*f(a + 2*b)*f(a + 
+         c)*f(a + 2*c)*la(j) - 1/2*f(2*a)*f(a + 2*b)*f(a + c)*f(a + 2*c)*la(k)
+          + 3*f(2*a)*f(a + 2*b)*f(a + c)*f(2*a + b)*f(b + c)*1/f(2*b) - 8*f(
+         2*a)*f(a + 2*b)*f(a + c)*f(2*a + c) - 2*f(2*a)*f(a + 2*b)*f(a + c)*f(
+         b + c)*f(a + b + c)*la(i)*1/f(2*b) + 2*f(2*a)*f(a + 2*b)*f(a + c)*
+         f(b + c)*f(a + b + c)*la(j)*1/f(2*b) + 2*f(2*a)*f(a + 2*b)*f(a + c)
+         *f(b + c)*f(a + b + c)*la(k)*1/f(2*b) - f(2*a)*f(a + 2*b)*f(a + c)*
+         f(b + c)*f(b + 2*c)*la(i)*la(j)*1/f(2*b) - f(2*a)*f(a + 2*b)*f(a + 
+         c)*f(b + c)*f(b + 2*c)*la(i)*la(k)*1/f(2*b) + f(2*a)*f(a + 2*b)*f(a
+          + c)*f(b + c)*f(b + 2*c)*la(j)*la(k)*1/f(2*b) - 2*f(2*a)*f(a + 2*b
+         )*f(a + c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*1/f(2*b) - 6*f(2*a)*f(a
+          + 2*b)*f(a + c)*f(b + c)*f(2*b + c)*mu(j)*la(i)*1/f(2*b) - 6*f(2*a
+         )*f(a + 2*b)*f(a + c)*f(b + c)*f(2*b + c)*mu(k)*la(i)*1/f(2*b) + 2*
+         f(2*a)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(i)*la(i) + 2*f(2*a)*f(a + 2*
+         b)*f(a + c)*f(b + 2*c)*mu(i)*la(j) + 2*f(2*a)*f(a + 2*b)*f(a + c)*f(b
+          + 2*c)*mu(i)*la(k) + 13/2*f(2*a)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(j
+         )*la(i) + 5/2*f(2*a)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(j)*la(k) + 13/
+         2*f(2*a)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(k)*la(i) + 5/2*f(2*a)*f(a
+          + 2*b)*f(a + c)*f(b + 2*c)*mu(k)*la(j) + 2*f(2*a)*f(a + 2*b)*f(a + c
+         )*f(2*b + c)*mu(i)*mu(j) + 2*f(2*a)*f(a + 2*b)*f(a + c)*f(2*b + c)*
+         mu(i)*mu(k) + f(2*a)*f(a + 2*b)*f(a + c)*f(2*b + c)*mu(j)*mu(k) - f(2
+         *a)*f(a + 2*b)*f(a + 2*c)*f(b + c)^2*la(j)*la(k)*1/f(2*b) + f(2*a)*
+         f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*la(i) - 2*f(2*a)*f(a + 2*b)*f(a
+          + 2*c)*f(b + c)*mu(i)*la(j) - 2*f(2*a)*f(a + 2*b)*f(a + 2*c)*f(b + c
+         )*mu(i)*la(k) - 2*f(2*a)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(j)*la(i)
+          - 5/2*f(2*a)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(j)*la(k) - 2*f(2*a)*
+         f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(k)*la(i) - 5/2*f(2*a)*f(a + 2*b)*f(
+         a + 2*c)*f(b + c)*mu(k)*la(j) + 4*f(2*a)*f(a + 2*b)*f(2*a + b)*f(b + 
+         c)^2*mu(i)*1/f(2*b) - f(2*a)*f(a + 2*b)*f(2*a + c)*f(b + c)^2*la(j)
+         *1/f(2*b) - f(2*a)*f(a + 2*b)*f(2*a + c)*f(b + c)^2*la(k)*
+         1/f(2*b) - 3*f(2*a)*f(a + 2*b)*f(2*a + c)*f(b + c)*mu(i) - 3*f(2*a)
+         *f(a + 2*b)*f(2*a + c)*f(b + c)*mu(j) - 3*f(2*a)*f(a + 2*b)*f(2*a + c
+         )*f(b + c)*mu(k) + 2*f(2*a)*f(a + 2*b)*f(b + c)*f(a + b + c)*mu(i)*
+         mu(j) + 2*f(2*a)*f(a + 2*b)*f(b + c)*f(a + b + c)*mu(i)*mu(k) - 5*f(2
+         *a)*f(a + 2*b)*f(b + c)*f(a + b + c)*mu(j)*mu(k) - 2*f(2*a)*f(a + 2*b
+         )*f(b + c)^2*f(a + b + c)*mu(i)*la(i)*1/f(2*b) + 4*f(2*a)*f(a + 2*b
+         )*f(b + c)^2*f(a + b + c)*mu(i)*la(j)*1/f(2*b) + 4*f(2*a)*f(a + 2*b
+         )*f(b + c)^2*f(a + b + c)*mu(i)*la(k)*1/f(2*b) - f(2*a)*f(a + 2*b)*
+         f(b + c)^2*f(b + 2*c)*mu(i)*la(i)*la(j)*1/f(2*b) - f(2*a)*f(a + 2*b
+         )*f(b + c)^2*f(b + 2*c)*mu(i)*la(i)*la(k)*1/f(2*b) + 4*f(2*a)*f(a
+          + 2*b)*f(b + c)^2*f(b + 2*c)*mu(i)*la(j)*la(k)*1/f(2*b) - 6*f(2*a)
+         *f(a + 2*b)*f(b + c)^2*f(2*b + c)*mu(i)*mu(j)*la(i)*1/f(2*b) + 6*f(
+         2*a)*f(a + 2*b)*f(b + c)^2*f(2*b + c)*mu(i)*mu(j)*la(k)*1/f(2*b) - 
+         6*f(2*a)*f(a + 2*b)*f(b + c)^2*f(2*b + c)*mu(i)*mu(k)*la(i)*
+         1/f(2*b) + 6*f(2*a)*f(a + 2*b)*f(b + c)^2*f(2*b + c)*mu(i)*mu(k)*
+         la(j)*1/f(2*b) + 11/2*f(2*a)*f(a + 2*b)*f(b + c)*f(b + 2*c)*mu(i)*
+         mu(j)*la(i) + f(2*a)*f(a + 2*b)*f(b + c)*f(b + 2*c)*mu(i)*mu(j)*la(k)
+          + 11/2*f(2*a)*f(a + 2*b)*f(b + c)*f(b + 2*c)*mu(i)*mu(k)*la(i) + f(2
+         *a)*f(a + 2*b)*f(b + c)*f(b + 2*c)*mu(i)*mu(k)*la(j) + f(2*a)*f(a + 2
+         *b)*f(b + c)*f(b + 2*c)*mu(j)*mu(k)*la(i) + 6*f(2*a)*f(a + 2*b)*f(b
+          + c)*f(2*b + c)*mu(i)*mu(j)*mu(k) - 2*f(2*a)*f(a + c)*f(a + b + c)^2
+         *la(i) - 2*f(2*a)*f(a + c)*f(a + b + c)^2*la(j) - 2*f(2*a)*f(a + c)*
+         f(a + b + c)^2*la(k) + f(2*a)*f(a + c)^2*f(2*b + c)^2*la(i)*la(j)*
+         1/f(2*b) + f(2*a)*f(a + c)^2*f(2*b + c)^2*la(i)*la(k)*1/f(2*b) - 
+         1/2*f(2*a)*f(a + c)*f(a + 2*c)*f(2*b + c)*la(i)*la(j) - 1/2*f(2*a)*f(
+         a + c)*f(a + 2*c)*f(2*b + c)*la(i)*la(k) - 2*f(2*a)*f(a + c)*f(a + 2*
+         c)*f(2*b + c)*la(j)*la(k) + 5*f(2*a)*f(a + c)*f(2*a + b)*f(a + b + c)
+          - 4*f(2*a)*f(a + c)*f(2*a + b)*f(b + c)*f(2*b + c)*la(i)*1/f(2*b)
+          + 6*f(2*a)*f(a + c)*f(2*a + b)*f(b + 2*c)*la(i) + 5/2*f(2*a)*f(a + c
+         )*f(2*a + b)*f(b + 2*c)*la(j) + 5/2*f(2*a)*f(a + c)*f(2*a + b)*f(b + 
+         2*c)*la(k) + 3*f(2*a)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i) + 3*f(2*a)
+         *f(a + c)*f(2*a + b)*f(2*b + c)*mu(j) + 3*f(2*a)*f(a + c)*f(2*a + b)*
+         f(2*b + c)*mu(k) - 5*f(2*a)*f(a + c)*f(2*a + c)*f(2*b + c)*la(i) - 2*
+         f(2*a)*f(a + c)*f(2*a + c)*f(2*b + c)*la(j) - 2*f(2*a)*f(a + c)*f(2*a
+          + c)*f(2*b + c)*la(k) - 4*f(2*a)*f(a + c)*f(b + c)*f(b + 2*c)*f(2*b
+          + c)*la(i)*la(j)*la(k)*1/f(2*b) - 4*f(2*a)*f(a + c)*f(b + c)*f(2*b
+          + c)*f(a + b + c)*la(i)*la(j)*1/f(2*b) - 4*f(2*a)*f(a + c)*f(b + c
+         )*f(2*b + c)*f(a + b + c)*la(i)*la(k)*1/f(2*b) + f(2*a)*f(a + c)*f(
+         b + c)*f(2*b + c)^2*mu(i)*la(i)*la(j)*1/f(2*b) + f(2*a)*f(a + c)*f(
+         b + c)*f(2*b + c)^2*mu(i)*la(i)*la(k)*1/f(2*b) - 3*f(2*a)*f(a + c)*
+         f(b + c)*f(2*b + c)^2*mu(j)*la(i)*la(k)*1/f(2*b) - 3*f(2*a)*f(a + c
+         )*f(b + c)*f(2*b + c)^2*mu(k)*la(i)*la(j)*1/f(2*b) - f(2*a)*f(a + c
+         )*f(b + 2*c)*f(a + b + c)*la(i)^2 - f(2*a)*f(a + c)*f(b + 2*c)*f(a + 
+         b + c)*la(i)*la(j) - f(2*a)*f(a + c)*f(b + 2*c)*f(a + b + c)*la(i)*
+         la(k) - 2*f(2*a)*f(a + c)*f(b + 2*c)*f(a + b + c)*la(j)*la(k) - 3/2*
+         f(2*a)*f(a + c)*f(b + 2*c)^2*la(i)^2*la(j) - 3/2*f(2*a)*f(a + c)*f(b
+          + 2*c)^2*la(i)^2*la(k) - 2*f(2*a)*f(a + c)*f(b + 2*c)^2*la(i)*la(j)*
+         la(k) - f(2*a)*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(i)*la(j) - f(2
+         *a)*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(i)*la(k) - f(2*a)*f(a + c
+         )*f(b + 2*c)*f(2*b + c)*mu(i)*la(j)*la(k) - 1/2*f(2*a)*f(a + c)*f(b
+          + 2*c)*f(2*b + c)*mu(j)*la(i)^2 + 1/2*f(2*a)*f(a + c)*f(b + 2*c)*f(2
+         *b + c)*mu(j)*la(i)*la(k) - 1/2*f(2*a)*f(a + c)*f(b + 2*c)*f(2*b + c)
+         *mu(k)*la(i)^2 + 1/2*f(2*a)*f(a + c)*f(b + 2*c)*f(2*b + c)*mu(k)*la(i
+         )*la(j) - 2*f(2*a)*f(a + c)*f(2*b + c)*f(a + b + c)*mu(i)*la(i) - 2*
+         f(2*a)*f(a + c)*f(2*b + c)*f(a + b + c)*mu(i)*la(j) - 2*f(2*a)*f(a + 
+         c)*f(2*b + c)*f(a + b + c)*mu(i)*la(k) - 5*f(2*a)*f(a + c)*f(2*b + c)
+         *f(a + b + c)*mu(j)*la(i) - 4*f(2*a)*f(a + c)*f(2*b + c)*f(a + b + c)
+         *mu(j)*la(k) - 5*f(2*a)*f(a + c)*f(2*b + c)*f(a + b + c)*mu(k)*la(i)
+          - 4*f(2*a)*f(a + c)*f(2*b + c)*f(a + b + c)*mu(k)*la(j) - f(2*a)*f(a
+          + c)*f(2*b + c)^2*mu(i)*mu(j)*la(i) - f(2*a)*f(a + c)*f(2*b + c)^2*
+         mu(i)*mu(j)*la(k) - f(2*a)*f(a + c)*f(2*b + c)^2*mu(i)*mu(k)*la(i) - 
+         f(2*a)*f(a + c)*f(2*b + c)^2*mu(i)*mu(k)*la(j) - f(2*a)*f(a + c)*f(2*
+         b + c)^2*mu(j)*mu(k)*la(i) - 3*f(2*a)*f(a + 2*c)*f(2*a + b)*f(b + c)*
+         la(i) - 5/2*f(2*a)*f(a + 2*c)*f(2*a + b)*f(b + c)*la(j) - 5/2*f(2*a)*
+         f(a + 2*c)*f(2*a + b)*f(b + c)*la(k) + f(2*a)*f(a + 2*c)*f(b + c)*f(a
+          + b + c)*la(i)^2 + 2*f(2*a)*f(a + 2*c)*f(b + c)*f(a + b + c)*la(i)*
+         la(j) + 2*f(2*a)*f(a + 2*c)*f(b + c)*f(a + b + c)*la(i)*la(k) + 2*f(2
+         *a)*f(a + 2*c)*f(b + c)*f(a + b + c)*la(j)*la(k) + f(2*a)*f(a + 2*c)*
+         f(b + c)^2*f(2*b + c)*la(i)^2*la(j)*1/f(2*b) + f(2*a)*f(a + 2*c)*f(
+         b + c)^2*f(2*b + c)*la(i)^2*la(k)*1/f(2*b) + 3*f(2*a)*f(a + 2*c)*f(
+         b + c)*f(b + 2*c)*la(i)^2*la(j) + 3*f(2*a)*f(a + 2*c)*f(b + c)*f(b + 
+         2*c)*la(i)^2*la(k) + 6*f(2*a)*f(a + 2*c)*f(b + c)*f(b + 2*c)*la(i)*
+         la(j)*la(k) + 1/2*f(2*a)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*
+         la(j) + 1/2*f(2*a)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(k)
+          + f(2*a)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(i)*la(j)*la(k) + 1/2*f(2*
+         a)*f(a + 2*c)*f(b + c)*f(2*b + c)*mu(j)*la(i)^2 + f(2*a)*f(a + 2*c)*
+         f(b + c)*f(2*b + c)*mu(j)*la(i)*la(k) + 1/2*f(2*a)*f(a + 2*c)*f(b + c
+         )*f(2*b + c)*mu(k)*la(i)^2 + f(2*a)*f(a + 2*c)*f(b + c)*f(2*b + c)*
+         mu(k)*la(i)*la(j) + 1/2*f(2*a)^2*f(a + b)*f(b + 2*c)*f(2*b + c)*la(j)
+         *1/f(2*b) + 1/2*f(2*a)^2*f(a + b)*f(b + 2*c)*f(2*b + c)*la(k)*
+         1/f(2*b) + f(2*a)^2*f(a + b)*f(2*b + c)*f(a + b + c)*1/f(2*b) + 
+         f(2*a)^2*f(a + b)*f(2*b + c)^2*mu(i)*1/f(2*b) + 3/2*f(2*a)^2*f(a + 
+         b)*f(2*b + c)^2*mu(j)*1/f(2*b) + 3/2*f(2*a)^2*f(a + b)*f(2*b + c)^2
+         *mu(k)*1/f(2*b) - 4*f(2*a)^2*f(a + b + c)^2 - f(2*a)^2*f(a + 2*b)*
+         f(a + c)*f(2*b + c)*1/f(2*b) + 9/2*f(2*a)^2*f(a + 2*b)*f(a + 2*c)
+          - f(2*a)^2*f(a + 2*b)*f(b + c)*f(a + b + c)*1/f(2*b) - 1/2*f(2*a)^
+         2*f(a + 2*b)*f(b + c)*f(b + 2*c)*la(j)*1/f(2*b) - 1/2*f(2*a)^2*f(a
+          + 2*b)*f(b + c)*f(b + 2*c)*la(k)*1/f(2*b) - 3*f(2*a)^2*f(a + 2*b)*
+         f(b + c)*f(2*b + c)*mu(j)*1/f(2*b) - 3*f(2*a)^2*f(a + 2*b)*f(b + c)
+         *f(2*b + c)*mu(k)*1/f(2*b) + 3/2*f(2*a)^2*f(a + 2*b)*f(b + 2*c)*mu(
+         i) + 3*f(2*a)^2*f(a + 2*b)*f(b + 2*c)*mu(j) + 3*f(2*a)^2*f(a + 2*b)*
+         f(b + 2*c)*mu(k) + f(2*a)^2*f(a + c)*f(2*b + c)^2*la(i)*1/f(2*b) + 
+         1/2*f(2*a)^2*f(a + c)*f(2*b + c)^2*la(j)*1/f(2*b) + 1/2*f(2*a)^2*f(
+         a + c)*f(2*b + c)^2*la(k)*1/f(2*b) + 3/2*f(2*a)^2*f(a + 2*c)*f(2*b
+          + c)*la(i) + 1/2*f(2*a)^2*f(a + 2*c)*f(2*b + c)*la(j) + 1/2*f(2*a)^2
+         *f(a + 2*c)*f(2*b + c)*la(k) + 1/2*f(2*a)^3*f(2*b + c)^2*1/f(2*b)
+          - 1/2*f(2*a)^3*f(3*b)*f(b + 2*c)*1/f(2*b) - 2*f(2*a)^2*f(2*a + b)*
+         f(b + c)*f(2*b + c)*1/f(2*b) + 3/2*f(2*a)^2*f(2*a + b)*f(b + 2*c)
+          - f(2*a)^2*f(2*a + c)*f(2*b + c) - 2*f(2*a)^2*f(b + c)*f(b + 2*c)*f(
+         2*b + c)*la(j)*la(k)*1/f(2*b) - 2*f(2*a)^2*f(b + c)*f(2*b + c)*f(a
+          + b + c)*la(j)*1/f(2*b) - 2*f(2*a)^2*f(b + c)*f(2*b + c)*f(a + b
+          + c)*la(k)*1/f(2*b) + f(2*a)^2*f(b + c)*f(2*b + c)^2*mu(i)*la(i)*
+         1/f(2*b) - 3/2*f(2*a)^2*f(b + c)*f(2*b + c)^2*mu(j)*la(k)*
+         1/f(2*b) - 3/2*f(2*a)^2*f(b + c)*f(2*b + c)^2*mu(k)*la(j)*
+         1/f(2*b) - 3*f(2*a)^2*f(b + 2*c)*f(a + b + c)*la(i) - f(2*a)^2*f(b
+          + 2*c)*f(a + b + c)*la(j) - f(2*a)^2*f(b + 2*c)*f(a + b + c)*la(k)
+          - 1/2*f(2*a)^2*f(b + 2*c)^2*la(i)^2 - f(2*a)^2*f(b + 2*c)^2*la(i)*
+         la(j) - f(2*a)^2*f(b + 2*c)^2*la(i)*la(k) - 1/2*f(2*a)^2*f(b + 2*c)*
+         f(2*b + c)*mu(i)*la(i) - 1/2*f(2*a)^2*f(b + 2*c)*f(2*b + c)*mu(i)*la(
+         j) - 1/2*f(2*a)^2*f(b + 2*c)*f(2*b + c)*mu(i)*la(k) - 1/2*f(2*a)^2*f(
+         b + 2*c)*f(2*b + c)*mu(j)*la(i) + 1/2*f(2*a)^2*f(b + 2*c)*f(2*b + c)*
+         mu(j)*la(k) - 1/2*f(2*a)^2*f(b + 2*c)*f(2*b + c)*mu(k)*la(i) + 1/2*f(
+         2*a)^2*f(b + 2*c)*f(2*b + c)*mu(k)*la(j) - 3*f(2*a)^2*f(2*b + c)*f(a
+          + b + c)*mu(i) - 3*f(2*a)^2*f(2*b + c)*f(a + b + c)*mu(j) - 3*f(2*a)
+         ^2*f(2*b + c)*f(a + b + c)*mu(k) - f(2*a)^2*f(2*b + c)^2*mu(i)*mu(j)
+          - f(2*a)^2*f(2*b + c)^2*mu(i)*mu(k) - 1/2*f(2*a)^2*f(2*b + c)^2*mu(j
+         )*mu(k) - f(2*a)^2*f(3*b)*f(a + b)*f(a + 2*c)*1/f(2*b) - f(2*a)^2*
+         f(3*b)*f(a + b)*f(b + 2*c)*mu(i)*1/f(2*b) - 3/2*f(2*a)^2*f(3*b)*f(a
+          + b)*f(b + 2*c)*mu(j)*1/f(2*b) - 3/2*f(2*a)^2*f(3*b)*f(a + b)*f(b
+          + 2*c)*mu(k)*1/f(2*b) + f(2*a)^2*f(3*b)*f(a + c)*f(a + b + c)*
+         1/f(2*b) - f(2*a)^2*f(3*b)*f(a + c)*f(b + 2*c)*la(i)*1/f(2*b) - 1/
+         2*f(2*a)^2*f(3*b)*f(a + c)*f(b + 2*c)*la(j)*1/f(2*b) - 1/2*f(2*a)^2
+         *f(3*b)*f(a + c)*f(b + 2*c)*la(k)*1/f(2*b) + 1/2*f(2*a)^2*f(3*b)*f(
+         a + 2*c)*f(b + c)*la(j)*1/f(2*b) + 1/2*f(2*a)^2*f(3*b)*f(a + 2*c)*
+         f(b + c)*la(k)*1/f(2*b) + 3/2*f(2*a)^2*f(3*b)*f(a + 2*c)*mu(i) + f(
+         2*a)^2*f(3*b)*f(a + 2*c)*mu(j) + f(2*a)^2*f(3*b)*f(a + 2*c)*mu(k) + 
+         f(2*a)^2*f(3*b)*f(2*a + c)*f(b + c)*1/f(2*b) + f(2*a)^2*f(3*b)*f(b
+          + c)*f(a + b + c)*mu(j)*1/f(2*b) + f(2*a)^2*f(3*b)*f(b + c)*f(a + 
+         b + c)*mu(k)*1/f(2*b) - f(2*a)^2*f(3*b)*f(b + c)*f(b + 2*c)*mu(i)*
+         la(i)*1/f(2*b) - 1/2*f(2*a)^2*f(3*b)*f(b + c)*f(b + 2*c)*mu(j)*la(k
+         )*1/f(2*b) - 1/2*f(2*a)^2*f(3*b)*f(b + c)*f(b + 2*c)*mu(k)*la(j)*
+         1/f(2*b) - 2*f(2*a)^2*f(3*b)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*
+         1/f(2*b) + f(2*a)^2*f(3*b)*f(b + 2*c)*mu(i)*mu(j) + f(2*a)^2*f(3*b)
+         *f(b + 2*c)*mu(i)*mu(k) + 3/2*f(2*a)^2*f(3*b)*f(b + 2*c)*mu(j)*mu(k)
+          + f(2*a)^2*f(3*b)^2*f(2*c)*mu(j)*mu(k)*1/f(2*b) + f(2*a)^2*f(3*b)*
+         f(2*c)*f(a + b + c)*la(j)*1/f(2*b) + f(2*a)^2*f(3*b)*f(2*c)*f(a + b
+          + c)*la(k)*1/f(2*b) + f(2*a)^2*f(3*b)*f(2*c)*f(a + 2*b)*mu(j)*
+         1/f(2*b) + f(2*a)^2*f(3*b)*f(2*c)*f(a + 2*b)*mu(k)*1/f(2*b) + 1/2
+         *f(2*a)^2*f(3*b)*f(2*c)*f(2*a + b)*1/f(2*b) - 1/2*f(2*a)^2*f(3*b)*
+         f(2*c)*f(b + 2*c)*la(i)^2*1/f(2*b) + 1/2*f(2*a)^2*f(3*b)*f(2*c)*f(b
+          + 2*c)*la(j)*la(k)*1/f(2*b) + f(2*a)^2*f(3*b)*f(2*c)*f(2*b + c)*
+         mu(j)*la(k)*1/f(2*b) + f(2*a)^2*f(3*b)*f(2*c)*f(2*b + c)*mu(k)*la(j
+         )*1/f(2*b) - 1/2*f(2*a)^2*f(3*b)*f(3*c)*f(a + b)*la(j)*1/f(2*b)
+          - 1/2*f(2*a)^2*f(3*b)*f(3*c)*f(a + b)*la(k)*1/f(2*b) + 1/2*f(2*a)^
+         2*f(3*b)*f(3*c)*mu(i)*la(i) + 1/2*f(2*a)^2*f(3*b)*f(3*c)*mu(i)*la(j)
+          + 1/2*f(2*a)^2*f(3*b)*f(3*c)*mu(i)*la(k) + 1/2*f(2*a)^2*f(3*b)*f(3*c
+         )*mu(j)*la(i) + 1/2*f(2*a)^2*f(3*b)*f(3*c)*mu(j)*la(k) + 1/2*f(2*a)^2
+         *f(3*b)*f(3*c)*mu(k)*la(i) + 1/2*f(2*a)^2*f(3*b)*f(3*c)*mu(k)*la(j)
+          + 1/2*f(2*a)^2*f(2*c)*f(a + 2*b)^2*1/f(2*b) + 1/2*f(2*a)^2*f(2*c)*
+         f(2*b + c)^2*la(i)^2*1/f(2*b) + 1/2*f(2*a)^2*f(2*c)*f(2*b + c)^2*
+         la(j)*la(k)*1/f(2*b) + 3/2*f(2*a)^2*f(3*c)*f(a + 2*b)*la(i) + 3/2*
+         f(2*a)^2*f(3*c)*f(a + 2*b)*la(j) + 3/2*f(2*a)^2*f(3*c)*f(a + 2*b)*la(
+         k) + 1/2*f(2*a)^2*f(3*c)*f(2*b + c)*la(i)^2 + f(2*a)^2*f(3*c)*f(2*b
+          + c)*la(i)*la(j) + f(2*a)^2*f(3*c)*f(2*b + c)*la(i)*la(k) + f(2*a)^2
+         *f(3*c)*f(2*b + c)*la(j)*la(k) - f(2*a)*f(2*a + b)*f(2*a + c)*f(b + c
+         ) + 6*f(2*a)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(i) + 3*f(2*a)*f(2*a
+          + b)*f(b + c)*f(a + b + c)*mu(j) + 3*f(2*a)*f(2*a + b)*f(b + c)*f(a
+          + b + c)*mu(k) - 4*f(2*a)*f(2*a + b)*f(b + c)^2*f(2*b + c)*mu(i)*la(
+         i)*1/f(2*b) + f(2*a)*f(2*a + b)*f(b + c)^2*f(2*b + c)*mu(i)*la(j)*
+         1/f(2*b) + f(2*a)*f(2*a + b)*f(b + c)^2*f(2*b + c)*mu(i)*la(k)*
+         1/f(2*b) + 4*f(2*a)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(i)*la(i) + f(
+         2*a)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(i)*la(j) + f(2*a)*f(2*a + b)*
+         f(b + c)*f(b + 2*c)*mu(i)*la(k) + f(2*a)*f(2*a + b)*f(b + c)*f(b + 2*
+         c)*mu(j)*la(i) + 1/2*f(2*a)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(j)*la(k
+         ) + f(2*a)*f(2*a + b)*f(b + c)*f(b + 2*c)*mu(k)*la(i) + 1/2*f(2*a)*f(
+         2*a + b)*f(b + c)*f(b + 2*c)*mu(k)*la(j) + 4*f(2*a)*f(2*a + b)*f(b + 
+         c)*f(2*b + c)*mu(i)*mu(j) + 4*f(2*a)*f(2*a + b)*f(b + c)*f(2*b + c)*
+         mu(i)*mu(k) + 8*f(2*a)*f(2*a + b)*f(b + c)*f(2*b + c)*mu(j)*mu(k) + 6
+         *f(2*a)*f(2*a + c)*f(b + c)*f(a + b + c)*la(i) + 4*f(2*a)*f(2*a + c)*
+         f(b + c)*f(a + b + c)*la(j) + 4*f(2*a)*f(2*a + c)*f(b + c)*f(a + b + 
+         c)*la(k) + f(2*a)*f(2*a + c)*f(b + c)^2*f(2*b + c)*la(i)^2*1/f(2*b)
+          + 2*f(2*a)*f(2*a + c)*f(b + c)*f(b + 2*c)*la(i)^2 + 4*f(2*a)*f(2*a
+          + c)*f(b + c)*f(b + 2*c)*la(i)*la(j) + 4*f(2*a)*f(2*a + c)*f(b + c)*
+         f(b + 2*c)*la(i)*la(k) + 2*f(2*a)*f(2*a + c)*f(b + c)*f(b + 2*c)*la(j
+         )*la(k) - f(2*a)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*la(i) + f(2*a)*
+         f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*la(j) + f(2*a)*f(2*a + c)*f(b + 
+         c)*f(2*b + c)*mu(i)*la(k) + f(2*a)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(
+         j)*la(i) + 2*f(2*a)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(j)*la(k) + f(2*
+         a)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(k)*la(i) + 2*f(2*a)*f(2*a + c)*
+         f(b + c)*f(2*b + c)*mu(k)*la(j) + f(2*a)*f(3*a)*f(a + b)*f(b + c)*f(2
+         *b + c)*1/f(2*b) - f(2*a)*f(3*a)*f(a + b)*f(b + 2*c) - f(2*a)*f(3*a
+         )*f(a + 2*b)*f(b + c)^2*1/f(2*b) + f(2*a)*f(3*a)*f(a + c)*f(2*b + c
+         ) + 3*f(2*a)*f(3*a)*f(b + c)*f(a + b + c) + f(2*a)*f(3*a)*f(b + c)*f(
+         b + 2*c)*la(i) + 1/2*f(2*a)*f(3*a)*f(b + c)*f(b + 2*c)*la(j) + 1/2*f(
+         2*a)*f(3*a)*f(b + c)*f(b + 2*c)*la(k) + f(2*a)*f(3*a)*f(b + c)*f(2*b
+          + c)*mu(i) + 2*f(2*a)*f(3*a)*f(b + c)*f(2*b + c)*mu(j) + 2*f(2*a)*f(
+         3*a)*f(b + c)*f(2*b + c)*mu(k) - 3/2*f(2*a)*f(3*a)*f(2*b)*f(a + 2*c)
+          - 1/2*f(2*a)*f(3*a)*f(2*b)*f(b + 2*c)*mu(i) - f(2*a)*f(3*a)*f(2*b)*
+         f(b + 2*c)*mu(j) - f(2*a)*f(3*a)*f(2*b)*f(b + 2*c)*mu(k) - 1/2*f(2*a)
+         *f(3*a)*f(2*b)*f(3*c)*la(i) - 1/2*f(2*a)*f(3*a)*f(2*b)*f(3*c)*la(j)
+          - 1/2*f(2*a)*f(3*a)*f(2*b)*f(3*c)*la(k) - f(2*a)*f(3*a)*f(3*b)*f(a
+          + c)*f(b + c)*1/f(2*b) - f(2*a)*f(3*a)*f(3*b)*f(b + c)^2*mu(j)*
+         1/f(2*b) - f(2*a)*f(3*a)*f(3*b)*f(b + c)^2*mu(k)*1/f(2*b) - 1/2*
+         f(2*a)*f(3*a)*f(3*b)*f(2*c)*f(b + c)*la(j)*1/f(2*b) - 1/2*f(2*a)*f(
+         3*a)*f(3*b)*f(2*c)*f(b + c)*la(k)*1/f(2*b) - 1/2*f(2*a)*f(3*a)*f(3*
+         b)*f(2*c)*mu(i) - 1/2*f(2*a)*f(3*a)*f(2*c)*f(a + 2*b) - 1/2*f(2*a)*f(
+         3*a)*f(2*c)*f(2*b + c)*la(i) + 1/2*f(2*a)*f(3*a)*f(2*c)*f(2*b + c)*
+         la(j) + 1/2*f(2*a)*f(3*a)*f(2*c)*f(2*b + c)*la(k) + 2*f(2*a)*f(b + c)
+         *f(a + b + c)^2*mu(i)*la(i) + 4*f(2*a)*f(b + c)*f(a + b + c)^2*mu(i)*
+         la(j) + 4*f(2*a)*f(b + c)*f(a + b + c)^2*mu(i)*la(k) + 4*f(2*a)*f(b
+          + c)*f(a + b + c)^2*mu(j)*la(i) + 2*f(2*a)*f(b + c)*f(a + b + c)^2*
+         mu(j)*la(k) + 4*f(2*a)*f(b + c)*f(a + b + c)^2*mu(k)*la(i) + 2*f(2*a)
+         *f(b + c)*f(a + b + c)^2*mu(k)*la(j) - 4*f(2*a)*f(b + c)^2*f(b + 2*c)
+         *f(2*b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - 4*f(2*a)*f(b + c)^2*
+         f(2*b + c)*f(a + b + c)*mu(i)*la(i)*la(j)*1/f(2*b) - 4*f(2*a)*f(b
+          + c)^2*f(2*b + c)*f(a + b + c)*mu(i)*la(i)*la(k)*1/f(2*b) + 2*f(2*
+         a)*f(b + c)^2*f(2*b + c)*f(a + b + c)*mu(i)*la(j)*la(k)*1/f(2*b) - 
+         3*f(2*a)*f(b + c)^2*f(2*b + c)^2*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b)
+          - 3*f(2*a)*f(b + c)^2*f(2*b + c)^2*mu(i)*mu(k)*la(i)*la(j)*
+         1/f(2*b) - 3*f(2*a)*f(b + c)^2*f(2*b + c)^2*mu(j)*mu(k)*la(i)^2*
+         1/f(2*b) + 5*f(2*a)*f(b + c)*f(b + 2*c)*f(a + b + c)*mu(i)*la(i)*
+         la(j) + 5*f(2*a)*f(b + c)*f(b + 2*c)*f(a + b + c)*mu(i)*la(i)*la(k)
+          + 4*f(2*a)*f(b + c)*f(b + 2*c)*f(a + b + c)*mu(i)*la(j)*la(k) + 2*f(
+         2*a)*f(b + c)*f(b + 2*c)*f(a + b + c)*mu(j)*la(i)^2 + 4*f(2*a)*f(b + 
+         c)*f(b + 2*c)*f(a + b + c)*mu(j)*la(i)*la(k) + 2*f(2*a)*f(b + c)*f(b
+          + 2*c)*f(a + b + c)*mu(k)*la(i)^2 + 4*f(2*a)*f(b + c)*f(b + 2*c)*f(a
+          + b + c)*mu(k)*la(i)*la(j) + 4*f(2*a)*f(b + c)*f(b + 2*c)^2*mu(i)*
+         la(i)*la(j)*la(k) + 3/2*f(2*a)*f(b + c)*f(b + 2*c)^2*mu(j)*la(i)^2*
+         la(k) + 3/2*f(2*a)*f(b + c)*f(b + 2*c)^2*mu(k)*la(i)^2*la(j) + 11/2*
+         f(2*a)*f(b + c)*f(b + 2*c)*f(2*b + c)*mu(i)*mu(j)*la(i)*la(k) + 11/2*
+         f(2*a)*f(b + c)*f(b + 2*c)*f(2*b + c)*mu(i)*mu(k)*la(i)*la(j) + 2*f(2
+         *a)*f(b + c)*f(b + 2*c)*f(2*b + c)*mu(j)*mu(k)*la(i)^2 + f(2*a)*f(b
+          + c)*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)*la(i) + 4*f(2*a)*f(b + c)*
+         f(2*b + c)*f(a + b + c)*mu(i)*mu(j)*la(k) + f(2*a)*f(b + c)*f(2*b + c
+         )*f(a + b + c)*mu(i)*mu(k)*la(i) + 4*f(2*a)*f(b + c)*f(2*b + c)*f(a
+          + b + c)*mu(i)*mu(k)*la(j) + 4*f(2*a)*f(b + c)*f(2*b + c)*f(a + b + 
+         c)*mu(j)*mu(k)*la(i) + 3*f(2*a)*f(b + c)*f(2*b + c)^2*mu(i)*mu(j)*mu(
+         k)*la(i) + 2*f(2*a)*f(2*b)*f(a + b + c)^2*mu(i)*mu(j) + 2*f(2*a)*f(2*
+         b)*f(a + b + c)^2*mu(i)*mu(k) + 4*f(2*a)*f(2*b)*f(a + b + c)^2*mu(j)*
+         mu(k) - 3*f(2*a)*f(2*b)*f(a + 2*b)*f(a + 2*c)*mu(i)*mu(j) - 3*f(2*a)*
+         f(2*b)*f(a + 2*b)*f(a + 2*c)*mu(i)*mu(k) - 3/2*f(2*a)*f(2*b)*f(a + 2*
+         b)*f(a + 2*c)*mu(j)*mu(k) - 9/2*f(2*a)*f(2*b)*f(a + 2*b)*f(b + 2*c)*
+         mu(i)*mu(j)*mu(k) - f(2*a)*f(2*b)*f(a + 2*c)*f(a + b + c)*mu(i)*la(i)
+          - f(2*a)*f(2*b)*f(a + 2*c)*f(a + b + c)*mu(i)*la(j) - f(2*a)*f(2*b)*
+         f(a + 2*c)*f(a + b + c)*mu(i)*la(k) - f(2*a)*f(2*b)*f(a + 2*c)*f(a + 
+         b + c)*mu(j)*la(i) + f(2*a)*f(2*b)*f(a + 2*c)*f(a + b + c)*mu(j)*la(k
+         ) - f(2*a)*f(2*b)*f(a + 2*c)*f(a + b + c)*mu(k)*la(i) + f(2*a)*f(2*b)
+         *f(a + 2*c)*f(a + b + c)*mu(k)*la(j) - 1/2*f(2*a)*f(2*b)*f(a + 2*c)^2
+         *la(i)^2 - f(2*a)*f(2*b)*f(a + 2*c)^2*la(i)*la(j) - f(2*a)*f(2*b)*f(a
+          + 2*c)^2*la(i)*la(k) - 9/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*a + b)*mu(i)
+          - 3*f(2*a)*f(2*b)*f(a + 2*c)*f(2*a + b)*mu(j) - 3*f(2*a)*f(2*b)*f(a
+          + 2*c)*f(2*a + b)*mu(k) - 3/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*a + c)*
+         la(i) - 1/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*a + c)*la(j) - 1/2*f(2*a)*f(
+         2*b)*f(a + 2*c)*f(2*a + c)*la(k) + 1/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*b
+          + c)*mu(i)*mu(j)*la(i) + 1/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*b + c)*mu(
+         i)*mu(j)*la(k) + 1/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*b + c)*mu(i)*mu(k)*
+         la(i) + 1/2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*b + c)*mu(i)*mu(k)*la(j) + 1/
+         2*f(2*a)*f(2*b)*f(a + 2*c)*f(2*b + c)*mu(j)*mu(k)*la(i) - 3*f(2*a)*f(
+         2*b)*f(2*a + b)*f(b + 2*c)*mu(i)*mu(j) - 3*f(2*a)*f(2*b)*f(2*a + b)*
+         f(b + 2*c)*mu(i)*mu(k) - 9/2*f(2*a)*f(2*b)*f(2*a + b)*f(b + 2*c)*mu(j
+         )*mu(k) + 3*f(2*a)*f(2*b)*f(2*a + c)*f(a + b + c)*mu(i) + 3*f(2*a)*f(
+         2*b)*f(2*a + c)*f(a + b + c)*mu(j) + 3*f(2*a)*f(2*b)*f(2*a + c)*f(a
+          + b + c)*mu(k) + 1/2*f(2*a)*f(2*b)*f(2*a + c)^2 + 1/2*f(2*a)*f(2*b)*
+         f(2*a + c)*f(b + 2*c)*mu(i)*la(i) + 1/2*f(2*a)*f(2*b)*f(2*a + c)*f(b
+          + 2*c)*mu(i)*la(j) + 1/2*f(2*a)*f(2*b)*f(2*a + c)*f(b + 2*c)*mu(i)*
+         la(k) + 1/2*f(2*a)*f(2*b)*f(2*a + c)*f(b + 2*c)*mu(j)*la(i) - 1/2*f(2
+         *a)*f(2*b)*f(2*a + c)*f(b + 2*c)*mu(j)*la(k) + 1/2*f(2*a)*f(2*b)*f(2*
+         a + c)*f(b + 2*c)*mu(k)*la(i) - 1/2*f(2*a)*f(2*b)*f(2*a + c)*f(b + 2*
+         c)*mu(k)*la(j) + 2*f(2*a)*f(2*b)*f(2*a + c)*f(2*b + c)*mu(i)*mu(j) + 
+         2*f(2*a)*f(2*b)*f(2*a + c)*f(2*b + c)*mu(i)*mu(k) + f(2*a)*f(2*b)*f(2
+         *a + c)*f(2*b + c)*mu(j)*mu(k) - f(2*a)*f(2*b)*f(b + 2*c)*f(a + b + c
+         )*mu(i)*mu(j)*la(i) - f(2*a)*f(2*b)*f(b + 2*c)*f(a + b + c)*mu(i)*mu(
+         j)*la(k) - f(2*a)*f(2*b)*f(b + 2*c)*f(a + b + c)*mu(i)*mu(k)*la(i) - 
+         f(2*a)*f(2*b)*f(b + 2*c)*f(a + b + c)*mu(i)*mu(k)*la(j) - f(2*a)*f(2*
+         b)*f(b + 2*c)*f(a + b + c)*mu(j)*mu(k)*la(i) - f(2*a)*f(2*b)*f(b + 2*
+         c)^2*mu(i)*mu(j)*la(i)*la(k) - f(2*a)*f(2*b)*f(b + 2*c)^2*mu(i)*mu(k)
+         *la(i)*la(j) - 1/2*f(2*a)*f(2*b)*f(b + 2*c)^2*mu(j)*mu(k)*la(i)^2 - 3/
+         2*f(2*a)*f(2*b)*f(b + 2*c)*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i) + 3*f(2
+         *a)*f(2*b)*f(2*b + c)*f(a + b + c)*mu(i)*mu(j)*mu(k) - 1/2*f(2*a)*f(2
+         *b)*f(3*b)*f(a + 2*c)*mu(i)*mu(j)*mu(k) - 1/2*f(2*a)*f(2*b)*f(3*b)*f(
+         3*c)*mu(i)*mu(j)*mu(k)*la(i) - 2*f(2*a)*f(2*b)*f(3*c)*f(a + b + c)*
+         mu(i)*la(i)*la(j) - 2*f(2*a)*f(2*b)*f(3*c)*f(a + b + c)*mu(i)*la(i)*
+         la(k) - 2*f(2*a)*f(2*b)*f(3*c)*f(a + b + c)*mu(i)*la(j)*la(k) - f(2*a
+         )*f(2*b)*f(3*c)*f(a + b + c)*mu(j)*la(i)^2 - 2*f(2*a)*f(2*b)*f(3*c)*
+         f(a + b + c)*mu(j)*la(i)*la(k) - f(2*a)*f(2*b)*f(3*c)*f(a + b + c)*
+         mu(k)*la(i)^2 - 2*f(2*a)*f(2*b)*f(3*c)*f(a + b + c)*mu(k)*la(i)*la(j)
+          - 3/2*f(2*a)*f(2*b)*f(3*c)*f(a + 2*b)*mu(i)*mu(j)*la(i) - 3/2*f(2*a)
+         *f(2*b)*f(3*c)*f(a + 2*b)*mu(i)*mu(j)*la(k) - 3/2*f(2*a)*f(2*b)*f(3*c
+         )*f(a + 2*b)*mu(i)*mu(k)*la(i) - 3/2*f(2*a)*f(2*b)*f(3*c)*f(a + 2*b)*
+         mu(i)*mu(k)*la(j) - 3/2*f(2*a)*f(2*b)*f(3*c)*f(a + 2*b)*mu(j)*mu(k)*
+         la(i) - f(2*a)*f(2*b)*f(3*c)*f(a + 2*c)*la(i)^2*la(j) - f(2*a)*f(2*b)
+         *f(3*c)*f(a + 2*c)*la(i)^2*la(k) - 2*f(2*a)*f(2*b)*f(3*c)*f(a + 2*c)*
+         la(i)*la(j)*la(k) - 3/2*f(2*a)*f(2*b)*f(3*c)*f(2*a + b)*mu(i)*la(i)
+          - 3/2*f(2*a)*f(2*b)*f(3*c)*f(2*a + b)*mu(i)*la(j) - 3/2*f(2*a)*f(2*b
+         )*f(3*c)*f(2*a + b)*mu(i)*la(k) - 3/2*f(2*a)*f(2*b)*f(3*c)*f(2*a + b)
+         *mu(j)*la(i) - 3/2*f(2*a)*f(2*b)*f(3*c)*f(2*a + b)*mu(j)*la(k) - 3/2*
+         f(2*a)*f(2*b)*f(3*c)*f(2*a + b)*mu(k)*la(i) - 3/2*f(2*a)*f(2*b)*f(3*c
+         )*f(2*a + b)*mu(k)*la(j) - 1/2*f(2*a)*f(2*b)*f(3*c)*f(2*a + c)*la(i)^
+         2 - f(2*a)*f(2*b)*f(3*c)*f(2*a + c)*la(i)*la(j) - f(2*a)*f(2*b)*f(3*c
+         )*f(2*a + c)*la(i)*la(k) - f(2*a)*f(2*b)*f(3*c)*f(2*a + c)*la(j)*la(k
+         ) - 2*f(2*a)*f(2*b)*f(3*c)*f(b + 2*c)*mu(i)*la(i)*la(j)*la(k) - f(2*a
+         )*f(2*b)*f(3*c)*f(b + 2*c)*mu(j)*la(i)^2*la(k) - f(2*a)*f(2*b)*f(3*c)
+         *f(b + 2*c)*mu(k)*la(i)^2*la(j) - f(2*a)*f(2*b)*f(3*c)*f(2*b + c)*mu(
+         i)*mu(j)*la(i)*la(k) - f(2*a)*f(2*b)*f(3*c)*f(2*b + c)*mu(i)*mu(k)*
+         la(i)*la(j) - 1/2*f(2*a)*f(2*b)*f(3*c)*f(2*b + c)*mu(j)*mu(k)*la(i)^2
+          - f(2*a)*f(2*b)*f(3*c)^2*la(i)^2*la(j)*la(k) - 2*f(2*a)*f(3*b)*f(a
+          + b)^2*f(a + 2*c)*mu(i)*1/f(2*b) - f(2*a)*f(3*b)*f(a + b)^2*f(a + 
+         2*c)*mu(j)*1/f(2*b) - f(2*a)*f(3*b)*f(a + b)^2*f(a + 2*c)*mu(k)*
+         1/f(2*b) - 3*f(2*a)*f(3*b)*f(a + b)^2*f(b + 2*c)*mu(i)*mu(j)*
+         1/f(2*b) - 3*f(2*a)*f(3*b)*f(a + b)^2*f(b + 2*c)*mu(i)*mu(k)*
+         1/f(2*b) - 4*f(2*a)*f(3*b)*f(a + b)^2*f(b + 2*c)*mu(j)*mu(k)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(a + b + c)*mu(i)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(a + b + c)*mu(j)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(a + b + c)*mu(k)*
+         1/f(2*b) - 2*f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(a + 2*c)*la(i)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(2*a + c)*1/f(2*b) - 
+         f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(i)*la(j)*1/f(2*b) - 
+         f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(i)*la(k)*1/f(2*b) - 3
+         *f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(j)*la(i)*1/f(2*b) - 
+         f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(j)*la(k)*1/f(2*b) - 3
+         *f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(k)*la(i)*1/f(2*b) - 
+         f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(k)*la(j)*1/f(2*b) + 2
+         *f(2*a)*f(3*b)*f(a + b)*f(a + c)*f(2*b + c)*mu(j)*mu(k)*1/f(2*b) - 
+         2*f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)*mu(i)*la(i)*1/f(2*b)
+          + f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)*mu(i)*la(j)*1/f(2*b)
+          + f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)*mu(i)*la(k)*1/f(2*b)
+          + 2*f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)*mu(j)*la(k)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)*mu(k)*la(j)
+         *1/f(2*b) + 5/2*f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*mu(i)*mu(j) + 5/2
+         *f(2*a)*f(3*b)*f(a + b)*f(a + 2*c)*mu(i)*mu(k) + f(2*a)*f(3*b)*f(a + 
+         b)*f(a + 2*c)*mu(j)*mu(k) + 2*f(2*a)*f(3*b)*f(a + b)*f(2*a + c)*f(b
+          + c)*mu(i)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)
+         *mu(j)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)*mu(k
+         )*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(b + c)*f(a + b + c)*mu(i)*
+         mu(j)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + b)*f(b + c)*f(a + b + c)*mu(
+         i)*mu(k)*1/f(2*b) + 8*f(2*a)*f(3*b)*f(a + b)*f(b + c)*f(a + b + c)*
+         mu(j)*mu(k)*1/f(2*b) - 3*f(2*a)*f(3*b)*f(a + b)*f(b + c)*f(b + 2*c)
+         *mu(i)*mu(j)*la(i)*1/f(2*b) - f(2*a)*f(3*b)*f(a + b)*f(b + c)*f(b
+          + 2*c)*mu(i)*mu(j)*la(k)*1/f(2*b) - 3*f(2*a)*f(3*b)*f(a + b)*f(b
+          + c)*f(b + 2*c)*mu(i)*mu(k)*la(i)*1/f(2*b) - f(2*a)*f(3*b)*f(a + b
+         )*f(b + c)*f(b + 2*c)*mu(i)*mu(k)*la(j)*1/f(2*b) - 4*f(2*a)*f(3*b)*
+         f(a + b)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*mu(k)*1/f(2*b) + 5*f(2*a)*
+         f(3*b)*f(a + b)*f(b + 2*c)*mu(i)*mu(j)*mu(k) - f(2*a)*f(3*b)*f(a + 2*
+         b)*f(a + c)^2*mu(j)*1/f(2*b) - f(2*a)*f(3*b)*f(a + 2*b)*f(a + c)^2*
+         mu(k)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + 2*b)*f(a + c)*f(b + c)*mu(j)
+         *mu(k)*1/f(2*b) + 4*f(2*a)*f(3*b)*f(a + 2*b)*f(b + c)^2*mu(i)*mu(j)
+         *mu(k)*1/f(2*b) - 2*f(2*a)*f(3*b)*f(a + c)*f(a + b + c)*mu(i)*mu(j)
+          - 2*f(2*a)*f(3*b)*f(a + c)*f(a + b + c)*mu(i)*mu(k) - 3*f(2*a)*f(3*b
+         )*f(a + c)*f(a + b + c)*mu(j)*mu(k) + 2*f(2*a)*f(3*b)*f(a + c)^2*f(a
+          + b + c)*la(i)*1/f(2*b) - f(2*a)*f(3*b)*f(a + c)^2*f(2*a + b)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(a + c)^2*f(b + 2*c)*la(i)*la(j)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(a + c)^2*f(b + 2*c)*la(i)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(a + c)^2*f(b + 2*c)*la(j)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(a + c)^2*f(2*b + c)*mu(j)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(a + c)^2*f(2*b + c)*mu(k)*la(j)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(a + c)*f(a + 2*c)*f(b + c)*la(i)*la(j)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(a + c)*f(a + 2*c)*f(b + c)*la(i)*la(k)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(a + c)*f(a + 2*c)*f(b + c)*la(j)*la(k)*
+         1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(a + c)*f(a + 2*c)*mu(j)*la(i) - 1/2*
+         f(2*a)*f(3*b)*f(a + c)*f(a + 2*c)*mu(j)*la(k) + 1/2*f(2*a)*f(3*b)*f(a
+          + c)*f(a + 2*c)*mu(k)*la(i) - 1/2*f(2*a)*f(3*b)*f(a + c)*f(a + 2*c)*
+         mu(k)*la(j) - f(2*a)*f(3*b)*f(a + c)*f(2*a + b)*f(b + c)*mu(j)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(a + c)*f(2*a + b)*f(b + c)*mu(k)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + c)*f(2*a + c)*f(b + c)*la(i)*
+         1/f(2*b) - 3*f(2*a)*f(3*b)*f(a + c)*f(2*a + c)*mu(i) - 2*f(2*a)*f(3
+         *b)*f(a + c)*f(2*a + c)*mu(j) - 2*f(2*a)*f(3*b)*f(a + c)*f(2*a + c)*
+         mu(k) + 2*f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(a + b + c)*mu(i)*la(i)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(a + b + c)*mu(j)*la(
+         i)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(a + b + c)*mu(j)*
+         la(k)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(a + b + c)*mu(
+         k)*la(i)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(a + b + c)*
+         mu(k)*la(j)*1/f(2*b) - f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(b + 2*c)*
+         mu(i)*la(i)*la(j)*1/f(2*b) - f(2*a)*f(3*b)*f(a + c)*f(b + c)*f(b + 
+         2*c)*mu(i)*la(i)*la(k)*1/f(2*b) - f(2*a)*f(3*b)*f(a + c)*f(b + c)*
+         f(b + 2*c)*mu(j)*la(i)*la(k)*1/f(2*b) - f(2*a)*f(3*b)*f(a + c)*f(b
+          + c)*f(b + 2*c)*mu(k)*la(i)*la(j)*1/f(2*b) - 4*f(2*a)*f(3*b)*f(a
+          + c)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*la(i)*1/f(2*b) + f(2*a)*f(3*b
+         )*f(a + c)*f(b + 2*c)*mu(i)*mu(j)*la(i) + f(2*a)*f(3*b)*f(a + c)*f(b
+          + 2*c)*mu(i)*mu(j)*la(k) + f(2*a)*f(3*b)*f(a + c)*f(b + 2*c)*mu(i)*
+         mu(k)*la(i) + f(2*a)*f(3*b)*f(a + c)*f(b + 2*c)*mu(i)*mu(k)*la(j) + 3
+         *f(2*a)*f(3*b)*f(a + c)*f(b + 2*c)*mu(j)*mu(k)*la(i) + f(2*a)*f(3*b)*
+         f(a + 2*c)*f(b + c)^2*mu(i)*la(i)*la(j)*1/f(2*b) + f(2*a)*f(3*b)*f(
+         a + 2*c)*f(b + c)^2*mu(i)*la(i)*la(k)*1/f(2*b) - 2*f(2*a)*f(3*b)*f(
+         a + 2*c)*f(b + c)^2*mu(i)*la(j)*la(k)*1/f(2*b) + f(2*a)*f(3*b)*f(a
+          + 2*c)*f(b + c)^2*mu(j)*la(i)^2*1/f(2*b) + f(2*a)*f(3*b)*f(a + 2*c
+         )*f(b + c)^2*mu(k)*la(i)^2*1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(a + 2*c)*
+         f(b + c)*mu(i)*mu(j)*la(i) - f(2*a)*f(3*b)*f(a + 2*c)*f(b + c)*mu(i)*
+         mu(j)*la(k) - 1/2*f(2*a)*f(3*b)*f(a + 2*c)*f(b + c)*mu(i)*mu(k)*la(i)
+          - f(2*a)*f(3*b)*f(a + 2*c)*f(b + c)*mu(i)*mu(k)*la(j) - f(2*a)*f(3*b
+         )*f(a + 2*c)*f(b + c)*mu(j)*mu(k)*la(i) + f(2*a)*f(3*b)*f(2*a + b)*f(
+         b + c)^2*mu(i)*mu(j)*1/f(2*b) + f(2*a)*f(3*b)*f(2*a + b)*f(b + c)^2
+         *mu(i)*mu(k)*1/f(2*b) - 4*f(2*a)*f(3*b)*f(2*a + b)*f(b + c)^2*mu(j)
+         *mu(k)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*a + c)*f(b + c)^2*mu(i)*la(i)
+         *1/f(2*b) - f(2*a)*f(3*b)*f(2*a + c)*f(b + c)^2*mu(i)*la(j)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(2*a + c)*f(b + c)^2*mu(i)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(2*a + c)*f(b + c)^2*mu(j)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(2*a + c)*f(b + c)^2*mu(k)*la(j)*
+         1/f(2*b) - 2*f(2*a)*f(3*b)*f(2*a + c)*f(b + c)*mu(i)*mu(j) - 2*f(2*
+         a)*f(3*b)*f(2*a + c)*f(b + c)*mu(i)*mu(k) - f(2*a)*f(3*b)*f(2*a + c)*
+         f(b + c)*mu(j)*mu(k) - 2*f(2*a)*f(3*b)*f(b + c)*f(a + b + c)*mu(i)*
+         mu(j)*mu(k) + 2*f(2*a)*f(3*b)*f(b + c)^2*f(a + b + c)*mu(i)*mu(j)*la(
+         i)*1/f(2*b) - 2*f(2*a)*f(3*b)*f(b + c)^2*f(a + b + c)*mu(i)*mu(j)*
+         la(k)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(b + c)^2*f(a + b + c)*mu(i)*mu(k
+         )*la(i)*1/f(2*b) - 2*f(2*a)*f(3*b)*f(b + c)^2*f(a + b + c)*mu(i)*
+         mu(k)*la(j)*1/f(2*b) - f(2*a)*f(3*b)*f(b + c)^2*f(b + 2*c)*mu(i)*
+         mu(j)*la(i)*la(k)*1/f(2*b) - f(2*a)*f(3*b)*f(b + c)^2*f(b + 2*c)*
+         mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 4*f(2*a)*f(3*b)*f(b + c)^2*f(b
+          + 2*c)*mu(j)*mu(k)*la(i)^2*1/f(2*b) - 4*f(2*a)*f(3*b)*f(b + c)^2*
+         f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i)*1/f(2*b) + 3*f(2*a)*f(3*b)*f(b
+          + c)*f(b + 2*c)*mu(i)*mu(j)*mu(k)*la(i) - f(2*a)*f(3*b)^2*f(a + c)^2
+         *mu(j)*mu(k)*1/f(2*b) + 2*f(2*a)*f(3*b)^2*f(2*c)*f(a + b)*mu(i)*mu(
+         j)*mu(k)*1/f(2*b) + 2*f(2*a)*f(3*b)^2*f(2*c)*f(a + c)*mu(j)*mu(k)*
+         la(i)*1/f(2*b) + 2*f(2*a)*f(3*b)^2*f(2*c)*f(b + c)*mu(i)*mu(j)*mu(k
+         )*la(i)*1/f(2*b) + f(2*a)*f(3*b)^2*f(2*c)^2*mu(j)*mu(k)*la(i)^2*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + b + c)*mu(i)*la(j)
+         *1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + b + c)*mu(i)*la(k
+         )*1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + b + c)*mu(j)*la(k)
+         *1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + b + c)*mu(k)*la(j)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + 2*b)*mu(i)*mu(j)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + 2*b)*mu(i)*mu(k)*
+         1/f(2*b) - 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + 2*b)*mu(j)*mu(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + 2*c)*la(i)^2*
+         1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(a + 2*c)*la(j)*la(k)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*a + b)*mu(i)*
+         1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*a + b)*mu(j)*
+         1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*a + b)*mu(k)*
+         1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*a + c)*la(j)*
+         1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*a + c)*la(k)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(b + 2*c)*mu(i)*la(j)*la(
+         k)*1/f(2*b) - 3/2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(b + 2*c)*mu(j)*
+         la(i)^2*1/f(2*b) - 3/2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(b + 2*c)*mu(
+         k)*la(i)^2*1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*b + c)*
+         mu(i)*mu(j)*la(k)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + b)*f(2*b
+          + c)*mu(i)*mu(k)*la(j)*1/f(2*b) - 2*f(2*a)*f(3*b)*f(2*c)*f(a + b
+          + c)*mu(i)*mu(j)*la(i) - 2*f(2*a)*f(3*b)*f(2*c)*f(a + b + c)*mu(i)*
+         mu(k)*la(i) - 2*f(2*a)*f(3*b)*f(2*c)*f(a + b + c)*mu(j)*mu(k)*la(i)
+          + 2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*b)*f(a + c)*mu(j)*la(i)*1/f(2*b)
+          + 2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*b)*f(a + c)*mu(k)*la(i)*1/f(2*b)
+          + 2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*b)*f(b + c)*mu(i)*mu(j)*la(i)*
+         1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*b)*f(b + c)*mu(i)*mu(k)*
+         la(i)*1/f(2*b) - 6*f(2*a)*f(3*b)*f(2*c)*f(a + 2*b)*mu(i)*mu(j)*mu(k
+         ) + f(2*a)*f(3*b)*f(2*c)*f(a + c)*f(a + b + c)*la(i)^2*1/f(2*b) + 2
+         *f(2*a)*f(3*b)*f(2*c)*f(a + c)*f(a + b + c)*la(i)*la(j)*1/f(2*b) + 
+         2*f(2*a)*f(3*b)*f(2*c)*f(a + c)*f(a + b + c)*la(i)*la(k)*1/f(2*b)
+          + f(2*a)*f(3*b)*f(2*c)*f(a + c)*f(a + b + c)*la(j)*la(k)*1/f(2*b)
+          + f(2*a)*f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*la(i)*1/f(2*b) - 1/2*f(
+         2*a)*f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*la(j)*1/f(2*b) - 1/2*f(2*a)*
+         f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*la(k)*1/f(2*b) - 1/2*f(2*a)*f(3*b
+         )*f(2*c)*f(a + c)*f(b + 2*c)*la(i)^2*la(j)*1/f(2*b) - 1/2*f(2*a)*f(
+         3*b)*f(2*c)*f(a + c)*f(b + 2*c)*la(i)^2*la(k)*1/f(2*b) + f(2*a)*f(3
+         *b)*f(2*c)*f(a + c)*f(b + 2*c)*la(i)*la(j)*la(k)*1/f(2*b) + 2*f(2*a
+         )*f(3*b)*f(2*c)*f(a + c)*f(2*b + c)*mu(j)*la(i)*la(k)*1/f(2*b) + 2*
+         f(2*a)*f(3*b)*f(2*c)*f(a + c)*f(2*b + c)*mu(k)*la(i)*la(j)*1/f(2*b)
+          + 1/2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*f(b + c)*la(i)^2*la(j)*
+         1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*f(b + c)*la(i)^2*la(
+         k)*1/f(2*b) - 3/2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*mu(i)*la(i)*la(j)
+          - 3/2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*mu(i)*la(i)*la(k) + 1/2*f(2*a)
+         *f(3*b)*f(2*c)*f(a + 2*c)*mu(i)*la(j)*la(k) - 3/2*f(2*a)*f(3*b)*f(2*c
+         )*f(a + 2*c)*mu(j)*la(i)^2 - 3/2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*mu(j
+         )*la(i)*la(k) - 3/2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*mu(k)*la(i)^2 - 3/
+         2*f(2*a)*f(3*b)*f(2*c)*f(a + 2*c)*mu(k)*la(i)*la(j) + f(2*a)*f(3*b)*
+         f(2*c)*f(2*a + b)*f(b + c)*mu(i)*la(i)*1/f(2*b) - 3/2*f(2*a)*f(3*b)
+         *f(2*c)*f(2*a + b)*f(b + c)*mu(j)*la(k)*1/f(2*b) - 3/2*f(2*a)*f(3*b
+         )*f(2*c)*f(2*a + b)*f(b + c)*mu(k)*la(j)*1/f(2*b) - 2*f(2*a)*f(3*b)
+         *f(2*c)*f(2*a + b)*mu(i)*mu(j) - 2*f(2*a)*f(3*b)*f(2*c)*f(2*a + b)*
+         mu(i)*mu(k) + 1/2*f(2*a)*f(3*b)*f(2*c)*f(2*a + b)*mu(j)*mu(k) + f(2*a
+         )*f(3*b)*f(2*c)*f(2*a + c)*f(b + c)*la(i)^2*1/f(2*b) - f(2*a)*f(3*b
+         )*f(2*c)*f(2*a + c)*f(b + c)*la(j)*la(k)*1/f(2*b) - 3/2*f(2*a)*f(3*
+         b)*f(2*c)*f(2*a + c)*mu(i)*la(i) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(2*a + c
+         )*mu(i)*la(j) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(2*a + c)*mu(i)*la(k) - 3/2
+         *f(2*a)*f(3*b)*f(2*c)*f(2*a + c)*mu(j)*la(i) - 1/2*f(2*a)*f(3*b)*f(2*
+         c)*f(2*a + c)*mu(j)*la(k) - 3/2*f(2*a)*f(3*b)*f(2*c)*f(2*a + c)*mu(k)
+         *la(i) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(2*a + c)*mu(k)*la(j) + 2*f(2*a)*
+         f(3*b)*f(2*c)*f(b + c)*f(a + b + c)*mu(i)*la(i)*la(j)*1/f(2*b) + 2*
+         f(2*a)*f(3*b)*f(2*c)*f(b + c)*f(a + b + c)*mu(i)*la(i)*la(k)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(b + c)*f(a + b + c)*mu(j)*la(i)^2
+         *1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(b + c)*f(a + b + c)*mu(k)*la(i)^
+         2*1/f(2*b) + f(2*a)*f(3*b)*f(2*c)*f(b + c)*f(b + 2*c)*mu(i)*la(i)*
+         la(j)*la(k)*1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(b + c)*f(b + 2*c)
+         *mu(j)*la(i)^2*la(k)*1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(b + c)*
+         f(b + 2*c)*mu(k)*la(i)^2*la(j)*1/f(2*b) + 2*f(2*a)*f(3*b)*f(2*c)*f(
+         b + c)*f(2*b + c)*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b) + 2*f(2*a)*f(3*b
+         )*f(2*c)*f(b + c)*f(2*b + c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) - 2*
+         f(2*a)*f(3*b)*f(2*c)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*la(i)^2*
+         1/f(2*b) - f(2*a)*f(3*b)*f(2*c)*f(b + 2*c)*mu(i)*mu(j)*la(i)*la(k)
+          - f(2*a)*f(3*b)*f(2*c)*f(b + 2*c)*mu(i)*mu(k)*la(i)*la(j) - 7/2*f(2*
+         a)*f(3*b)*f(2*c)*f(b + 2*c)*mu(j)*mu(k)*la(i)^2 - 2*f(2*a)*f(3*b)*f(2
+         *c)*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i) + f(2*a)*f(3*b)*f(2*c)^2*f(a
+          + b + c)*la(i)^2*la(j)*1/f(2*b) + f(2*a)*f(3*b)*f(2*c)^2*f(a + b
+          + c)*la(i)^2*la(k)*1/f(2*b) + f(2*a)*f(3*b)*f(2*c)^2*f(a + 2*b)*
+         mu(j)*la(i)^2*1/f(2*b) + f(2*a)*f(3*b)*f(2*c)^2*f(a + 2*b)*mu(k)*
+         la(i)^2*1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(2*c)^2*f(2*a + b)*la(i)^2*
+         1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)^2*f(2*a + b)*la(j)*la(k)*
+         1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(2*c)^2*f(b + 2*c)*la(i)^2*la(j)*la(k
+         )*1/f(2*b) + f(2*a)*f(3*b)*f(2*c)^2*f(2*b + c)*mu(j)*la(i)^2*la(k)*
+         1/f(2*b) + f(2*a)*f(3*b)*f(2*c)^2*f(2*b + c)*mu(k)*la(i)^2*la(j)*
+         1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(3*c)*f(a + b)*la(i)^2*la(j)*
+         1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(3*c)*f(a + b)*la(i)^2*la(k)*
+         1/f(2*b) - 1/2*f(2*a)*f(3*b)*f(2*c)*f(3*c)*mu(i)*la(i)*la(j)*la(k)
+          - f(2*a)*f(3*b)*f(2*c)*f(3*c)*mu(j)*la(i)^2*la(k) - f(2*a)*f(3*b)*f(
+         2*c)*f(3*c)*mu(k)*la(i)^2*la(j) - f(2*a)*f(3*b)*f(3*c)*f(a + b)^2*mu(
+         i)*la(j)*1/f(2*b) - f(2*a)*f(3*b)*f(3*c)*f(a + b)^2*mu(i)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b)*f(3*c)*f(a + b)^2*mu(j)*la(k)*1/f(2*b)
+          - f(2*a)*f(3*b)*f(3*c)*f(a + b)^2*mu(k)*la(j)*1/f(2*b) - f(2*a)*f(
+         3*b)*f(3*c)*f(a + b)*f(a + c)*la(i)*la(j)*1/f(2*b) - f(2*a)*f(3*b)*
+         f(3*c)*f(a + b)*f(a + c)*la(i)*la(k)*1/f(2*b) - f(2*a)*f(3*b)*f(3*c
+         )*f(a + b)*f(a + c)*la(j)*la(k)*1/f(2*b) - f(2*a)*f(3*b)*f(3*c)*f(a
+          + b)*f(b + c)*mu(i)*la(i)*la(j)*1/f(2*b) - f(2*a)*f(3*b)*f(3*c)*f(
+         a + b)*f(b + c)*mu(i)*la(i)*la(k)*1/f(2*b) + f(2*a)*f(3*b)*f(3*c)*
+         f(a + b)*mu(i)*mu(j)*la(i) + 3/2*f(2*a)*f(3*b)*f(3*c)*f(a + b)*mu(i)*
+         mu(j)*la(k) + f(2*a)*f(3*b)*f(3*c)*f(a + b)*mu(i)*mu(k)*la(i) + 3/2*
+         f(2*a)*f(3*b)*f(3*c)*f(a + b)*mu(i)*mu(k)*la(j) + f(2*a)*f(3*b)*f(3*c
+         )*f(a + b)*mu(j)*mu(k)*la(i) + f(2*a)*f(3*b)*f(3*c)*f(a + c)*mu(i)*
+         la(i)*la(j) + f(2*a)*f(3*b)*f(3*c)*f(a + c)*mu(i)*la(i)*la(k) + f(2*a
+         )*f(3*b)*f(3*c)*f(a + c)*mu(i)*la(j)*la(k) + 1/2*f(2*a)*f(3*b)*f(3*c)
+         *f(a + c)*mu(j)*la(i)^2 + 3/2*f(2*a)*f(3*b)*f(3*c)*f(a + c)*mu(j)*la(
+         i)*la(k) + 1/2*f(2*a)*f(3*b)*f(3*c)*f(a + c)*mu(k)*la(i)^2 + 3/2*f(2*
+         a)*f(3*b)*f(3*c)*f(a + c)*mu(k)*la(i)*la(j) + f(2*a)*f(3*b)*f(3*c)*f(
+         b + c)^2*mu(j)*la(i)^2*la(k)*1/f(2*b) + f(2*a)*f(3*b)*f(3*c)*f(b + 
+         c)^2*mu(k)*la(i)^2*la(j)*1/f(2*b) + 1/2*f(2*a)*f(3*b)*f(3*c)*f(b + 
+         c)*mu(i)*mu(j)*la(i)*la(k) + 1/2*f(2*a)*f(3*b)*f(3*c)*f(b + c)*mu(i)*
+         mu(k)*la(i)*la(j) - 2*f(2*a)*f(2*c)*f(a + b)*f(a + 2*b)*f(a + b + c)*
+         la(j)*1/f(2*b) - 2*f(2*a)*f(2*c)*f(a + b)*f(a + 2*b)*f(a + b + c)*
+         la(k)*1/f(2*b) + f(2*a)*f(2*c)*f(a + b)*f(a + 2*b)^2*mu(i)*
+         1/f(2*b) - 3/2*f(2*a)*f(2*c)*f(a + b)*f(a + 2*b)^2*mu(j)*1/f(2*b)
+          - 3/2*f(2*a)*f(2*c)*f(a + b)*f(a + 2*b)^2*mu(k)*1/f(2*b) - 2*f(2*a
+         )*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*1/f(2*b) - 2*f(2*a)*f(2*c)*
+         f(a + b)*f(a + 2*b)*f(b + 2*c)*la(j)*la(k)*1/f(2*b) - 3*f(2*a)*f(2*
+         c)*f(a + b)*f(a + 2*b)*f(2*b + c)*mu(j)*la(k)*1/f(2*b) - 3*f(2*a)*
+         f(2*c)*f(a + b)*f(a + 2*b)*f(2*b + c)*mu(k)*la(j)*1/f(2*b) - 1/2*f(
+         2*a)*f(2*c)*f(a + b)*f(2*a + b)*f(2*b + c)*la(j)*1/f(2*b) - 1/2*f(2
+         *a)*f(2*c)*f(a + b)*f(2*a + b)*f(2*b + c)*la(k)*1/f(2*b) + 1/2*f(2*
+         a)*f(2*c)*f(a + b)*f(b + 2*c)*f(2*b + c)*la(i)^2*la(j)*1/f(2*b) + 1/
+         2*f(2*a)*f(2*c)*f(a + b)*f(b + 2*c)*f(2*b + c)*la(i)^2*la(k)*
+         1/f(2*b) + f(2*a)*f(2*c)*f(a + b)*f(2*b + c)*f(a + b + c)*la(i)^2*
+         1/f(2*b) - f(2*a)*f(2*c)*f(a + b)*f(2*b + c)*f(a + b + c)*la(j)*la(
+         k)*1/f(2*b) + f(2*a)*f(2*c)*f(a + b)*f(2*b + c)^2*mu(i)*la(j)*la(k)
+         *1/f(2*b) + 3/2*f(2*a)*f(2*c)*f(a + b)*f(2*b + c)^2*mu(j)*la(i)^2*
+         1/f(2*b) + 3/2*f(2*a)*f(2*c)*f(a + b)*f(2*b + c)^2*mu(k)*la(i)^2*
+         1/f(2*b) + 2*f(2*a)*f(2*c)*f(a + b + c)^2*la(i)*la(j) + 2*f(2*a)*f(
+         2*c)*f(a + b + c)^2*la(i)*la(k) - f(2*a)*f(2*c)*f(a + 2*b)*f(a + b + 
+         c)*mu(i)*la(i) - 5*f(2*a)*f(2*c)*f(a + 2*b)*f(a + b + c)*mu(i)*la(j)
+          - 5*f(2*a)*f(2*c)*f(a + 2*b)*f(a + b + c)*mu(i)*la(k) - f(2*a)*f(2*c
+         )*f(a + 2*b)*f(a + b + c)*mu(j)*la(i) - 2*f(2*a)*f(2*c)*f(a + 2*b)*f(
+         a + b + c)*mu(j)*la(k) - f(2*a)*f(2*c)*f(a + 2*b)*f(a + b + c)*mu(k)*
+         la(i) - 2*f(2*a)*f(2*c)*f(a + 2*b)*f(a + b + c)*mu(k)*la(j) + f(2*a)*
+         f(2*c)*f(a + 2*b)^2*f(a + c)*la(i)*1/f(2*b) + 1/2*f(2*a)*f(2*c)*f(a
+          + 2*b)^2*f(a + c)*la(j)*1/f(2*b) + 1/2*f(2*a)*f(2*c)*f(a + 2*b)^2*
+         f(a + c)*la(k)*1/f(2*b) + f(2*a)*f(2*c)*f(a + 2*b)^2*f(b + c)*mu(i)
+         *la(i)*1/f(2*b) + 3/2*f(2*a)*f(2*c)*f(a + 2*b)^2*f(b + c)*mu(j)*la(
+         k)*1/f(2*b) + 3/2*f(2*a)*f(2*c)*f(a + 2*b)^2*f(b + c)*mu(k)*la(j)*
+         1/f(2*b) - 4*f(2*a)*f(2*c)*f(a + 2*b)^2*mu(i)*mu(j) - 4*f(2*a)*f(2*
+         c)*f(a + 2*b)^2*mu(i)*mu(k) - 1/2*f(2*a)*f(2*c)*f(a + 2*b)^2*mu(j)*
+         mu(k) - f(2*a)*f(2*c)*f(a + 2*b)*f(a + c)*f(2*b + c)*la(i)^2*
+         1/f(2*b) - f(2*a)*f(2*c)*f(a + 2*b)*f(a + c)*f(2*b + c)*la(j)*la(k)
+         *1/f(2*b) - 3*f(2*a)*f(2*c)*f(a + 2*b)*f(a + 2*c)*la(i)*la(j) - 3*
+         f(2*a)*f(2*c)*f(a + 2*b)*f(a + 2*c)*la(i)*la(k) - 5/2*f(2*a)*f(2*c)*
+         f(a + 2*b)*f(a + 2*c)*la(j)*la(k) + 1/2*f(2*a)*f(2*c)*f(a + 2*b)*f(2*
+         a + b)*f(b + c)*la(j)*1/f(2*b) + 1/2*f(2*a)*f(2*c)*f(a + 2*b)*f(2*a
+          + b)*f(b + c)*la(k)*1/f(2*b) - 11/2*f(2*a)*f(2*c)*f(a + 2*b)*f(2*a
+          + b)*mu(i) - 9/2*f(2*a)*f(2*c)*f(a + 2*b)*f(2*a + c)*la(i) - 5/2*f(2
+         *a)*f(2*c)*f(a + 2*b)*f(2*a + c)*la(j) - 5/2*f(2*a)*f(2*c)*f(a + 2*b)
+         *f(2*a + c)*la(k) - f(2*a)*f(2*c)*f(a + 2*b)*f(b + c)*f(a + b + c)*
+         la(i)^2*1/f(2*b) + f(2*a)*f(2*c)*f(a + 2*b)*f(b + c)*f(a + b + c)*
+         la(j)*la(k)*1/f(2*b) - 1/2*f(2*a)*f(2*c)*f(a + 2*b)*f(b + c)*f(b + 
+         2*c)*la(i)^2*la(j)*1/f(2*b) - 1/2*f(2*a)*f(2*c)*f(a + 2*b)*f(b + c)
+         *f(b + 2*c)*la(i)^2*la(k)*1/f(2*b) - 3*f(2*a)*f(2*c)*f(a + 2*b)*f(b
+          + c)*f(2*b + c)*mu(j)*la(i)^2*1/f(2*b) - 3*f(2*a)*f(2*c)*f(a + 2*b
+         )*f(b + c)*f(2*b + c)*mu(k)*la(i)^2*1/f(2*b) + 1/2*f(2*a)*f(2*c)*f(
+         a + 2*b)*f(b + 2*c)*mu(i)*la(i)*la(j) + 1/2*f(2*a)*f(2*c)*f(a + 2*b)*
+         f(b + 2*c)*mu(i)*la(i)*la(k) - 7/2*f(2*a)*f(2*c)*f(a + 2*b)*f(b + 2*c
+         )*mu(i)*la(j)*la(k) + 5/2*f(2*a)*f(2*c)*f(a + 2*b)*f(b + 2*c)*mu(j)*
+         la(i)^2 + 1/2*f(2*a)*f(2*c)*f(a + 2*b)*f(b + 2*c)*mu(j)*la(i)*la(k)
+          + 5/2*f(2*a)*f(2*c)*f(a + 2*b)*f(b + 2*c)*mu(k)*la(i)^2 + 1/2*f(2*a)
+         *f(2*c)*f(a + 2*b)*f(b + 2*c)*mu(k)*la(i)*la(j) - 6*f(2*a)*f(2*c)*f(a
+          + 2*b)*f(2*b + c)*mu(i)*mu(j)*la(k) - 6*f(2*a)*f(2*c)*f(a + 2*b)*f(2
+         *b + c)*mu(i)*mu(k)*la(j) + 1/2*f(2*a)*f(2*c)*f(a + c)*f(2*b + c)^2*
+         la(i)^2*la(j)*1/f(2*b) + 1/2*f(2*a)*f(2*c)*f(a + c)*f(2*b + c)^2*
+         la(i)^2*la(k)*1/f(2*b) + f(2*a)*f(2*c)*f(a + c)*f(2*b + c)^2*la(i)*
+         la(j)*la(k)*1/f(2*b) - 7/2*f(2*a)*f(2*c)*f(a + 2*c)*f(2*b + c)*la(i
+         )^2*la(j) - 7/2*f(2*a)*f(2*c)*f(a + 2*c)*f(2*b + c)*la(i)^2*la(k) - 9/
+         2*f(2*a)*f(2*c)*f(a + 2*c)*f(2*b + c)*la(i)*la(j)*la(k) + 3*f(2*a)*f(
+         2*c)*f(2*a + b)*f(a + b + c)*la(i) + 2*f(2*a)*f(2*c)*f(2*a + b)*f(a
+          + b + c)*la(j) + 2*f(2*a)*f(2*c)*f(2*a + b)*f(a + b + c)*la(k) + 1/2
+         *f(2*a)*f(2*c)*f(2*a + b)^2 - 2*f(2*a)*f(2*c)*f(2*a + b)*f(b + c)*f(2
+         *b + c)*la(i)^2*1/f(2*b) + 5/2*f(2*a)*f(2*c)*f(2*a + b)*f(b + 2*c)*
+         la(i)^2 + 2*f(2*a)*f(2*c)*f(2*a + b)*f(b + 2*c)*la(i)*la(j) + 2*f(2*a
+         )*f(2*c)*f(2*a + b)*f(b + 2*c)*la(i)*la(k) + 5/2*f(2*a)*f(2*c)*f(2*a
+          + b)*f(b + 2*c)*la(j)*la(k) + 1/2*f(2*a)*f(2*c)*f(2*a + b)*f(2*b + c
+         )*mu(i)*la(i) - 1/2*f(2*a)*f(2*c)*f(2*a + b)*f(2*b + c)*mu(i)*la(j)
+          - 1/2*f(2*a)*f(2*c)*f(2*a + b)*f(2*b + c)*mu(i)*la(k) + 1/2*f(2*a)*
+         f(2*c)*f(2*a + b)*f(2*b + c)*mu(j)*la(i) + 5/2*f(2*a)*f(2*c)*f(2*a + 
+         b)*f(2*b + c)*mu(j)*la(k) + 1/2*f(2*a)*f(2*c)*f(2*a + b)*f(2*b + c)*
+         mu(k)*la(i) + 5/2*f(2*a)*f(2*c)*f(2*a + b)*f(2*b + c)*mu(k)*la(j) - 7/
+         2*f(2*a)*f(2*c)*f(2*a + c)*f(2*b + c)*la(i)^2 - 3*f(2*a)*f(2*c)*f(2*a
+          + c)*f(2*b + c)*la(i)*la(j) - 3*f(2*a)*f(2*c)*f(2*a + c)*f(2*b + c)*
+         la(i)*la(k) - 2*f(2*a)*f(2*c)*f(b + c)*f(b + 2*c)*f(2*b + c)*la(i)^2*
+         la(j)*la(k)*1/f(2*b) - 2*f(2*a)*f(2*c)*f(b + c)*f(2*b + c)*f(a + b
+          + c)*la(i)^2*la(j)*1/f(2*b) - 2*f(2*a)*f(2*c)*f(b + c)*f(2*b + c)*
+         f(a + b + c)*la(i)^2*la(k)*1/f(2*b) + f(2*a)*f(2*c)*f(b + c)*f(2*b
+          + c)^2*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - 3/2*f(2*a)*f(2*c)*f(b + 
+         c)*f(2*b + c)^2*mu(j)*la(i)^2*la(k)*1/f(2*b) - 3/2*f(2*a)*f(2*c)*f(
+         b + c)*f(2*b + c)^2*mu(k)*la(i)^2*la(j)*1/f(2*b) + 2*f(2*a)*f(2*c)*
+         f(b + 2*c)*f(a + b + c)*la(i)^2*la(j) + 2*f(2*a)*f(2*c)*f(b + 2*c)*f(
+         a + b + c)*la(i)^2*la(k) + 3*f(2*a)*f(2*c)*f(b + 2*c)*f(a + b + c)*
+         la(i)*la(j)*la(k) + 1/2*f(2*a)*f(2*c)*f(b + 2*c)^2*la(i)^2*la(j)*la(k
+         ) - 3/2*f(2*a)*f(2*c)*f(b + 2*c)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k)
+          - f(2*a)*f(2*c)*f(2*b + c)*f(a + b + c)*mu(i)*la(i)*la(j) - f(2*a)*
+         f(2*c)*f(2*b + c)*f(a + b + c)*mu(i)*la(i)*la(k) - 3*f(2*a)*f(2*c)*f(
+         2*b + c)*f(a + b + c)*mu(i)*la(j)*la(k) - 2*f(2*a)*f(2*c)*f(2*b + c)*
+         f(a + b + c)*mu(j)*la(i)^2 - f(2*a)*f(2*c)*f(2*b + c)*f(a + b + c)*
+         mu(j)*la(i)*la(k) - 2*f(2*a)*f(2*c)*f(2*b + c)*f(a + b + c)*mu(k)*la(
+         i)^2 - f(2*a)*f(2*c)*f(2*b + c)*f(a + b + c)*mu(k)*la(i)*la(j) - f(2*
+         a)*f(2*c)*f(2*b + c)^2*mu(i)*mu(j)*la(i)*la(k) - f(2*a)*f(2*c)*f(2*b
+          + c)^2*mu(i)*mu(k)*la(i)*la(j) + 5/2*f(2*a)*f(2*c)*f(2*b + c)^2*mu(j
+         )*mu(k)*la(i)^2 + 1/2*f(2*a)*f(2*c)^2*f(a + 2*b)^2*la(i)^2*1/f(2*b)
+          + 1/2*f(2*a)*f(2*c)^2*f(a + 2*b)^2*la(j)*la(k)*1/f(2*b) + 1/2*f(2*
+         a)*f(2*c)^2*f(2*b + c)^2*la(i)^2*la(j)*la(k)*1/f(2*b) + 1/2*f(2*a)*
+         f(2*c)*f(3*c)*f(a + 2*b)*la(i)^2*la(j) + 1/2*f(2*a)*f(2*c)*f(3*c)*f(a
+          + 2*b)*la(i)^2*la(k) - 1/2*f(2*a)*f(2*c)*f(3*c)*f(a + 2*b)*la(i)*la(
+         j)*la(k) - 3/2*f(2*a)*f(2*c)*f(3*c)*f(2*b + c)*la(i)^2*la(j)*la(k) - 
+         f(2*a)*f(3*c)*f(a + b)^2*f(2*b + c)*la(j)*la(k)*1/f(2*b) - f(2*a)*
+         f(3*c)*f(a + b)*f(a + b + c)*la(i)^2 - 2*f(2*a)*f(3*c)*f(a + b)*f(a
+          + b + c)*la(i)*la(j) - 2*f(2*a)*f(3*c)*f(a + b)*f(a + b + c)*la(i)*
+         la(k) + f(2*a)*f(3*c)*f(a + b)*f(a + 2*b)*f(b + c)*la(j)*la(k)*
+         1/f(2*b) + 3/2*f(2*a)*f(3*c)*f(a + b)*f(a + 2*b)*mu(i)*la(j) + 3/2*
+         f(2*a)*f(3*c)*f(a + b)*f(a + 2*b)*mu(i)*la(k) + 3/2*f(2*a)*f(3*c)*f(a
+          + b)*f(a + 2*b)*mu(j)*la(k) + 3/2*f(2*a)*f(3*c)*f(a + b)*f(a + 2*b)*
+         mu(k)*la(j) - 3*f(2*a)*f(3*c)*f(a + b)*f(2*a + b)*la(i) - 3/2*f(2*a)*
+         f(3*c)*f(a + b)*f(2*a + b)*la(j) - 3/2*f(2*a)*f(3*c)*f(a + b)*f(2*a
+          + b)*la(k) + f(2*a)*f(3*c)*f(a + b)*f(2*b + c)*mu(i)*la(i)*la(j) + 
+         f(2*a)*f(3*c)*f(a + b)*f(2*b + c)*mu(i)*la(i)*la(k) + 2*f(2*a)*f(3*c)
+         *f(a + b)*f(2*b + c)*mu(i)*la(j)*la(k) + 1/2*f(2*a)*f(3*c)*f(a + b)*
+         f(2*b + c)*mu(j)*la(i)^2 + f(2*a)*f(3*c)*f(a + b)*f(2*b + c)*mu(j)*
+         la(i)*la(k) + 1/2*f(2*a)*f(3*c)*f(a + b)*f(2*b + c)*mu(k)*la(i)^2 + 
+         f(2*a)*f(3*c)*f(a + b)*f(2*b + c)*mu(k)*la(i)*la(j) + f(2*a)*f(3*c)*
+         f(a + 2*b)*f(a + c)*la(i)^2 + 7/2*f(2*a)*f(3*c)*f(a + 2*b)*f(a + c)*
+         la(i)*la(j) + 7/2*f(2*a)*f(3*c)*f(a + 2*b)*f(a + c)*la(i)*la(k) + 2*
+         f(2*a)*f(3*c)*f(a + 2*b)*f(a + c)*la(j)*la(k) + 1/2*f(2*a)*f(3*c)*f(a
+          + 2*b)*f(b + c)*mu(i)*la(i)*la(j) + 1/2*f(2*a)*f(3*c)*f(a + 2*b)*f(b
+          + c)*mu(i)*la(i)*la(k) - f(2*a)*f(3*c)*f(a + 2*b)*f(b + c)*mu(i)*la(
+         j)*la(k) - 1/2*f(2*a)*f(3*c)*f(a + 2*b)*f(b + c)*mu(j)*la(i)^2 - f(2*
+         a)*f(3*c)*f(a + 2*b)*f(b + c)*mu(j)*la(i)*la(k) - 1/2*f(2*a)*f(3*c)*
+         f(a + 2*b)*f(b + c)*mu(k)*la(i)^2 - f(2*a)*f(3*c)*f(a + 2*b)*f(b + c)
+         *mu(k)*la(i)*la(j) + 3/2*f(2*a)*f(3*c)*f(a + c)*f(2*b + c)*la(i)^2*
+         la(j) + 3/2*f(2*a)*f(3*c)*f(a + c)*f(2*b + c)*la(i)^2*la(k) + 4*f(2*a
+         )*f(3*c)*f(a + c)*f(2*b + c)*la(i)*la(j)*la(k) - f(2*a)*f(3*c)*f(2*a
+          + b)*f(b + c)*la(i)^2 - 2*f(2*a)*f(3*c)*f(2*a + b)*f(b + c)*la(i)*
+         la(j) - 2*f(2*a)*f(3*c)*f(2*a + b)*f(b + c)*la(i)*la(k) - 2*f(2*a)*f(
+         3*c)*f(2*a + b)*f(b + c)*la(j)*la(k) - f(2*a)*f(3*c)*f(b + c)*f(a + b
+          + c)*la(i)^2*la(j) - f(2*a)*f(3*c)*f(b + c)*f(a + b + c)*la(i)^2*la(
+         k) - 2*f(2*a)*f(3*c)*f(b + c)*f(a + b + c)*la(i)*la(j)*la(k) + f(2*a)
+         *f(3*c)*f(b + c)^2*f(2*b + c)*la(i)^2*la(j)*la(k)*1/f(2*b) + 2*f(2*
+         a)*f(3*c)*f(b + c)*f(b + 2*c)*la(i)^2*la(j)*la(k) + 2*f(2*a)*f(3*c)*
+         f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k) + 1/2*f(2*a)*f(3*c)*f(b
+          + c)*f(2*b + c)*mu(j)*la(i)^2*la(k) + 1/2*f(2*a)*f(3*c)*f(b + c)*f(2
+         *b + c)*mu(k)*la(i)^2*la(j) + 2*f(2*a + b)*f(2*a + c)*f(b + c)^2*mu(i
+         )*la(j) + 2*f(2*a + b)*f(2*a + c)*f(b + c)^2*mu(i)*la(k) + 2*f(2*a + 
+         b)*f(2*a + c)*f(b + c)^2*mu(j)*la(i) + f(2*a + b)*f(2*a + c)*f(b + c)
+         ^2*mu(j)*la(k) + 2*f(2*a + b)*f(2*a + c)*f(b + c)^2*mu(k)*la(i) + f(2
+         *a + b)*f(2*a + c)*f(b + c)^2*mu(k)*la(j) + 12*f(2*a + b)*f(b + c)^2*
+         f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i) + 2*f(2*a + c)*f(b + c)^2*f(a + b
+          + c)*mu(i)*la(i)*la(j) + 2*f(2*a + c)*f(b + c)^2*f(a + b + c)*mu(i)*
+         la(i)*la(k) + 3*f(2*a + c)*f(b + c)^2*f(2*b + c)*mu(i)*mu(j)*la(i)*
+         la(k) + 3*f(2*a + c)*f(b + c)^2*f(2*b + c)*mu(i)*mu(k)*la(i)*la(j) + 
+         4*f(3*a)*f(a + b)^2*f(a + 2*c) + 2*f(3*a)*f(a + b)^2*f(b + c)*f(2*b
+          + c)*mu(i)*1/f(2*b) + f(3*a)*f(a + b)^2*f(b + 2*c)*mu(j) + f(3*a)*
+         f(a + b)^2*f(b + 2*c)*mu(k) - 2*f(3*a)*f(a + b)*f(a + 2*b)*f(b + c)^2
+         *mu(i)*1/f(2*b) - 8*f(3*a)*f(a + b)*f(a + c)*f(a + b + c) + 2*f(3*a
+         )*f(a + b)*f(a + c)*f(b + c)*f(2*b + c)*la(i)*1/f(2*b) - 6*f(3*a)*
+         f(a + b)*f(a + c)*f(b + 2*c)*la(i) - 2*f(3*a)*f(a + b)*f(a + c)*f(b
+          + 2*c)*la(j) - 2*f(3*a)*f(a + b)*f(a + c)*f(b + 2*c)*la(k) - 2*f(3*a
+         )*f(a + b)*f(a + c)*f(2*b + c)*mu(i) - 2*f(3*a)*f(a + b)*f(a + c)*f(2
+         *b + c)*mu(j) - 2*f(3*a)*f(a + b)*f(a + c)*f(2*b + c)*mu(k) + 2*f(3*a
+         )*f(a + b)*f(a + 2*c)*f(b + c)*la(i) + f(3*a)*f(a + b)*f(a + 2*c)*f(b
+          + c)*la(j) + f(3*a)*f(a + b)*f(a + 2*c)*f(b + c)*la(k) - 2*f(3*a)*f(
+         a + b)*f(2*a + c)*f(b + c) - 2*f(3*a)*f(a + b)*f(b + c)*f(a + b + c)*
+         mu(i) - 2*f(3*a)*f(a + b)*f(b + c)*f(a + b + c)*mu(j) - 2*f(3*a)*f(a
+          + b)*f(b + c)*f(a + b + c)*mu(k) + 2*f(3*a)*f(a + b)*f(b + c)^2*f(2*
+         b + c)*mu(i)*la(i)*1/f(2*b) - 2*f(3*a)*f(a + b)*f(b + c)*f(b + 2*c)
+         *mu(i)*la(i) + f(3*a)*f(a + b)*f(b + c)*f(2*b + c)*mu(i)*mu(j) + f(3*
+         a)*f(a + b)*f(b + c)*f(2*b + c)*mu(i)*mu(k) - f(3*a)*f(a + b)*f(b + c
+         )*f(2*b + c)*mu(j)*mu(k) + 4*f(3*a)*f(a + 2*b)*f(a + c)^2 - 2*f(3*a)*
+         f(a + 2*b)*f(a + c)*f(b + c)^2*la(i)*1/f(2*b) + 2*f(3*a)*f(a + 2*b)
+         *f(a + c)*f(b + c)*mu(i) + f(3*a)*f(a + 2*b)*f(a + c)*f(b + c)*mu(j)
+          + f(3*a)*f(a + 2*b)*f(a + c)*f(b + c)*mu(k) - 2*f(3*a)*f(a + 2*b)*f(
+         b + c)^3*mu(i)*la(i)*1/f(2*b) + 2*f(3*a)*f(a + 2*b)*f(b + c)^2*mu(i
+         )*mu(j) + 2*f(3*a)*f(a + 2*b)*f(b + c)^2*mu(i)*mu(k) + f(3*a)*f(a + 2
+         *b)*f(b + c)^2*mu(j)*mu(k) + 4*f(3*a)*f(a + c)^2*f(2*b + c)*la(i) + 
+         f(3*a)*f(a + c)^2*f(2*b + c)*la(j) + f(3*a)*f(a + c)^2*f(2*b + c)*la(
+         k) - 2*f(3*a)*f(a + c)*f(2*a + b)*f(b + c) - 2*f(3*a)*f(a + c)*f(b + 
+         c)*f(a + b + c)*la(i) - 2*f(3*a)*f(a + c)*f(b + c)*f(a + b + c)*la(j)
+          - 2*f(3*a)*f(a + c)*f(b + c)*f(a + b + c)*la(k) - f(3*a)*f(a + c)*f(
+         b + c)*f(b + 2*c)*la(i)^2 - 2*f(3*a)*f(a + c)*f(b + c)*f(b + 2*c)*la(
+         i)*la(j) - 2*f(3*a)*f(a + c)*f(b + c)*f(b + 2*c)*la(i)*la(k) - f(3*a)
+         *f(a + c)*f(b + c)*f(b + 2*c)*la(j)*la(k) + 2*f(3*a)*f(a + c)*f(b + c
+         )*f(2*b + c)*mu(i)*la(i) + 3*f(3*a)*f(a + c)*f(b + c)*f(2*b + c)*mu(j
+         )*la(i) + 3*f(3*a)*f(a + c)*f(b + c)*f(2*b + c)*mu(k)*la(i) + f(3*a)*
+         f(a + 2*c)*f(b + c)^2*la(i)^2 + 2*f(3*a)*f(a + 2*c)*f(b + c)^2*la(i)*
+         la(j) + 2*f(3*a)*f(a + 2*c)*f(b + c)^2*la(i)*la(k) + f(3*a)*f(a + 2*c
+         )*f(b + c)^2*la(j)*la(k) + 2*f(3*a)*f(2*a + b)*f(b + c)^2*mu(i) + f(3
+         *a)*f(2*a + b)*f(b + c)^2*mu(j) + f(3*a)*f(2*a + b)*f(b + c)^2*mu(k)
+          + 2*f(3*a)*f(2*a + c)*f(b + c)^2*la(i) + f(3*a)*f(2*a + c)*f(b + c)^
+         2*la(j) + f(3*a)*f(2*a + c)*f(b + c)^2*la(k) + f(3*a)^2*f(b + c)^2 - 
+         f(3*a)^2*f(2*b)*f(2*c) + 2*f(3*a)*f(b + c)^2*f(a + b + c)*mu(i)*la(i)
+          + 3*f(3*a)*f(b + c)^2*f(2*b + c)*mu(i)*mu(j)*la(i) + 3*f(3*a)*f(b + 
+         c)^2*f(2*b + c)*mu(i)*mu(k)*la(i) + 2*f(3*a)*f(2*b)*f(a + b)*f(a + 2*
+         c)*mu(i) + 3/2*f(3*a)*f(2*b)*f(a + b)*f(a + 2*c)*mu(j) + 3/2*f(3*a)*
+         f(2*b)*f(a + b)*f(a + 2*c)*mu(k) + 1/2*f(3*a)*f(2*b)*f(a + b)*f(b + 2
+         *c)*mu(i)*mu(j) + 1/2*f(3*a)*f(2*b)*f(a + b)*f(b + 2*c)*mu(i)*mu(k)
+          + f(3*a)*f(2*b)*f(a + b)*f(b + 2*c)*mu(j)*mu(k) - 2*f(3*a)*f(2*b)*f(
+         a + c)*f(a + b + c)*mu(i) - f(3*a)*f(2*b)*f(a + c)*f(a + b + c)*mu(j)
+          - f(3*a)*f(2*b)*f(a + c)*f(a + b + c)*mu(k) + 1/2*f(3*a)*f(2*b)*f(a
+          + c)*f(a + 2*c)*la(j) + 1/2*f(3*a)*f(2*b)*f(a + c)*f(a + 2*c)*la(k)
+          + 2*f(3*a)*f(2*b)*f(a + c)*f(2*a + c) - f(3*a)*f(2*b)*f(a + c)*f(b
+          + 2*c)*mu(i)*la(i) - f(3*a)*f(2*b)*f(a + c)*f(b + 2*c)*mu(i)*la(j)
+          - f(3*a)*f(2*b)*f(a + c)*f(b + 2*c)*mu(i)*la(k) - 5/2*f(3*a)*f(2*b)*
+         f(a + c)*f(b + 2*c)*mu(j)*la(i) - 1/2*f(3*a)*f(2*b)*f(a + c)*f(b + 2*
+         c)*mu(j)*la(k) - 5/2*f(3*a)*f(2*b)*f(a + c)*f(b + 2*c)*mu(k)*la(i) - 
+         1/2*f(3*a)*f(2*b)*f(a + c)*f(b + 2*c)*mu(k)*la(j) - 2*f(3*a)*f(2*b)*
+         f(a + c)*f(2*b + c)*mu(i)*mu(j) - 2*f(3*a)*f(2*b)*f(a + c)*f(2*b + c)
+         *mu(i)*mu(k) - f(3*a)*f(2*b)*f(a + c)*f(2*b + c)*mu(j)*mu(k) + f(3*a)
+         *f(2*b)*f(a + 2*c)*f(b + c)*mu(i)*la(j) + f(3*a)*f(2*b)*f(a + 2*c)*f(
+         b + c)*mu(i)*la(k) + f(3*a)*f(2*b)*f(a + 2*c)*f(b + c)*mu(j)*la(i) + 
+         1/2*f(3*a)*f(2*b)*f(a + 2*c)*f(b + c)*mu(j)*la(k) + f(3*a)*f(2*b)*f(a
+          + 2*c)*f(b + c)*mu(k)*la(i) + 1/2*f(3*a)*f(2*b)*f(a + 2*c)*f(b + c)*
+         mu(k)*la(j) - 2*f(3*a)*f(2*b)*f(b + c)*f(a + b + c)*mu(i)*mu(j) - 2*
+         f(3*a)*f(2*b)*f(b + c)*f(a + b + c)*mu(i)*mu(k) - f(3*a)*f(2*b)*f(b
+          + c)*f(a + b + c)*mu(j)*mu(k) - 3/2*f(3*a)*f(2*b)*f(b + c)*f(b + 2*c
+         )*mu(i)*mu(j)*la(i) - 3/2*f(3*a)*f(2*b)*f(b + c)*f(b + 2*c)*mu(i)*mu(
+         k)*la(i) - 3*f(3*a)*f(2*b)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*mu(k) + f(
+         3*a)*f(2*b)^2*f(a + 2*c)*mu(i)*mu(j) + f(3*a)*f(2*b)^2*f(a + 2*c)*mu(
+         i)*mu(k) + 1/2*f(3*a)*f(2*b)^2*f(a + 2*c)*mu(j)*mu(k) + 3/2*f(3*a)*f(
+         2*b)^2*f(b + 2*c)*mu(i)*mu(j)*mu(k) + 1/2*f(3*a)*f(2*b)^2*f(3*c)*mu(i
+         )*mu(j)*la(i) + 1/2*f(3*a)*f(2*b)^2*f(3*c)*mu(i)*mu(j)*la(k) + 1/2*f(
+         3*a)*f(2*b)^2*f(3*c)*mu(i)*mu(k)*la(i) + 1/2*f(3*a)*f(2*b)^2*f(3*c)*
+         mu(i)*mu(k)*la(j) + 1/2*f(3*a)*f(2*b)^2*f(3*c)*mu(j)*mu(k)*la(i) - 1/
+         2*f(3*a)*f(2*b)*f(3*b)*f(2*c)*mu(i)*mu(j)*mu(k) - 2*f(3*a)*f(2*b)*f(2
+         *c)*f(a + b + c)*mu(i)*la(i) - 2*f(3*a)*f(2*b)*f(2*c)*f(a + b + c)*
+         mu(i)*la(j) - 2*f(3*a)*f(2*b)*f(2*c)*f(a + b + c)*mu(i)*la(k) - 2*f(3
+         *a)*f(2*b)*f(2*c)*f(a + b + c)*mu(j)*la(i) - f(3*a)*f(2*b)*f(2*c)*f(a
+          + b + c)*mu(j)*la(k) - 2*f(3*a)*f(2*b)*f(2*c)*f(a + b + c)*mu(k)*la(
+         i) - f(3*a)*f(2*b)*f(2*c)*f(a + b + c)*mu(k)*la(j) - f(3*a)*f(2*b)*f(
+         2*c)*f(a + 2*b)*mu(i)*mu(j) - f(3*a)*f(2*b)*f(2*c)*f(a + 2*b)*mu(i)*
+         mu(k) - 1/2*f(3*a)*f(2*b)*f(2*c)*f(a + 2*b)*mu(j)*mu(k) - f(3*a)*f(2*
+         b)*f(2*c)*f(a + 2*c)*la(i)^2 - f(3*a)*f(2*b)*f(2*c)*f(a + 2*c)*la(i)*
+         la(j) - f(3*a)*f(2*b)*f(2*c)*f(a + 2*c)*la(i)*la(k) - 1/2*f(3*a)*f(2*
+         b)*f(2*c)*f(a + 2*c)*la(j)*la(k) - 2*f(3*a)*f(2*b)*f(2*c)*f(2*a + b)*
+         mu(i) - f(3*a)*f(2*b)*f(2*c)*f(2*a + b)*mu(j) - f(3*a)*f(2*b)*f(2*c)*
+         f(2*a + b)*mu(k) - 2*f(3*a)*f(2*b)*f(2*c)*f(2*a + c)*la(i) - f(3*a)*
+         f(2*b)*f(2*c)*f(2*a + c)*la(j) - f(3*a)*f(2*b)*f(2*c)*f(2*a + c)*la(k
+         ) - 3/2*f(3*a)*f(2*b)*f(2*c)*f(b + 2*c)*mu(i)*la(i)*la(j) - 3/2*f(3*a
+         )*f(2*b)*f(2*c)*f(b + 2*c)*mu(i)*la(i)*la(k) - 3/2*f(3*a)*f(2*b)*f(2*
+         c)*f(b + 2*c)*mu(i)*la(j)*la(k) - 3/2*f(3*a)*f(2*b)*f(2*c)*f(b + 2*c)
+         *mu(j)*la(i)^2 - 3/2*f(3*a)*f(2*b)*f(2*c)*f(b + 2*c)*mu(j)*la(i)*la(k
+         ) - 3/2*f(3*a)*f(2*b)*f(2*c)*f(b + 2*c)*mu(k)*la(i)^2 - 3/2*f(3*a)*f(
+         2*b)*f(2*c)*f(b + 2*c)*mu(k)*la(i)*la(j) - 3/2*f(3*a)*f(2*b)*f(2*c)*
+         f(2*b + c)*mu(i)*mu(j)*la(i) - 3/2*f(3*a)*f(2*b)*f(2*c)*f(2*b + c)*
+         mu(i)*mu(j)*la(k) - 3/2*f(3*a)*f(2*b)*f(2*c)*f(2*b + c)*mu(i)*mu(k)*
+         la(i) - 3/2*f(3*a)*f(2*b)*f(2*c)*f(2*b + c)*mu(i)*mu(k)*la(j) - 3/2*
+         f(3*a)*f(2*b)*f(2*c)*f(2*b + c)*mu(j)*mu(k)*la(i) - 1/2*f(3*a)*f(2*b)
+         *f(2*c)*f(3*c)*la(i)^2*la(j) - 1/2*f(3*a)*f(2*b)*f(2*c)*f(3*c)*la(i)^
+         2*la(k) - 1/2*f(3*a)*f(2*b)*f(2*c)*f(3*c)*la(i)*la(j)*la(k) + f(3*a)*
+         f(2*b)*f(3*c)*f(a + b)*mu(i)*la(i) + 1/2*f(3*a)*f(2*b)*f(3*c)*f(a + b
+         )*mu(i)*la(j) + 1/2*f(3*a)*f(2*b)*f(3*c)*f(a + b)*mu(i)*la(k) + f(3*a
+         )*f(2*b)*f(3*c)*f(a + b)*mu(j)*la(i) + 1/2*f(3*a)*f(2*b)*f(3*c)*f(a
+          + b)*mu(j)*la(k) + f(3*a)*f(2*b)*f(3*c)*f(a + b)*mu(k)*la(i) + 1/2*
+         f(3*a)*f(2*b)*f(3*c)*f(a + b)*mu(k)*la(j) - 1/2*f(3*a)*f(2*b)*f(3*c)*
+         f(a + c)*la(i)*la(j) - 1/2*f(3*a)*f(2*b)*f(3*c)*f(a + c)*la(i)*la(k)
+          + 1/2*f(3*a)*f(2*b)*f(3*c)*f(b + c)*mu(i)*la(i)*la(j) + 1/2*f(3*a)*
+         f(2*b)*f(3*c)*f(b + c)*mu(i)*la(i)*la(k) + f(3*a)*f(2*b)*f(3*c)*f(b
+          + c)*mu(i)*la(j)*la(k) + 1/2*f(3*a)*f(2*b)*f(3*c)*f(b + c)*mu(j)*la(
+         i)^2 + f(3*a)*f(2*b)*f(3*c)*f(b + c)*mu(j)*la(i)*la(k) + 1/2*f(3*a)*
+         f(2*b)*f(3*c)*f(b + c)*mu(k)*la(i)^2 + f(3*a)*f(2*b)*f(3*c)*f(b + c)*
+         mu(k)*la(i)*la(j) - 2*f(3*a)*f(3*b)*f(a + b)*f(a + c)*f(b + c)*mu(i)*
+         1/f(2*b) - 2*f(3*a)*f(3*b)*f(a + b)*f(b + c)^2*mu(i)*mu(j)*
+         1/f(2*b) - 2*f(3*a)*f(3*b)*f(a + b)*f(b + c)^2*mu(i)*mu(k)*
+         1/f(2*b) - 2*f(3*a)*f(3*b)*f(a + c)^2*f(b + c)*la(i)*1/f(2*b) + 2
+         *f(3*a)*f(3*b)*f(a + c)^2*mu(i) + f(3*a)*f(3*b)*f(a + c)^2*mu(j) + f(
+         3*a)*f(3*b)*f(a + c)^2*mu(k) - 2*f(3*a)*f(3*b)*f(a + c)*f(b + c)^2*
+         mu(i)*la(i)*1/f(2*b) - 2*f(3*a)*f(3*b)*f(a + c)*f(b + c)^2*mu(j)*
+         la(i)*1/f(2*b) - 2*f(3*a)*f(3*b)*f(a + c)*f(b + c)^2*mu(k)*la(i)*
+         1/f(2*b) + 2*f(3*a)*f(3*b)*f(a + c)*f(b + c)*mu(i)*mu(j) + 2*f(3*a)
+         *f(3*b)*f(a + c)*f(b + c)*mu(i)*mu(k) + f(3*a)*f(3*b)*f(a + c)*f(b + 
+         c)*mu(j)*mu(k) - 2*f(3*a)*f(3*b)*f(b + c)^3*mu(i)*mu(j)*la(i)*
+         1/f(2*b) - 2*f(3*a)*f(3*b)*f(b + c)^3*mu(i)*mu(k)*la(i)*1/f(2*b)
+          + 2*f(3*a)*f(3*b)*f(b + c)^2*mu(i)*mu(j)*mu(k) - f(3*a)*f(3*b)*f(2*c
+         )*f(a + b)*f(b + c)*mu(i)*la(j)*1/f(2*b) - f(3*a)*f(3*b)*f(2*c)*f(a
+          + b)*f(b + c)*mu(i)*la(k)*1/f(2*b) + 1/2*f(3*a)*f(3*b)*f(2*c)*f(a
+          + b)*mu(i)*mu(j) + 1/2*f(3*a)*f(3*b)*f(2*c)*f(a + b)*mu(i)*mu(k) - 
+         f(3*a)*f(3*b)*f(2*c)*f(a + c)*f(b + c)*la(i)^2*1/f(2*b) - f(3*a)*f(
+         3*b)*f(2*c)*f(a + c)*f(b + c)*la(i)*la(j)*1/f(2*b) - f(3*a)*f(3*b)*
+         f(2*c)*f(a + c)*f(b + c)*la(i)*la(k)*1/f(2*b) + f(3*a)*f(3*b)*f(2*c
+         )*f(a + c)*mu(i)*la(i) + f(3*a)*f(3*b)*f(2*c)*f(a + c)*mu(i)*la(j) + 
+         f(3*a)*f(3*b)*f(2*c)*f(a + c)*mu(i)*la(k) + 3/2*f(3*a)*f(3*b)*f(2*c)*
+         f(a + c)*mu(j)*la(i) + 1/2*f(3*a)*f(3*b)*f(2*c)*f(a + c)*mu(j)*la(k)
+          + 3/2*f(3*a)*f(3*b)*f(2*c)*f(a + c)*mu(k)*la(i) + 1/2*f(3*a)*f(3*b)*
+         f(2*c)*f(a + c)*mu(k)*la(j) - f(3*a)*f(3*b)*f(2*c)*f(b + c)^2*mu(i)*
+         la(i)*la(j)*1/f(2*b) - f(3*a)*f(3*b)*f(2*c)*f(b + c)^2*mu(i)*la(i)*
+         la(k)*1/f(2*b) - f(3*a)*f(3*b)*f(2*c)*f(b + c)^2*mu(j)*la(i)^2*
+         1/f(2*b) - f(3*a)*f(3*b)*f(2*c)*f(b + c)^2*mu(k)*la(i)^2*1/f(2*b)
+          + 3/2*f(3*a)*f(3*b)*f(2*c)*f(b + c)*mu(i)*mu(j)*la(i) + f(3*a)*f(3*b
+         )*f(2*c)*f(b + c)*mu(i)*mu(j)*la(k) + 3/2*f(3*a)*f(3*b)*f(2*c)*f(b + 
+         c)*mu(i)*mu(k)*la(i) + f(3*a)*f(3*b)*f(2*c)*f(b + c)*mu(i)*mu(k)*la(j
+         ) + f(3*a)*f(3*b)*f(2*c)*f(b + c)*mu(j)*mu(k)*la(i) - 1/2*f(3*a)*f(3*
+         b)*f(2*c)^2*f(b + c)*la(i)^2*la(j)*1/f(2*b) - 1/2*f(3*a)*f(3*b)*f(2
+         *c)^2*f(b + c)*la(i)^2*la(k)*1/f(2*b) + 1/2*f(3*a)*f(3*b)*f(2*c)^2*
+         mu(i)*la(i)*la(j) + 1/2*f(3*a)*f(3*b)*f(2*c)^2*mu(i)*la(i)*la(k) + 1/
+         2*f(3*a)*f(3*b)*f(2*c)^2*mu(i)*la(j)*la(k) + 1/2*f(3*a)*f(3*b)*f(2*c)
+         ^2*mu(j)*la(i)^2 + 1/2*f(3*a)*f(3*b)*f(2*c)^2*mu(j)*la(i)*la(k) + 1/2
+         *f(3*a)*f(3*b)*f(2*c)^2*mu(k)*la(i)^2 + 1/2*f(3*a)*f(3*b)*f(2*c)^2*
+         mu(k)*la(i)*la(j) - 2*f(3*a)*f(2*c)*f(a + b)*f(a + b + c)*la(i) - f(3
+         *a)*f(2*c)*f(a + b)*f(a + b + c)*la(j) - f(3*a)*f(2*c)*f(a + b)*f(a
+          + b + c)*la(k) + 2*f(3*a)*f(2*c)*f(a + b)*f(a + 2*b)*mu(i) + 1/2*f(3
+         *a)*f(2*c)*f(a + b)*f(a + 2*b)*mu(j) + 1/2*f(3*a)*f(2*c)*f(a + b)*f(a
+          + 2*b)*mu(k) + 2*f(3*a)*f(2*c)*f(a + b)*f(2*a + b) + f(3*a)*f(2*c)*
+         f(a + b)*f(b + c)*f(2*b + c)*la(i)^2*1/f(2*b) - 2*f(3*a)*f(2*c)*f(a
+          + b)*f(b + 2*c)*la(i)^2 - 2*f(3*a)*f(2*c)*f(a + b)*f(b + 2*c)*la(i)*
+         la(j) - 2*f(3*a)*f(2*c)*f(a + b)*f(b + 2*c)*la(i)*la(k) - f(3*a)*f(2*
+         c)*f(a + b)*f(b + 2*c)*la(j)*la(k) - f(3*a)*f(2*c)*f(a + b)*f(2*b + c
+         )*mu(i)*la(i) + 1/2*f(3*a)*f(2*c)*f(a + b)*f(2*b + c)*mu(i)*la(j) + 1/
+         2*f(3*a)*f(2*c)*f(a + b)*f(2*b + c)*mu(i)*la(k) - f(3*a)*f(2*c)*f(a
+          + b)*f(2*b + c)*mu(j)*la(i) - 1/2*f(3*a)*f(2*c)*f(a + b)*f(2*b + c)*
+         mu(j)*la(k) - f(3*a)*f(2*c)*f(a + b)*f(2*b + c)*mu(k)*la(i) - 1/2*f(3
+         *a)*f(2*c)*f(a + b)*f(2*b + c)*mu(k)*la(j) + 4*f(3*a)*f(2*c)*f(a + 2*
+         b)*f(a + c)*la(i) + 3/2*f(3*a)*f(2*c)*f(a + 2*b)*f(a + c)*la(j) + 3/2
+         *f(3*a)*f(2*c)*f(a + 2*b)*f(a + c)*la(k) - f(3*a)*f(2*c)*f(a + 2*b)*
+         f(b + c)^2*la(i)^2*1/f(2*b) + 2*f(3*a)*f(2*c)*f(a + 2*b)*f(b + c)*
+         mu(i)*la(i) + f(3*a)*f(2*c)*f(a + 2*b)*f(b + c)*mu(i)*la(j) + f(3*a)*
+         f(2*c)*f(a + 2*b)*f(b + c)*mu(i)*la(k) + f(3*a)*f(2*c)*f(a + 2*b)*f(b
+          + c)*mu(j)*la(i) + 1/2*f(3*a)*f(2*c)*f(a + 2*b)*f(b + c)*mu(j)*la(k)
+          + f(3*a)*f(2*c)*f(a + 2*b)*f(b + c)*mu(k)*la(i) + 1/2*f(3*a)*f(2*c)*
+         f(a + 2*b)*f(b + c)*mu(k)*la(j) + 2*f(3*a)*f(2*c)*f(a + c)*f(2*b + c)
+         *la(i)^2 + 7/2*f(3*a)*f(2*c)*f(a + c)*f(2*b + c)*la(i)*la(j) + 7/2*f(
+         3*a)*f(2*c)*f(a + c)*f(2*b + c)*la(i)*la(k) + f(3*a)*f(2*c)*f(a + c)*
+         f(2*b + c)*la(j)*la(k) - 2*f(3*a)*f(2*c)*f(b + c)*f(a + b + c)*la(i)*
+         la(j) - 2*f(3*a)*f(2*c)*f(b + c)*f(a + b + c)*la(i)*la(k) - f(3*a)*f(
+         2*c)*f(b + c)*f(a + b + c)*la(j)*la(k) - 3/2*f(3*a)*f(2*c)*f(b + c)*
+         f(b + 2*c)*la(i)^2*la(j) - 3/2*f(3*a)*f(2*c)*f(b + c)*f(b + 2*c)*la(i
+         )^2*la(k) - 3*f(3*a)*f(2*c)*f(b + c)*f(b + 2*c)*la(i)*la(j)*la(k) + 3/
+         2*f(3*a)*f(2*c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j) + 3/2*f(3*a)*f(
+         2*c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(k) + 3/2*f(3*a)*f(2*c)*f(b + 
+         c)*f(2*b + c)*mu(j)*la(i)^2 + 3/2*f(3*a)*f(2*c)*f(b + c)*f(2*b + c)*
+         mu(k)*la(i)^2 + f(3*a)*f(2*c)^2*f(a + 2*b)*la(i)^2 + f(3*a)*f(2*c)^2*
+         f(a + 2*b)*la(i)*la(j) + f(3*a)*f(2*c)^2*f(a + 2*b)*la(i)*la(k) + 1/2
+         *f(3*a)*f(2*c)^2*f(a + 2*b)*la(j)*la(k) + 3/2*f(3*a)*f(2*c)^2*f(2*b
+          + c)*la(i)^2*la(j) + 3/2*f(3*a)*f(2*c)^2*f(2*b + c)*la(i)^2*la(k) + 
+         3/2*f(3*a)*f(2*c)^2*f(2*b + c)*la(i)*la(j)*la(k) + 2*f(3*a)*f(3*c)*f(
+         a + b)^2*la(i) + f(3*a)*f(3*c)*f(a + b)^2*la(j) + f(3*a)*f(3*c)*f(a
+          + b)^2*la(k) + f(3*a)*f(3*c)*f(a + b)*f(b + c)*la(i)^2 + 2*f(3*a)*f(
+         3*c)*f(a + b)*f(b + c)*la(i)*la(j) + 2*f(3*a)*f(3*c)*f(a + b)*f(b + c
+         )*la(i)*la(k) + f(3*a)*f(3*c)*f(a + b)*f(b + c)*la(j)*la(k) + f(3*a)*
+         f(3*c)*f(b + c)^2*la(i)^2*la(j) + f(3*a)*f(3*c)*f(b + c)^2*la(i)^2*
+         la(k) + 2*f(3*a)*f(3*c)*f(b + c)^2*la(i)*la(j)*la(k) + 6*f(2*b)*f(a
+          + b)*f(a + b + c)^2*mu(i)*mu(j)*mu(k) - 3*f(2*b)*f(a + b)*f(a + 2*b)
+         *f(a + 2*c)*mu(i)*mu(j)*mu(k) - 2*f(2*b)*f(a + b)*f(a + 2*c)*f(a + b
+          + c)*mu(i)*mu(j)*la(i) + f(2*b)*f(a + b)*f(a + 2*c)*f(a + b + c)*mu(
+         i)*mu(j)*la(k) - 2*f(2*b)*f(a + b)*f(a + 2*c)*f(a + b + c)*mu(i)*mu(k
+         )*la(i) + f(2*b)*f(a + b)*f(a + 2*c)*f(a + b + c)*mu(i)*mu(k)*la(j)
+          - 2*f(2*b)*f(a + b)*f(a + 2*c)*f(a + b + c)*mu(j)*mu(k)*la(i) - f(2*
+         b)*f(a + b)*f(a + 2*c)^2*mu(i)*la(i)*la(j) - f(2*b)*f(a + b)*f(a + 2*
+         c)^2*mu(i)*la(i)*la(k) - 1/2*f(2*b)*f(a + b)*f(a + 2*c)^2*mu(j)*la(i)
+         ^2 - f(2*b)*f(a + b)*f(a + 2*c)^2*mu(j)*la(i)*la(k) - 1/2*f(2*b)*f(a
+          + b)*f(a + 2*c)^2*mu(k)*la(i)^2 - f(2*b)*f(a + b)*f(a + 2*c)^2*mu(k)
+         *la(i)*la(j) - 3/2*f(2*b)*f(a + b)*f(a + 2*c)*f(2*a + b)*mu(i)*mu(j)
+          - 3/2*f(2*b)*f(a + b)*f(a + 2*c)*f(2*a + b)*mu(i)*mu(k) - f(2*b)*f(a
+          + b)*f(a + 2*c)*f(2*a + c)*mu(i)*la(i) - 1/2*f(2*b)*f(a + b)*f(a + 2
+         *c)*f(2*a + c)*mu(i)*la(j) - 1/2*f(2*b)*f(a + b)*f(a + 2*c)*f(2*a + c
+         )*mu(i)*la(k) - f(2*b)*f(a + b)*f(a + 2*c)*f(2*a + c)*mu(j)*la(i) - 1/
+         2*f(2*b)*f(a + b)*f(a + 2*c)*f(2*a + c)*mu(j)*la(k) - f(2*b)*f(a + b)
+         *f(a + 2*c)*f(2*a + c)*mu(k)*la(i) - 1/2*f(2*b)*f(a + b)*f(a + 2*c)*
+         f(2*a + c)*mu(k)*la(j) + 2*f(2*b)*f(a + b)*f(a + 2*c)*f(b + 2*c)*mu(i
+         )*mu(j)*la(i)*la(k) + 2*f(2*b)*f(a + b)*f(a + 2*c)*f(b + 2*c)*mu(i)*
+         mu(k)*la(i)*la(j) + f(2*b)*f(a + b)*f(a + 2*c)*f(b + 2*c)*mu(j)*mu(k)
+         *la(i)^2 + 3*f(2*b)*f(a + b)*f(a + 2*c)*f(2*b + c)*mu(i)*mu(j)*mu(k)*
+         la(i) - 6*f(2*b)*f(a + b)*f(2*a + b)*f(b + 2*c)*mu(i)*mu(j)*mu(k) + 
+         f(2*b)*f(a + b)*f(2*a + c)*f(a + b + c)*mu(i)*mu(j) + f(2*b)*f(a + b)
+         *f(2*a + c)*f(a + b + c)*mu(i)*mu(k) - f(2*b)*f(a + b)*f(2*a + c)*f(a
+          + b + c)*mu(j)*mu(k) - 2*f(2*b)*f(a + b)*f(2*a + c)^2*mu(i) - 3/2*f(
+         2*b)*f(a + b)*f(2*a + c)^2*mu(j) - 3/2*f(2*b)*f(a + b)*f(2*a + c)^2*
+         mu(k) + 2*f(2*b)*f(a + b)*f(2*a + c)*f(b + 2*c)*mu(i)*mu(j)*la(i) + 1/
+         2*f(2*b)*f(a + b)*f(2*a + c)*f(b + 2*c)*mu(i)*mu(j)*la(k) + 2*f(2*b)*
+         f(a + b)*f(2*a + c)*f(b + 2*c)*mu(i)*mu(k)*la(i) + 1/2*f(2*b)*f(a + b
+         )*f(2*a + c)*f(b + 2*c)*mu(i)*mu(k)*la(j) + 2*f(2*b)*f(a + b)*f(2*a
+          + c)*f(b + 2*c)*mu(j)*mu(k)*la(i) + 3*f(2*b)*f(a + b)*f(2*a + c)*f(2
+         *b + c)*mu(i)*mu(j)*mu(k) + 6*f(2*b)*f(a + 2*b)*f(a + c)*f(a + b + c)
+         *mu(i)*mu(j)*mu(k) + f(2*b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*mu(i)*mu(j
+         )*la(i) + f(2*b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*mu(i)*mu(j)*la(k) + 
+         f(2*b)*f(a + 2*b)*f(a + c)*f(a + 2*c)*mu(i)*mu(k)*la(i) + f(2*b)*f(a
+          + 2*b)*f(a + c)*f(a + 2*c)*mu(i)*mu(k)*la(j) + f(2*b)*f(a + 2*b)*f(a
+          + c)*f(a + 2*c)*mu(j)*mu(k)*la(i) + 4*f(2*b)*f(a + 2*b)*f(a + c)*f(2
+         *a + c)*mu(i)*mu(j) + 4*f(2*b)*f(a + 2*b)*f(a + c)*f(2*a + c)*mu(i)*
+         mu(k) + 2*f(2*b)*f(a + 2*b)*f(a + c)*f(2*a + c)*mu(j)*mu(k) - 3*f(2*b
+         )*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(i)*mu(j)*mu(k)*la(i) + 3*f(2*b)*
+         f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*mu(j)*mu(k)*la(i) + 3*f(2*b)*f(a
+          + 2*b)*f(2*a + c)*f(b + c)*mu(i)*mu(j)*mu(k) + 4*f(2*b)*f(a + c)*f(a
+          + b + c)^2*mu(i)*mu(j)*la(i) + 4*f(2*b)*f(a + c)*f(a + b + c)^2*mu(i
+         )*mu(j)*la(k) + 4*f(2*b)*f(a + c)*f(a + b + c)^2*mu(i)*mu(k)*la(i) + 
+         4*f(2*b)*f(a + c)*f(a + b + c)^2*mu(i)*mu(k)*la(j) + 10*f(2*b)*f(a + 
+         c)*f(a + b + c)^2*mu(j)*mu(k)*la(i) + 4*f(2*b)*f(a + c)*f(a + 2*c)*f(
+         a + b + c)*mu(i)*la(i)*la(j) + 4*f(2*b)*f(a + c)*f(a + 2*c)*f(a + b
+          + c)*mu(i)*la(i)*la(k) + 4*f(2*b)*f(a + c)*f(a + 2*c)*f(a + b + c)*
+         mu(i)*la(j)*la(k) + 2*f(2*b)*f(a + c)*f(a + 2*c)*f(a + b + c)*mu(j)*
+         la(i)^2 + 7*f(2*b)*f(a + c)*f(a + 2*c)*f(a + b + c)*mu(j)*la(i)*la(k)
+          + 2*f(2*b)*f(a + c)*f(a + 2*c)*f(a + b + c)*mu(k)*la(i)^2 + 7*f(2*b)
+         *f(a + c)*f(a + 2*c)*f(a + b + c)*mu(k)*la(i)*la(j) + 3/2*f(2*b)*f(a
+          + c)*f(a + 2*c)^2*la(i)^2*la(j) + 3/2*f(2*b)*f(a + c)*f(a + 2*c)^2*
+         la(i)^2*la(k) + 4*f(2*b)*f(a + c)*f(a + 2*c)^2*la(i)*la(j)*la(k) + f(
+         2*b)*f(a + c)*f(a + 2*c)*f(2*a + b)*mu(i)*la(i) + f(2*b)*f(a + c)*f(a
+          + 2*c)*f(2*a + b)*mu(i)*la(j) + f(2*b)*f(a + c)*f(a + 2*c)*f(2*a + b
+         )*mu(i)*la(k) - 1/2*f(2*b)*f(a + c)*f(a + 2*c)*f(2*a + b)*mu(j)*la(i)
+          + 1/2*f(2*b)*f(a + c)*f(a + 2*c)*f(2*a + b)*mu(j)*la(k) - 1/2*f(2*b)
+         *f(a + c)*f(a + 2*c)*f(2*a + b)*mu(k)*la(i) + 1/2*f(2*b)*f(a + c)*f(a
+          + 2*c)*f(2*a + b)*mu(k)*la(j) + 2*f(2*b)*f(a + c)*f(a + 2*c)*f(2*a
+          + c)*la(i)^2 + 9/2*f(2*b)*f(a + c)*f(a + 2*c)*f(2*a + c)*la(i)*la(j)
+          + 9/2*f(2*b)*f(a + c)*f(a + 2*c)*f(2*a + c)*la(i)*la(k) + 2*f(2*b)*
+         f(a + c)*f(a + 2*c)*f(2*a + c)*la(j)*la(k) + 6*f(2*b)*f(a + c)*f(a + 
+         2*c)*f(b + 2*c)*mu(i)*la(i)*la(j)*la(k) + 3*f(2*b)*f(a + c)*f(a + 2*c
+         )*f(b + 2*c)*mu(j)*la(i)^2*la(k) + 3*f(2*b)*f(a + c)*f(a + 2*c)*f(b
+          + 2*c)*mu(k)*la(i)^2*la(j) + 4*f(2*b)*f(a + c)*f(a + 2*c)*f(2*b + c)
+         *mu(i)*mu(j)*la(i)*la(k) + 4*f(2*b)*f(a + c)*f(a + 2*c)*f(2*b + c)*
+         mu(i)*mu(k)*la(i)*la(j) + 2*f(2*b)*f(a + c)*f(a + 2*c)*f(2*b + c)*mu(
+         j)*mu(k)*la(i)^2 + 2*f(2*b)*f(a + c)*f(2*a + b)*f(a + b + c)*mu(i)*
+         mu(j) + 2*f(2*b)*f(a + c)*f(2*a + b)*f(a + b + c)*mu(i)*mu(k) + f(2*b
+         )*f(a + c)*f(2*a + b)*f(a + b + c)*mu(j)*mu(k) + 6*f(2*b)*f(a + c)*f(
+         2*a + b)*f(2*a + c)*mu(i) + 3*f(2*b)*f(a + c)*f(2*a + b)*f(2*a + c)*
+         mu(j) + 3*f(2*b)*f(a + c)*f(2*a + b)*f(2*a + c)*mu(k) - 2*f(2*b)*f(a
+          + c)*f(2*a + b)*f(b + 2*c)*mu(i)*mu(j)*la(i) - 2*f(2*b)*f(a + c)*f(2
+         *a + b)*f(b + 2*c)*mu(i)*mu(j)*la(k) - 2*f(2*b)*f(a + c)*f(2*a + b)*
+         f(b + 2*c)*mu(i)*mu(k)*la(i) - 2*f(2*b)*f(a + c)*f(2*a + b)*f(b + 2*c
+         )*mu(i)*mu(k)*la(j) - 8*f(2*b)*f(a + c)*f(2*a + b)*f(b + 2*c)*mu(j)*
+         mu(k)*la(i) - 3*f(2*b)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i)*mu(j)*mu(
+         k) + 4*f(2*b)*f(a + c)*f(2*a + c)*f(a + b + c)*mu(i)*la(i) + 4*f(2*b)
+         *f(a + c)*f(2*a + c)*f(a + b + c)*mu(i)*la(j) + 4*f(2*b)*f(a + c)*f(2
+         *a + c)*f(a + b + c)*mu(i)*la(k) + 7*f(2*b)*f(a + c)*f(2*a + c)*f(a
+          + b + c)*mu(j)*la(i) + 2*f(2*b)*f(a + c)*f(2*a + c)*f(a + b + c)*mu(
+         j)*la(k) + 7*f(2*b)*f(a + c)*f(2*a + c)*f(a + b + c)*mu(k)*la(i) + 2*
+         f(2*b)*f(a + c)*f(2*a + c)*f(a + b + c)*mu(k)*la(j) + 4*f(2*b)*f(a + 
+         c)*f(2*a + c)^2*la(i) + 3/2*f(2*b)*f(a + c)*f(2*a + c)^2*la(j) + 3/2*
+         f(2*b)*f(a + c)*f(2*a + c)^2*la(k) + f(2*b)*f(a + c)*f(2*a + c)*f(b
+          + 2*c)*mu(i)*la(i)*la(j) + f(2*b)*f(a + c)*f(2*a + c)*f(b + 2*c)*mu(
+         i)*la(i)*la(k) + f(2*b)*f(a + c)*f(2*a + c)*f(b + 2*c)*mu(i)*la(j)*
+         la(k) + 1/2*f(2*b)*f(a + c)*f(2*a + c)*f(b + 2*c)*mu(j)*la(i)^2 - 1/2
+         *f(2*b)*f(a + c)*f(2*a + c)*f(b + 2*c)*mu(j)*la(i)*la(k) + 1/2*f(2*b)
+         *f(a + c)*f(2*a + c)*f(b + 2*c)*mu(k)*la(i)^2 - 1/2*f(2*b)*f(a + c)*
+         f(2*a + c)*f(b + 2*c)*mu(k)*la(i)*la(j) + f(2*b)*f(a + c)*f(2*a + c)*
+         f(2*b + c)*mu(i)*mu(j)*la(i) + f(2*b)*f(a + c)*f(2*a + c)*f(2*b + c)*
+         mu(i)*mu(j)*la(k) + f(2*b)*f(a + c)*f(2*a + c)*f(2*b + c)*mu(i)*mu(k)
+         *la(i) + f(2*b)*f(a + c)*f(2*a + c)*f(2*b + c)*mu(i)*mu(k)*la(j) + f(
+         2*b)*f(a + c)*f(2*a + c)*f(2*b + c)*mu(j)*mu(k)*la(i) + 2*f(2*b)*f(a
+          + c)*f(b + 2*c)*f(a + b + c)*mu(i)*mu(j)*la(i)*la(k) + 2*f(2*b)*f(a
+          + c)*f(b + 2*c)*f(a + b + c)*mu(i)*mu(k)*la(i)*la(j) + f(2*b)*f(a + 
+         c)*f(b + 2*c)*f(a + b + c)*mu(j)*mu(k)*la(i)^2 + 6*f(2*b)*f(a + c)*f(
+         2*b + c)*f(a + b + c)*mu(i)*mu(j)*mu(k)*la(i) - 2*f(2*b)*f(a + 2*c)^2
+         *f(b + c)*mu(i)*la(i)*la(j)*la(k) - 3/2*f(2*b)*f(a + 2*c)^2*f(b + c)*
+         mu(j)*la(i)^2*la(k) - 3/2*f(2*b)*f(a + 2*c)^2*f(b + c)*mu(k)*la(i)^2*
+         la(j) + 1/2*f(2*b)*f(a + 2*c)*f(2*a + b)*f(b + c)*mu(i)*mu(j)*la(i)
+          + 2*f(2*b)*f(a + 2*c)*f(2*a + b)*f(b + c)*mu(i)*mu(j)*la(k) + 1/2*f(
+         2*b)*f(a + 2*c)*f(2*a + b)*f(b + c)*mu(i)*mu(k)*la(i) + 2*f(2*b)*f(a
+          + 2*c)*f(2*a + b)*f(b + c)*mu(i)*mu(k)*la(j) + 2*f(2*b)*f(a + 2*c)*
+         f(2*a + b)*f(b + c)*mu(j)*mu(k)*la(i) - 1/2*f(2*b)*f(a + 2*c)*f(2*a
+          + c)*f(b + c)*mu(i)*la(i)*la(j) - 1/2*f(2*b)*f(a + 2*c)*f(2*a + c)*
+         f(b + c)*mu(i)*la(i)*la(k) - f(2*b)*f(a + 2*c)*f(2*a + c)*f(b + c)*
+         mu(i)*la(j)*la(k) - 1/2*f(2*b)*f(a + 2*c)*f(2*a + c)*f(b + c)*mu(j)*
+         la(i)^2 - f(2*b)*f(a + 2*c)*f(2*a + c)*f(b + c)*mu(j)*la(i)*la(k) - 1/
+         2*f(2*b)*f(a + 2*c)*f(2*a + c)*f(b + c)*mu(k)*la(i)^2 - f(2*b)*f(a + 
+         2*c)*f(2*a + c)*f(b + c)*mu(k)*la(i)*la(j) + f(2*b)*f(a + 2*c)*f(b + 
+         c)*f(a + b + c)*mu(i)*mu(j)*la(i)*la(k) + f(2*b)*f(a + 2*c)*f(b + c)*
+         f(a + b + c)*mu(i)*mu(k)*la(i)*la(j) - f(2*b)*f(a + 2*c)*f(b + c)*f(a
+          + b + c)*mu(j)*mu(k)*la(i)^2 + 2*f(2*b)*f(2*a + b)*f(2*a + c)*f(b + 
+         c)*mu(i)*mu(j) + 2*f(2*b)*f(2*a + b)*f(2*a + c)*f(b + c)*mu(i)*mu(k)
+          + f(2*b)*f(2*a + b)*f(2*a + c)*f(b + c)*mu(j)*mu(k) - 6*f(2*b)*f(2*a
+          + b)*f(b + c)*f(b + 2*c)*mu(i)*mu(j)*mu(k)*la(i) - f(2*b)*f(2*a + c)
+         ^2*f(b + c)*mu(i)*la(j) - f(2*b)*f(2*a + c)^2*f(b + c)*mu(i)*la(k) - 
+         f(2*b)*f(2*a + c)^2*f(b + c)*mu(j)*la(i) - 1/2*f(2*b)*f(2*a + c)^2*f(
+         b + c)*mu(j)*la(k) - f(2*b)*f(2*a + c)^2*f(b + c)*mu(k)*la(i) - 1/2*
+         f(2*b)*f(2*a + c)^2*f(b + c)*mu(k)*la(j) + f(2*b)*f(2*a + c)*f(b + c)
+         *f(a + b + c)*mu(i)*mu(j)*la(i) - 2*f(2*b)*f(2*a + c)*f(b + c)*f(a + 
+         b + c)*mu(i)*mu(j)*la(k) + f(2*b)*f(2*a + c)*f(b + c)*f(a + b + c)*
+         mu(i)*mu(k)*la(i) - 2*f(2*b)*f(2*a + c)*f(b + c)*f(a + b + c)*mu(i)*
+         mu(k)*la(j) - 2*f(2*b)*f(2*a + c)*f(b + c)*f(a + b + c)*mu(j)*mu(k)*
+         la(i) - 3/2*f(2*b)*f(2*a + c)*f(b + c)*f(b + 2*c)*mu(i)*mu(j)*la(i)*
+         la(k) - 3/2*f(2*b)*f(2*a + c)*f(b + c)*f(b + 2*c)*mu(i)*mu(k)*la(i)*
+         la(j) - 3*f(2*b)*f(2*a + c)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(
+         i) + 6*f(2*b)*f(b + c)*f(a + b + c)^2*mu(i)*mu(j)*mu(k)*la(i) - 3*f(2
+         *b)^2*f(a + 2*c)*f(a + b + c)*mu(i)*mu(j)*mu(k)*la(i) - f(2*b)^2*f(a
+          + 2*c)^2*mu(i)*mu(j)*la(i)*la(k) - f(2*b)^2*f(a + 2*c)^2*mu(i)*mu(k)
+         *la(i)*la(j) - 1/2*f(2*b)^2*f(a + 2*c)^2*mu(j)*mu(k)*la(i)^2 + 3/2*f(
+         2*b)^2*f(a + 2*c)*f(2*a + b)*mu(i)*mu(j)*mu(k) - 1/2*f(2*b)^2*f(a + 2
+         *c)*f(2*a + c)*mu(i)*mu(j)*la(i) - 1/2*f(2*b)^2*f(a + 2*c)*f(2*a + c)
+         *mu(i)*mu(j)*la(k) - 1/2*f(2*b)^2*f(a + 2*c)*f(2*a + c)*mu(i)*mu(k)*
+         la(i) - 1/2*f(2*b)^2*f(a + 2*c)*f(2*a + c)*mu(i)*mu(k)*la(j) - 1/2*f(
+         2*b)^2*f(a + 2*c)*f(2*a + c)*mu(j)*mu(k)*la(i) - 3*f(2*b)^2*f(2*a + c
+         )*f(a + b + c)*mu(i)*mu(j)*mu(k) - f(2*b)^2*f(2*a + c)^2*mu(i)*mu(j)
+          - f(2*b)^2*f(2*a + c)^2*mu(i)*mu(k) - 1/2*f(2*b)^2*f(2*a + c)^2*mu(j
+         )*mu(k) + 3/2*f(2*b)^2*f(2*a + c)*f(b + 2*c)*mu(i)*mu(j)*mu(k)*la(i)
+          + 3/2*f(2*b)^2*f(3*c)*f(2*a + b)*mu(i)*mu(j)*mu(k)*la(i) + f(2*b)^2*
+         f(3*c)*f(2*a + c)*mu(i)*mu(j)*la(i)*la(k) + f(2*b)^2*f(3*c)*f(2*a + c
+         )*mu(i)*mu(k)*la(i)*la(j) + 1/2*f(2*b)^2*f(3*c)*f(2*a + c)*mu(j)*mu(k
+         )*la(i)^2 + f(2*b)*f(3*b)*f(a + c)*f(a + 2*c)*mu(i)*mu(j)*mu(k)*la(i)
+          + f(2*b)*f(3*b)*f(a + c)*f(2*a + c)*mu(i)*mu(j)*mu(k) - 1/2*f(2*b)*
+         f(3*b)*f(2*c)*f(2*a + c)*mu(i)*mu(j)*mu(k)*la(i) + 2*f(2*b)*f(2*c)*f(
+         a + b + c)^2*mu(i)*mu(j)*la(i)*la(k) + 2*f(2*b)*f(2*c)*f(a + b + c)^2
+         *mu(i)*mu(k)*la(i)*la(j) + 4*f(2*b)*f(2*c)*f(a + b + c)^2*mu(j)*mu(k)
+         *la(i)^2 + 3*f(2*b)*f(2*c)*f(a + 2*b)*f(a + b + c)*mu(i)*mu(j)*mu(k)*
+         la(i) + 2*f(2*b)*f(2*c)*f(a + 2*b)*f(a + 2*c)*mu(i)*mu(j)*la(i)*la(k)
+          + 2*f(2*b)*f(2*c)*f(a + 2*b)*f(a + 2*c)*mu(i)*mu(k)*la(i)*la(j) + f(
+         2*b)*f(2*c)*f(a + 2*b)*f(a + 2*c)*mu(j)*mu(k)*la(i)^2 - 3/2*f(2*b)*f(
+         2*c)*f(a + 2*b)*f(2*a + b)*mu(i)*mu(j)*mu(k) + 1/2*f(2*b)*f(2*c)*f(a
+          + 2*b)*f(2*a + c)*mu(i)*mu(j)*la(i) + 1/2*f(2*b)*f(2*c)*f(a + 2*b)*
+         f(2*a + c)*mu(i)*mu(j)*la(k) + 1/2*f(2*b)*f(2*c)*f(a + 2*b)*f(2*a + c
+         )*mu(i)*mu(k)*la(i) + 1/2*f(2*b)*f(2*c)*f(a + 2*b)*f(2*a + c)*mu(i)*
+         mu(k)*la(j) + 1/2*f(2*b)*f(2*c)*f(a + 2*b)*f(2*a + c)*mu(j)*mu(k)*la(
+         i) + 3*f(2*b)*f(2*c)*f(a + 2*c)*f(a + b + c)*mu(i)*la(i)*la(j)*la(k)
+          + 3*f(2*b)*f(2*c)*f(a + 2*c)*f(a + b + c)*mu(j)*la(i)^2*la(k) + 3*f(
+         2*b)*f(2*c)*f(a + 2*c)*f(a + b + c)*mu(k)*la(i)^2*la(j) + 1/2*f(2*b)*
+         f(2*c)*f(a + 2*c)^2*la(i)^2*la(j)*la(k) + 1/2*f(2*b)*f(2*c)*f(a + 2*c
+         )*f(2*a + b)*mu(i)*la(i)*la(j) + 1/2*f(2*b)*f(2*c)*f(a + 2*c)*f(2*a
+          + b)*mu(i)*la(i)*la(k) + 1/2*f(2*b)*f(2*c)*f(a + 2*c)*f(2*a + b)*mu(
+         i)*la(j)*la(k) - 1/2*f(2*b)*f(2*c)*f(a + 2*c)*f(2*a + b)*mu(j)*la(i)^
+         2 + 1/2*f(2*b)*f(2*c)*f(a + 2*c)*f(2*a + b)*mu(j)*la(i)*la(k) - 1/2*
+         f(2*b)*f(2*c)*f(a + 2*c)*f(2*a + b)*mu(k)*la(i)^2 + 1/2*f(2*b)*f(2*c)
+         *f(a + 2*c)*f(2*a + b)*mu(k)*la(i)*la(j) - 1/2*f(2*b)*f(2*c)*f(a + 2*
+         c)*f(2*a + c)*la(i)^2*la(j) - 1/2*f(2*b)*f(2*c)*f(a + 2*c)*f(2*a + c)
+         *la(i)^2*la(k) - 3/2*f(2*b)*f(2*c)*f(a + 2*c)*f(2*a + c)*la(i)*la(j)*
+         la(k) - f(2*b)*f(2*c)*f(2*a + b)*f(a + b + c)*mu(i)*mu(j)*la(i) - f(2
+         *b)*f(2*c)*f(2*a + b)*f(a + b + c)*mu(i)*mu(j)*la(k) - f(2*b)*f(2*c)*
+         f(2*a + b)*f(a + b + c)*mu(i)*mu(k)*la(i) - f(2*b)*f(2*c)*f(2*a + b)*
+         f(a + b + c)*mu(i)*mu(k)*la(j) - f(2*b)*f(2*c)*f(2*a + b)*f(a + b + c
+         )*mu(j)*mu(k)*la(i) - f(2*b)*f(2*c)*f(2*a + b)^2*mu(i)*mu(j) - f(2*b)
+         *f(2*c)*f(2*a + b)^2*mu(i)*mu(k) - 1/2*f(2*b)*f(2*c)*f(2*a + b)^2*mu(
+         j)*mu(k) - 3*f(2*b)*f(2*c)*f(2*a + b)*f(b + 2*c)*mu(i)*mu(j)*la(i)*
+         la(k) - 3*f(2*b)*f(2*c)*f(2*a + b)*f(b + 2*c)*mu(i)*mu(k)*la(i)*la(j)
+          - 9/2*f(2*b)*f(2*c)*f(2*a + b)*f(b + 2*c)*mu(j)*mu(k)*la(i)^2 - 9/2*
+         f(2*b)*f(2*c)*f(2*a + b)*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i) - f(2*b)*
+         f(2*c)*f(2*a + c)*f(a + b + c)*mu(i)*la(i)*la(j) - f(2*b)*f(2*c)*f(2*
+         a + c)*f(a + b + c)*mu(i)*la(i)*la(k) - f(2*b)*f(2*c)*f(2*a + c)*f(a
+          + b + c)*mu(i)*la(j)*la(k) + f(2*b)*f(2*c)*f(2*a + c)*f(a + b + c)*
+         mu(j)*la(i)^2 - f(2*b)*f(2*c)*f(2*a + c)*f(a + b + c)*mu(j)*la(i)*la(
+         k) + f(2*b)*f(2*c)*f(2*a + c)*f(a + b + c)*mu(k)*la(i)^2 - f(2*b)*f(2
+         *c)*f(2*a + c)*f(a + b + c)*mu(k)*la(i)*la(j) - f(2*b)*f(2*c)*f(2*a
+          + c)^2*la(i)*la(j) - f(2*b)*f(2*c)*f(2*a + c)^2*la(i)*la(k) - 1/2*f(
+         2*b)*f(2*c)*f(2*a + c)^2*la(j)*la(k) - 9/2*f(2*b)*f(2*c)*f(2*a + c)*
+         f(b + 2*c)*mu(i)*la(i)*la(j)*la(k) - 3*f(2*b)*f(2*c)*f(2*a + c)*f(b
+          + 2*c)*mu(j)*la(i)^2*la(k) - 3*f(2*b)*f(2*c)*f(2*a + c)*f(b + 2*c)*
+         mu(k)*la(i)^2*la(j) - 3*f(2*b)*f(2*c)*f(2*a + c)*f(2*b + c)*mu(i)*mu(
+         j)*la(i)*la(k) - 3*f(2*b)*f(2*c)*f(2*a + c)*f(2*b + c)*mu(i)*mu(k)*
+         la(i)*la(j) - 3/2*f(2*b)*f(2*c)*f(2*a + c)*f(2*b + c)*mu(j)*mu(k)*la(
+         i)^2 - 1/2*f(2*b)*f(2*c)*f(3*c)*f(2*a + b)*mu(i)*la(i)*la(j)*la(k) - 
+         f(2*b)*f(2*c)*f(3*c)*f(2*a + b)*mu(j)*la(i)^2*la(k) - f(2*b)*f(2*c)*
+         f(3*c)*f(2*a + b)*mu(k)*la(i)^2*la(j) - 3/2*f(2*b)*f(2*c)*f(3*c)*f(2*
+         a + c)*la(i)^2*la(j)*la(k) - 2*f(2*b)*f(3*c)*f(a + b)*f(a + b + c)*
+         mu(i)*mu(j)*la(i)*la(k) - 2*f(2*b)*f(3*c)*f(a + b)*f(a + b + c)*mu(i)
+         *mu(k)*la(i)*la(j) - f(2*b)*f(3*c)*f(a + b)*f(a + b + c)*mu(j)*mu(k)*
+         la(i)^2 - 3*f(2*b)*f(3*c)*f(a + b)*f(a + 2*b)*mu(i)*mu(j)*mu(k)*la(i)
+          - 3/2*f(2*b)*f(3*c)*f(a + b)*f(2*a + b)*mu(i)*mu(j)*la(k) - 3/2*f(2*
+         b)*f(3*c)*f(a + b)*f(2*a + b)*mu(i)*mu(k)*la(j) + f(2*b)*f(3*c)*f(a
+          + b)*f(2*a + c)*mu(i)*la(i)*la(j) + f(2*b)*f(3*c)*f(a + b)*f(2*a + c
+         )*mu(i)*la(i)*la(k) + 1/2*f(2*b)*f(3*c)*f(a + b)*f(2*a + c)*mu(j)*la(
+         i)^2 + f(2*b)*f(3*c)*f(a + b)*f(2*a + c)*mu(j)*la(i)*la(k) + 1/2*f(2*
+         b)*f(3*c)*f(a + b)*f(2*a + c)*mu(k)*la(i)^2 + f(2*b)*f(3*c)*f(a + b)*
+         f(2*a + c)*mu(k)*la(i)*la(j) - 2*f(2*b)*f(3*c)*f(a + 2*b)*f(a + c)*
+         mu(i)*mu(j)*la(i)*la(k) - 2*f(2*b)*f(3*c)*f(a + 2*b)*f(a + c)*mu(i)*
+         mu(k)*la(i)*la(j) - f(2*b)*f(3*c)*f(a + 2*b)*f(a + c)*mu(j)*mu(k)*la(
+         i)^2 - 2*f(2*b)*f(3*c)*f(a + c)*f(a + b + c)*mu(i)*la(i)*la(j)*la(k)
+          - f(2*b)*f(3*c)*f(a + c)*f(a + b + c)*mu(j)*la(i)^2*la(k) - f(2*b)*
+         f(3*c)*f(a + c)*f(a + b + c)*mu(k)*la(i)^2*la(j) + 2*f(2*b)*f(3*c)*f(
+         a + c)*f(a + 2*c)*la(i)^2*la(j)*la(k) - f(2*b)*f(3*c)*f(a + c)*f(2*a
+          + b)*mu(i)*la(i)*la(j) - f(2*b)*f(3*c)*f(a + c)*f(2*a + b)*mu(i)*la(
+         i)*la(k) - f(2*b)*f(3*c)*f(a + c)*f(2*a + b)*mu(i)*la(j)*la(k) - 1/2*
+         f(2*b)*f(3*c)*f(a + c)*f(2*a + b)*mu(j)*la(i)^2 - 5/2*f(2*b)*f(3*c)*
+         f(a + c)*f(2*a + b)*mu(j)*la(i)*la(k) - 1/2*f(2*b)*f(3*c)*f(a + c)*f(
+         2*a + b)*mu(k)*la(i)^2 - 5/2*f(2*b)*f(3*c)*f(a + c)*f(2*a + b)*mu(k)*
+         la(i)*la(j) + 1/2*f(2*b)*f(3*c)*f(a + c)*f(2*a + c)*la(i)^2*la(j) + 1/
+         2*f(2*b)*f(3*c)*f(a + c)*f(2*a + c)*la(i)^2*la(k) + 1/2*f(2*b)*f(3*c)
+         *f(2*a + b)*f(b + c)*mu(i)*mu(j)*la(i)*la(k) + 1/2*f(2*b)*f(3*c)*f(2*
+         a + b)*f(b + c)*mu(i)*mu(k)*la(i)*la(j) + f(2*b)*f(3*c)*f(2*a + b)*f(
+         b + c)*mu(j)*mu(k)*la(i)^2 + 2*f(2*b)*f(3*c)*f(2*a + c)*f(b + c)*mu(i
+         )*la(i)*la(j)*la(k) + 3/2*f(2*b)*f(3*c)*f(2*a + c)*f(b + c)*mu(j)*la(
+         i)^2*la(k) + 3/2*f(2*b)*f(3*c)*f(2*a + c)*f(b + c)*mu(k)*la(i)^2*la(j
+         ) - 2*f(3*b)*f(a + b)^3*f(a + 2*c)*mu(i)*mu(j)*1/f(2*b) - 2*f(3*b)*
+         f(a + b)^3*f(a + 2*c)*mu(i)*mu(k)*1/f(2*b) - 8*f(3*b)*f(a + b)^3*f(
+         b + 2*c)*mu(i)*mu(j)*mu(k)*1/f(2*b) + 4*f(3*b)*f(a + b)^2*f(a + c)*
+         f(a + b + c)*mu(i)*mu(j)*1/f(2*b) + 4*f(3*b)*f(a + b)^2*f(a + c)*f(
+         a + b + c)*mu(i)*mu(k)*1/f(2*b) - 2*f(3*b)*f(a + b)^2*f(a + c)*f(a
+          + 2*c)*mu(j)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + b)^2*f(a + c)*f(a + 2
+         *c)*mu(k)*la(i)*1/f(2*b) + 2*f(3*b)*f(a + b)^2*f(a + c)*f(2*a + c)*
+         mu(i)*1/f(2*b) - 2*f(3*b)*f(a + b)^2*f(a + c)*f(b + 2*c)*mu(i)*mu(j
+         )*la(k)*1/f(2*b) - 2*f(3*b)*f(a + b)^2*f(a + c)*f(b + 2*c)*mu(i)*
+         mu(k)*la(j)*1/f(2*b) - 8*f(3*b)*f(a + b)^2*f(a + c)*f(b + 2*c)*mu(j
+         )*mu(k)*la(i)*1/f(2*b) + 4*f(3*b)*f(a + b)^2*f(a + c)*f(2*b + c)*
+         mu(i)*mu(j)*mu(k)*1/f(2*b) - 2*f(3*b)*f(a + b)^2*f(a + 2*c)*f(b + c
+         )*mu(i)*mu(j)*la(i)*1/f(2*b) + 4*f(3*b)*f(a + b)^2*f(a + 2*c)*f(b
+          + c)*mu(i)*mu(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + b)^2*f(a + 2*c)*
+         f(b + c)*mu(i)*mu(k)*la(i)*1/f(2*b) + 4*f(3*b)*f(a + b)^2*f(a + 2*c
+         )*f(b + c)*mu(i)*mu(k)*la(j)*1/f(2*b) + 2*f(3*b)*f(a + b)^2*f(a + 2
+         *c)*mu(i)*mu(j)*mu(k) + 4*f(3*b)*f(a + b)^2*f(2*a + c)*f(b + c)*mu(i)
+         *mu(j)*1/f(2*b) + 4*f(3*b)*f(a + b)^2*f(2*a + c)*f(b + c)*mu(i)*mu(
+         k)*1/f(2*b) + 16*f(3*b)*f(a + b)^2*f(b + c)*f(a + b + c)*mu(i)*mu(j
+         )*mu(k)*1/f(2*b) - 8*f(3*b)*f(a + b)^2*f(b + c)*f(b + 2*c)*mu(i)*
+         mu(j)*mu(k)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + 2*b)*f(a + c)^
+         2*mu(i)*mu(j)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + 2*b)*f(a + c)^2*
+         mu(i)*mu(k)*1/f(2*b) - 4*f(3*b)*f(a + b)*f(a + 2*b)*f(a + c)*f(b + 
+         c)*mu(i)*mu(j)*mu(k)*1/f(2*b) - 8*f(3*b)*f(a + b)*f(a + c)*f(a + b
+          + c)*mu(i)*mu(j)*mu(k) + 4*f(3*b)*f(a + b)*f(a + c)^2*f(a + b + c)*
+         mu(j)*la(i)*1/f(2*b) + 4*f(3*b)*f(a + b)*f(a + c)^2*f(a + b + c)*
+         mu(k)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)^2*f(2*a + b)*mu(i
+         )*1/f(2*b) + 2*f(3*b)*f(a + b)*f(a + c)^2*f(2*a + c)*la(i)*
+         1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)^2*f(b + 2*c)*mu(i)*la(j)*la(k
+         )*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)^2*f(b + 2*c)*mu(j)*la(i)*
+         la(k)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)^2*f(b + 2*c)*mu(k)*la(i
+         )*la(j)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)^2*f(2*b + c)*mu(i)*
+         mu(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)^2*f(2*b + c)*mu(i
+         )*mu(k)*la(j)*1/f(2*b) + 4*f(3*b)*f(a + b)*f(a + c)^2*f(2*b + c)*
+         mu(j)*mu(k)*la(i)*1/f(2*b) + 6*f(3*b)*f(a + b)*f(a + c)*f(a + 2*c)*
+         f(b + c)*mu(i)*la(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)*f(
+         a + 2*c)*f(b + c)*mu(j)*la(i)^2*1/f(2*b) + 4*f(3*b)*f(a + b)*f(a + 
+         c)*f(a + 2*c)*f(b + c)*mu(j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + 
+         b)*f(a + c)*f(a + 2*c)*f(b + c)*mu(k)*la(i)^2*1/f(2*b) + 4*f(3*b)*
+         f(a + b)*f(a + c)*f(a + 2*c)*f(b + c)*mu(k)*la(i)*la(j)*1/f(2*b) - 
+         f(3*b)*f(a + b)*f(a + c)*f(a + 2*c)*mu(i)*mu(j)*la(k) - f(3*b)*f(a + 
+         b)*f(a + c)*f(a + 2*c)*mu(i)*mu(k)*la(j) - 4*f(3*b)*f(a + b)*f(a + c)
+         *f(2*a + b)*f(b + c)*mu(i)*mu(j)*1/f(2*b) - 4*f(3*b)*f(a + b)*f(a
+          + c)*f(2*a + b)*f(b + c)*mu(i)*mu(k)*1/f(2*b) + 2*f(3*b)*f(a + b)*
+         f(a + c)*f(2*a + c)*f(b + c)*mu(i)*la(i)*1/f(2*b) + 2*f(3*b)*f(a + 
+         b)*f(a + c)*f(2*a + c)*f(b + c)*mu(i)*la(j)*1/f(2*b) + 2*f(3*b)*f(a
+          + b)*f(a + c)*f(2*a + c)*f(b + c)*mu(i)*la(k)*1/f(2*b) + 4*f(3*b)*
+         f(a + b)*f(a + c)*f(2*a + c)*f(b + c)*mu(j)*la(i)*1/f(2*b) + 4*f(3*
+         b)*f(a + b)*f(a + c)*f(2*a + c)*f(b + c)*mu(k)*la(i)*1/f(2*b) - 3*
+         f(3*b)*f(a + b)*f(a + c)*f(2*a + c)*mu(i)*mu(j) - 3*f(3*b)*f(a + b)*
+         f(a + c)*f(2*a + c)*mu(i)*mu(k) - f(3*b)*f(a + b)*f(a + c)*f(2*a + c)
+         *mu(j)*mu(k) + 4*f(3*b)*f(a + b)*f(a + c)*f(b + c)*f(a + b + c)*mu(i)
+         *mu(j)*la(i)*1/f(2*b) + 8*f(3*b)*f(a + b)*f(a + c)*f(b + c)*f(a + b
+          + c)*mu(i)*mu(j)*la(k)*1/f(2*b) + 4*f(3*b)*f(a + b)*f(a + c)*f(b
+          + c)*f(a + b + c)*mu(i)*mu(k)*la(i)*1/f(2*b) + 8*f(3*b)*f(a + b)*
+         f(a + c)*f(b + c)*f(a + b + c)*mu(i)*mu(k)*la(j)*1/f(2*b) + 16*f(3*
+         b)*f(a + b)*f(a + c)*f(b + c)*f(a + b + c)*mu(j)*mu(k)*la(i)*
+         1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)*f(b + c)*f(b + 2*c)*mu(i)*mu(
+         j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(a + c)*f(b + c)*f(b
+          + 2*c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) - 8*f(3*b)*f(a + b)*f(a + 
+         c)*f(b + c)*f(b + 2*c)*mu(j)*mu(k)*la(i)^2*1/f(2*b) + 4*f(3*b)*f(a
+          + b)*f(a + c)*f(b + c)*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i)*1/f(2*b)
+          + 2*f(3*b)*f(a + b)*f(a + c)*f(b + 2*c)*mu(i)*mu(j)*mu(k)*la(i) + 4*
+         f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)^2*mu(i)*mu(j)*la(i)*la(k)*
+         1/f(2*b) + 4*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)^2*mu(i)*mu(k)*la(i
+         )*la(j)*1/f(2*b) - 4*f(3*b)*f(a + b)*f(a + 2*c)*f(b + c)*mu(i)*mu(j
+         )*mu(k)*la(i) - 8*f(3*b)*f(a + b)*f(2*a + b)*f(b + c)^2*mu(i)*mu(j)*
+         mu(k)*1/f(2*b) + 4*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)^2*mu(i)*mu(j
+         )*la(i)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)^2*mu(i)*
+         mu(j)*la(k)*1/f(2*b) + 4*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)^2*mu(i
+         )*mu(k)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)^2*
+         mu(i)*mu(k)*la(j)*1/f(2*b) - 4*f(3*b)*f(a + b)*f(2*a + c)*f(b + c)*
+         mu(i)*mu(j)*mu(k) + 16*f(3*b)*f(a + b)*f(b + c)^2*f(a + b + c)*mu(i)*
+         mu(j)*mu(k)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + 2*b)*f(a + c)^3*mu(j)*
+         la(i)*1/f(2*b) - 2*f(3*b)*f(a + 2*b)*f(a + c)^3*mu(k)*la(i)*
+         1/f(2*b) - 2*f(3*b)*f(a + 2*b)*f(a + c)^2*f(b + c)*mu(i)*mu(j)*la(i
+         )*1/f(2*b) - 2*f(3*b)*f(a + 2*b)*f(a + c)^2*f(b + c)*mu(i)*mu(k)*
+         la(i)*1/f(2*b) + 4*f(3*b)*f(a + 2*b)*f(a + c)^2*f(b + c)*mu(j)*mu(k
+         )*la(i)*1/f(2*b) + 6*f(3*b)*f(a + 2*b)*f(a + c)^2*mu(i)*mu(j)*mu(k)
+          + 4*f(3*b)*f(a + 2*b)*f(a + c)*f(b + c)^2*mu(i)*mu(j)*mu(k)*la(i)*
+         1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(a + b + c)*mu(i)*mu(j)*la(k) - 2*
+         f(3*b)*f(a + c)^2*f(a + b + c)*mu(i)*mu(k)*la(j) - 4*f(3*b)*f(a + c)^
+         2*f(a + b + c)*mu(j)*mu(k)*la(i) - 2*f(3*b)*f(a + c)^3*f(2*a + b)*la(
+         i)*1/f(2*b) - 2*f(3*b)*f(a + c)^3*f(b + 2*c)*la(i)*la(j)*la(k)*
+         1/f(2*b) - 2*f(3*b)*f(a + c)^3*f(2*b + c)*mu(j)*la(i)*la(k)*
+         1/f(2*b) - 2*f(3*b)*f(a + c)^3*f(2*b + c)*mu(k)*la(i)*la(j)*
+         1/f(2*b) + 2*f(3*b)*f(a + c)^2*f(a + 2*c)*f(b + c)*la(i)*la(j)*la(k
+         )*1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(a + 2*c)*mu(i)*la(j)*la(k) + f(3
+         *b)*f(a + c)^2*f(a + 2*c)*mu(j)*la(i)^2 - f(3*b)*f(a + c)^2*f(a + 2*c
+         )*mu(j)*la(i)*la(k) + f(3*b)*f(a + c)^2*f(a + 2*c)*mu(k)*la(i)^2 - f(
+         3*b)*f(a + c)^2*f(a + 2*c)*mu(k)*la(i)*la(j) - 2*f(3*b)*f(a + c)^2*f(
+         2*a + b)*f(b + c)*mu(i)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(2*a
+          + b)*f(b + c)*mu(j)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(2*a + b
+         )*f(b + c)*mu(k)*la(i)*1/f(2*b) + 3*f(3*b)*f(a + c)^2*f(2*a + b)*
+         mu(i)*mu(j) + 3*f(3*b)*f(a + c)^2*f(2*a + b)*mu(i)*mu(k) + f(3*b)*f(a
+          + c)^2*f(2*a + b)*mu(j)*mu(k) - f(3*b)*f(a + c)^2*f(2*a + c)*mu(i)*
+         la(j) - f(3*b)*f(a + c)^2*f(2*a + c)*mu(i)*la(k) - f(3*b)*f(a + c)^2*
+         f(2*a + c)*mu(j)*la(i) - f(3*b)*f(a + c)^2*f(2*a + c)*mu(k)*la(i) + 4
+         *f(3*b)*f(a + c)^2*f(b + c)*f(a + b + c)*mu(j)*la(i)*la(k)*1/f(2*b)
+          + 4*f(3*b)*f(a + c)^2*f(b + c)*f(a + b + c)*mu(k)*la(i)*la(j)*
+         1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(b + c)*f(b + 2*c)*mu(i)*la(i)*la(j
+         )*la(k)*1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(b + c)*f(2*b + c)*mu(i)*
+         mu(j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + c)^2*f(b + c)*f(2*b + c
+         )*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 2*f(3*b)*f(a + c)^2*f(b + 2*c)
+         *mu(i)*mu(j)*la(i)*la(k) + 2*f(3*b)*f(a + c)^2*f(b + 2*c)*mu(i)*mu(k)
+         *la(i)*la(j) + 5*f(3*b)*f(a + c)^2*f(b + 2*c)*mu(j)*mu(k)*la(i)^2 + 2
+         *f(3*b)*f(a + c)^2*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i) + 2*f(3*b)*f(a
+          + c)*f(a + 2*c)*f(b + c)^2*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - 3*f(
+         3*b)*f(a + c)*f(a + 2*c)*f(b + c)*mu(i)*mu(j)*la(i)*la(k) - 3*f(3*b)*
+         f(a + c)*f(a + 2*c)*f(b + c)*mu(i)*mu(k)*la(i)*la(j) - f(3*b)*f(a + c
+         )*f(a + 2*c)*f(b + c)*mu(j)*mu(k)*la(i)^2 - 2*f(3*b)*f(a + c)*f(2*a
+          + b)*f(b + c)^2*mu(i)*mu(j)*la(i)*1/f(2*b) - 2*f(3*b)*f(a + c)*f(2
+         *a + b)*f(b + c)^2*mu(i)*mu(k)*la(i)*1/f(2*b) - 8*f(3*b)*f(a + c)*
+         f(2*a + b)*f(b + c)^2*mu(j)*mu(k)*la(i)*1/f(2*b) + 2*f(3*b)*f(a + c
+         )*f(2*a + b)*f(b + c)*mu(i)*mu(j)*mu(k) - 2*f(3*b)*f(a + c)*f(2*a + c
+         )*f(b + c)^2*mu(j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + c)*f(2*a
+          + c)*f(b + c)^2*mu(k)*la(i)*la(j)*1/f(2*b) - f(3*b)*f(a + c)*f(2*a
+          + c)*f(b + c)*mu(i)*mu(j)*la(i) - f(3*b)*f(a + c)*f(2*a + c)*f(b + c
+         )*mu(i)*mu(k)*la(i) - 8*f(3*b)*f(a + c)*f(b + c)*f(a + b + c)*mu(i)*
+         mu(j)*mu(k)*la(i) + 4*f(3*b)*f(a + c)*f(b + c)^2*f(a + b + c)*mu(i)*
+         mu(j)*la(i)*la(k)*1/f(2*b) + 4*f(3*b)*f(a + c)*f(b + c)^2*f(a + b
+          + c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) - 8*f(3*b)*f(2*a + b)*f(b + 
+         c)^3*mu(i)*mu(j)*mu(k)*la(i)*1/f(2*b) - 2*f(3*b)*f(2*a + c)*f(b + c
+         )^3*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(2*a + c)*f(b + c)
+         ^3*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 2*f(3*b)*f(2*a + c)*f(b + c)^
+         2*mu(i)*mu(j)*mu(k)*la(i) - 2*f(3*b)^2*f(a + b)*f(a + c)^2*mu(i)*mu(j
+         )*mu(k)*1/f(2*b) - 2*f(3*b)^2*f(a + c)^3*mu(j)*mu(k)*la(i)*
+         1/f(2*b) - 2*f(3*b)^2*f(a + c)^2*f(b + c)*mu(i)*mu(j)*mu(k)*la(i)*
+         1/f(2*b) - f(3*b)^2*f(2*c)*f(a + c)^2*mu(j)*mu(k)*la(i)^2*
+         1/f(2*b) - 2*f(3*b)*f(2*c)*f(a + b)*f(a + b + c)*mu(i)*mu(j)*mu(k)*
+         la(i) - 4*f(3*b)*f(2*c)*f(a + b)*f(a + 2*b)*f(a + c)*mu(j)*mu(k)*la(i
+         )*1/f(2*b) - 4*f(3*b)*f(2*c)*f(a + b)*f(a + 2*b)*f(b + c)*mu(i)*mu(
+         j)*mu(k)*la(i)*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(a + b
+          + c)*mu(i)*la(j)*la(k)*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(a + c
+         )*f(a + b + c)*mu(j)*la(i)^2*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(
+         a + c)*f(a + b + c)*mu(j)*la(i)*la(k)*1/f(2*b) + 2*f(3*b)*f(2*c)*f(
+         a + b)*f(a + c)*f(a + b + c)*mu(k)*la(i)^2*1/f(2*b) + 2*f(3*b)*f(2*
+         c)*f(a + b)*f(a + c)*f(a + b + c)*mu(k)*la(i)*la(j)*1/f(2*b) + 2*f(
+         3*b)*f(2*c)*f(a + b)*f(a + c)*f(a + 2*c)*la(i)*la(j)*la(k)*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + b)*mu(i)*la(j)*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + b)*mu(i)*la(k)*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + b)*mu(j)*la(i)*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + b)*mu(k)*la(i)*1/f(2*b)
+          + f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + c)*la(i)^2*1/f(2*b) + f(
+         3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + c)*la(i)*la(j)*1/f(2*b) + f(3
+         *b)*f(2*c)*f(a + b)*f(a + c)*f(2*a + c)*la(i)*la(k)*1/f(2*b) - f(3*
+         b)*f(2*c)*f(a + b)*f(a + c)*f(b + 2*c)*mu(j)*la(i)^2*la(k)*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(b + 2*c)*mu(k)*la(i)^2*la(j)*
+         1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(a + c)*f(2*b + c)*mu(j)*mu(k)
+         *la(i)^2*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(a + 2*c)*f(b + c)*
+         mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(a + 2
+         *c)*f(b + c)*mu(j)*la(i)^2*la(k)*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b
+         )*f(a + 2*c)*f(b + c)*mu(k)*la(i)^2*la(j)*1/f(2*b) - 2*f(3*b)*f(2*c
+         )*f(a + b)*f(a + 2*c)*mu(i)*mu(j)*la(i)*la(k) - 2*f(3*b)*f(2*c)*f(a
+          + b)*f(a + 2*c)*mu(i)*mu(k)*la(i)*la(j) - f(3*b)*f(2*c)*f(a + b)*f(a
+          + 2*c)*mu(j)*mu(k)*la(i)^2 - f(3*b)*f(2*c)*f(a + b)*f(2*a + b)*f(b
+          + c)*mu(i)*mu(j)*la(i)*1/f(2*b) - 3*f(3*b)*f(2*c)*f(a + b)*f(2*a
+          + b)*f(b + c)*mu(i)*mu(j)*la(k)*1/f(2*b) - f(3*b)*f(2*c)*f(a + b)*
+         f(2*a + b)*f(b + c)*mu(i)*mu(k)*la(i)*1/f(2*b) - 3*f(3*b)*f(2*c)*f(
+         a + b)*f(2*a + b)*f(b + c)*mu(i)*mu(k)*la(j)*1/f(2*b) + 3*f(3*b)*f(
+         2*c)*f(a + b)*f(2*a + b)*mu(i)*mu(j)*mu(k) + f(3*b)*f(2*c)*f(a + b)*
+         f(2*a + c)*f(b + c)*mu(i)*la(i)*la(j)*1/f(2*b) + f(3*b)*f(2*c)*f(a
+          + b)*f(2*a + c)*f(b + c)*mu(i)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(2
+         *c)*f(a + b)*f(2*a + c)*f(b + c)*mu(i)*la(j)*la(k)*1/f(2*b) + 2*f(3
+         *b)*f(2*c)*f(a + b)*f(2*a + c)*f(b + c)*mu(j)*la(i)^2*1/f(2*b) + 2*
+         f(3*b)*f(2*c)*f(a + b)*f(2*a + c)*f(b + c)*mu(k)*la(i)^2*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + b)*f(2*a + c)*mu(i)*mu(j)*la(i) - 1/2*f(3*b)*
+         f(2*c)*f(a + b)*f(2*a + c)*mu(i)*mu(j)*la(k) - f(3*b)*f(2*c)*f(a + b)
+         *f(2*a + c)*mu(i)*mu(k)*la(i) - 1/2*f(3*b)*f(2*c)*f(a + b)*f(2*a + c)
+         *mu(i)*mu(k)*la(j) - f(3*b)*f(2*c)*f(a + b)*f(2*a + c)*mu(j)*mu(k)*
+         la(i) + 2*f(3*b)*f(2*c)*f(a + b)*f(b + c)*f(a + b + c)*mu(i)*mu(j)*
+         la(i)*la(k)*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + b)*f(b + c)*f(a + b + 
+         c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 8*f(3*b)*f(2*c)*f(a + b)*f(b
+          + c)*f(a + b + c)*mu(j)*mu(k)*la(i)^2*1/f(2*b) - f(3*b)*f(2*c)*f(a
+          + 2*b)*f(a + c)^2*mu(j)*la(i)^2*1/f(2*b) - f(3*b)*f(2*c)*f(a + 2*b
+         )*f(a + c)^2*mu(k)*la(i)^2*1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + 2*b)*f(
+         a + c)*f(b + c)*mu(j)*mu(k)*la(i)^2*1/f(2*b) - 2*f(3*b)*f(2*c)*f(a
+          + c)*f(a + b + c)*mu(i)*mu(j)*la(i)*la(k) - 2*f(3*b)*f(2*c)*f(a + c)
+         *f(a + b + c)*mu(i)*mu(k)*la(i)*la(j) - 3*f(3*b)*f(2*c)*f(a + c)*f(a
+          + b + c)*mu(j)*mu(k)*la(i)^2 + 2*f(3*b)*f(2*c)*f(a + c)^2*f(a + b + 
+         c)*la(i)*la(j)*la(k)*1/f(2*b) - f(3*b)*f(2*c)*f(a + c)^2*f(2*a + b)
+         *la(i)^2*1/f(2*b) - f(3*b)*f(2*c)*f(a + c)^2*f(2*a + b)*la(i)*la(j)
+         *1/f(2*b) - f(3*b)*f(2*c)*f(a + c)^2*f(2*a + b)*la(i)*la(k)*
+         1/f(2*b) - f(3*b)*f(2*c)*f(a + c)^2*f(b + 2*c)*la(i)^2*la(j)*la(k)*
+         1/f(2*b) - f(3*b)*f(2*c)*f(a + c)^2*f(2*b + c)*mu(j)*la(i)^2*la(k)*
+         1/f(2*b) - f(3*b)*f(2*c)*f(a + c)^2*f(2*b + c)*mu(k)*la(i)^2*la(j)*
+         1/f(2*b) + f(3*b)*f(2*c)*f(a + c)*f(a + 2*c)*f(b + c)*la(i)^2*la(j)
+         *la(k)*1/f(2*b) - 3*f(3*b)*f(2*c)*f(a + c)*f(a + 2*c)*mu(i)*la(i)*
+         la(j)*la(k) - 2*f(3*b)*f(2*c)*f(a + c)*f(a + 2*c)*mu(j)*la(i)^2*la(k)
+          - 2*f(3*b)*f(2*c)*f(a + c)*f(a + 2*c)*mu(k)*la(i)^2*la(j) - f(3*b)*
+         f(2*c)*f(a + c)*f(2*a + b)*f(b + c)*mu(i)*la(i)*la(j)*1/f(2*b) - f(
+         3*b)*f(2*c)*f(a + c)*f(2*a + b)*f(b + c)*mu(i)*la(i)*la(k)*1/f(2*b)
+          - f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*f(b + c)*mu(j)*la(i)^2*
+         1/f(2*b) - 3*f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*f(b + c)*mu(j)*la(i)
+         *la(k)*1/f(2*b) - f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*f(b + c)*mu(k)*
+         la(i)^2*1/f(2*b) - 3*f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*f(b + c)*mu(
+         k)*la(i)*la(j)*1/f(2*b) + f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*mu(i)*
+         mu(j)*la(i) + f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*mu(i)*mu(j)*la(k) + 
+         f(3*b)*f(2*c)*f(a + c)*f(2*a + b)*mu(i)*mu(k)*la(i) + f(3*b)*f(2*c)*
+         f(a + c)*f(2*a + b)*mu(i)*mu(k)*la(j) + 3*f(3*b)*f(2*c)*f(a + c)*f(2*
+         a + b)*mu(j)*mu(k)*la(i) - 2*f(3*b)*f(2*c)*f(a + c)*f(2*a + c)*f(b + 
+         c)*la(i)*la(j)*la(k)*1/f(2*b) - 1/2*f(3*b)*f(2*c)*f(a + c)*f(2*a + 
+         c)*mu(j)*la(i)^2 + 1/2*f(3*b)*f(2*c)*f(a + c)*f(2*a + c)*mu(j)*la(i)*
+         la(k) - 1/2*f(3*b)*f(2*c)*f(a + c)*f(2*a + c)*mu(k)*la(i)^2 + 1/2*f(3
+         *b)*f(2*c)*f(a + c)*f(2*a + c)*mu(k)*la(i)*la(j) + 2*f(3*b)*f(2*c)*f(
+         a + c)*f(b + c)*f(a + b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + 2*
+         f(3*b)*f(2*c)*f(a + c)*f(b + c)*f(a + b + c)*mu(j)*la(i)^2*la(k)*
+         1/f(2*b) + 2*f(3*b)*f(2*c)*f(a + c)*f(b + c)*f(a + b + c)*mu(k)*la(
+         i)^2*la(j)*1/f(2*b) - 3*f(3*b)*f(2*c)*f(2*a + b)*f(b + c)^2*mu(i)*
+         mu(j)*la(i)*la(k)*1/f(2*b) - 3*f(3*b)*f(2*c)*f(2*a + b)*f(b + c)^2*
+         mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) - 4*f(3*b)*f(2*c)*f(2*a + b)*f(b
+          + c)^2*mu(j)*mu(k)*la(i)^2*1/f(2*b) + 5*f(3*b)*f(2*c)*f(2*a + b)*
+         f(b + c)*mu(i)*mu(j)*mu(k)*la(i) - 2*f(3*b)*f(2*c)*f(2*a + c)*f(b + c
+         )^2*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - f(3*b)*f(2*c)*f(2*a + c)*f(b
+          + c)^2*mu(j)*la(i)^2*la(k)*1/f(2*b) - f(3*b)*f(2*c)*f(2*a + c)*f(b
+          + c)^2*mu(k)*la(i)^2*la(j)*1/f(2*b) + 5/2*f(3*b)*f(2*c)*f(2*a + c)
+         *f(b + c)*mu(i)*mu(j)*la(i)*la(k) + 5/2*f(3*b)*f(2*c)*f(2*a + c)*f(b
+          + c)*mu(i)*mu(k)*la(i)*la(j) + f(3*b)*f(2*c)*f(2*a + c)*f(b + c)*mu(
+         j)*mu(k)*la(i)^2 + f(3*b)*f(2*c)^2*f(a + b)*f(a + b + c)*mu(j)*la(i)^
+         2*la(k)*1/f(2*b) + f(3*b)*f(2*c)^2*f(a + b)*f(a + b + c)*mu(k)*la(i
+         )^2*la(j)*1/f(2*b) - 2*f(3*b)*f(2*c)^2*f(a + b)*f(a + 2*b)*mu(j)*
+         mu(k)*la(i)^2*1/f(2*b) + f(3*b)*f(2*c)^2*f(a + b)*f(a + 2*c)*la(i)^
+         2*la(j)*la(k)*1/f(2*b) - f(3*b)*f(2*c)^2*f(a + b)*f(2*a + b)*mu(i)*
+         la(j)*la(k)*1/f(2*b) - 1/2*f(3*b)*f(2*c)^2*f(a + b)*f(2*a + b)*mu(j
+         )*la(i)^2*1/f(2*b) - 1/2*f(3*b)*f(2*c)^2*f(a + b)*f(2*a + b)*mu(k)*
+         la(i)^2*1/f(2*b) + 1/2*f(3*b)*f(2*c)^2*f(a + b)*f(2*a + c)*la(i)^2*
+         la(j)*1/f(2*b) + 1/2*f(3*b)*f(2*c)^2*f(a + b)*f(2*a + c)*la(i)^2*
+         la(k)*1/f(2*b) + f(3*b)*f(2*c)^2*f(a + c)*f(a + b + c)*la(i)^2*la(j
+         )*la(k)*1/f(2*b) - 1/2*f(3*b)*f(2*c)^2*f(a + c)*f(2*a + b)*la(i)^2*
+         la(j)*1/f(2*b) - 1/2*f(3*b)*f(2*c)^2*f(a + c)*f(2*a + b)*la(i)^2*
+         la(k)*1/f(2*b) - f(3*b)*f(2*c)^2*f(a + c)*f(2*a + b)*la(i)*la(j)*
+         la(k)*1/f(2*b) - f(3*b)*f(2*c)^2*f(2*a + b)*f(b + c)*mu(i)*la(i)*
+         la(j)*la(k)*1/f(2*b) - 3/2*f(3*b)*f(2*c)^2*f(2*a + b)*f(b + c)*mu(j
+         )*la(i)^2*la(k)*1/f(2*b) - 3/2*f(3*b)*f(2*c)^2*f(2*a + b)*f(b + c)*
+         mu(k)*la(i)^2*la(j)*1/f(2*b) + f(3*b)*f(2*c)^2*f(2*a + b)*mu(i)*mu(
+         j)*la(i)*la(k) + f(3*b)*f(2*c)^2*f(2*a + b)*mu(i)*mu(k)*la(i)*la(j)
+          + 3/2*f(3*b)*f(2*c)^2*f(2*a + b)*mu(j)*mu(k)*la(i)^2 - f(3*b)*f(2*c)
+         ^2*f(2*a + c)*f(b + c)*la(i)^2*la(j)*la(k)*1/f(2*b) + 3/2*f(3*b)*f(
+         2*c)^2*f(2*a + c)*mu(i)*la(i)*la(j)*la(k) + f(3*b)*f(2*c)^2*f(2*a + c
+         )*mu(j)*la(i)^2*la(k) + f(3*b)*f(2*c)^2*f(2*a + c)*mu(k)*la(i)^2*la(j
+         ) - 1/2*f(3*b)*f(2*c)^3*f(2*a + b)*la(i)^2*la(j)*la(k)*1/f(2*b) - 
+         f(3*b)*f(2*c)*f(3*c)*f(a + b)*f(a + c)*la(i)^2*la(j)*la(k)*1/f(2*b)
+          - 2*f(3*b)*f(3*c)*f(a + b)^3*mu(i)*mu(j)*la(k)*1/f(2*b) - 2*f(3*b)
+         *f(3*c)*f(a + b)^3*mu(i)*mu(k)*la(j)*1/f(2*b) - 2*f(3*b)*f(3*c)*f(a
+          + b)^2*f(a + c)*mu(i)*la(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(3*c)*f(a
+          + b)^2*f(a + c)*mu(j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(3*c)*f(a
+          + b)^2*f(a + c)*mu(k)*la(i)*la(j)*1/f(2*b) - 2*f(3*b)*f(3*c)*f(a
+          + b)^2*f(b + c)*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b) - 2*f(3*b)*f(3*c)
+         *f(a + b)^2*f(b + c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 2*f(3*b)*f(
+         3*c)*f(a + b)^2*mu(i)*mu(j)*mu(k)*la(i) - 2*f(3*b)*f(3*c)*f(a + b)*f(
+         a + c)^2*la(i)*la(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(3*c)*f(a + b)*f(a
+          + c)*f(b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(3*c)*
+         f(a + b)*f(a + c)*f(b + c)*mu(j)*la(i)^2*la(k)*1/f(2*b) - 2*f(3*b)*
+         f(3*c)*f(a + b)*f(a + c)*f(b + c)*mu(k)*la(i)^2*la(j)*1/f(2*b) + 2*
+         f(3*b)*f(3*c)*f(a + b)*f(a + c)*mu(i)*mu(j)*la(i)*la(k) + 2*f(3*b)*f(
+         3*c)*f(a + b)*f(a + c)*mu(i)*mu(k)*la(i)*la(j) + f(3*b)*f(3*c)*f(a + 
+         b)*f(a + c)*mu(j)*mu(k)*la(i)^2 + 2*f(3*b)*f(3*c)*f(a + c)^2*mu(i)*
+         la(i)*la(j)*la(k) + 2*f(3*b)*f(3*c)*f(a + c)^2*mu(j)*la(i)^2*la(k) + 
+         2*f(3*b)*f(3*c)*f(a + c)^2*mu(k)*la(i)^2*la(j) + 4*f(2*c)*f(a + b)*f(
+         a + b + c)^2*mu(i)*la(i)*la(j) + 4*f(2*c)*f(a + b)*f(a + b + c)^2*mu(
+         i)*la(i)*la(k) + 2*f(2*c)*f(a + b)*f(a + b + c)^2*mu(i)*la(j)*la(k)
+          + 2*f(2*c)*f(a + b)*f(a + b + c)^2*mu(j)*la(i)^2 + 4*f(2*c)*f(a + b)
+         *f(a + b + c)^2*mu(j)*la(i)*la(k) + 2*f(2*c)*f(a + b)*f(a + b + c)^2*
+         mu(k)*la(i)^2 + 4*f(2*c)*f(a + b)*f(a + b + c)^2*mu(k)*la(i)*la(j) + 
+         4*f(2*c)*f(a + b)*f(a + 2*b)*f(a + b + c)*mu(i)*mu(j)*la(i) + f(2*c)*
+         f(a + b)*f(a + 2*b)*f(a + b + c)*mu(i)*mu(j)*la(k) + 4*f(2*c)*f(a + b
+         )*f(a + 2*b)*f(a + b + c)*mu(i)*mu(k)*la(i) + f(2*c)*f(a + b)*f(a + 2
+         *b)*f(a + b + c)*mu(i)*mu(k)*la(j) + 4*f(2*c)*f(a + b)*f(a + 2*b)*f(a
+          + b + c)*mu(j)*mu(k)*la(i) + f(2*c)*f(a + b)*f(a + 2*b)^2*f(a + c)*
+         mu(i)*la(j)*1/f(2*b) + f(2*c)*f(a + b)*f(a + 2*b)^2*f(a + c)*mu(i)*
+         la(k)*1/f(2*b) - 3*f(2*c)*f(a + b)*f(a + 2*b)^2*f(a + c)*mu(j)*la(i
+         )*1/f(2*b) - 3*f(2*c)*f(a + b)*f(a + 2*b)^2*f(a + c)*mu(k)*la(i)*
+         1/f(2*b) - 3*f(2*c)*f(a + b)*f(a + 2*b)^2*f(b + c)*mu(i)*mu(j)*la(i
+         )*1/f(2*b) + 3*f(2*c)*f(a + b)*f(a + 2*b)^2*f(b + c)*mu(i)*mu(j)*
+         la(k)*1/f(2*b) - 3*f(2*c)*f(a + b)*f(a + 2*b)^2*f(b + c)*mu(i)*mu(k
+         )*la(i)*1/f(2*b) + 3*f(2*c)*f(a + b)*f(a + 2*b)^2*f(b + c)*mu(i)*
+         mu(k)*la(j)*1/f(2*b) + 3*f(2*c)*f(a + b)*f(a + 2*b)^2*mu(i)*mu(j)*
+         mu(k) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(a + c)*f(a + b + c)*la(i)*la(j
+         )*1/f(2*b) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(a + c)*f(a + b + c)*la(
+         i)*la(k)*1/f(2*b) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(a + c)*f(2*a + b
+         )*la(i)*1/f(2*b) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(a + c)*f(b + 2*c)
+         *la(i)*la(j)*la(k)*1/f(2*b) - 2*f(2*c)*f(a + b)*f(a + 2*b)*f(a + c)
+         *f(2*b + c)*mu(i)*la(j)*la(k)*1/f(2*b) - 6*f(2*c)*f(a + b)*f(a + 2*
+         b)*f(a + c)*f(2*b + c)*mu(j)*la(i)*la(k)*1/f(2*b) - 6*f(2*c)*f(a + 
+         b)*f(a + 2*b)*f(a + c)*f(2*b + c)*mu(k)*la(i)*la(j)*1/f(2*b) + f(2*
+         c)*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*la(i)^2*la(j)*1/f(2*b)
+          + f(2*c)*f(a + b)*f(a + 2*b)*f(a + 2*c)*f(b + c)*la(i)^2*la(k)*
+         1/f(2*b) + f(2*c)*f(a + b)*f(a + 2*b)*f(a + 2*c)*mu(i)*la(i)*la(j)
+          + f(2*c)*f(a + b)*f(a + 2*b)*f(a + 2*c)*mu(i)*la(i)*la(k) - f(2*c)*
+         f(a + b)*f(a + 2*b)*f(a + 2*c)*mu(i)*la(j)*la(k) + 2*f(2*c)*f(a + b)*
+         f(a + 2*b)*f(a + 2*c)*mu(j)*la(i)^2 + f(2*c)*f(a + b)*f(a + 2*b)*f(a
+          + 2*c)*mu(j)*la(i)*la(k) + 2*f(2*c)*f(a + b)*f(a + 2*b)*f(a + 2*c)*
+         mu(k)*la(i)^2 + f(2*c)*f(a + b)*f(a + 2*b)*f(a + 2*c)*mu(k)*la(i)*la(
+         j) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*f(b + c)*mu(i)*la(i)*
+         1/f(2*b) + f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*f(b + c)*mu(i)*la(
+         j)*1/f(2*b) + f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*f(b + c)*mu(i)*
+         la(k)*1/f(2*b) + 11/2*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*mu(i)*
+         mu(j) + 11/2*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*mu(i)*mu(k) + 2*f(
+         2*c)*f(a + b)*f(a + 2*b)*f(2*a + b)*mu(j)*mu(k) + f(2*c)*f(a + b)*f(a
+          + 2*b)*f(2*a + c)*f(b + c)*la(i)^2*1/f(2*b) + f(2*c)*f(a + b)*f(a
+          + 2*b)*f(2*a + c)*mu(i)*la(i) + 1/2*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a
+          + c)*mu(i)*la(j) + 1/2*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + c)*mu(i)*
+         la(k) + f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + c)*mu(j)*la(i) + 1/2*f(2*c
+         )*f(a + b)*f(a + 2*b)*f(2*a + c)*mu(j)*la(k) + f(2*c)*f(a + b)*f(a + 
+         2*b)*f(2*a + c)*mu(k)*la(i) + 1/2*f(2*c)*f(a + b)*f(a + 2*b)*f(2*a + 
+         c)*mu(k)*la(j) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(b + c)*f(a + b + c)*
+         mu(i)*la(i)*la(j)*1/f(2*b) - 4*f(2*c)*f(a + b)*f(a + 2*b)*f(b + c)*
+         f(a + b + c)*mu(i)*la(i)*la(k)*1/f(2*b) + 2*f(2*c)*f(a + b)*f(a + 2
+         *b)*f(b + c)*f(a + b + c)*mu(i)*la(j)*la(k)*1/f(2*b) - 4*f(2*c)*f(a
+          + b)*f(a + 2*b)*f(b + c)*f(b + 2*c)*mu(i)*la(i)*la(j)*la(k)*
+         1/f(2*b) - 6*f(2*c)*f(a + b)*f(a + 2*b)*f(b + c)*f(2*b + c)*mu(i)*
+         mu(j)*la(i)*la(k)*1/f(2*b) - 6*f(2*c)*f(a + b)*f(a + 2*b)*f(b + c)*
+         f(2*b + c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) - 6*f(2*c)*f(a + b)*f(a
+          + 2*b)*f(b + c)*f(2*b + c)*mu(j)*mu(k)*la(i)^2*1/f(2*b) + 4*f(2*c)
+         *f(a + b)*f(a + 2*b)*f(b + 2*c)*mu(i)*mu(j)*la(i)*la(k) + 4*f(2*c)*f(
+         a + b)*f(a + 2*b)*f(b + 2*c)*mu(i)*mu(k)*la(i)*la(j) + 8*f(2*c)*f(a
+          + b)*f(a + 2*b)*f(b + 2*c)*mu(j)*mu(k)*la(i)^2 + 6*f(2*c)*f(a + b)*
+         f(a + 2*b)*f(2*b + c)*mu(i)*mu(j)*mu(k)*la(i) + f(2*c)*f(a + b)*f(a
+          + c)*f(2*a + b)*f(2*b + c)*la(i)^2*1/f(2*b) - f(2*c)*f(a + b)*f(a
+          + c)*f(2*a + b)*f(2*b + c)*la(i)*la(j)*1/f(2*b) - f(2*c)*f(a + b)*
+         f(a + c)*f(2*a + b)*f(2*b + c)*la(i)*la(k)*1/f(2*b) + 3*f(2*c)*f(a
+          + b)*f(a + c)*f(b + 2*c)*f(2*b + c)*la(i)^2*la(j)*la(k)*1/f(2*b)
+          + 2*f(2*c)*f(a + b)*f(a + c)*f(2*b + c)*f(a + b + c)*la(i)^2*la(j)*
+         1/f(2*b) + 2*f(2*c)*f(a + b)*f(a + c)*f(2*b + c)*f(a + b + c)*la(i)
+         ^2*la(k)*1/f(2*b) - 2*f(2*c)*f(a + b)*f(a + c)*f(2*b + c)*f(a + b
+          + c)*la(i)*la(j)*la(k)*1/f(2*b) + 3*f(2*c)*f(a + b)*f(a + c)*f(2*b
+          + c)^2*mu(j)*la(i)^2*la(k)*1/f(2*b) + 3*f(2*c)*f(a + b)*f(a + c)*
+         f(2*b + c)^2*mu(k)*la(i)^2*la(j)*1/f(2*b) + 4*f(2*c)*f(a + b)*f(a
+          + 2*c)*f(a + b + c)*la(i)^2*la(j) + 4*f(2*c)*f(a + b)*f(a + 2*c)*f(a
+          + b + c)*la(i)^2*la(k) + 6*f(2*c)*f(a + b)*f(a + 2*c)*f(a + b + c)*
+         la(i)*la(j)*la(k) + 2*f(2*c)*f(a + b)*f(a + 2*c)*f(2*a + b)*la(i)^2
+          + 4*f(2*c)*f(a + b)*f(a + 2*c)*f(2*a + b)*la(i)*la(j) + 4*f(2*c)*f(a
+          + b)*f(a + 2*c)*f(2*a + b)*la(i)*la(k) + 2*f(2*c)*f(a + b)*f(a + 2*c
+         )*f(2*a + b)*la(j)*la(k) + f(2*c)*f(a + b)*f(a + 2*c)*f(b + c)*f(2*b
+          + c)*la(i)^2*la(j)*la(k)*1/f(2*b) - f(2*c)*f(a + b)*f(a + 2*c)*f(b
+          + 2*c)*la(i)^2*la(j)*la(k) - 3*f(2*c)*f(a + b)*f(a + 2*c)*f(2*b + c)
+         *mu(i)*la(i)*la(j)*la(k) - 3*f(2*c)*f(a + b)*f(a + 2*c)*f(2*b + c)*
+         mu(j)*la(i)^2*la(k) - 3*f(2*c)*f(a + b)*f(a + 2*c)*f(2*b + c)*mu(k)*
+         la(i)^2*la(j) + 4*f(2*c)*f(a + b)*f(2*a + b)*f(a + b + c)*mu(i)*la(i)
+          + 5*f(2*c)*f(a + b)*f(2*a + b)*f(a + b + c)*mu(i)*la(j) + 5*f(2*c)*
+         f(a + b)*f(2*a + b)*f(a + b + c)*mu(i)*la(k) + 4*f(2*c)*f(a + b)*f(2*
+         a + b)*f(a + b + c)*mu(j)*la(i) + 2*f(2*c)*f(a + b)*f(2*a + b)*f(a + 
+         b + c)*mu(j)*la(k) + 4*f(2*c)*f(a + b)*f(2*a + b)*f(a + b + c)*mu(k)*
+         la(i) + 2*f(2*c)*f(a + b)*f(2*a + b)*f(a + b + c)*mu(k)*la(j) + 4*f(2
+         *c)*f(a + b)*f(2*a + b)^2*mu(i) + 3/2*f(2*c)*f(a + b)*f(2*a + b)^2*
+         mu(j) + 3/2*f(2*c)*f(a + b)*f(2*a + b)^2*mu(k) + 6*f(2*c)*f(a + b)*f(
+         2*a + b)*f(2*a + c)*la(i) + 3*f(2*c)*f(a + b)*f(2*a + b)*f(2*a + c)*
+         la(j) + 3*f(2*c)*f(a + b)*f(2*a + b)*f(2*a + c)*la(k) - f(2*c)*f(a + 
+         b)*f(2*a + b)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*1/f(2*b) - f(2*
+         c)*f(a + b)*f(2*a + b)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(k)*
+         1/f(2*b) + f(2*c)*f(a + b)*f(2*a + b)*f(b + 2*c)*mu(i)*la(i)*la(j)
+          + f(2*c)*f(a + b)*f(2*a + b)*f(b + 2*c)*mu(i)*la(i)*la(k) + 4*f(2*c)
+         *f(a + b)*f(2*a + b)*f(b + 2*c)*mu(i)*la(j)*la(k) + 1/2*f(2*c)*f(a + 
+         b)*f(2*a + b)*f(b + 2*c)*mu(j)*la(i)^2 + f(2*c)*f(a + b)*f(2*a + b)*
+         f(b + 2*c)*mu(j)*la(i)*la(k) + 1/2*f(2*c)*f(a + b)*f(2*a + b)*f(b + 2
+         *c)*mu(k)*la(i)^2 + f(2*c)*f(a + b)*f(2*a + b)*f(b + 2*c)*mu(k)*la(i)
+         *la(j) + f(2*c)*f(a + b)*f(2*a + b)*f(2*b + c)*mu(i)*mu(j)*la(i) + 11/
+         2*f(2*c)*f(a + b)*f(2*a + b)*f(2*b + c)*mu(i)*mu(j)*la(k) + f(2*c)*f(
+         a + b)*f(2*a + b)*f(2*b + c)*mu(i)*mu(k)*la(i) + 11/2*f(2*c)*f(a + b)
+         *f(2*a + b)*f(2*b + c)*mu(i)*mu(k)*la(j) + f(2*c)*f(a + b)*f(2*a + b)
+         *f(2*b + c)*mu(j)*mu(k)*la(i) + 2*f(2*c)*f(a + b)*f(2*a + c)*f(a + b
+          + c)*la(i)^2 + 2*f(2*c)*f(a + b)*f(2*a + c)*f(a + b + c)*la(i)*la(j)
+          + 2*f(2*c)*f(a + b)*f(2*a + c)*f(a + b + c)*la(i)*la(k) + f(2*c)*f(a
+          + b)*f(2*a + c)*f(a + b + c)*la(j)*la(k) + f(2*c)*f(a + b)*f(2*a + c
+         )*f(b + c)*f(2*b + c)*la(i)^2*la(j)*1/f(2*b) + f(2*c)*f(a + b)*f(2*
+         a + c)*f(b + c)*f(2*b + c)*la(i)^2*la(k)*1/f(2*b) - 5/2*f(2*c)*f(a
+          + b)*f(2*a + c)*f(b + 2*c)*la(i)^2*la(j) - 5/2*f(2*c)*f(a + b)*f(2*a
+          + c)*f(b + 2*c)*la(i)^2*la(k) - 3*f(2*c)*f(a + b)*f(2*a + c)*f(b + 2
+         *c)*la(i)*la(j)*la(k) - 2*f(2*c)*f(a + b)*f(2*a + c)*f(2*b + c)*mu(i)
+         *la(i)*la(j) - 2*f(2*c)*f(a + b)*f(2*a + c)*f(2*b + c)*mu(i)*la(i)*
+         la(k) + f(2*c)*f(a + b)*f(2*a + c)*f(2*b + c)*mu(i)*la(j)*la(k) - 5/2
+         *f(2*c)*f(a + b)*f(2*a + c)*f(2*b + c)*mu(j)*la(i)^2 - 2*f(2*c)*f(a
+          + b)*f(2*a + c)*f(2*b + c)*mu(j)*la(i)*la(k) - 5/2*f(2*c)*f(a + b)*
+         f(2*a + c)*f(2*b + c)*mu(k)*la(i)^2 - 2*f(2*c)*f(a + b)*f(2*a + c)*f(
+         2*b + c)*mu(k)*la(i)*la(j) - 2*f(2*c)*f(a + b)*f(b + c)*f(2*b + c)*f(
+         a + b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + 6*f(2*c)*f(a + b)*f(b
+          + 2*c)*f(a + b + c)*mu(i)*la(i)*la(j)*la(k) + 3*f(2*c)*f(a + b)*f(b
+          + 2*c)*f(a + b + c)*mu(j)*la(i)^2*la(k) + 3*f(2*c)*f(a + b)*f(b + 2*
+         c)*f(a + b + c)*mu(k)*la(i)^2*la(j) + 2*f(2*c)*f(a + b)*f(2*b + c)*f(
+         a + b + c)*mu(i)*mu(j)*la(i)*la(k) + 2*f(2*c)*f(a + b)*f(2*b + c)*f(a
+          + b + c)*mu(i)*mu(k)*la(i)*la(j) - 5*f(2*c)*f(a + b)*f(2*b + c)*f(a
+          + b + c)*mu(j)*mu(k)*la(i)^2 + f(2*c)*f(a + 2*b)^2*f(a + c)^2*la(i)*
+         la(j)*1/f(2*b) + f(2*c)*f(a + 2*b)^2*f(a + c)^2*la(i)*la(k)*
+         1/f(2*b) + f(2*c)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(i)*la(i)*la(j)*
+         1/f(2*b) + f(2*c)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(i)*la(i)*la(k)*
+         1/f(2*b) + 3*f(2*c)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(j)*la(i)^2*
+         1/f(2*b) + 3*f(2*c)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(j)*la(i)*la(k
+         )*1/f(2*b) + 3*f(2*c)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(k)*la(i)^2*
+         1/f(2*b) + 3*f(2*c)*f(a + 2*b)^2*f(a + c)*f(b + c)*mu(k)*la(i)*la(j
+         )*1/f(2*b) - f(2*c)*f(a + 2*b)^2*f(a + c)*mu(i)*mu(j)*la(i) - f(2*c
+         )*f(a + 2*b)^2*f(a + c)*mu(i)*mu(j)*la(k) - f(2*c)*f(a + 2*b)^2*f(a
+          + c)*mu(i)*mu(k)*la(i) - f(2*c)*f(a + 2*b)^2*f(a + c)*mu(i)*mu(k)*
+         la(j) - f(2*c)*f(a + 2*b)^2*f(a + c)*mu(j)*mu(k)*la(i) + 3*f(2*c)*f(a
+          + 2*b)^2*f(b + c)^2*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b) + 3*f(2*c)*f(
+         a + 2*b)^2*f(b + c)^2*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 3*f(2*c)*
+         f(a + 2*b)^2*f(b + c)^2*mu(j)*mu(k)*la(i)^2*1/f(2*b) - 3*f(2*c)*f(a
+          + 2*b)^2*f(b + c)*mu(i)*mu(j)*mu(k)*la(i) - 2*f(2*c)*f(a + 2*b)*f(a
+          + c)*f(a + b + c)*mu(i)*la(i)*la(j) - 2*f(2*c)*f(a + 2*b)*f(a + c)*
+         f(a + b + c)*mu(i)*la(i)*la(k) - 2*f(2*c)*f(a + 2*b)*f(a + c)*f(a + b
+          + c)*mu(i)*la(j)*la(k) - 4*f(2*c)*f(a + 2*b)*f(a + c)*f(a + b + c)*
+         mu(j)*la(i)^2 - 5*f(2*c)*f(a + 2*b)*f(a + c)*f(a + b + c)*mu(j)*la(i)
+         *la(k) - 4*f(2*c)*f(a + 2*b)*f(a + c)*f(a + b + c)*mu(k)*la(i)^2 - 5*
+         f(2*c)*f(a + 2*b)*f(a + c)*f(a + b + c)*mu(k)*la(i)*la(j) - f(2*c)*f(
+         a + 2*b)*f(a + c)^2*f(2*b + c)*la(i)^2*la(j)*1/f(2*b) - f(2*c)*f(a
+          + 2*b)*f(a + c)^2*f(2*b + c)*la(i)^2*la(k)*1/f(2*b) - 2*f(2*c)*f(a
+          + 2*b)*f(a + c)^2*f(2*b + c)*la(i)*la(j)*la(k)*1/f(2*b) - 2*f(2*c)
+         *f(a + 2*b)*f(a + c)*f(a + 2*c)*la(i)^2*la(j) - 2*f(2*c)*f(a + 2*b)*
+         f(a + c)*f(a + 2*c)*la(i)^2*la(k) - 5*f(2*c)*f(a + 2*b)*f(a + c)*f(a
+          + 2*c)*la(i)*la(j)*la(k) + 3*f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + b)*
+         f(b + c)*la(i)^2*1/f(2*b) + f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + b)*
+         f(b + c)*la(i)*la(j)*1/f(2*b) + f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + 
+         b)*f(b + c)*la(i)*la(k)*1/f(2*b) - f(2*c)*f(a + 2*b)*f(a + c)*f(2*a
+          + b)*mu(i)*la(i) - f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + b)*mu(i)*la(j)
+          - f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + b)*mu(i)*la(k) + 1/2*f(2*c)*f(a
+          + 2*b)*f(a + c)*f(2*a + b)*mu(j)*la(i) - 1/2*f(2*c)*f(a + 2*b)*f(a
+          + c)*f(2*a + b)*mu(j)*la(k) + 1/2*f(2*c)*f(a + 2*b)*f(a + c)*f(2*a
+          + b)*mu(k)*la(i) - 1/2*f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + b)*mu(k)*
+         la(j) - 2*f(2*c)*f(a + 2*b)*f(a + c)*f(2*a + c)*la(i)^2 - 1/2*f(2*c)*
+         f(a + 2*b)*f(a + c)*f(2*a + c)*la(i)*la(j) - 1/2*f(2*c)*f(a + 2*b)*f(
+         a + c)*f(2*a + c)*la(i)*la(k) + 2*f(2*c)*f(a + 2*b)*f(a + c)*f(b + c)
+         *f(a + b + c)*la(i)^2*la(j)*1/f(2*b) + 2*f(2*c)*f(a + 2*b)*f(a + c)
+         *f(b + c)*f(a + b + c)*la(i)^2*la(k)*1/f(2*b) + 2*f(2*c)*f(a + 2*b)
+         *f(a + c)*f(b + c)*f(a + b + c)*la(i)*la(j)*la(k)*1/f(2*b) + f(2*c)
+         *f(a + 2*b)*f(a + c)*f(b + c)*f(b + 2*c)*la(i)^2*la(j)*la(k)*
+         1/f(2*b) - 2*f(2*c)*f(a + 2*b)*f(a + c)*f(b + c)*f(2*b + c)*mu(i)*
+         la(i)*la(j)*la(k)*1/f(2*b) + 3*f(2*c)*f(a + 2*b)*f(a + c)*f(b + 2*c
+         )*mu(i)*la(i)*la(j)*la(k) + 3*f(2*c)*f(a + 2*b)*f(a + c)*f(b + 2*c)*
+         mu(j)*la(i)^2*la(k) + 3*f(2*c)*f(a + 2*b)*f(a + c)*f(b + 2*c)*mu(k)*
+         la(i)^2*la(j) + 2*f(2*c)*f(a + 2*b)*f(a + c)*f(2*b + c)*mu(i)*mu(j)*
+         la(i)*la(k) + 2*f(2*c)*f(a + 2*b)*f(a + c)*f(2*b + c)*mu(i)*mu(k)*la(
+         i)*la(j) + f(2*c)*f(a + 2*b)*f(a + c)*f(2*b + c)*mu(j)*mu(k)*la(i)^2
+          - f(2*c)*f(a + 2*b)*f(a + 2*c)*f(b + c)^2*la(i)^2*la(j)*la(k)*
+         1/f(2*b) + f(2*c)*f(a + 2*b)*f(a + 2*c)*f(b + c)*mu(i)*la(i)*la(j)*
+         la(k) + f(2*c)*f(a + 2*b)*f(2*a + b)*f(b + c)^2*mu(i)*la(i)*la(j)*
+         1/f(2*b) + f(2*c)*f(a + 2*b)*f(2*a + b)*f(b + c)^2*mu(i)*la(i)*la(k
+         )*1/f(2*b) + 1/2*f(2*c)*f(a + 2*b)*f(2*a + b)*f(b + c)*mu(i)*mu(j)*
+         la(i) - f(2*c)*f(a + 2*b)*f(2*a + b)*f(b + c)*mu(i)*mu(j)*la(k) + 1/2
+         *f(2*c)*f(a + 2*b)*f(2*a + b)*f(b + c)*mu(i)*mu(k)*la(i) - f(2*c)*f(a
+          + 2*b)*f(2*a + b)*f(b + c)*mu(i)*mu(k)*la(j) - f(2*c)*f(a + 2*b)*f(2
+         *a + b)*f(b + c)*mu(j)*mu(k)*la(i) - f(2*c)*f(a + 2*b)*f(2*a + c)*f(b
+          + c)^2*la(i)^2*la(j)*1/f(2*b) - f(2*c)*f(a + 2*b)*f(2*a + c)*f(b
+          + c)^2*la(i)^2*la(k)*1/f(2*b) + 3/2*f(2*c)*f(a + 2*b)*f(2*a + c)*
+         f(b + c)*mu(i)*la(i)*la(j) + 3/2*f(2*c)*f(a + 2*b)*f(2*a + c)*f(b + c
+         )*mu(i)*la(i)*la(k) + 2*f(2*c)*f(a + 2*b)*f(2*a + c)*f(b + c)*mu(i)*
+         la(j)*la(k) - 1/2*f(2*c)*f(a + 2*b)*f(2*a + c)*f(b + c)*mu(j)*la(i)^2
+          + 2*f(2*c)*f(a + 2*b)*f(2*a + c)*f(b + c)*mu(j)*la(i)*la(k) - 1/2*f(
+         2*c)*f(a + 2*b)*f(2*a + c)*f(b + c)*mu(k)*la(i)^2 + 2*f(2*c)*f(a + 2*
+         b)*f(2*a + c)*f(b + c)*mu(k)*la(i)*la(j) - 5*f(2*c)*f(a + 2*b)*f(b + 
+         c)*f(a + b + c)*mu(i)*mu(j)*la(i)*la(k) - 5*f(2*c)*f(a + 2*b)*f(b + c
+         )*f(a + b + c)*mu(i)*mu(k)*la(i)*la(j) - 7*f(2*c)*f(a + 2*b)*f(b + c)
+         *f(a + b + c)*mu(j)*mu(k)*la(i)^2 + 2*f(2*c)*f(a + 2*b)*f(b + c)^2*f(
+         a + b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) - 2*f(2*c)*f(a + c)*f(a
+          + b + c)^2*la(i)^2*la(j) - 2*f(2*c)*f(a + c)*f(a + b + c)^2*la(i)^2*
+         la(k) - 2*f(2*c)*f(a + c)*f(a + b + c)^2*la(i)*la(j)*la(k) - 8*f(2*c)
+         *f(a + c)*f(a + 2*c)*f(2*b + c)*la(i)^2*la(j)*la(k) - 2*f(2*c)*f(a + 
+         c)*f(2*a + b)*f(a + b + c)*la(i)^2 - f(2*c)*f(a + c)*f(2*a + b)*f(a
+          + b + c)*la(i)*la(j) - f(2*c)*f(a + c)*f(2*a + b)*f(a + b + c)*la(i)
+         *la(k) - f(2*c)*f(a + c)*f(2*a + b)*f(a + b + c)*la(j)*la(k) - 2*f(2*
+         c)*f(a + c)*f(2*a + b)^2*la(i) - 3/2*f(2*c)*f(a + c)*f(2*a + b)^2*la(
+         j) - 3/2*f(2*c)*f(a + c)*f(2*a + b)^2*la(k) + 5/2*f(2*c)*f(a + c)*f(2
+         *a + b)*f(b + 2*c)*la(i)^2*la(j) + 5/2*f(2*c)*f(a + c)*f(2*a + b)*f(b
+          + 2*c)*la(i)^2*la(k) + 6*f(2*c)*f(a + c)*f(2*a + b)*f(b + 2*c)*la(i)
+         *la(j)*la(k) + 2*f(2*c)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i)*la(i)*
+         la(j) + 2*f(2*c)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i)*la(i)*la(k) + 2
+         *f(2*c)*f(a + c)*f(2*a + b)*f(2*b + c)*mu(i)*la(j)*la(k) + 5/2*f(2*c)
+         *f(a + c)*f(2*a + b)*f(2*b + c)*mu(j)*la(i)^2 + 13/2*f(2*c)*f(a + c)*
+         f(2*a + b)*f(2*b + c)*mu(j)*la(i)*la(k) + 5/2*f(2*c)*f(a + c)*f(2*a
+          + b)*f(2*b + c)*mu(k)*la(i)^2 + 13/2*f(2*c)*f(a + c)*f(2*a + b)*f(2*
+         b + c)*mu(k)*la(i)*la(j) - 1/2*f(2*c)*f(a + c)*f(2*a + c)*f(2*b + c)*
+         la(i)^2*la(j) - 1/2*f(2*c)*f(a + c)*f(2*a + c)*f(2*b + c)*la(i)^2*la(
+         k) + 3*f(2*c)*f(a + c)*f(2*a + c)*f(2*b + c)*la(i)*la(j)*la(k) + 5*f(
+         2*c)*f(a + c)*f(b + 2*c)*f(a + b + c)*la(i)^2*la(j)*la(k) - 3*f(2*c)*
+         f(a + c)*f(2*b + c)*f(a + b + c)*mu(j)*la(i)^2*la(k) - 3*f(2*c)*f(a
+          + c)*f(2*b + c)*f(a + b + c)*mu(k)*la(i)^2*la(j) + 1/2*f(2*c)*f(a + 
+         2*c)*f(2*a + b)*f(b + c)*la(i)^2*la(j) + 1/2*f(2*c)*f(a + 2*c)*f(2*a
+          + b)*f(b + c)*la(i)^2*la(k) + 3*f(2*c)*f(a + 2*c)*f(2*a + b)*f(b + c
+         )*la(i)*la(j)*la(k) + 7*f(2*c)*f(a + 2*c)*f(b + c)*f(a + b + c)*la(i)
+         ^2*la(j)*la(k) - f(2*c)*f(2*a + b)^2*f(b + c)*mu(i)*la(j) - f(2*c)*f(
+         2*a + b)^2*f(b + c)*mu(i)*la(k) - f(2*c)*f(2*a + b)^2*f(b + c)*mu(j)*
+         la(i) - 1/2*f(2*c)*f(2*a + b)^2*f(b + c)*mu(j)*la(k) - f(2*c)*f(2*a
+          + b)^2*f(b + c)*mu(k)*la(i) - 1/2*f(2*c)*f(2*a + b)^2*f(b + c)*mu(k)
+         *la(j) + 2*f(2*c)*f(2*a + b)*f(2*a + c)*f(b + c)*la(i)*la(j) + 2*f(2*
+         c)*f(2*a + b)*f(2*a + c)*f(b + c)*la(i)*la(k) + f(2*c)*f(2*a + b)*f(2
+         *a + c)*f(b + c)*la(j)*la(k) - f(2*c)*f(2*a + b)*f(b + c)*f(a + b + c
+         )*mu(i)*la(i)*la(j) - f(2*c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(i)*
+         la(i)*la(k) - 2*f(2*c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(i)*la(j)*
+         la(k) - f(2*c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(j)*la(i)^2 - 2*f(2
+         *c)*f(2*a + b)*f(b + c)*f(a + b + c)*mu(j)*la(i)*la(k) - f(2*c)*f(2*a
+          + b)*f(b + c)*f(a + b + c)*mu(k)*la(i)^2 - 2*f(2*c)*f(2*a + b)*f(b
+          + c)*f(a + b + c)*mu(k)*la(i)*la(j) - 3/2*f(2*c)*f(2*a + b)*f(b + c)
+         *f(b + 2*c)*mu(j)*la(i)^2*la(k) - 3/2*f(2*c)*f(2*a + b)*f(b + c)*f(b
+          + 2*c)*mu(k)*la(i)^2*la(j) + 9/2*f(2*c)*f(2*a + b)*f(b + c)*f(2*b + 
+         c)*mu(i)*mu(j)*la(i)*la(k) + 9/2*f(2*c)*f(2*a + b)*f(b + c)*f(2*b + c
+         )*mu(i)*mu(k)*la(i)*la(j) + 6*f(2*c)*f(2*a + b)*f(b + c)*f(2*b + c)*
+         mu(j)*mu(k)*la(i)^2 + f(2*c)*f(2*a + c)*f(b + c)*f(a + b + c)*la(i)^2
+         *la(j) + f(2*c)*f(2*a + c)*f(b + c)*f(a + b + c)*la(i)^2*la(k) - 6*f(
+         2*c)*f(2*a + c)*f(b + c)*f(b + 2*c)*la(i)^2*la(j)*la(k) + 3*f(2*c)*f(
+         2*a + c)*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k) + 3/2*f(2*c)*f(2
+         *a + c)*f(b + c)*f(2*b + c)*mu(j)*la(i)^2*la(k) + 3/2*f(2*c)*f(2*a + 
+         c)*f(b + c)*f(2*b + c)*mu(k)*la(i)^2*la(j) - 2*f(2*c)*f(b + c)*f(a + 
+         b + c)^2*mu(i)*la(i)*la(j)*la(k) - 2*f(2*c)^2*f(a + b)*f(a + 2*b)*f(a
+          + b + c)*la(i)^2*la(j)*1/f(2*b) - 2*f(2*c)^2*f(a + b)*f(a + 2*b)*
+         f(a + b + c)*la(i)^2*la(k)*1/f(2*b) + f(2*c)^2*f(a + b)*f(a + 2*b)^
+         2*mu(i)*la(j)*la(k)*1/f(2*b) - 3/2*f(2*c)^2*f(a + b)*f(a + 2*b)^2*
+         mu(j)*la(i)^2*1/f(2*b) - 3/2*f(2*c)^2*f(a + b)*f(a + 2*b)^2*mu(k)*
+         la(i)^2*1/f(2*b) - 2*f(2*c)^2*f(a + b)*f(a + 2*b)*f(2*a + b)*la(i)^
+         2*1/f(2*b) - 2*f(2*c)^2*f(a + b)*f(a + 2*b)*f(b + 2*c)*la(i)^2*la(j
+         )*la(k)*1/f(2*b) - 3*f(2*c)^2*f(a + b)*f(a + 2*b)*f(2*b + c)*mu(j)*
+         la(i)^2*la(k)*1/f(2*b) - 3*f(2*c)^2*f(a + b)*f(a + 2*b)*f(2*b + c)*
+         mu(k)*la(i)^2*la(j)*1/f(2*b) - 1/2*f(2*c)^2*f(a + b)*f(2*a + b)*f(2
+         *b + c)*la(i)^2*la(j)*1/f(2*b) - 1/2*f(2*c)^2*f(a + b)*f(2*a + b)*
+         f(2*b + c)*la(i)^2*la(k)*1/f(2*b) - f(2*c)^2*f(a + b)*f(2*b + c)*f(
+         a + b + c)*la(i)^2*la(j)*la(k)*1/f(2*b) - 4*f(2*c)^2*f(a + b + c)^2
+         *la(i)^2*la(j)*la(k) - 3*f(2*c)^2*f(a + 2*b)*f(a + b + c)*mu(i)*la(i)
+         *la(j)*la(k) - 3*f(2*c)^2*f(a + 2*b)*f(a + b + c)*mu(j)*la(i)^2*la(k)
+          - 3*f(2*c)^2*f(a + 2*b)*f(a + b + c)*mu(k)*la(i)^2*la(j) + 1/2*f(2*c
+         )^2*f(a + 2*b)^2*f(a + c)*la(i)^2*la(j)*1/f(2*b) + 1/2*f(2*c)^2*f(a
+          + 2*b)^2*f(a + c)*la(i)^2*la(k)*1/f(2*b) + f(2*c)^2*f(a + 2*b)^2*
+         f(a + c)*la(i)*la(j)*la(k)*1/f(2*b) + f(2*c)^2*f(a + 2*b)^2*f(b + c
+         )*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + 3/2*f(2*c)^2*f(a + 2*b)^2*f(b
+          + c)*mu(j)*la(i)^2*la(k)*1/f(2*b) + 3/2*f(2*c)^2*f(a + 2*b)^2*f(b
+          + c)*mu(k)*la(i)^2*la(j)*1/f(2*b) - f(2*c)^2*f(a + 2*b)^2*mu(i)*
+         mu(j)*la(i)*la(k) - f(2*c)^2*f(a + 2*b)^2*mu(i)*mu(k)*la(i)*la(j) - 1/
+         2*f(2*c)^2*f(a + 2*b)^2*mu(j)*mu(k)*la(i)^2 - f(2*c)^2*f(a + 2*b)*f(a
+          + c)*f(2*b + c)*la(i)^2*la(j)*la(k)*1/f(2*b) - f(2*c)^2*f(a + 2*b)
+         *f(a + 2*c)*la(i)^2*la(j)*la(k) + 1/2*f(2*c)^2*f(a + 2*b)*f(2*a + b)*
+         f(b + c)*la(i)^2*la(j)*1/f(2*b) + 1/2*f(2*c)^2*f(a + 2*b)*f(2*a + b
+         )*f(b + c)*la(i)^2*la(k)*1/f(2*b) - 1/2*f(2*c)^2*f(a + 2*b)*f(2*a
+          + b)*mu(i)*la(i)*la(j) - 1/2*f(2*c)^2*f(a + 2*b)*f(2*a + b)*mu(i)*
+         la(i)*la(k) - 1/2*f(2*c)^2*f(a + 2*b)*f(2*a + b)*mu(i)*la(j)*la(k) + 
+         1/2*f(2*c)^2*f(a + 2*b)*f(2*a + b)*mu(j)*la(i)^2 - 1/2*f(2*c)^2*f(a
+          + 2*b)*f(2*a + b)*mu(j)*la(i)*la(k) + 1/2*f(2*c)^2*f(a + 2*b)*f(2*a
+          + b)*mu(k)*la(i)^2 - 1/2*f(2*c)^2*f(a + 2*b)*f(2*a + b)*mu(k)*la(i)*
+         la(j) + 1/2*f(2*c)^2*f(a + 2*b)*f(2*a + c)*la(i)^2*la(j) + 1/2*f(2*c)
+         ^2*f(a + 2*b)*f(2*a + c)*la(i)^2*la(k) + 3/2*f(2*c)^2*f(a + 2*b)*f(2*
+         a + c)*la(i)*la(j)*la(k) + f(2*c)^2*f(a + 2*b)*f(b + c)*f(a + b + c)*
+         la(i)^2*la(j)*la(k)*1/f(2*b) - f(2*c)^2*f(2*a + b)*f(a + b + c)*la(
+         i)^2*la(j) - f(2*c)^2*f(2*a + b)*f(a + b + c)*la(i)^2*la(k) - 3*f(2*c
+         )^2*f(2*a + b)*f(a + b + c)*la(i)*la(j)*la(k) - f(2*c)^2*f(2*a + b)^2
+         *la(i)*la(j) - f(2*c)^2*f(2*a + b)^2*la(i)*la(k) - 1/2*f(2*c)^2*f(2*a
+          + b)^2*la(j)*la(k) + 3/2*f(2*c)^2*f(2*a + b)*f(b + 2*c)*la(i)^2*la(j
+         )*la(k) + 3/2*f(2*c)^2*f(2*a + b)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k)
+          + 3*f(2*c)^2*f(2*a + b)*f(2*b + c)*mu(j)*la(i)^2*la(k) + 3*f(2*c)^2*
+         f(2*a + b)*f(2*b + c)*mu(k)*la(i)^2*la(j) + 9/2*f(2*c)^2*f(2*a + c)*
+         f(2*b + c)*la(i)^2*la(j)*la(k) + 1/2*f(2*c)^3*f(a + 2*b)^2*la(i)^2*
+         la(j)*la(k)*1/f(2*b) + 3*f(2*c)*f(3*c)*f(a + b)*f(a + b + c)*la(i)^
+         2*la(j)*la(k) + f(2*c)*f(3*c)*f(a + b)*f(a + 2*b)*f(b + c)*la(i)^2*
+         la(j)*la(k)*1/f(2*b) + f(2*c)*f(3*c)*f(a + b)*f(a + 2*b)*mu(i)*la(i
+         )*la(j)*la(k) + 2*f(2*c)*f(3*c)*f(a + b)*f(a + 2*b)*mu(j)*la(i)^2*la(
+         k) + 2*f(2*c)*f(3*c)*f(a + b)*f(a + 2*b)*mu(k)*la(i)^2*la(j) + 1/2*f(
+         2*c)*f(3*c)*f(a + b)*f(2*a + b)*la(i)^2*la(j) + 1/2*f(2*c)*f(3*c)*f(a
+          + b)*f(2*a + b)*la(i)^2*la(k) + f(2*c)*f(3*c)*f(a + b)*f(2*a + b)*
+         la(i)*la(j)*la(k) + f(2*c)*f(3*c)*f(a + 2*b)*f(a + c)*la(i)^2*la(j)*
+         la(k) - f(2*c)*f(3*c)*f(2*a + b)*f(b + c)*la(i)^2*la(j)*la(k) - 2*f(3
+         *c)*f(a + b)^3*f(2*b + c)*mu(i)*la(j)*la(k)*1/f(2*b) + 2*f(3*c)*f(a
+          + b)^2*f(a + b + c)*mu(i)*la(j)*la(k) + 2*f(3*c)*f(a + b)^2*f(a + 2*
+         b)*f(b + c)*mu(i)*la(j)*la(k)*1/f(2*b) + 3*f(3*c)*f(a + b)^2*f(a + 
+         2*b)*mu(i)*mu(j)*la(k) + 3*f(3*c)*f(a + b)^2*f(a + 2*b)*mu(i)*mu(k)*
+         la(j) - 2*f(3*c)*f(a + b)^2*f(a + c)*f(2*b + c)*la(i)*la(j)*la(k)*
+         1/f(2*b) + f(3*c)*f(a + b)^2*f(a + 2*c)*la(i)^2*la(j) + f(3*c)*f(a
+          + b)^2*f(a + 2*c)*la(i)^2*la(k) + 2*f(3*c)*f(a + b)^2*f(a + 2*c)*la(
+         i)*la(j)*la(k) + f(3*c)*f(a + b)^2*f(2*a + c)*la(i)^2 + 2*f(3*c)*f(a
+          + b)^2*f(2*a + c)*la(i)*la(j) + 2*f(3*c)*f(a + b)^2*f(2*a + c)*la(i)
+         *la(k) + f(3*c)*f(a + b)^2*f(2*a + c)*la(j)*la(k) - 2*f(3*c)*f(a + b)
+         ^2*f(b + c)*f(2*b + c)*mu(i)*la(i)*la(j)*la(k)*1/f(2*b) + 2*f(3*c)*
+         f(a + b)^2*f(b + 2*c)*mu(i)*la(i)*la(j)*la(k) + f(3*c)*f(a + b)^2*f(b
+          + 2*c)*mu(j)*la(i)^2*la(k) + f(3*c)*f(a + b)^2*f(b + 2*c)*mu(k)*la(i
+         )^2*la(j) + 2*f(3*c)*f(a + b)^2*f(2*b + c)*mu(i)*mu(j)*la(i)*la(k) + 
+         2*f(3*c)*f(a + b)^2*f(2*b + c)*mu(i)*mu(k)*la(i)*la(j) + f(3*c)*f(a
+          + b)^2*f(2*b + c)*mu(j)*mu(k)*la(i)^2 + 2*f(3*c)*f(a + b)*f(a + 2*b)
+         *f(a + c)*f(b + c)*la(i)*la(j)*la(k)*1/f(2*b) + 2*f(3*c)*f(a + b)*
+         f(a + 2*b)*f(a + c)*mu(i)*la(j)*la(k) + 3*f(3*c)*f(a + b)*f(a + 2*b)*
+         f(a + c)*mu(j)*la(i)*la(k) + 3*f(3*c)*f(a + b)*f(a + 2*b)*f(a + c)*
+         mu(k)*la(i)*la(j) + 2*f(3*c)*f(a + b)*f(a + 2*b)*f(b + c)^2*mu(i)*la(
+         i)*la(j)*la(k)*1/f(2*b) + f(3*c)*f(a + b)*f(a + 2*b)*f(b + c)*mu(i)
+         *mu(j)*la(i)*la(k) + f(3*c)*f(a + b)*f(a + 2*b)*f(b + c)*mu(i)*mu(k)*
+         la(i)*la(j) - f(3*c)*f(a + b)*f(a + 2*b)*f(b + c)*mu(j)*mu(k)*la(i)^2
+          - 2*f(3*c)*f(a + b)*f(a + c)*f(a + b + c)*la(i)^2*la(j) - 2*f(3*c)*
+         f(a + b)*f(a + c)*f(a + b + c)*la(i)^2*la(k) - 2*f(3*c)*f(a + b)*f(a
+          + c)*f(a + b + c)*la(i)*la(j)*la(k) - f(3*c)*f(a + b)*f(a + c)*f(2*a
+          + b)*la(i)^2 - 2*f(3*c)*f(a + b)*f(a + c)*f(2*a + b)*la(i)*la(j) - 2
+         *f(3*c)*f(a + b)*f(a + c)*f(2*a + b)*la(i)*la(k) - f(3*c)*f(a + b)*f(
+         a + c)*f(2*a + b)*la(j)*la(k) - 2*f(3*c)*f(a + b)*f(a + c)*f(b + c)*
+         f(2*b + c)*la(i)^2*la(j)*la(k)*1/f(2*b) - 2*f(3*c)*f(a + b)*f(a + c
+         )*f(b + 2*c)*la(i)^2*la(j)*la(k) + 2*f(3*c)*f(a + b)*f(a + c)*f(2*b
+          + c)*mu(i)*la(i)*la(j)*la(k) + f(3*c)*f(a + b)*f(a + c)*f(2*b + c)*
+         mu(j)*la(i)^2*la(k) + f(3*c)*f(a + b)*f(a + c)*f(2*b + c)*mu(k)*la(i)
+         ^2*la(j) - 2*f(3*c)*f(a + b)*f(a + 2*c)*f(b + c)*la(i)^2*la(j)*la(k)
+          - 2*f(3*c)*f(a + b)*f(2*a + b)*f(b + c)*mu(i)*la(j)*la(k) + f(3*c)*
+         f(a + b)*f(2*a + c)*f(b + c)*la(i)^2*la(j) + f(3*c)*f(a + b)*f(2*a + 
+         c)*f(b + c)*la(i)^2*la(k) + 2*f(3*c)*f(a + b)*f(2*a + c)*f(b + c)*la(
+         i)*la(j)*la(k) - 2*f(3*c)*f(a + b)*f(b + c)*f(a + b + c)*mu(i)*la(i)*
+         la(j)*la(k) - 2*f(3*c)*f(a + b)*f(b + c)*f(a + b + c)*mu(j)*la(i)^2*
+         la(k) - 2*f(3*c)*f(a + b)*f(b + c)*f(a + b + c)*mu(k)*la(i)^2*la(j)
+          + f(3*c)*f(a + 2*b)*f(a + c)^2*la(i)^2*la(j) + f(3*c)*f(a + 2*b)*f(a
+          + c)^2*la(i)^2*la(k) + 4*f(3*c)*f(a + 2*b)*f(a + c)^2*la(i)*la(j)*
+         la(k) - 2*f(3*c)*f(a + 2*b)*f(a + c)*f(b + c)*mu(i)*la(i)*la(j)*la(k)
+          - 2*f(3*c)*f(a + 2*b)*f(a + c)*f(b + c)*mu(j)*la(i)^2*la(k) - 2*f(3*
+         c)*f(a + 2*b)*f(a + c)*f(b + c)*mu(k)*la(i)^2*la(j) + 5*f(3*c)*f(a + 
+         c)^2*f(2*b + c)*la(i)^2*la(j)*la(k) - 2*f(3*c)*f(a + c)*f(2*a + b)*f(
+         b + c)*la(i)^2*la(j) - 2*f(3*c)*f(a + c)*f(2*a + b)*f(b + c)*la(i)^2*
+         la(k) - 6*f(3*c)*f(a + c)*f(2*a + b)*f(b + c)*la(i)*la(j)*la(k) - 8*
+         f(3*c)*f(a + c)*f(b + c)*f(a + b + c)*la(i)^2*la(j)*la(k) + f(3*c)*f(
+         2*a + b)*f(b + c)^2*mu(j)*la(i)^2*la(k) + f(3*c)*f(2*a + b)*f(b + c)^
+         2*mu(k)*la(i)^2*la(j) + 4*f(3*c)*f(2*a + c)*f(b + c)^2*la(i)^2*la(j)*
+         la(k) + f(3*c)^2*f(a + b)^2*la(i)^2*la(j)*la(k) )
+
+       - 2*f(a + b)*f(a + 2*b + c)*mu(i)*la(j)*1/f(2*b) - 2*f(a + b)*f(a + 2
+         *b + c)*mu(i)*la(k)*1/f(2*b) - 2*f(a + b)*f(a + 3*b)*mu(i)*mu(j)*
+         1/f(2*b) - 2*f(a + b)*f(a + 3*b)*mu(i)*mu(k)*1/f(2*b) - 2*f(a + b
+         )*f(2*a + 2*b)*mu(i)*1/f(2*b) - 2*f(a + b)*f(2*b + 2*c)*mu(i)*la(j)
+         *la(k)*1/f(2*b) - 2*f(a + b)*f(3*b + c)*mu(i)*mu(j)*la(k)*
+         1/f(2*b) - 2*f(a + b)*f(3*b + c)*mu(i)*mu(k)*la(j)*1/f(2*b) + 2*
+         f(a + b + 2*c)*mu(i)*la(i)*la(j) + 2*f(a + b + 2*c)*mu(i)*la(i)*la(k)
+          + 2*f(a + b + 2*c)*mu(i)*la(j)*la(k) + f(a + b + 2*c)*mu(j)*la(i)^2
+          + 2*f(a + b + 2*c)*mu(j)*la(i)*la(k) + f(a + b + 2*c)*mu(k)*la(i)^2
+          + 2*f(a + b + 2*c)*mu(k)*la(i)*la(j) + 4*f(a + 2*b)*f(a + b + c)*mu(
+         i)*la(j)*1/f(2*b) + 4*f(a + 2*b)*f(a + b + c)*mu(i)*la(k)*
+         1/f(2*b) + 3*f(a + 2*b)^2*mu(i)*mu(j)*1/f(2*b) + 3*f(a + 2*b)^2*
+         mu(i)*mu(k)*1/f(2*b) + 4*f(a + 2*b)*f(2*a + b)*mu(i)*1/f(2*b) + 4
+         *f(a + 2*b)*f(b + 2*c)*mu(i)*la(j)*la(k)*1/f(2*b) + 6*f(a + 2*b)*f(
+         2*b + c)*mu(i)*mu(j)*la(k)*1/f(2*b) + 6*f(a + 2*b)*f(2*b + c)*mu(i)
+         *mu(k)*la(j)*1/f(2*b) + 2*f(a + 2*b + c)*mu(i)*mu(j)*la(i) + 2*f(a
+          + 2*b + c)*mu(i)*mu(j)*la(k) + 2*f(a + 2*b + c)*mu(i)*mu(k)*la(i) + 
+         2*f(a + 2*b + c)*mu(i)*mu(k)*la(j) + 2*f(a + 2*b + c)*mu(j)*mu(k)*la(
+         i) - 2*f(a + 3*b)*f(a + c)*mu(j)*la(i)*1/f(2*b) - 2*f(a + 3*b)*f(a
+          + c)*mu(k)*la(i)*1/f(2*b) - 2*f(a + 3*b)*f(b + c)*mu(i)*mu(j)*la(i
+         )*1/f(2*b) - 2*f(a + 3*b)*f(b + c)*mu(i)*mu(k)*la(i)*1/f(2*b) + 2
+         *f(a + 3*b)*mu(i)*mu(j)*mu(k) - 2*f(a + c)*f(a + 2*b + c)*la(i)*la(j)
+         *1/f(2*b) - 2*f(a + c)*f(a + 2*b + c)*la(i)*la(k)*1/f(2*b) - 2*f(
+         a + c)*f(2*a + 2*b)*la(i)*1/f(2*b) - 2*f(a + c)*f(2*b + 2*c)*la(i)*
+         la(j)*la(k)*1/f(2*b) - 2*f(a + c)*f(3*b + c)*mu(j)*la(i)*la(k)*
+         1/f(2*b) - 2*f(a + c)*f(3*b + c)*mu(k)*la(i)*la(j)*1/f(2*b) + f(a
+          + 2*c)*f(2*b + c)*la(i)^2*la(j)*1/f(2*b) + f(a + 2*c)*f(2*b + c)*
+         la(i)^2*la(k)*1/f(2*b) + f(a + 3*c)*la(i)^2*la(j) + f(a + 3*c)*la(i
+         )^2*la(k) + 2*f(a + 3*c)*la(i)*la(j)*la(k) - f(2*a)*f(a + 2*b + c)*
+         la(j)*1/f(2*b) - f(2*a)*f(a + 2*b + c)*la(k)*1/f(2*b) - f(2*a)*f(
+         a + 3*b)*mu(j)*1/f(2*b) - f(2*a)*f(a + 3*b)*mu(k)*1/f(2*b) - f(2*
+         a)*f(2*a + 2*b)*1/f(2*b) - f(2*a)*f(2*b + 2*c)*la(j)*la(k)*
+         1/f(2*b) - f(2*a)*f(3*b + c)*mu(j)*la(k)*1/f(2*b) - f(2*a)*f(3*b
+          + c)*mu(k)*la(j)*1/f(2*b) - f(2*a)*f(4*b)*mu(j)*mu(k)*1/f(2*b)
+          + f(2*a + b)*f(2*b + c)*mu(i)*la(j)*1/f(2*b) + f(2*a + b)*f(2*b + 
+         c)*mu(i)*la(k)*1/f(2*b) + 2*f(2*a + b + c)*mu(i)*la(i) + 2*f(2*a + 
+         b + c)*mu(i)*la(j) + 2*f(2*a + b + c)*mu(i)*la(k) + 2*f(2*a + b + c)*
+         mu(j)*la(i) + f(2*a + b + c)*mu(j)*la(k) + 2*f(2*a + b + c)*mu(k)*la(
+         i) + f(2*a + b + c)*mu(k)*la(j) - 2*f(2*a + 2*b)*f(b + c)*mu(i)*la(i)
+         *1/f(2*b) + 2*f(2*a + 2*b)*mu(i)*mu(j) + 2*f(2*a + 2*b)*mu(i)*mu(k)
+          + f(2*a + 2*b)*mu(j)*mu(k) + f(2*a + c)*f(2*b + c)*la(i)^2*
+         1/f(2*b) + f(2*a + 2*c)*la(i)^2 + 2*f(2*a + 2*c)*la(i)*la(j) + 2*f(
+         2*a + 2*c)*la(i)*la(k) + f(2*a + 2*c)*la(j)*la(k) + 2*f(3*a + b)*mu(i
+         ) + f(3*a + b)*mu(j) + f(3*a + b)*mu(k) + 2*f(3*a + c)*la(i) + f(3*a
+          + c)*la(j) + f(3*a + c)*la(k) + f(4*a) - 2*f(b + c)*f(a + 2*b + c)*
+         mu(i)*la(i)*la(j)*1/f(2*b) - 2*f(b + c)*f(a + 2*b + c)*mu(i)*la(i)*
+         la(k)*1/f(2*b) - 2*f(b + c)*f(2*b + 2*c)*mu(i)*la(i)*la(j)*la(k)*
+         1/f(2*b) - 2*f(b + c)*f(3*b + c)*mu(i)*mu(j)*la(i)*la(k)*1/f(2*b)
+          - 2*f(b + c)*f(3*b + c)*mu(i)*mu(k)*la(i)*la(j)*1/f(2*b) + 2*f(b
+          + 3*c)*mu(i)*la(i)*la(j)*la(k) + f(b + 3*c)*mu(j)*la(i)^2*la(k) + f(
+         b + 3*c)*mu(k)*la(i)^2*la(j) + 2*f(2*b + c)*f(a + b + c)*mu(i)*la(j)*
+         la(k)*1/f(2*b) - 3*f(2*b + c)^2*mu(j)*mu(k)*la(i)^2*1/f(2*b) + 2*
+         f(2*b + 2*c)*mu(i)*mu(j)*la(i)*la(k) + 2*f(2*b + 2*c)*mu(i)*mu(k)*la(
+         i)*la(j) + f(2*b + 2*c)*mu(j)*mu(k)*la(i)^2 - 2*f(3*b)*f(a + b + c)*
+         mu(i)*mu(j)*la(k)*1/f(2*b) - 2*f(3*b)*f(a + b + c)*mu(i)*mu(k)*la(j
+         )*1/f(2*b) + 4*f(3*b)*f(a + 2*b)*mu(i)*mu(j)*mu(k)*1/f(2*b) - 2*
+         f(3*b)*f(a + 2*c)*mu(i)*la(j)*la(k)*1/f(2*b) + f(3*b)*f(a + 2*c)*
+         mu(j)*la(i)^2*1/f(2*b) + f(3*b)*f(a + 2*c)*mu(k)*la(i)^2*1/f(2*b)
+          + f(3*b)*f(2*a + b)*mu(i)*mu(j)*1/f(2*b) + f(3*b)*f(2*a + b)*mu(i)
+         *mu(k)*1/f(2*b) - f(3*b)*f(2*a + c)*mu(i)*la(j)*1/f(2*b) - f(3*b)
+         *f(2*a + c)*mu(i)*la(k)*1/f(2*b) + 4*f(3*b)*f(b + 2*c)*mu(j)*mu(k)*
+         la(i)^2*1/f(2*b) + f(3*b)*f(3*c)*mu(j)*la(i)^2*la(k)*1/f(2*b) + 
+         f(3*b)*f(3*c)*mu(k)*la(i)^2*la(j)*1/f(2*b) + 2*f(3*b + c)*mu(i)*mu(
+         j)*mu(k)*la(i) - 2*f(4*b)*f(a + b)*mu(i)*mu(j)*mu(k)*1/f(2*b) - 2*
+         f(4*b)*f(a + c)*mu(j)*mu(k)*la(i)*1/f(2*b) - 2*f(4*b)*f(b + c)*mu(i
+         )*mu(j)*mu(k)*la(i)*1/f(2*b) - f(4*b)*f(2*c)*mu(j)*mu(k)*la(i)^2*
+         1/f(2*b) - f(2*c)*f(a + 2*b + c)*la(i)^2*la(j)*1/f(2*b) - f(2*c)*
+         f(a + 2*b + c)*la(i)^2*la(k)*1/f(2*b) - f(2*c)*f(a + 3*b)*mu(j)*la(
+         i)^2*1/f(2*b) - f(2*c)*f(a + 3*b)*mu(k)*la(i)^2*1/f(2*b) - f(2*c)
+         *f(2*a + 2*b)*la(i)^2*1/f(2*b) - f(2*c)*f(2*b + 2*c)*la(i)^2*la(j)*
+         la(k)*1/f(2*b) - f(2*c)*f(3*b + c)*mu(j)*la(i)^2*la(k)*1/f(2*b)
+          - f(2*c)*f(3*b + c)*mu(k)*la(i)^2*la(j)*1/f(2*b) + f(3*c)*f(2*b + 
+         c)*la(i)^2*la(j)*la(k)*1/f(2*b) + f(4*c)*la(i)^2*la(j)*la(k):
+

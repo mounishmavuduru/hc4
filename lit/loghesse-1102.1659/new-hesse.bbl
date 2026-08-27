@@ -1,0 +1,86 @@
+\begin{thebibliography}{10}
+
+\bibitem{CRS}
+C.~Ciliberto, F.~Russo, and A.~Simis.
+\newblock {Homaloidal hypersurfaces and hypersurfaces with vanishing Hessian}.
+\newblock {\em Advances in Mathematics}, 218(6):1759--1805, 2008.
+
+\bibitem{BV}
+M.~de~Bondt and A.~van~den Essen.
+\newblock {Singular Hessians}.
+\newblock {\em Journal of Algebra}, 282(1):195--204, 2004.
+
+\bibitem{dolgachev2000polar}
+I.V. Dolgachev.
+\newblock {Polar Cremona transformations}.
+\newblock {\em Michigan Math. J}, 48(1):191--202, 2000.
+
+\bibitem{FW}
+G.~Fischer and H.~Wu.
+\newblock {Developable complex analytic submanifolds}.
+\newblock {\em International Journal of Mathematics}, 6(2):229--272, 1995.
+
+\bibitem{GN}
+P.~Gordan and M.~Noether.
+\newblock {Ueber die algebraischen Formen, deren Hesse'sche Determinante
+  identisch verschwindet}.
+\newblock {\em Mathematische Annalen}, 10(4):547--568, 1876.
+
+\bibitem{B}
+H.C. Graf~von Bothmer, K.~Ranestad, and F.~Sottile.
+\newblock {Linear Precision for Toric Surface Patches}.
+\newblock {\em Foundations of Computational Mathematics}, pages 1--30, 2009.
+
+\bibitem{H1}
+O.~Hesse.
+\newblock {Über die Bedingung, unter welcher eine homogene ganze Function von n
+  unabhängigen Variabeln durch lineäre Substitutionen von n andern unabhängigen
+  Variabeln auf eine homogene Function sich zurückführen lä$\beta$t, die eine
+  Variable weniger enthält.}
+\newblock {\em Journal für die reine und angewandte Mathematik},
+  1851(42):117--124, 1851.
+
+\bibitem{H2}
+O.~Hesse.
+\newblock {Zur Theorie der ganzen homogenen Functionen.}
+\newblock {\em Journal für die reine und angewandte Mathematik},
+  1859(56):263--269, 1859.
+
+\bibitem{kapranov}
+M.~Kapranov.
+\newblock {A characterization of A-discriminantal hypersurfaces in terms of the
+  logarithmic Gauss map}.
+\newblock {\em Mathematische Annalen}, 290(1):277--285, 1991.
+
+\bibitem{lossen2004does}
+C.~Lossen.
+\newblock {When does the Hessian determinant vanish identically?}
+\newblock {\em Bulletin of the Brazilian Mathematical Society}, 35(1):71--82,
+  2004.
+
+\bibitem{permutti1957certe}
+R.~Permutti.
+\newblock {Su certe forme a hessiana indeterminata}.
+\newblock {\em Ricerche di Mat}, 6:3--10, 1957.
+
+\bibitem{permutti1963sul}
+R.~Permutti.
+\newblock {Sul teorema di Hesse per forme sopra un campo a caratteristica
+  arbitraria}.
+\newblock {\em Le Matematiche}, 13:115--128, 1963.
+
+\bibitem{permutti1964certe}
+R.~Permutti.
+\newblock {Su certe classi di forme a hessiana indeterminata}.
+\newblock {\em Ricerche di Mat}, 13:97--105, 1964.
+
+\bibitem{Z2}
+F.L. Zak.
+\newblock {Determinants of projective varieties and their degrees}.
+\newblock In {\em Algebraic transformation groups and algebraic varieties:
+  proceedings of the conference Interesting algebraic varieties arising in
+  algebraic transformation group theory: held at the Erwin Schrödinger
+  Institute, Vienna, October 22-26, 2001}, pages 207--238. Springer Verlag,
+  2004.
+
+\end{thebibliography}

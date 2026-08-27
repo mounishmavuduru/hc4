@@ -1,0 +1,1633 @@
+arXiv:1408.4711v2 [math.OC] 6 May 2015  Minimizing Cubic and Homogeneous Polynomials over
+                                                             Integers in the Plane
+
+                                                                                            Alberto Del Pia
+
+                                                                                            Department of Industrial and Systems Engineering &
+                                                                         Wisconsin Institutes for Discovery, University of Wisconsin-Madison, United States
+
+                                                                                          Robert Hildebrand
+
+                                                                                        Institute for Operations Research, ETH Zu¨rich, Switzerland
+
+                                                                                         Robert Weismantel
+
+                                                                                        Institute for Operations Research, ETH Zu¨rich, Switzerland
+
+                                                                                            Kevin Zemmer
+
+                                                                                        Institute for Operations Research, ETH Zu¨rich, Switzerland
+
+                                          We complete the complexity classification by degree of minimizing a polynomial over the integer points in a polyhedron
+                                          in R2. Previous work shows that optimizing a quadratic polynomial over the integer points in a polyhedral region in R2
+                                          can be done in polynomial time, while optimizing a quartic polynomial in the same type of region is NP-hard. We close
+                                          the gap by showing that this problem can be solved in polynomial time for cubic polynomials.
+
+                                             Furthermore, we show that the problem of minimizing a homogeneous polynomial of any fixed degree over the integer
+                                          points in a bounded polyhedron in R2 is solvable in polynomial time. We show that this holds for polynomials that can
+                                          be translated into homogeneous polynomials, even when the translation vector is unknown. We demonstrate that such
+                                          problems in the unbounded case can have smallest optimal solutions of exponential size in the size of the input, thus
+                                          requiring a compact representation of solutions for a general polynomial time algorithm for the unbounded case.
+
+                                        1. Introduction We study the problem of minimizing a polynomial with integer coefficients over the
+
+                                        integer points in a polyhedron. When the polynomial is of degree one, this becomes integer linear program-
+
+                                        ming, which Lenstra [17] showed to be solvable in polynomial time in fixed dimension. In stark contrast, De
+
+                                        Loera et al. [6] showed that even for polynomials of degree four in two variables, this minimization problem
+
+                                        is NP-hard. For a survey on the complexity of mixed integer nonlinear optimization, see also Ko¨ppe [15].
+
+                                        Recently, Del Pia et al. [7] showed that the decision version of mixed-integer quadratic programming is in
+
+                                        NP. Del Pia and Weismantel [8] showed that for polynomials in two variables of degree two, the problem
+
+                                        is solvable in polynomial time.
+
+                                        Consider the problem
+
+                                                                         min{ f (x) : x  P  Zn},  (1)
+
+                                        where P = {x  Rn : Ax  b} is a rational polyhedron with A  Zm×n, b  Zm, and m, n  Z0. Let d  Z0
+                                        bound the maximum degree of the polynomial function f and let M be the sum of the absolute values
+                                        of the coefficients of f . We use the words size and binary encoding length synonymously. The size of P
+                                        is the sum of the sizes of A and b. We say that Problem (1) can be solved in polynomial time if in time
+                                        bounded by a polynomial in the size of A, b and M we can either determine that the problem is infeasible,
+                                        find a feasible minimizer, or show that the problem is unbounded by exhibiting a feasible point x¯ and an
+                                        integer ray r¯  rec(P) such that f (x¯ + r¯)  - as   . We almost always assume the degree d and the
+                                        dimension n are fixed in our complexity results. Moreover, in Sections 4 and 5 we assume that P is bounded.
+                                        Note that if P is bounded, then there exists an integer R  1 of polynomial size in the size of P such that
+                                        P  B := [-R, R]2 (see, for instance, [24]).
+
+                                                                         1
+2  Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+   Previous work has shown that Problem (1) is solvable in polynomial time if it is 1-dimensional or the
+polynomial is quadratic, whereas for n = 2, d = 4 the problem is NP-hard, even when P is bounded.
+
+   Theorem 1.1 ([8], 1-dimensional polynomials and quadratics). Problem (1) is solvable in polyno-
+mial time when n = 1 with d fixed, and when n = 2 with d  2.
+
+   Lemma 1.2 ([6]). Problem (1) is NP-hard when f is a polynomial of degree d = 4 with integer coeffi-
+cients and n = 2, even when P is bounded.
+
+   Using the same reduction as Lemma 1.2, it is possible to show that Problem (1) is NP-hard even when
+n = d = 2, P is a bounded, rational polyhedron, and we add a single quadratic inequality constraint (see
+[18]).
+
+   We improve Theorem 1.1 to the case n = 2 and d = 3.
+
+   Theorem 1.3 (cubic). Problem (1) is solvable in polynomial time for n = 2 and d = 3.
+
+We prove this theorem under the assumption that P is bounded in Section 4, and without this additional
+assumption in Section 6. Thus, we complete the complexity classification by degree d for Problem (1) when
+n = 2. It is an open question whether Problem (1) can be solved in polynomial time for n  3 and d  {2, 3}.
+
+   Problem (1) remains difficult even when the polynomials are restricted to be homogeneous and the degree
+is fixed. The polynomial h is homogeneous of degree d if
+
+   h(x) =                                                         cvxv,                                         (2)
+
+                                                vZn+, v 1=d
+
+where cv  R, · 1 denotes the 1-norm, and xv =        n    xivi .  The    case  of  general  polynomials  in  n  variables
+                                                     i=1
+
+reduces to the case of homogeneous polynomials in n+1 variables by homogenizing f (x) using an additional
+
+variable xn+1 and adding the constraint xn+1 = 1 to P. Thus, complexity results for general polynomials
+
+provide partial complexity results for homogeneous polynomials.
+
+   Proposition 1.4. Problem (1) is NP-hard when f is a homogeneous polynomial of degree d with integer
+coefficients, n  3 and d  4 are fixed, even when P is bounded.
+
+   We next show that we cannot expect tractable size solutions to unbounded homogeneous minimization
+problems in dimension two.
+
+   Proposition 1.5. There exists an infinite family of instances of Problem (1) with f homogeneous, d = 4,
+n = 2 such that the minimal size solution to Problem (1) has exponential size in the input size.
+
+   Proof. Consider the minimization problem
+
+   min{ x2 - Ny2 2 : (x, y)  P  Z2},                                                                            (3)
+
+where P = {(x, y)  R2 : x  1, y  1} is an unbounded rational polyhedron and N is a nonsquare integer. The
+objective function is a homogeneous bivariate polynomial of degree four. Since (0, 0) P, (x2 - Ny2)2 is
+
+nonnegative, and since N is nonsquare, the optimum of Problem (3) is strictly greater than zero. Note that
+(x2 - Ny2)2 = 1 if and only if (x, y) is a solution to either the Pell equation, x2 - Ny2 = 1, or the Negative
+Pell equation, x2 - Ny2 = -1. The Pell equation has an infinite number of positive integer solutions (see, for
+
+instance, [26]) and therefore, we infer that the optimum of Problem (3) equals 1.
+   Lagarias [16, Appendix A] shows that the Negative Pell equation with N = 52k+1 has solutions for every
+
+k  1 and that the solution (x, y) to this equation with minimal size satisfies
+
+   x  +                                      y       =  (2  +     5)5k .
+                                                  5
+
+The method is based on principles due to Dirichlet [9]. This implies that while the input is of size O(k), any
+solution to the Negative Pell equation expressed in binary form for these N has size (5k).
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane  3
+
+   Theorem 6.10 of [4] (see also [26]) shows that if the Negative Pell equation has a solution, then the
+minimal size solution to x2 - Ny2 = ±1 is in fact the minimal size solution to the Negative Pell equation.
+Therefore, any solution to Problem (3) with N = 52k+1 has an exponential size in the size of the input. Since
+Problem (3) is has an objective function that is homogeneous of degree four and has linear constraints, this
+finishes the proof.
+
+   For bounded polyhedra P, we will show that Problem (1) is solvable in polynomial time for any fixed
+degree in two variables when the objective function is a polynomial that is a coordinate translation of a
+homogeneous polynomial. A polynomial f (x) : Rn  R is homogeneous translatable if there exists t  Rn
+such that f (x + t) = h(x) for some homogeneous polynomial h(x). In our results, we will assume that we
+are given a homogeneous translatable polynomial f with integer coefficients, but that we are not given the
+translation t. Our algorithmic techniques apply to this natural generalization of homogeneous polynomials
+without even needing to solve for t. Even so, for n = 2, we show in the Appendix (Proposition A.1) that in
+polynomial time we can check if f is homogenous translatable and produce a rational t if it is.
+
+   Theorem 1.6 (homogeneous translatable, bounded). Problem (1) is solvable in polynomial time for
+n = 2 and any fixed degree d, provided that f is homogeneous translatable and P is bounded.
+
+   This theorem highlights the fact that the complexity of bounded polynomial optimization with two integer
+variables is not necessarily related to the degree of the polynomials, but instead to the difficulty in handling
+the lower order terms.
+
+   Despite the possibly large size of solutions to minimizing homogeneous polynomials of degree four (see
+Proposition 1.5), Theorem 1.3 shows that we can solve the unbounded case for degree three.
+
+   The details of our proofs strongly rely on the properties of cubic and homogeneous polynomials. When
+f : R2  R is a quadratic polynomial, [8] proves Theorem 1.1 using the fact that P can be divided into
+regions where f is quasiconvex and quasiconcave. We use a similar approach for homogeneous polynomials
+and determine quasiconvexity and quasiconcavity by analyzing the bordered Hessian. We show that the
+bordered Hessian can be well understood for homogeneous polynomials. For general polynomials, these
+regions cannot in general be described by hyperplanes and are much more complicated to handle, even for
+the cubic case.
+
+   In Section 2, we present the tools for the main technique of the paper. This technique is based on an
+operator that determines integer feasibility on sets P  C and P \ C, where P is a polyhedron, C is a convex
+set, and the dimension is fixed. It relies on two important previous results, namely that in fixed dimension
+the feasibility problem over semialgebraic sets can be solved in polynomial time [14], and the vertices of
+the integer hull of a polyhedron can be computed in polynomial time [5, 10]. We employ this operator to
+solve the feasibility problem by dividing the domain into regions where this operator can be applied.
+
+   In Section 3, we give some results related to numerically approximating roots of univariate polynomials,
+which we use throughout this paper. We show how we can find inflection points of a particular function
+derived from the quadratic equation using these numerical approximations, which will play a key role in
+Section 4.
+
+   In Section 4, we prove Theorem 1.3 under the assumption that P is bounded. We do this by dividing the
+feasible domain into regions where either the sublevel or superlevel sets of f can be expressed as a convex
+semialgebraic set. With this division in hand, the operator presented in Section 2 is then applied.
+
+   In Section 5, we derive a similar division description of the feasible domain for homogeneous polyno-
+mials. While for cubic polynomials the division description depends on the individual sublevel sets, there
+is a single division description that can be used for all sublevel sets of a particular homogeneous function.
+We separate the domain into regions where the objective function is quasiconvex or quasiconcave. These
+regions allow us to use the operator from Section 2, establishing the complexity result of Theorem 1.6.
+
+   In Section 6, we consider again cubic polynomials, but relax the requirement that P is bounded, and thus
+prove Theorem 1.3.
+4                                            Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+   2. Operator on Convex Sets and Polyhedra Our main approach for solving Problem (1) for bounded
+
+P is to instead solve the feasibility problem. As is well known, the feasibility problem and the minimization
+
+problem are polynomial time equivalent via reduction with the bisection method, given that appropriate
+
+bounds on the objective are known. We summarize this here. Given a function f : R2  R and   R, define
+
+S  f  :=  {(x,  y)    R2   :  f  (x,  y)     }      for             {, ,   <,     >, =}.
+   
+
+   Lemma 2.1 (feasibility to optimization). Let f be a bivariate polynomial of fixed degree d with integer
+
+coefficients     and   suppose           that    P     is  bounded.            Then,       if  for    each             Z+     1  we   can      decide  in  polynomial      time
+                                                                                                                              2
+                          f      Z2
+whether   the    set   S                 is  empty         or    not,      we  can     solve      Problem         (1)  in  polynomial          time.
+
+   Proof. Since P  B = [-R, R]2 and f is a polynomial of degree d, it follows that -MRd  f (x, y)  MRd.
+
+Thus, the result is a simple application of binary search on values of  in [-MRd, MRd]  (Z + 1/2).
+
+   We    consider      Z+             1  since      this   implies         S   f     Z2        =  S   f     Z2    because        f  has  integer  coefficients.         Further-
+                                      2                                                               
+
+more,     this  implies       that  S    f       Z2    =   ,     and       therefore       S   f      Z2    =  S  f        Z2    and  similarly   S    f      Z2  =  S  f    Z2.
+                                         =                                                                        <                                                     >
+
+This is important for the proof of Theorem 4.8.
+
+   A semi-algebraic set in Rn is a subset of the form                                            s       ri    x  Rn |         fi, j(x)  i, j  0  where      fi, j : Rn  R is a
+                                                                                                 i=1     j=1
+
+polynomial in n variables and i,j is either < or = for i = 1, . . . , s and j = 1, . . . , ri (cf. [2]).
+
+   Lemma 2.2 (polyhedra/convex set operator). Let P, C  Rn be such that P is a rational, bounded poly-
+hedron, C is given by a membership oracle, P  C is convex, and n  Z1 is fixed. In polynomial time in
+the size of P, we can determine a point in the set (P \ C)  Zn or assert that it is empty. Moreover, if C is
+semi-algebraic and given by polynomial inequalities of degree at most d  2 and with integral coefficients
+of size at most l, in polynomial time in d, l and the size of P, we can determine a point in P  C  Zn or
+
+assert that it is empty.
+
+   Proof. We can determine whether or not (P \ C) =  by first computing the integer hull PI of P in polyno-
+mial time using [5, 10]. Next, we test whether all of its vertices lie in C. If they all lie in C, then by convexity
+
+of C we have that P  C  Zn  C, thus (P \ C)  Zn is empty. Otherwise, since vertices are integral, we have
+found an integer point in (P \ C)  Zn.
+
+   Next, since P  C is a convex, semialgebraic set, by [14] we can determine in polynomial time whether
+
+P  C  Zn is empty, and if it is not, compute a point contained in it.
+
+   If we can appropriately divide up the feasible domain into regions of the type that Lemma 2.2 applies to,
+
+then we are able to solve Problem (1) in polynomial time. We formalize this in the remainder of this section.
+
+   Definition 2.3.            Given       a  sublevel            set   S   f    and    a   box    B      =  [-R,     R]2,  a   division    description        of  the  sublevel
+                                                                           
+
+set on B is a list of rational polyhedra Pi, i = 1, . . . , l1, Qj, j = 1, . . . , 2, and rational lines Lk, k = 1, . . . , 3,
+
+such that
+
+   (i)    Pi     S  f  is  convex         for    i  =  1,  .  .  .  ,  1,
+                    
+                    f                    f
+   (ii)   Qj  \  S     =   Qj       S    >   is  convex          for       j = 1, . . . ,  2,
+
+   (iii) and
+
+                                                                                  1                   2              3
+                                                                 B  Z2 =  i=1 Pi  j=1 Q j  k=1 Lk  Z2.
+                                                                                                                                                                             (4)
+
+   We     will  create    division        descriptions                 of  sublevel        sets   S  f   on    a  box     B  :=  [-R,    R]2   with    P     B.
+                                                                                                     
+
+   Theorem 2.4.            Suppose           P   is  bounded,              and    for  every             Z  +     1  with           [-MRd,     MRd],      we  can  determine
+                                                                                                                  2
+                                             f
+a  division     description      for      S         on  B     in    polynomial         time.      Then      we       can  solve     Problem       (1)  in  polynomial      time.
+
+   Proof. Follows from Lemmas 2.1 and 2.2.
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                 5
+
+   3. Numerical Approximations and the Quadratic Formula For a finite set A = {0 =
+-R, 1, . . . , k, k+1 = R}  R, with i < i+1, i = 0, . . . , k, we define the set of points XA := { i , i : i =
+0, . . . , k + 1} and the set of intervals IA := {[ i + 1, i+1 - 1] : i = 0, . . . , k} (some of which may be empty).
+Notice that [-R, R]  Z = (XA  IIA I)  Z. Therefore, a minimizer x  arg min f (x) : x  P  Z2 where
+P  B := [-R, R]2 is attained either on a set P  ({x} × R) for some x  XA or on a set P  (I × R) for some
+
+I  IA. Solving the minimization problem on each of those sets separately and taking the minimum of all
+problems will solve the original minimization problem in P  Z2. We use this several times with A being
+
+an approximation to the roots, extreme points, or inflection points of some univariate function.
+
+   Lemma 3.1 (numerical approximations). Let p be a univariate polynomial of degree d with integer
+coefficients, and suppose that its coefficients are given. Let M be the sum of the absolute values of the
+coefficients of p, and let > 0 be a rational number.
+
+   (i) In polynomial time in d and the size of M, we can determine whether or not p  0.
+  (ii) Suppose p 0 and 1, . . . , k are the real roots of p. Then, in polynomial time in d and the size of
+
+        M and , we can find a list of rational numbers ~ 1, . . . , ~ k of -approximations of 1, . . . , k, that is,
+        |i - ~ i| < for i = 1, . . . , k.
+  (iii) Suppose p 0 and 1, . . . , k are the distinct real roots of p in increasing order. Then, in polynomial
+        time in d and the size of M and , we can determine a list of rational numbers ~ -1 < ~ 1+ < · · · < ~ -k < ~ +k
+        such that ~ i- < i < ~ +i and |~ i- - ~ +i | < for i = 1, . . . , k.
+
+   Proof. If all coefficients of p are equal to zero, then p  0. Otherwise p 0, proving part (i). Parts (ii)
+and (iii) follow, for example, from [21].
+
+   We use Lemma 3.1 repeatedly in the following sections. One way we will use it is in the form of the
+
+following remark.
+   Remark 3.2. By choosing sufficiently small, for example = 1/4, we can use Lemma 3.1 part (ii) to
+
+determine approximations A = {~ 1, . . . , ~ k} of the roots of p such that no interval I  IA contains a root of p.
+Thus, by continuity, p does not change sign on each interval. Moreover, if an interval I  IA is non-empty,
+we can determine whether p is positive or negative on I by testing a single point in the interval.
+
+   The next lemma will be crucial for proving Lemma 4.7.
+
+Lemma 3.3. Let f0, f1, f2 : R  R be polynomial functions in one variable of fixed degree and suppose
+
+that f2 0. Consider the two functions                             
+
+                                                y±  :=  -  f1 ±   
+                                                            2 f2
+
+where  = f12 - 4 f2 f0. In polynomial time, we can find a set of rational points A = {~ 1, . . . , ~ k} such that
+y± are well defined, continuous and either convex or concave on each I  IA. Moreover, we can determine
+
+numbers c±I  {-1, 1} that indicate whether y± is convex or concave on I  IA.
+
+   Proof. We start with A = . Since f2 is not identically equal to zero, the number of its zeros is bounded
+by the degree of f2. By Lemma 3.1 part (ii), we can approximate its zeros with = 1/8, which we add to the
+list A. We do the same for the zeros of .
+
+We will show the result for y+ only, since the computation is analogous for y-. Then
+
+                                             +  1   f2                     +  (-      +                           1  f2     
+                                                2       =                                                         2           ,
+       y+ =    f2  f1  -  f2  f1   -     f2                 f2 f1 - f2 f1         f2                                     )
+                                  
+                          2 f22                                            2 f22
+
+                                                           
+                                                       -p + q ,
+                                             y+     =   8 f233/2
+
+where
+
+               -p :=  2 f22 - 4 f2 f2  + 2 8( f2 )2 - 4 f2 f2 - f22( )2,
+                 q :=  4 f2 f1 f2 + 8 f2 f2 f1 - 8 f1( f2 )2 - 4 f22 f1 .
+6                            Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+                                                               
+   Therefore, y = 0 if and only if we have p = q . It can be checked that its solutions are exactly
+the solutions of p2 = q2 and pq  0. We can determine integer intervals where pq  0 by computing -
+
+approximations of the zeros of pq using Lemma 3.1 part (i) and part (ii). Note that if pq  0, then there is
+just one interval, which is R. Moreover, we can determine whether p2 - q2  0. If it is, then we add the
+approximations of the zeros of pq to A. Otherwise, we compute -approximations of the zeros of p2 - q2
+
+and add those to A. Finally, we can determine the convexity or concavity of y+ on each non-empty interval
+I  IA by evaluating the sign of y+ on an point of this interval.
+
+   In the absence of exact computation of irrational roots, we must make up for the error. In Sections 4 and
+
+5 we will use our numerical approximations to construct thin boxes containing irrational lines.
+
+   Lemma 3.4.  Let  K    R2  be  a  polytope  with  vol(K)   <  1  .  Then  dim(conv(K    Z2))    1  and  in     polynomial
+                                                                2
+
+time we can determine a line containing all the integer points in K.
+
+   Proof. The fact that dim(conv(K  Z2))  1 is a well known result. See, for example, [1] for a proof. Using
+Lenstra's algorithm [17], in polynomial time we can either find an integer point x¯  K  Z2, or determine
+
+that no such point exists. If no point exists, then return any line. Otherwise, let K1 = K  {x : x1  x¯1 - 1}
+and K2 = K  {x : x1  x¯1 + 1}, and use Lenstra's algorithm twice to detect integer points in the sets K1  Z2
+and K2  Z2. If an integer point x~  (K1  K2)  Z2 is detected, then return the line given by the affine hull of
+{x¯, x~}. Otherwise return the line {x : x1 = x¯1}.
+
+   4. Cubic Polynomials In this section we will prove that Problem (1) is solvable in polynomial time for
+n = 2 and d = 3 when P is bounded. For the rest of this section, let f (x, y) be a bivariate cubic polynomial.
+We represent f (x, y) in terms of y as
+
+                                           3
+
+                         f (x, y) = fi(x)yi = f0(x) + f1(x)y + f2(x)y2 + f3(x)y3.
+
+                                          i=0
+
+Let degy( f ) denote the maximum index i such that fi is not the zero polynomial. Given a similar repre-
+
+sentation in terms of x, we can similarly define degx( f ). Without loss of generality, we can assume that
+degx( f )  degy( f ). We will consider each case degy( f ) = 0, 1, 2, 3 separately.
+
+   Theorem 4.1. Let m < n be nonnegative integers, am, . . . , an  R, am 0, an 0, and let x¯  R be a
+
+nonzero root of the polynomial f (x) :=  n    ai  xi.  Then
+                                         i=m
+
+               min{|am|/(|am| + |ai|) : i = m + 1, . . . , n} < |x¯| < 1 + max{|ai/an| : i = m, . . . , n - 1}.  (5)
+
+   Proof. Follows from Rouche´'s theorem. See, for example, Theorem (27,2) in [20] for the second inequal-
+ity. The first inequality can be obtained from the second one by considering the polynomial g(x) := xn f (1/x).
+
+   Definition 4.2. A bivariate polynomial is called affinely critical if the set of critical points, i.e., points
+where the gradient vanishes, is a finite union of affine spaces--i.e., all of R2, lines, or points.
+
+   Lemma 4.3. All cubic polynomials in two variables are affinely critical.
+
+   Proof. Consider a cubic polynomial f (x, y) in two variables. Since it has degree at most three, both
+components of its gradient have degree at most two. Thus the gradient vanishes on the intersection of two
+conic sections (i.e., quadrics in the Euclidean plane). If one of the conic sections is a line, then its intersection
+with the other conic section is either a line or a finite number of points. Thus suppose that neither of the
+two conics is a single line. If the two conic sections are distinct, then their intersection consists of at most
+four distinct points. Therefore suppose that they are not distinct, which happens when fx = a fy for some
+a  R, where fx, fy are the derivatives of f with respect to x and y respectively. By equating coefficients, a
+straightforward calculation shows that
+
+                                  f (x, y) = c3(ax + y)3 + c2(ax + y)2 + c1(ax + y) + c0,
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                                       7
+
+where c0, c1, c2, c3 are a subset of the coefficients of the original polynomial. The gradient of f vanishes if
+
+and only if
+
+                                                3c3(ax + y)2 + 2c2(ax + y) + c1 = 0.                                                                (6)
+
+If c3 = c2 = 0, then this is either the empty set or all of R2, depending on whether c1 0 or c1 = 0. If c3 = 0
+
+and c2   0,  then  equation     (6)  reduces        to  the  line    ax  +  y  =     -  c1   .  Finally,  if  c3      0, then the gradient vanishes
+                                                                                        2c2
+if and only if
+
+                                                     ax + y = -      c2 ± c22 - 3c1c3           ,
+
+                                                                                     3c3
+
+which is either the union of two real lines, or is not satisfied by any real points, depending on whether
+
+c22 - 3c1c3  0 holds or not.
+   We now start with showing that Problem (1) can be solved in polynomial time if degy( f ) = 0.
+
+Lemma 4.4. Suppose degy( f ) = 0. Then we can solve Problem (1) in polynomial time.
+
+   Proof. The possible extreme points of the one-dimensional function f0 correspond to the zeros of its
+first derivative, say 1, . . . , k where k  3. By Remark 3.2, we can determine a list of approximations
+A = {~ 1, . . . , ~ k} and define IA and XA as in Section 3. We then solve the problem on each restriction of P to
+{x} × R for each x  XA using Theorem 1.1, since this problem is one dimensional. For each interval I  IA,
+
+f0(x) is either increasing or decreasing in x. Therefore, the optimal solution restricted to the interval is an
+optimal solution to one of the problems min / max{x : (x, y)  P  Z2, x  I}. These problems are just integer
+
+linear programs in fixed dimension that are well known to be polynomially solvable (see Scarf [22, 23] or
+
+Lenstra [17]). Since |IA|  3, the algorithm takes polynomial time.
+
+   For the remaining cases, we solve the feasibility problem instead and rely on Lemma 2.1 to solve the
+corresponding optimization problem. Moreover, we only need to find a division description for S f , because
+then we can solve the feasibility problem by Theorem 2.4.
+
+Lemma 4.5.         Suppose      degy(  f  )  =  1.  For  any           Z  +    1  ,  we   can   find  a   division    description  for    S  f  on  B  in
+                                                                               2                                                             
+
+polynomial time.
+
+Proof. Since f1 0, apply Lemma 3.1 part (ii) to find approximate roots ~ 1, . . . , ~ k of f1(x) = 0 with
+
+k  2 and an approximation guarantee of = 1/4. Hence, for all intervals I  IA, we know that f1(x) 0
+
+x    I.  We  now   consider     solutions       (x,  y)    S  f  and      see     that    we    can  write    y   as  a  function  of  x  by  rewriting
+                                                              =
+
+f (x, y) = . We denote this function by y and compute it and its derivatives y, y with respect to x.
+
+             y(x)  =     - f0(x) ,
+                         f1(x)
+                      (  f0(x)  -  )  f1 (x) -      f1(x)  f0 (x) ,
+             y(x)  =                  f1(x)2
+
+             y (x) =  f1(x)     ( f0(x) - ) f1 (x) + 2 f0 (x) f1 (x) + 2 ( - f0(x)) f1 (x)2 + f1(x)2                     - f0 (x)         .
+                                                                   f1(x)3
+
+Let N(x) be the numerator of y , so y = N(x)/( f1(x)3). Using Lemma 3.1 part (i), we can check whether
+N(x)  0.
+
+   Case 1: N(x)  0. If N(x)  0, then y is constant, and hence y is an affine function on each interval
+I  I~ . Since degy( f ) = 1, the sublevel set is either the epigraph or the hypograph of the affine function y.
+Thus, XA and IA yield a division description.
+
+   Case 2: N(x) 0. We use Lemma 3.1 part (ii) to find 1/4-approximations B = {~1, . . . , ~k } of the roots of
+N(x) = 0. The division description is then given by XAB and IAB, since the curve has no inflection points
+
+on these intervals.
+
+   A crucial tool for the next lemma is the following consequence of Be´zout's theorem.
+8                                   Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+    4                  y+                   5 y+            (x, y+(x))                   5                            y+          1 y+
+    2           ( , y~ )                                                                 0 ( , y+( ))                               ( , y+( ))
+    0                                                                                                        (u, y+(u))
+   -2-1 0                 (u, y~u)                                                                                                0
+                                            0                                                                                                        (u, y+(u))
+                       y-
+               12345                                  (u^, y~u^)                      -5                        y-
+                                                              (x, y-(x))
+                                        -5 y-                                                                                 -1 y-
+                                                                                                                                   -4 -2 0 2 4
+                                                5 6 7 8 9 10 11                    -10 2 4 6 8 10
+
+               (a)                                    (b)                                              (c)                                      (d)
+
+Figure 1. The techniques from each subcase of Case 2 from the proof of Lemma 4.7. (a) The curve y2(8 + 4x) + y(-32) + (x3 -
+4x2 - 16x + 32) = 0 on the region 1  x  4 satisfies y- is convex while y+ is concave. One can find a line separating the two by only
+considering the y+ and y- at the endpoints x = 1 and x = 4. (b) The curve y2(-20x + 80) + (3x3 - 8x2 + 82x + 336) = 0 on the region
+6  x  10 satisfies y+ is convex while y- is concave. We determine the x-values x where y+ and y- are closest and then create two
+separate regions on which to separate y+ from y-. The separation on each region computes a point and a slope from this point to
+separate. (c) The curve y2(4x - 1) + y(32) + (2x2 - 16x - 32) on the region -2  x  8 satisfies y+ and y- are concave. To separate the
+curves, we draw the line connecting the endpoints of y+ to itself. The red shaded region around this line in the figure is explained
+better in the next subfigure. (d) A more abstract example of two concave functions shows that connecting the endpoints may still
+
+intersect the lower curve. Therefore, we remove the red shaded region around this line to ensure that we separate the two curves.
+
+   Remark 4.6. Let f (x, y) be a cubic polynomial and let L = {(x, y) : ax + by + c = 0} be any line with either
+
+a  0 or b      0.  Then   either    L   is  contained       in  the    level       set    S  f  ,  or  they     intersect     at  most  three        times.  When
+                                                                                             =
+
+b  0 (a     0  is  analogous),      this    is  because     f   (  x,  -  ax+c  )  is    a  cubic      polynomial         in  x,  which         is  either  the  zero
+                                                                            b
+
+polynomial, or has at most three zeros.
+
+   Lemma 4.7.      Suppose   degy(      f   )  =  2.  For  any            Z  +     1  ,  we  can       find  a  division      description       for  S  f   on   B  in
+                                                                                   2                                                                    
+
+polynomial time.
+
+   Proof. We begin by finding a set of 1/4-approximations A = {~ 1, . . . , ~ k}, k  1, of the zeros of f2(x) with
+
+Lemma 3.1 part (ii). We focus on intervals I  IA, since f2(x) is non-zero on these intervals. On the level
+set S =f , we can write y in terms of x using the quadratic formula, yielding two functions
+
+                      - f1(x) +         ,                                          ,
+                         2 f2(x)
+            y+(x)  =                              y-(x)  =  -   f1(x) -                      where  = f1(x)2 - 4 f2(x)( f0(x) - ).
+                                                                 2 f2(x)
+
+By Lemma 3.1 part (i), we can test whether or not   0.
+
+   Case 1:   0. If   0, then y+  y-, meaning that all roots are double roots. Therefore, f (x, y) -  can
+                                      2
+be written  as f2(x)   y  -  - f1(x)                       that  f (x, y+(x))             = 0 for      all x in   the domain      of y+, and hence               the
+gradient    f is zero        2 f2(x)   . It follows        the definition of              affinely     critical,  Lemma 4.3       and the fact that              f is
+
+                       on the level set. From
+
+not constant on R2, we must have that the level set on x  I is contained in a line since y+ is differentiable in
+
+I. Moreover, we can compute the line exactly by evaluating the derivative and the function at a point where
+
+f2(x) 0. Then we write it as ax + by = c with a, b, c  Z. As before, our division description comprises lines
+
+from XA and the line ax + by = c, whereas the polyhedra come from IA and the inequalities ax + by  c + 1
+
+and ax + by  c - 1.
+
+   Case 2:  0. By Lemma 3.3, we can find a list A = {~ 1, . . . , ~ k} of rational points such that y± are well
+
+defined, continuous and either convex or concave on each I  IA. Moreover, on each interval  0, so they
+
+do not intersect. Hence, y± are convex or concave (or both) on each interval. Furthermore, we can determine
+
+whether y+ > y- or y+ < y- on the interval by evaluating one point in the interval.
+
+   We will assume from here on that y+ > y- on the interval I as the calculations are similar if y- < y+. Note
+
+that y+ > y- on I implies that f2 > 0 on I. Let , u  Z be the endpoints of I, that is I = [ , u]. Since we are
+
+interested in a division description on B, we may assume -R   u  R. We distinguish the following four
+
+cases based on the convexity or concavity of y+, y- on I.
+
+   Case 2a: y+ concave, y- convex. (cf. Figure 1 (a)) Consider f ( , y) -  and f (u, y) -  as quadratic poly-
+
+nomials in y. We use Lemma 3.1 part (iii) to find upper and lower bounds on their roots. Since Lemma 3.1
+
+part (iii) finds non-intersecting bounding boxes on each root for any prescribed , we simply take = 1.
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                                                  9
+
+These approximations are actually approximations to the values of y-(x) and y+(x) at x = and x = u. Take
+
+the averages between the lower bounds of the upper roots and the upper bounds of the lower roots, and call
+
+these averages y~ and y~u. Consider the rational line segment conv{( , y~ ), (u, y~u)}. Due to the convexity and
+concavity of y+ and y- on the interval, this line segment separates y- from y+ on [ , u].
+
+Case 2b: y+ convex, y- concave. (cf. Figure 1 (b)) Since the epigraph of y+ and the hypograph of y- are
+
+both convex sets, there exists a hyperplane that separates them due to the hyperplane separation theorem.
+
+To find such a hyperplane, suppose first that we can exactly determine x that minimizes y+(x) - y-(x) on
+[ , u], and suppose further that we could exactly compute y+(x). If x  ( , u), then y+(x) = y-(x), so the
+line passing through x with slope y+(x) separates the two regions. Otherwise, suppose that x = . Then
+y-(x)  y+(x), so the same line again separates the two regions. The case where x = u is analogous.
+
+   However, x may be irrational, so we might not be able to determine it exactly. To find a numerical ap-
+proximation x~, note that y+ - y- = / f2. Since this quantity is nonnegative on [ , u], we instead minimize
+the square, which is / f22. This is a quotient of polynomials, and therefore we can approximately compute
+the zeros of the first derivative, which occur at  f22 - 2 f2 f2 = 0. In fact, either y-, y+ are both lines, or
+there are at most polynomially many local minima.
+
+   Let B = {~1, . . . , ~k^} be the -approximations of these roots with = 1/4. We consider IAB and XAB and
+we focus on an interval I^  IAB with I^  I. Let ^, u^  Z be the endpoints of I^. Since I^  IAB, no minimizer
+of y+ - y- lies in ( ^, u^).
+
+   Since no minimizer lies in ( ^, u^), y+(x) - y-(x) is minimized either at ^ or at u^, so we just compare the
+values. Since y+ - y- = / f2 is nonnegative on I, we instead compare the squares (y+( ^) - y-( ^))2 and
+
+(y+(u^) - y-(u^))2, thus avoiding approximation of square roots. Suppose without loss of generality that u^ is
+
+the minimizer.
+
+Now consider                                                                                                     
+                                                    y+ - y- = ( / f2)
+                                                                                      = (        f2 - 2 f2 )           
+                                                                                                   2 f22                 .
+
+Call a =  f2 - 2 f2 and b = 2 f22. Then a, b,  : Z  I^  Z \ {0}, and they are all polynomials of bounded
+degree. A straightforward calculation shows that 1  |a(u^)|, |b(u^)|, |(u^)|  4 × 102M3R5. Therefore
+
+                                           |y+(u^) - y-(u^)| =                  a(u^ )                     1                   .
+                                                                                                   (4 × 102 M3R5)2
+                                                                            b(u^) (u^)
+
+Let    :=            1         .  We  need    to    approximate             y+ (u^ )  and  y- (u^ )   within        a  factor  of  . Using the representation
+
+           ( ) 4 4×102 M3R5 2
+in Lemma 3.3, we have
+
+                                                    f2 f1 - f2 f1           + (- f2   +    1     f2              =  X  +Y   
+                                        y+ =                                2 f22          2          )                  Z    ,
+
+                                                                                       
+Hence, we can compute X, Y, Z exactly, but we need to approximate . A straightforward calculation
+
+shows that we only need to approximate this within a factor of ^ := 4×102M3R5 . A similar calculation follows
+for y-.
+
+   We can compute -approximations y~+(u^) and y~-(u^) using a numerical square root tool such as [19] to
+approximate (u^) to an accuracy of ^. Let
+
+                                  m     =  1  (y~+  (u^ )  +  y~- (u^ ))    [min(y-(u^), y+(u^)),     max(y-(u^), y+(u^))].
+                                           2
+
+Moreover,     we     compute      y~u^  =  1  (y~+  (u^ )  +  y~ - (u^ ))  where      y~+ (u^ )  and  y~- (u^ )  are approximations computed from the
+                                           2                                                                     slope m separates y- and y+ on [ ^, u^].
+
+roots of f (u^, y) using Lemma 3.1. Then the line through (u^, y~u^) with
+
+Case 2c: y+ concave, y- concave. (cf. Figure 1 (c) and (d)) Consider the line segment L connecting the
+
+two endpoints of y+, i.e., conv{( , y+( )), (u, y+(u))}. We claim that L intersects the graph of y- in at most one
+                                                                                                                                                               f
+point  in  [  , u].  By  Remark         4.6,  either          L  coincides  with      the        graph  of       y+,   or   L  intersects  the  level  set  S  =  at
+10                                 Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+most three times. Since L intersects the graph of y+ twice and y-(x) < y+(x), L can intersect the graph of y-
+
+at most once.
+
+    Therefore, the line L is a weak separator of the curves y-(x) and y+(x). Since L may be irrational, we
+
+cannot compute it exactly, but we approximate it instead. Let                    :=        1  ).  We  use    Lemma     3.1  part  (iii)  to  find
+                                                                                        2(u-
+bounding -approximations to the roots of the equations f ( , y) =  and f (u, y) = . Hence we can obtain
+
+y~1 < y+( ) < y~2 and y~1u < y+(u) < y~2u such that |y~1 - y~2| < and |y~1 - y~2| < . We then construct the quadrangle
+Q = conv({( , y~1), ( , y~2), (u, y~u1), (u, y~2u)}). By construction, vol(Q)  (u - )  1/2. Therefore, by Lemma 3.4,
+
+this contains at most one line of integer points that we can compute a description for in polynomial time.
+
+We add this line to our division description.
+
+   Furthermore, L  Q. Therefore, y- is strictly below the line conv{( , y~2), (u, y~2u)} and y+ is strictly above the
+line conv{( , y~1), (u, y~1u)}. We then add to our division description the two polyhedra given by (x, y)  [ , u] × R
+such that (x, y) is either above conv{( , y~2), (u, y~u2)} or below conv{( , y~1), (u, y~1u)}.
+
+   Case 2d: y+ convex, y- convex. This case is analogous to the previous case, where instead here we take
+
+the line segment conv{( , y-( )), (u, y-(u))}.
+
+    We have shown how to divide each interval, thus completing the proof.
+
+    Lemma 4.8.  Suppose  degy(     f   )  =  3.  For  any      Z  +  1  ,  we    can  find  a   division     description    for  S  f  on    B  in
+                                                                     2                                                              
+
+polynomial time.
+
+   Proof. We create the division description by applying a linear transformation such that the objective
+function becomes a quadratic function in one variable and then apply Lemma 4.7. For any a  R, consider
+the linear transformation x = u and y = au + v, that is A(u, v) = (x, y) where
+
+                                                             A=   1  0     .
+                                                                  a  1
+
+Notice that A is invertible, and u = x, v = y - ax. Define
+
+                         ga(u, v) := f (u, au + v) = (c0 + c1a + c2a2 + c3a3)u3 + wa(u, v),
+
+where wa(u, v) is at most quadratic in terms of u and at most cubic in terms of v, and c0, . . . , c3 are a subset
+of the coefficients of f . Let a¯  R be such that
+
+                                                 c0 + c1a¯ + c2a¯2 + c3a¯3 = 0.
+
+Note that since degy( f ) = 3, we have that c3 0. Since this is a cubic equation with integer coefficients, we
+
+know there is at least one real solution. Define A¯ =          10       and let R¯  1 be an upper bound on |a¯|+1 =                    A¯-1  1=
+                                                               a¯ 1
+
+A¯-1 , which can be chosen of polynomial size in terms of the coefficients of f by Theorem 4.1. Set
+
+1/ = 4 × 36 × M(2R¯ + 1)3(R¯ + 1)3R3 and compute an approximation a¯ such that |a¯ - a¯ | < . By Lemma 3.1
+
+part (ii), this approximation can be found in polynomial time.
+
+    Since  1, for 1  i  3 we have |a¯i - a¯i |  i (2R¯ + 1)i. Thus for any (u, v) with (u, v) 2  (R¯ + 1)R, we
+
+have
+
+                                                                        3                                       3
+
+|ga¯ (u, v) - wa¯ (u, v)| = (c0 + c1a¯ + c2a¯2 + c3a¯3) u3  ci(a¯i - a¯i ) (R¯ + 1)3R3  |ci||a¯i - a¯i |(R¯ + 1)3R3
+
+                                                                     i=1                                        i=1
+
+                         3
+
+                                   4M     3 (2R¯ + 1)3(R¯ + 1)3R3             ×  36  ×  M(2R¯     +  1)3(R¯  +  1)3R3    1  .
+                                                                                                                         4
+
+                         i=1
+
+Let  f  (x, y) := wa¯  (x, y - a¯  x) and consider A¯  (u, v) = (x, y) with A¯          =   1     0  . Then, for all x, y  B we have
+                                                                                            a¯    1
+
+        (u, v) 2 = A¯-1(x, y) 2  A¯-1 2 (x, y) 2  A¯-1 1 (x, y) 2  (R¯ + 1) (x, y) 2  (R¯ + 1)R,
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane  11
+
+because A¯-1 2  A¯-1 1 A¯-1  = A¯-1 1 and |a¯ - a¯ | <  1. Thus
+
+                                      | f (x, y) - f (x, y)| = |ga¯ (u, v) - wa¯ (u, v)|  1/4.
+
+Thus,  for      Z  +  1  ,  we  have  that
+                      2
+
+                                {(x, y)  B  Z2 : f (x, y)  } = {(x, y)  B  Z2 : f (x, y)  }.
+
+   Therefore, we can solve the feasibility problem for f by solving the feasibility problem for f . By
+Lemma 4.7, we can find Pi, Qi and Li to divide the plane for the level sets of wa¯ , which is done by scaling the
+function to have integer coefficients. Then, under the linear transformation A¯ , we have that A¯ Pi, A¯ Qi, A¯ Li
+are all rational polyhedra, so they comprise a division description.
+
+   Theorem 4.9 (cubic, bounded). Theorem 1.3 holds when P is bounded.
+
+   Proof. Follows directly from Lemmas 4.4, 4.5, 4.7, 4.8 and Theorem 2.4.
+
+   5. Homogeneous Polynomials In this section we will prove Theorem 1.6 by showing that for homo-
+geneous polynomials, we can choose one division description of the plane that works for all level sets.
+This is done by appropriately approximating the regions where the function is quasiconvex and quasicon-
+cave. We say that a function f is quasiconvex on a convex set S if all the sublevel sets are convex, i.e.,
+{x  S : f (x)  } is convex for all   R. A function f is quasiconcave on a set S if - f is quasiconvex on S .
+A polyhedral division of the regions of quasiconvexity and quasiconcavity is a division description for any
+sublevel set. Therefore, if we can divide the domain into polyhedral regions where the objective is either
+quasiconvex or quasiconcave, then we can apply Theorem 2.4.
+
+   In Section 5.1 we study homogeneous functions and investigate where they are quasiconvex or quasicon-
+cave. In Section 5.2, we show how to divide the domain appropriately into regions of quasiconvexity and
+quasiconcavity, proving the main result for homogeneous polynomials.
+
+   5.1. Homogeneous Functions and the Bordered Hessian The main tool that we will use for distin-
+guishing regions where f is quasiconvex or quasiconcave is the bordered Hessian. For a twice differentiable
+function f : Rn  R the bordered Hessian is defined as
+
+                                            Hf =   0  fT   ,                                                      (7)
+                                                  f   2 f
+
+where  f is the gradient of f and 2 f is the Hessian of f .
+   We will denote by Df the determinant of the bordered Hessian of f . Let fi denote the partial derivative
+
+of f with respect to xi and fij denote the mixed partial with respect to xi and xj. The following result can be
+derived from Theorem 2.2.12 and 3.4.13 in [3].
+
+   Lemma 5.1. Let f : R2  R be a continuous function that is twice continuously differentiable on a convex
+set S .
+
+   (i) If Df < 0, then f is quasiconvex on the closure of S .
+  (ii) If Df > 0, then f is quasiconcave on the closure of S .
+
+   We now briefly discuss general homogeneous functions. We say that h : Rn  R is homogeneous of
+degree d if h(x) = dh(x) for all x  Rn and   R. Clearly a homogeneous polynomial of degree d is a
+homogeneous function of degree d.
+
+   The following lemma shows that the determinant of the bordered Hessian has a nice formula for any
+homogeneous function. This was proved in Hemmer [11] for the case of n = 2, which can be adapted easily
+to general n.
+12    Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+    Lemma 5.2. Let h : Rn  R be a twice continuously differentiable homogeneous function of degree d  2.
+
+Then             -d
+                d-1
+      Dh(x)  =       h(x)  ·  det(2h(x))                for all x  Rn.  (8)
+
+    Recall that a polynomial f (x) : Rn  R is homogeneous translatable if there exists a t  Rn such that
+
+f (x + t) = h(x) for some homogeneous polynomial h(x).
+
+   Corollary 5.3. Let f be a homogeneous translatable polynomial in 2 variables of degree d  2. Then
+either Df is identically equal to zero, or Df is a homogeneous translatable polynomial that translates to a
+homogeneous polynomial of degree 3d - 4.
+
+   If h : R2  R is a homogeneous polynomial of degree d  2 and Dh  0, then h is the power of a linear
+form, as the following lemma shows.
+
+   Lemma 5.4 (Lemma 3 in [11]). Let h : R2  R be a homogeneous polynomial of degree d  2. Then
+Dh  0 if and only if there exist c  R2 such that
+
+                     h(x) = (cT x)d.                                    (9)
+
+   5.2. Division of Quasiconvex and Quasiconcave Regions and Proof of Theorem 1.6 Let P be a
+bounded rational polyhedron and let f be a homogeneous translatable polynomial and suppose that Df is
+also homogeneous translatable. Recall that there exists an integer R  1 whose size is polynomial in the size
+of P such that P  B := [-R, R]2.
+
+   We will show how to decompose B  Z2 into polyhedra Pi where Df < 0, Qi where Df > 0, and lines Lk.
+Thus we obtain a classification of regions of quasiconvexity and quasiconcavity by Lemma 5.1 and can then
+use Theorem 2.4.
+
+   The regions Df  0 and Df  0 cannot be described by rational hyperplanes; therefore, we approximate
+them sufficiently closely by rational hyperplanes. In order to avoid numerical difficulties, we allow the
+possibility of leaving out a line of integer points, which we consider separately. To determine those lines,
+Lemma 3.4 will be useful.
+
+   We will summarize a strategy to create the desired regions for a homogeneous polynomial h of degree d.
+We will then prove a theorem for the more general setting of a homogeneous translatable polynomial F in
+a similar way, which we later apply to F = Df .
+
+   For a homogeneous polynomial h of degree d that is not the zero function, the roots of h must lie on at
+most d lines, which we will call zero lines. This is because if h(x¯) = 0, then we have h(x¯) = dh(x¯) = 0 for
+all   R. Each zero line is either the line x1 = 0, or must intersect the line x2 =  for any fixed  0. The fact
+that the former is a zero line can be established by testing whether h(0, x2) is the zero polynomial. To see
+how the latter defines zero lines, consider the polynomial h(x1, ). It is a univariate polynomial of degree d,
+and hence has at most d roots. Therefore, finding these roots (and hence the intersections of the zero lines
+of h with the line x2 = ) completes our classification of all the zero lines of h.
+
+   We choose  = R and use Lemma 3.1 part (iii) to find intervals containing the roots of h(x1, R). These
+intervals can be used to create quadrilaterals that cover the zero lines of h within B. Provided that the proper
+accuracy is used, these quadrilaterals will contain at most one line of integer points. Finally, taking the
+complement of quadrilaterals in B, we find a union of polyhedra where h is non-zero. We can then find an
+interior point of each polyhedron on which we can evaluate h to determine the sign on each polyhedron.
+
+   Theorem 5.5. Let F(x) be a homogeneous translatable polynomial in two variables of degree d  Z0
+with integer coefficients that is not the zero function. Let  Z+ be a bound on the size of the coefficients of
+F. In polynomial time in , d and the size of R, we can partition B  Z2 into three types of regions:
+
+   (i) rational polyhedra Pi where F(x) > 0 for all x  Pi  B  Z2,
+  (ii) rational polyhedra Qj where F(x) < 0 for all x  Qj  B  Z2,
+  (iii) one dimensional rational linear spaces Lk,
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                            13
+
+where each polyhedron Pi, Qi is described by polynomially many rational linear inequalities and each linear
+space is described by one rational hyperplane, and all have size polynomial in , d, and the size of R.
+Furthermore, there are only polynomially many polyhedra Pi, Qi and linear spaces Lk.
+
+   Proof. Since F is homogeneous translatable, there exists t  R2 such that h(x) = F(x+t) is a homogeneous
+polynomial of degree at most d. The zeros of h lie on lines through the origin. Therefore, the zeros of F
+
+must lie on lines through t.
+   We consider the region S = {x  R2 : -R  x2  R}. Since all zero lines of F pass through t, the geometry
+
+of the nonnegative regions in B depends on whether or not t  S .
+   Consider the distinct roots 1 < 2 < · · · < r and 1 < 2 < · · · < s of the univariate polynomials F(x1, R)
+
+and F(x1, -R), respectively. Assume without loss of generality that r = s, because if we encounter the case
+r s, then t is on the boundary of the region, so we can simply set R := R + 1, which will result in r = s.
+
+   If t S , then the zero lines of F do not intersect in S and hence there must be a zero line from each i to
+each i (cf. Figure 2a). If t  S , the zero lines intersect in S , and therefore the zero lines of F connect each
+i to each r-i (cf. Figure 2b). The union of those two sets of lines has cardinality at most 2d and contains
+all zero lines of F except for lines parallel to the x2 axis (cf. Figure 2c). By switching x1 and x2, repeating
+the same procedure and adding the resulting at most 2d lines, we thus get a set of at most 4d lines which
+
+contain all the zero lines of F.
+
+   For each of the at most 4d lines we now construct a rational quadrilateral containing its intersection
+
+with B and with the property that all integer points in the quadrilateral are contained on a single line. We
+describe this only where we fix x2 = ±R, as the case of fixing x1 is similar. Consider the line passing through
+(, R) and (, -R). In time and output size that is bounded by polynomial in , and the size of R and (see
+
+Lemma 3.1), we can compute a sequence of disjoint intervals, each of length smaller than containing the
+
+roots of F(x1, ±R). Thus, for the root , we can construct -, +  Q with - <  < + such that |+ - -| < .
+
+Similarly, we can construct -, +  Q for .
+
+   If we choose           :=  1   ,   then  the    rational        quadrilateral  defined  by        vertices   (-, R),  (+, R),  (-, -R)   and
+                              4R
+(+,                                                1   =  1
+       -R)  has  volume   less       than  2×R     4R     2  .  Moreover,  it    can  be  defined    by  inequalities  with  a  polynomial  size
+
+description. Hence by Lemma 3.4, the integer points in it are contained in a rational line that we can find a
+
+description of in polynomial time. Each one of those lines will define one Lk in the division description.
+
+   In total, this results in at most 4d linear spaces Lk, 8d hyperplanes for the quadrilaterals and 4 hyperplanes
+for the boundary of B. Apply the hyperplane arrangement algorithm of [25] to enumerate all O(d2) cells of
+the arrangement in O(d3 p(2, d)) time. Here p(2, d) is the cost of running a linear program in dimension 2
+
+with d inequalities, which is in polynomial time because of the inputs are of polynomial size. For each cell,
+a signed vector of +, 0, and - describing if the relatively open cell satisfies ai · x > bi, ai · x = bi, ai · x < bi,
+respectively, for every hyperplane ai · x = bi in the arrangement. We exclude cells that are contained in the
+union of quadrilaterals and cells not contained in B by reading these signed vectors. This is all done in
+
+polynomial time in d.
+
+   We have described how to obtain at most 4d linear spaces Lk and polynomially many rational polyhedra
+that contain all integer points in B. Using linear programming techniques, we can determine an interior point
+
+of each of these polyhedra. Evaluating F at each interior point determines the sign of F on each polyhedron.
+
+Hence this construction determines the list of polyhedra Pi and Qj. This finishes the result.
+                                                                                                             f
+   Recall   that  for  a  convex      set   C,  f  is  quasiconvex        on  C   if  and  only  if  C    S     is  convex        R.  Moreover,
+
+f  is  quasiconcave    on     C   if  and   only   if  C        S  f  is  convex   .
+                                                                   >
+
+   Corollary 5.6. Let f be a homogeneous translatable polynomial of degree d  2 with integer coeffi-
+cients. In time and output size bounded by polynomial in d, the size of R, and the size of the coefficients
+
+of f , we can find a polynomial number of rational polyhedra Pi, Qj and rational lines Lk such that f is
+quasiconvex on Pi, quasiconcave on Qj, and
+
+                                                                   1          2            3
+                                                 B  Z2 =  i=1 Pi  j=1 Q j  k=1 Lk  Z2.
+                                                                                                                                            (10)
+14                                Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+                                    1 2 3                  1 2 3                           1 2 3
+
+                      x2 = R
+
+                                                                           t
+
+                      x2 = -R           2 3                1 2 3                           1 2 3
+                                  1     (a)                        (b)                             (c)
+
+Figure 2. This figure illustrates the techniques in Theorem 5.5. The black solid lines are the zero lines of F. We construct the
+shaded quadrilaterals using numerical approximations on the roots i and i to an accuracy such that they each contain at most one
+line of integer points. (a) If the zero lines of F do not intersect in S , then each zero line passes through (i, R), (i, -R) for some i.
+(b) If the zero lines of F intersect in S , then they intersect in a common intersection point t. Each zero line passes through (i, R),
+(r-i, -R) for some i, except for a potential horizontal zero line. (c) To avoid having to know whether the zero lines intersect in S or
+
+not, we simply consider all potential lines from both cases. Note that this still does not include a potential horizontal zero line. This
+
+line is covered by switching x1 with x2 and repeating the same procedure.
+
+In  particular,  for  a  given      R,  this  yields  a  division  description  for  S  f  on  B.
+                                                                                        
+
+   Proof. If Df  0, then by Lemma 5.4 f has the form f (x) = (cT (x-t))d. This function has one line of zeros
+and has the property that whenever f > 0, f is convex and whenever f < 0, f is concave. By Theorem 5.5,
+
+we hence divide B  Z2 into polyhedra where f is quasiconvex or quasiconcave and some rational lines
+
+containing integer points. If instead Df 0, then by Corollary 5.3, Df is homogeneous translatable of degree
+3d - 4. By Theorem 5.5, we can cover B  Z2 with polyhedra where Df < 0 or Df > 0 and just lines.
+
+Applying Lemma 5.1, shows that f is quasiconvex or quasiconcave in these polyhedra. By the definition of
+
+quasiconvexity,  this    yields  a  division  description  for  S  f  for  all  .
+                                                                   
+
+    Proof of Theorem 1.6 If d  1, the problem is a particular case of integer linear programming, which is
+
+polynomially solvable in fixed dimension [22, 23, 17]. Assume that d  2. By Corollary 5.6, we can con-
+
+struct a polynomial number of rational polyhedra with polynomially bounded size where f is quasiconvex
+
+or quasiconcave, and linear spaces, that cover P  Z2. This description yields a division description for any
+
+. We can then solve our problem in polynomial time using Theorem 2.4.
+
+    The proof of Theorem 1.6 is more general than is needed here. In fact, the same proof shows that we
+
+can also minimize a polynomial f (x1, x2) whenever Df is homogeneous translatable and is not identically
+
+zero. Minimizing general quadratics in two variables can then be done in this manner, because either Df has
+those properties, or we can compute a rational constant c0 such that f (x) + c0 is homogeneous translatable.
+
+    6. Cubic Polynomials and Unbounded Polyhedra In this section, we prove Theorem 1.3, i.e., we
+
+show how to solve Problem (1) in two variables when f is cubic and P is allowed to be unbounded. The
+
+behavior of the objective function on feasible directions of unboundedness is mostly determined by the
+
+degree three homogeneous part of f . Hence we will study degree three homogeneous polynomials before
+
+proceeding with the proof of Theorem 1.3
+
+    A homogeneous polynomial of degree three factors (over the reals) either into a linear function and an
+
+irreducible quadratic polynomial, or three linear functions. We distinguish between the cases where the
+
+linear functions are distinct, have multiplicity two, or have multiplicity three, in part, by analyzing the
+
+discriminant d of certain degree d polynomials. In particular, if p(x) =                       d    ci xi,  with  cd  0, then 2 =
+                                                                                               i=0
+
+c21 - 4c0c2 and 3 = c21c22 - 4c13c3 - 4c0c23 - 27c20c23 + 18c0c1c2c3.
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                                            15
+
+     10                                10                                           10                                       10
+
+     5                                   5                                             5                                     5
+
+     0                                   0                                             0                                     0
+
+     5                                   5                                             5                                     5
+
+     10                                10                                           10                                       10
+
+         10   5     0     5       10        10     5               0     5      10        10         5      0    5      10       10    5    0      5    10
+
+              +-                            rec(P)                                        rec(P)                                               rec(P)
+                            rec(P)                    +                                                                                   +
+                             +
+                                              +                                           +                         -
+              -                                                             -
+
+                    +-                                          -                                                                               -
+
+                    (i)                                     (ii)                                        (iii)                              (iv)
+
+Figure 3. The top four plots are contour plots for examples of the four classes of cubic homogeneous polynomials as described in
+the proof of Lemma 6.2. The bottom four plots depict the sign of the polynomial. The red lines are the zero level set. The polynomial
+is zero on (i) three distinct lines, (ii) one single and one repeated line, (iii) a triple line or (iv) a single line. The thicker red line in
+(ii) and (iii) is the zero line with multiplicity 2 and 3 respectively. If the function is zero on a single line only as in (iv), then it is
+the product of a line and a quadratic polynomial that is irreducible over the reals. Examples of rec(P) as discussed in Case 3 of the
+proof of Theorem 1.3 are depicted in green.
+
+Lemma 6.1 (repeated lines). Let h(x, y) = c0x3 + c1x2y + c2xy2 + c3y3 be a homogeneous polynomial of
+
+degree 3 with integer coefficients, that is, ci  Z for i = 0, 1, 2, 3. Suppose h 0 and there exist a1, b1, a2, b2 
+
+R such that
+
+                                                         h(x, y) = (a1 x + b1y)2(a2 x + b2y).                                                               (11)
+
+Then, in polynomial time we can determine ai, bi  Q, for i = 1, 2, such that h(x, y) = d (a1x + b1y)2(a2x + b2y)
+for some d  R.
+
+Proof. First, suppose that c0 = c3 = 0. Then h(x, y) = xy(c1x + c2y), which implies c1 = 0 or c2 = 0 by
+
+equation (11). If c1 = 0, then we can take a1 = 0, b1 = 1, a2 = c2 and b2 = 0. The case c2 = 0 follows by
+switching x and y. Henceforth, we consider the case where either c1 0 or c3 0. Since these cases are
+
+symmetric in switching x and y, we assume without loss of generality that c0 0.
+
+Since c0 0, by equation (11) we have that ai 0 for i = 1, 2. Consider the rational cubic polynomial
+
+h(x, 1) = c0x3 + c1x2 + c2x + c3. By equation (11) it has a repeated root, so its discriminant 3 is equal to zero
+                                                   c21                          2c31
+(see, for    example,    [12]).   Let  p    =   -  3c20  +      c2    and   q=  27c03  -      c1 c2  +  c3  .  Since  3 = 0,     by  [13]  the   roots  of  h(x, 1)
+                                                                c0                            3c20      c0
+
+are  of  the  form  r  -  c1   ,  where  either       r  =      0,    r  =  ±   -p/3 or r = ±2                   -p/3. Since 3 = c04(-4p3 - 27q2) = 0,
+                          3c0
+                                                         3|q|
+we have that if p         0, then      - p/3       =     2| p|  ,  which    is  rational.     Thus          all  roots  are  rational  and  can    be  computed
+
+explicitly in terms of the coefficients of h.
+
+   Finally, if r1 is the double root of h(x, 1) and r2 is the single root, then a1 = 1, b1 = -r1, a2 = 1 and b2 = -r2
+are rational and h(x, y) = d (a1 x + b1y)2(a2 x + b2y) for d = a12a2.
+
+   If h is a cubic homogeneous bivariate polynomial, then a linear factor always factors out over the reals.
+
+Thus, there exist real numbers ai, bi for i = 1, 2, 3, with (ai, bi) and (aj, bj) linearly independent if i j, a
+
+quadratic irreducible polynomial q(x, y), and d  R such that it is of one of the following types:
+
+      Type (i) h(x, y) = (a1 x + b1y) (a2 x + b2y) (a3 x + b3y),
+     Type (ii) h(x, y) = (a1 x + b1y)2 (a2 x + b2y),
+     Type (iii) h(x, y) = d (a1x + b1y)3,
+
+         Type (iv) h(x, y) = (a1x + b1y) q(x, y).
+
+An example of each type is shown in Figure 3.
+16                                 Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+   Lemma 6.2. Let h be a cubic homogeneous bivariate polynomial. In polynomial time, we can determine
+which of the four Types (i)-(iv) the polynomial h belongs to. Furthermore, if it is of Type (ii) or Type (iii), in
+polynomial time, we can compute rational ai, bi, i = 1, 2, satisfying the equation.
+
+   Proof. We show how to determine which of the Types (i)-(iv) the polynomial belongs to. Suppose first
+that the coefficient of y3 is zero. Then x = 0 is one of the zero lines of the polynomials and we can factor out
+
+x, leaving us with a homogeneous polynomial of degree 2. If x factors out again, then depending on whether
+it factors out a third time or not, we are either in Type (ii) or (iii), because either h(x, y) = a21x2(a2x + b2y),
+b2 0, or h(x, y) = a13x3. If x does not factor out a second time, then we look at the discriminant 2 of the
+degree 2 polynomial where we set x = 1. It is well known that the sign of 2 determines whether h(1, y) has
+2, 1 or 0 distinct real roots (see, for example, [12]). Remember that since h is homogeneous, h(1, y¯) = 0 if
+and only if h(, y¯) = 0    0. Thus, if 2 > 0 we are in Type (i), if 2 = 0 in Type (ii), and if 2 < 0 in
+Type (iv).
+
+   Let us now look at the case where x = 0 is not a zero line of the polynomial. Set x = 1 and consider the
+discriminant 3 of the resulting polynomial. It is well known that the sign of 3 determines whether h(1, y)
+has three distinct real roots, one real root and two complex conjugate roots, or if all roots are real and at
+least two of them coincide (see, for example, [12]). Thus, if 3 > 0, we are in Type (i), and if 3 < 0, we are
+in Type (iv). Finally, if 3 = 0 we are either in Type (ii) or (iii). To distinguish between those two, note that it
+is possible to establish the multiplicity of a root of a univariate polynomial by checking whether it is also a
+
+root of its derivatives. Thus compute the root of the second derivative. Note that it is a rational expression in
+terms of the coefficients of the original polynomial, so it is rational. If it is also a root of the first derivative
+and the original polynomial (with x = 1), then it is a triple root, so we are in Type (iii). Otherwise, we are in
+
+Type (ii). Hence, in polynomial time, we can determine which case we are in.
+   Finally, by Lemma 6.1, if h is of Type (ii) or (iii), then we can compute rational ai, bi for i = 1, 2. In
+
+fact, if h is of Type (ii) this is straightforward, whereas if it is of Type (iii), we can rewrite h as h(x, y) =
+(a1 x + b1y)2 (da1 x + db1y).
+
+   We will also need the following lemma about lower bounding a polynomial that is positive on a compact
+
+set.
+
+   Lemma 6.3. Let f : [0, 1]  R be a polynomial of maximum degree at most 3 with rational coefficients.
+Suppose f (x) > 0 for all x  [0, 1]. Then there exists a lower bound m of polynomial size in the size of the
+coefficients of f such that f (x) > m > 0 for all x  [0, 1].
+
+   Proof. We will bound the minimum value of f on [0, 1]. Since f is a polynomial, it attains its minimum
+value at a critical value or at one of the endpoints of the interval. Clearly, f (0) and f (1) have a polynomial
+size in the size of the coefficients of f , so we only need to bound the function at any critical values.
+
+   Consider
+                            f (x) = ax3 + bx2 + cx + d, and f (x) = 3ax2 + 2bx + c = 0.
+
+If a = 0, then the only critical point is at x = -c/(2b). Clearly f (-c/(2b)) also has polynomial size.
+
+    Otherwise, a 0. Then, from the quadratic formula, it follows that
+
+                                                                   27a2d              +  2b3            2b2  b2 - 3ac .
+                        b2 - 3ac ,
+            x± = -b ±  3a                   and         f (x±)  =           -  9abc           ± 6ac  -
+                                                                                              27a2
+                                                                                                  
+Thus,  set  p=  , 27a2 d-9abc+2b3  q  =  ±  6ac-2b2  ,  and  t = b2 - 3ac,  and  let  f  =  p + q t.  By  rearranging,  we  arrive  at
+                       27a2                   27a2
+
+                                                             ( f  - p)2 - q2t = 0.
+
+Since we know that f  > 0, by Theorem 4.1 its smallest positive root is at least as large as some m > 0,
+where m is of polynomial size in the original coefficients.
+
+   We now prove Theorem 1.3.
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                            17
+
+Proof of Theorem 1.3 We will either show that Problem (1) is unbounded and exhibit a feasible point x¯
+
+and an integral ray r¯, each of polynomial size, such that the objective function tends to - along x¯ + r¯ as
+
+  , or we will exhibit a polynomial size bound R such that the optimal solution x of Problem (1) is
+
+contained in P  [-R, R]2, and hence the solution can be found in polynomial time using Theorem 4.9.
+
+   We assume that PI is unbounded, because otherwise Problem (1) can be solved using Theorem 4.9. If the
+degree of f is not greater than two, then Problem (1) can be solved by [8]. Thus we will assume that the
+
+degree of f is exactly three. We will also assume that rec(P) is a pointed cone, where rec(P) denotes the
+
+recession cone of P. If not, then we can divide P into four polyhedra where the recession cone is pointed,
+
+for instance, by restricting to the four standard orthants of R2, and solving on each polyhedron separately.
+Since rec(P) is pointed, using linear programming techniques, we can compute rational rays r1, r2 such that
+
+rec(P) = cone{r1, r2} = {1r1 + 2r2 : 1, 2  0}. Without loss of generality, we assume that r1, r2  Z2 are
+
+integral, as this can be obtained by scaling.
+
+   We will be focused on the behavior of f (x+r) as  varies, where x  PZ2 and r  rec(P). Since rec(P) =
+cone{r1, r2}, we only need to restrict our attention to r  conv{r1, r2}. Since P is pointed, 0 conv{r1, r2}. In
+
+large part, the behavior of f (x + r) is determined by h, where h is the non-trivial degree three homogeneous
+
+polynomial such that f - h is of degree two. We decompose f (x + r) by parametrizing with  in the
+
+following way:
+
+                                        f (x + r) = h(r)3 + g2(x, r)2 + g1(x, r) + f (x).                                                 (12)
+
+   We consider cases based on the sign of h on conv{r1, r2}. In particular, let h = min{h(r) : r  conv{r1, r2}}.
+We can determine the sign of h by considering the univariate polynomial h¯(s) := h(sr1 + (1 - s)r2) on the
+
+interval s  [0, 1] and applying Lemma 3.1 part (iii) and testing the points based on the location of the zeros.
+Note that the sign of h can be determined without actually computing h. This is important, since the value
+h could be irrational.
+
+   Case 1: Suppose h < 0.
+   Then h(r) < 0 for some r  conv{r1, r2}. We begin by computing a rational ray r¯  conv{r1, r2} with
+h(r¯) < 0. If h(r1) < 0 or h(r2) < 0, then we are done. Otherwise, by Rolle's theorem, h¯(s) = 0 somewhere on
+
+[0, 1]. By numerically approximating the zeros of h with Lemma 3.1 part (iii), we obtain separated upper
+and lower bounds, ~ +i and ~ -i , on the zeros of h. Note that any prescribed tolerance works here since we
+only want to separate the zeros. Once the zeros are separated, one of these approximations must attain a
+negative value, call it s~. Then set r¯ = s~r1 + (1 - s~)r2.
+
+   Using Lenstra's algorithm, find a point x¯  P  Z2 of polynomially bounded size. There exist infinitely
+many points x¯ + r¯  P  Z2 for   0. By (12), f (x¯ + r¯) is a cubic polynomial in  with a negative leading
+
+coefficient. Hence f (x + r)  - as   , i.e., Problem (1) is unbounded from x¯ along the ray r¯.
+   Case 2: Suppose h > 0.
+   Since h > 0 and r1, r2 are rational of polynomial size, and h¯ is a polynomial with coefficients of polyno-
+
+mial size, we can also pick an 0 < h0  h of polynomial size using Lemma 6.3.
+   Using the Minkowski-Weyl theorem and linear programming, we can decompose P into P = Q + rec(P),
+
+where Q is a polytope and hence bounded. Let RQ be of polynomial size such that Q  [-RQ, RQ]2.
+   Again, using Lenstra's algorithm, determine any x¯  P  Z2 of polynomial size. We now will determine a
+
+bound on  such that f (q + r)  f (x¯) for all q  Q and r  conv{r1, r2}.
+   From (12), we have f (q + r) - f (x¯) = h(r)3 + g2(q, r)2 + g1(q, r) + f (q) - f (x¯). Note that gi are
+
+polynomials with coefficients of size bounded by a polynomial in the size of the coefficients of f . Since
+(q, r)  Q × conv{r1, r2}, there exists a uniform polynomial size upper bound on | f (q) - f (x¯)|, |gi(q, r)|, i =
+1, 2, on Q × conv{r1, r2}, call this U. Then
+
+                         f (x) - f (x¯)  h(r)3 - 3U2  h03 - 3U2 = (h0 - 3U)2  0,
+
+where  first  and  last  inequalities   together  hold  whenever      max{  3U  ,  1}.  Therefore,                if  x  =  q  +  r    P    Z2
+                                                                            h0
+        3U
+with    h0    ,  then  f (x)   f (x¯).
+18                                       Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+    Finally, let R := RQ + max             1,  3U  × max       r1  22,    r2  2  .
+                                               h0                             2
+
+    Therefore, the optimal solution to Problem (1) is contained in [-R, R]2 and R is of polynomial size.
+
+    Case 3: Suppose h  0.
+
+    If h > 0, then we are in Case 2. Otherwise, there exists at least one ray r  conv{r1, r2} such that h(r) = 0.
+
+Now rec(P)  S h0. Recall that the homogeneous polynomial h is of one of the four types (Types (i)-(iv)).
+                                                                                          h
+Notice  that   Type       (ii)  is  the  only  type    where      int(rec(P))          S  =0  can  be  non-empty  (cf.  Figure  3).  Therefore,
+
+if h is not of Type (ii), then r must be an extreme ray of rec(P), i.e., r = r1 or r = r2. Otherwise, when h is
+
+of  Type    (ii),  the  set  S  h   is  a  rational  line.   By   Lemma          6.2,  we     can  distinguish  these  cases  and  compute   the
+                                =0
+rational line if necessary. Hence, we can compute all candidate rays r  conv{r1, r2} such that h(r) = 0 in
+
+polynomial time.
+
+    We now divide the problem such that we must consider at most one of these recession rays and such
+
+that it is an extreme ray of the divided problem. This can be done, for instance, by averaging the candidate
+
+rays, then restricting recession cones described by neighboring pairs of rays. We show how to solve just one
+
+such problem, as the others can be solved in an identical manner. Thus, for the remainder of the proof, we
+
+redefine r1, r2 such that rec(P) = cone{r1, r2} with h(r1) = 0, h(r) > 0 for all r  conv{r1, r2} \ {r1}. Without
+
+loss of generality, r1, r2  Z2.
+
+   Finally, we make one more decomposition. Let Q be the convex hull of the vertices of PI, in particular
+
+PI = Q + rec(P), and Q is bounded. Let x^ be the vertex of Q such that PI = P1  P2 where P1 = x^ + rec(P)
+and P2 = Q + cone{r2}. Choose (r1) as either (-r21, r11) or (r21, -r11) such that r2 · (r1) > 0. Then the vertex x^
+is a solution to the minimization problem min{(r1) · x : x  P  Z2}.
+
+   Notice that rec(P2) = cone(r2) and h(r2) > 0. Thus, we can derive a bound just as in Case 2, that is, we
+find polynomial size bounds ¯ 2 and R2 such that the optimal solution in P2 is contained in [-R2, R2]2 and
+also f (q + 2r2)  f (x^) for all 2  ¯ 2 and q  Q.
+
+   Henceforth, we only need to focus on the region P1 = x^ + rec(P).
+   We will use equation (12) with r = r1 fixed. To make explicit that g1, g2 only depend on x, we write
+gr11(x) := g1(x, r1) and gr21(x) := g2(x, r1). Since we know r1, we can compute explicitly the coefficients in the
+polynomials gr11(x) and gr21(x). Since h(r1) = 0, equation (12) reduces to
+
+                                f (x^ + r1 + 2r2) = gr21 (x^ + 2r2)2 + g1r1 (x^ + 2r2) + f (x^ + 2r2).                                 (13)
+
+   Case 3a: Suppose gr21(x) 0. Now consider the equivalent rewritings of f (x + µr1 + r1) as polynomials
+in ,
+
+                                f ((x + µr1) + r1) = gr21(x + µr1)2 + g1r1(x + µr1) + f (x + µr1),
+                                  f (x + (µ + )r1) = g2r1(x)(µ + )2 + gr11(x)(µ + ) + f (x).
+
+Considering these as polynomials in , the highest order coefficients, i.e., the coefficients of 2, must coin-
+cide. Hence g2r1(x + µr1) = g2r1(x), so g2 is invariant with respect to changes in the r1 direction.
+
+   Therefore, we compute
+
+                      g2 := min{g2r1 (x) : x  P1  Z2} = min{g2r1 (x^ + 2r2) : 1r1 + 2r2  Z2, 1, 2  0}                                  (14)
+                             min{g2r1 (x^
+                          =                +   2r2)    :  2    p  Z+  },
+                                                               q
+
+where p = gcd{r11, r21}, and q = (r1) · r2. The last inequality holds since x  Z2 such that (r1) · x = z  Z if
+and only if z  pZ and moreover (r1) · x = (r1) · (x^ + 1r1 + 2r2) = (r1) · (x^ + 2r2). Therefore, 2(r1) · r2 
+
+pZ,  i.e.,  2      p  Z.  This  last    problem    is  a  one  dimensional          integer   polynomial  optimization        problem  that  can
+                   q
+
+be solved by Theorem 1.1.
+
+    We now do a case analysis on the sign of g2 provided that g2r1(x) 0.
+    Case 3a1: Suppose g2 < 0. Then let 2 be a minimizer to the minimization problem (14). Let x¯  Z2 be
+such that x¯ = x^ + 2r2 + 1r1  Z2 for some 1  0, which can be found using a linear integer program. Since
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                                                 19
+
+f (x¯ + r1) is a quadratic polynomial in  with a negative leading coefficient and f (x¯ + r1)  - as   ,
+
+the problem is unbounded from the point x¯ along the ray r1.
+   Case 3a2: Suppose g2 > 0. Since all inputs are integral, g2r1(x^)  Z and g2 > 0, we have g2r1(x^)  1. Since
+
+g2r1(x) is linear in x, we have for  R2, with   1
+
+                                 |gr21(x^) - g2(x^, r1 + )|  45 × M × max{1, x^ } × r1  × .
+
+Recall that M is the sum of the absolute values of the coefficients of f . We choose = (r2 - r1) such
+
+that 0 <    <       1    2  ,  and  such     that      <                        1  x^   }×  r1   .  Let    r^  =  r1    +  (r2   -  r1)  . It follows that r^ is of
+                 r2 -r1                                       2×45×M×max{1,
+                                                                                                
+polynomial size and for all r  conv{r1, r^}, we have
+
+                                             g2 (x^ ,  r)     gr21 (x^)  -  |gr21 (x^)  -   g2 (x^ ,  r)|      1  -  1  =  1.
+                                                                                                                     2     2
+
+   We now decompose P1 into pieces P11 = x^ + cone{r1, r^} and P12 = x^ + cone{r^, r2}.
+   On P12, a polynomial size bound R12 is given by the analysis in Case 2 since h(r) > 0 for all r  conv{r^, r2}.
+   On P11, consider any x^  P11. Similar to Case 2, we find a ¯ of polynomial size such that f (x^ + r)  f (x^)
+for all   ¯ and r  [r1, r^]. We determine ¯ this time using the fact that g2 > 0. Using equation (12) and the
+
+fact that h(r)  0, we have
+
+            f (x^ + r) - f (x^) = h(r)3 + g2(x^, r)2 + g1(x^, r) + f (x^) - f (x^)   g2(x^, r) + g1(x^, r)  0.
+
+This last inequality holds when g2(x^, r)  |g1(x^, r)|. We can write down gi(x^, r), i = 1, 2, explicitly as poly-
+
+nomials of r with coefficients of size bounded by a polynomial in the size of the coefficients of f . Since
+
+r  conv{r1, r^}, which is a compact set, there exists a uniform polynomial size upper bound on |g1(x^, r)|, call
+this U. Hence, we can choose ¯ = U.
+
+Finally, let R11 := x^  + max {1, U} × max                                  r1     22,  r^  2   .  Therefore,        the   optimal       solution  in  P1  to Prob-
+                                                                                            2
+
+lem (1) is contained in [-R, R]2 for R = max {R11, R12}, which is of polynomial size since R11, R12 are of
+
+polynomial size.
+
+Case 3a3: Suppose g2 = 0. Since g2r1(x) 0, there are only polynomially many points where gr21(x^ +
+2r2)                     1
+      =  0  for  2       q  Z+.  After  repeated           application          of  Theorem           1.1,  we    can      find  all  such  points,  and   call  them
+
+2,1, . . . , 2,m. In fact, we can show that gr21(x^ + 2r2) is linear in terms of 2, but we use the more general
+
+technique here as it will be repeated in Case 3b3.
+
+Each subproblem min{ f (x^ + 1r1 + 2,ir2) : x^ + 1r1 + 2,ir2  P1  Z2} can be converted into a univariate
+
+subproblem and solved with Theorem 1.1.
+
+   The remaining integer points in the feasible region are contained in the polyhedra Pi1 = P1  {x^ + x :
+2,i(r1) · r2  (r1) · x  2,i+1(r1) · r2} for i = 0, . . . , m + 1, where we define 2,0 = 0 and 2,m+1 = .
+
+   As before, decompose each Pi1 as we did with P, into the polyhedra Qi1 + cone{r2} and x^i + rec(Pi1). As
+before with P2, the optimal solution on Qi1 + cone{r2} can be bounded using the techniques of Case 2. On
+each subproblem x^i + rec(Pi1), we have gr21(x^i) > 0; hence we can apply the techniques of Case 3a2.
+
+   Case 3b: Suppose gr21(x)  0, but gr11(x) 0.
+   Consider the equivalent rewritings of f (x + µr1 + r1) as polynomials in ,
+
+                                     f ((x + µr1) + r1) = gr11(x + µr1) + f (x + µr1),
+                                       f (x + (µ + )r1) = g1r1(x)(µ + ) + f (x).
+
+Considering these as polynomials in , the coefficients of  must coincide. Hence g1r1(x + µr1) = g1r1(x), so
+we see that gr11 is invariant with respect to changes in the r1 direction.
+
+   Therefore, we compute
+
+                 g1 := min{g1r1 (x) : x  P1  Z2} = min{g1r1 (x^ + 2r2) : 1r1 + 2r2  Z2, 1, 2  0}                                                                 (15)
+                               min{gr11 (x^
+                         =                   +  2r2)       :  2    p  Z+    },
+                                                                   q
+20                              Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+where p = gcd{r11, r21}, q = (r1) · r2, and the last inequality holds just as in Case 3a. This last problem is a
+
+one-dimensional integer polynomial optimization problem that can be solved by Theorem 1.1.
+
+   We now do a case analysis on the sign of g1 provided that gr11(x) 0.
+   Case 3b1: Suppose g1 < 0. Similar to Case 3a1, there is a point x¯  P  Z2 such that gr11(x¯) = g1 < 0.
+Then f (x¯ + 1r1) = gr11(x¯)1 + f (x¯)  - for 1  , so the problem is unbounded from the point x¯ in the
+direction r1.
+
+    Case 3b2: Suppose g1 > 0. Since the minimization problem for g1 is discrete and the objective is at most
+                                      g1    1
+quadratic  in  2,  we     have  that        q2  .
+
+    First, for 1  0 we have that
+
+                   f (x^ + 1r1 + 2r2) = h(r2)32 + g2(x^, r2)22 + g1(x^, r2)2 + g1r1 (x^ + 2r2)1 + f (x^)
+                                         h(r2)32 + g2(x^, r2)22 + g1(x^, r2)2 + f (x^).
+
+In particular, f (x^ + 1r1 + 2r2)  f (x^) if h(r2)22 + g2(x^, r2)2 + g1(x^, r2)  0. By Theorem 4.1 and h(r2) > 0,
+                                                   ¯ 2               1                       r2)|,             r2)|},
+we  have  that  this  is  satisfied   for  2            :=  1  +  |h(r2 )|  max{|g2 (x^ ,           |g1 (x^ ,          which   is  of    polynomial  size.
+
+Thus for 2  ¯ 2 and 1  0, we have that f (x^ + 1r1 + 2r2)  f (x^).
+
+    Next, let
+
+                                L  min{h(r2)32 + g2(x^, r2)22 + g1(x^, r2)2 : 2  0}
+                                  = min{h(r2)32 + g2(x^, r2)22 + g1(x^, r2)2 : 2  [0, ¯ 2]}.
+
+The last inequality holds because either the minimum is zero, in which case 2 = 0 is a minimizer, or the
+minimum is negative, in which case there is a minimizer in [0, ¯2] because all zeros lie in this interval. Since
+[0, ¯2] is compact and polynomially bounded, we can find a L of polynomial size. Then
+
+                   f (x^ + 1r1 + 2r2) = h(r2)32 + g2(x^, r2)22 + g1(x^, r2)2 + gr11 (x^ + 2r2)1 + f (x^)
+                                         L + 1 + f (x^).
+                                                q2
+
+Thus,  f (x^ + 1r1 + 2r2)  f (x^) when 1  ¯ 1 := -Lq2. Set R := ¯ 1 ×                                  r1      2  +    ¯ 2  ×  r2  2  .  Then  the  optimal
+                                                                                                               2                   2
+solution on P1 is bounded in [-R, R]2.
+
+    Case 3b3: Suppose g1 = 0. This is similar to Case 3a3.
+    Case 3c: Suppose gr21(x)  0 and g1r1(x)  0.
+    In this case, f (x) = f (x + r1) for all . Let p, q be as in Case 3. Then
+
+                                min{ f     (x)  :  x    P1     Z2}  =       min{  f  (x^  +  2r2)   :  2       p  Z+},
+                                                                                                               q
+
+which again can be solved using Theorem 1.1.
+
+    Appendix A: Additional Proofs In this section we give some proofs that we omit from the main part
+
+of the paper.
+
+   Proof of Lemma 5.1. We will just prove statement (i), as the proof for (ii) is similar. Note that D1f (x) =
+- f1(x)2  0, so we need to establish that it is strictly negative. Clearly this restriction is symmetric in x1 and
+x2. Hence, we only need either - f1(x)2 < 0 or - f2(x)2 < 0. Suppose that f1(x)2 = f2(x)2 = 0, in particular,
+ f (x) = 0. By definition of Df , expanding the determinant along the first row or first column shows that
+Df (x) = 0, which is a contradiction. Therefore,  f (x) 0. Hence, by Theorem 3.4.13 in [3], f is quasiconvex
+
+on S , and by Theorem 2.2.12 in [3], f is quasiconvex on the closure of S .
+
+    Proof of Lemma 5.2. Applying Euler's Theorem for homogeneous functions to the gradient, we obtain
+
+the equation
+
+                                            h(x) =            1 2h(x) · x            for all x  Rn.                                                  (16)
+                                                            d-1
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane                            21
+
+Consider the linear combination of columns of Hf (x) given by
+
+          hT (x)     x=  hT (x) · x       =      d h(x)                             ,
+          2h(x)          2h(x) · x           (d - 1)h(x)
+
+where the last equation comes from applying Euler's Theorem and equation (16). We add this vector to the
+first column of Hh(x), which does not change Dh(x), thus
+
+Dh(x) =     0    hT (x)  =      d h(x)    hT (x)               =d   h(x)               hT (x)                     .
+          h(x)   2h(x)         d h(x)     2h(x)                    h(x)                2h(x)
+
+Expanding about the left column, we separate this into two determinant computations
+
+Dh(x) = d h(x) det(2h(x)) + d    0        hT (x)               = d h det(2h(x)) + d Dh(x).
+                               h(x)       2h(x)
+
+Solving for Dh(x) finishes the result.
+   Proof of Corollary 5.3. Since f is homogeneous translatable, there exists a t  R2 such that f (x + t) = h(x)
+
+for some homogeneous polynomial h of degree d. By Lemma 5.2,
+
+Dh(x)  =   -d  h(x)  det(2h(x))  =   -d                        h11(x)h22(x) - h212(x)                                .                      (17)
+          d-1                             h(x)
+
+                                    d-1
+
+By applying Euler's Theorem to the partial derivatives, we find that the second partial derivatives are homo-
+geneous of degree d - 2. Since products of homogeneous functions are homogeneous of the degrees added
+and sums of homogeneous functions are homogeneous provided they have the same degree, we see that Dh
+is homogeneous of degree d + (d - 2) + (d - 2) = 3d - 4. If det(2h) is the zero function, then Dh is actually
+the zero function. Therefore, Dh is either a homogeneous polynomial of degree 3d - 4, or it is the zero
+function. Finally, notice that Df (x + t) = Dh(x). Therefore Df is also homogeneous translatable.
+
+   We last show how to check in polynomial time if a polynomial f : R2  R is homogeneous translatable.
+
+   Proposition A.1. Let f : R2  R be a polynomial of degree d  1 given by f (x) = vZ2+, v 1d cvxv where
+cv  Z. In polynomial time in the size of the coefficients cv, we can determine if f is homogeneous translat-
+able and if so, compute a rational translation vector t such that f (x + t) is a homogeneous polynomial.
+
+   Proof. We begin by applying an invertible linear transformation T to the variables such that f (T x) such
+that f (T x) = vZ2+, v 1d c¯vxv where c¯v = 0 for some v  Z2+ with v 1 = d. If f already has this property, then
+we take T = I. Otherwise, c(d,0), c(d-1,1) 0. Then we choose T such that T x = (x1 - c(d-1,1) x2/(dcd,0), x2). With
+this choice, c¯(d-1,1) = 0. Since homogeneity is preserved under linear transformations, f is homogeneous
+
+translatable if and only if f  T is homogeneous translatable.
+   Now that c¯v = 0 for some v  Z+2 with v 1 = d, there must exist a v¯  Z+2 with v¯ 1 = d and c¯v¯ = 0 such that
+
+either c¯(v¯1+1,v¯2-1) 0 or c¯(v¯1-1,v¯2+1) 0. Fix such a v¯ and assume, without loss of generality, that c¯(v¯1+1,v¯2-1) 0.
+   We consider the monomials of degree d - 1 (in terms of the x variables) of the expanded version of f (T x +
+
+t). The coefficient on the monomial xv for any v 1 = d - 1 must vanish for t to be a desired translation;
+
+hence we must have the equation
+
+          c¯v +  v1 + 1  c¯(v1+1,v2)t1 +  v2 + 1  c¯(v1,v2+1)t2    = 0.
+                   1                        1
+
+In particular, this relation for v = (v¯1, v¯2 - 1) shows that t1 = -c¯(v¯1,v¯2-1)     v1 +1  c¯(v¯1+1,v¯2-1            -1   If  there  is  any
+                                                                                         1
+                                                                                                                          .
+
+relation where the coefficient on t2 is nonzero, then t2 is determined by this equation and by t1. Otherwise,
+
+if t2 does not appear in any coefficients of f (T x + t), then it suffices to choose t2 = 0 since this value has
+
+no effect on f (T x + t). If instead t2 only appears in lower degree monomials, then f is not homogeneous
+22    Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane
+
+translatable since the coefficient of xv^ in the expansion of f (T x + t), where v^  arg max{ v 1 : v  Z2+, v 1 
+d, cv 0, v2 0}, is exactly cv^ 0 and is not affected by the translation t.
+
+   Finally, by computing all coefficients in the expanded version of f (T x + t), we can test if f (T x + t) is
+homogeneous hence verify whether or not f  T is homogeneous translatable. If so, then f is homogeneous
+translatable with translation vector T -1t. All the operations done in these calculations can be carried out in
+polynomial time in the size of the coefficients cv.
+
+   Acknowledgments We would like to thank Amitabh Basu for the discussions about Theorem 2.4.
+
+References
+ [1] Michel Baes, Timm Oertel, Christian Wagner, and Robert Weismantel, Mirror-descent methods in mixed-integer
+
+      convex optimization, Facets of Combinatorial Optimization (Michael Ju¨nger and Gerhard Reinelt, eds.), Springer
+      Berlin Heidelberg, 2013, pp. 101­131 (English).
+
+[2] Jacek Bochnak, Michel Coste, and Marie-Franc¸oise Roy, Real algebraic geometry, Ergebnisse der Mathematik
+     und ihrer Grenzgebiete / A Series of Modern Surveys in Mathematics, no. 36, Springer Berlin Heidelberg, Jan-
+     uary 1998 (en).
+
+[3] Alberto Cambini and Laura Martein, Generalized convexity and optimization: Theory and applications, Lecture
+     Notes in Economics and Mathematical Systems, vol. 616, Springer Berlin Heidelberg, 2009.
+
+[4] Peter J. Cameron, A course on number theory (lecture notes), School of Mathematical Sciences at Queen Mary,
+     University of London. Available at http://www.maths.qmul.ac.uk/ pjc/notes/nt.pdf.
+
+[5] W. Cook, M. Hartmann, R. Kannan, and C. McDiarmid, On integer points in polyhedra, Combinatorica 12
+     (1992), no. 1, 27­37 (English).
+
+[6] Jesu´s A. De Loera, Raymond Hemmecke, Matthias Ko¨ppe, and Robert Weismantel, Integer polynomial opti-
+     mization in fixed dimension, Mathematics of Operations Research 31 (2006), 147­153.
+
+[7] A. Del Pia, S. S. Dey, and M. Molinaro, Mixed-integer quadratic programming is in NP, Manuscript, 2014.
+
+[8] A. Del Pia and R. Weismantel, Integer quadratic programming in the plane, Proceedings of SODA 2014, 2014,
+     pp. 840­846.
+
+[9] Johann Peter Gustav Lejeune Dirichlet, Une proprie´te´ des formes quadratiques a determinant positif, Journal de
+     mathe´matiques pures et applique´es 1 (1856), 76­79.
+
+[10] Mark E. Hartmann, Cutting planes and the complexity of the integer hull, Phd thesis, Cornell University, Depart-
+      ment of Operations Research and Industrial Engineering, Ithaca, NY, 1989.
+
+[11] David Hemmer, Limiting curvature near singular points of algebraic curves, Manuscript, July 1995.
+
+[12] Ronald S. Irving, Integers, Polynomials, and Rings, Undergraduate Texts in Mathematics, Springer New York,
+      2004 (en).
+
+[13]  , Beyond the Quadratic Formula, MAA, 2013 (en).
+
+[14] L. Khachiyan and L. Porkolab, Integer optimization on convex semialgebraic sets, Discrete and Computational
+      Geometry 23 (2000), no. 2, 207­224 (English).
+
+[15] Matthias Ko¨ppe, On the complexity of nonlinear mixed-integer optimization, Mixed Integer Nonlinear Program-
+      ming (Jon Lee and Sven Leyffer, eds.), The IMA Volumes in Mathematics and its Applications, no. 154, Springer
+      New York, January 2012, pp. 533­557 (en).
+
+[16] J. C. Lagarias, On the computational complexity of determining the solvability or unsolvability of the equation
+      X2 - DY2 = -1, Transactions of the American Mathematical Society 260 (1980), no. 2, 485­508.
+
+[17] Hendrik W. Lenstra, Jr., Integer programming with a fixed number of variables, Mathematics of Operations
+      Research 8 (1983), 538­548.
+
+[18] Kenneth Manders and Leonard Adleman, NP-complete decision problems for quadratic polynomials, Proceed-
+      ings of the eighth annual ACM symposium on Theory of computing (New York, NY, USA), STOC '76, ACM,
+      1976, p. 23­29.
+
+[19] Y. Mansour, B. Schieber, and P. Tiwari, The complexity of approximating the square root, 30th Annual Sympo-
+      sium on Foundations of Computer Science, 1989, October 1989, pp. 325­330.
+Del Pia, Hildebrand, Weismantel, Zemmer: Minimizing Cubic and Homogeneous Polynomials over Integers in the Plane  23
+
+[20] Morris Marden, Geometry of Polynomials, Mathematical Surveys and Monographs, no. 3, American Mathemat-
+      ical Soc., December 1949 (en).
+
+[21] Michael Sagraloff and Kurt Mehlhorn, Computing real roots of real polynomials -- an efficient method based on
+      Descartes' rule of signs and Newton iteration, August 2013.
+
+[22] Herbert E. Scarf, Production sets with indivisibilities, part I: Generalities, Econometrica 49 (1981), no. 1, 1­32.
+
+[23]  , Production sets with indivisibilities, part II: The case of two activities, Econometrica 49 (1981), no. 2,
+
+      395­423.
+
+[24] Alexander Schrijver, Theory of linear and integer programming, John Wiley and Sons, New York, 1986.
+
+[25] Nora Sleumer, Output-sensitive cell enumeration in hyperplane arrangements, Algorithm Theory ­ SWAT'98
+      (Stefan Arnborg and Lars Ivansson, eds.), Lecture Notes in Computer Science, vol. 1432, Springer Berlin Hei-
+      delberg, 1998, pp. 300­309.
+
+[26] D. T. Walker, On the diophantine equation mX2 - nY2 = ±1, The American Mathematical Monthly 74 (1967),
+      no. 5, 504­513.
+

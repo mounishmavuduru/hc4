@@ -1,0 +1,508 @@
+  HOMOGENEOUS FUNCTIONS WITH NOWHERE VANISHING
+                                HESSIAN DETERMINANT
+
+                                                    CONNOR MOONEY
+
+             Abstract. We prove that functions that are homogeneous of degree   (0, 1)
+             on Rn and have nowhere vanishing Hessian determinant cannot change sign.
+
+                                          1. Introduction
+   Let n  2, and let   Rn be the cone over a domain   Sn-1 that has
+nonempty boundary. Let
+
+                                  pn := max{1, (n - 1)(n - 2)}.
+In this paper we show:
+
+Theorem 1.1. If there exists a function u  C  that satisfies:
+     (i) u is homogeneous of degree   (0, 1),
+    (ii) u  Wl2o,cp()  W 1,    B2\B1 for some p > pn (with p = pn allowed
+          if n  3),
+
+   (iii) u > 0 in  and u = 0 on , and
+    (iv) either det D2u or - det D2u is locally strictly positive in ,
+then Rn\ is a convex cone, and  contains a closed hemisphere.
+
+By locally strictly positive we mean bounded below by positive constants almost
+everywhere on compact sets, where the constants may depend on the sets. We in
+fact show in the course of proving Theorem 1.1 that - det D2u is locally strictly
+positive, and that D2u has exactly one negative eigenvalue (see Remark 3.2).
+
+   An immediate consequence of Theorem 1.1 is:
+Theorem 1.2. If u : Rn  R satisfies:
+
+     (i) u is homogeneous of degree   (0, 1),
+    (ii) u  Wl2o,cp (Rn\{0}) for some p > pn, and
+   (iii) either det D2u or - det D2u is locally strictly positive in Rn\{0},
+then u does not change sign.
+
+Indeed, if u changes sign then we may apply Theorem 1.1 to the sets  = {u > 0}
+and  = {-u > 0} to get a contradiction.
+
+Remark 1.3. Theorem 1.2 is special to the cases   (0, 1). Indeed, if  / [0, 1]
+and  < k2 for some nonzero integer k, then the -homogeneous function
+
+                                             u = r cos(k)
+
+    2010 Mathematics Subject Classification. 35J60, 35B65, 26B35.
+    Key words and phrases. Monge-Amp`ere equations of mixed type, special Lagrangian equation,
+regularity.
+
+                                                                             1
+2                                              CONNOR MOONEY
+
+is sign-changing and has nowhere vanishing Hessian determinant on R2\{0}. We
+also remark that 0-homogeneous functions have vanishing Hessian determinant on
+the rays where they achieve their maxima, and 1-homogeneous functions have iden-
+tically vanishing Hessian determinant.
+
+   Apart from its own interest, Theorem 1.2 is motivated by the question of when
+interior gradient estimates hold for solutions to the special Lagrangian equation
+
+(1)              F (D2u) :=      n                                                            .
+                                                                                -n , n
+                                    tan-1(k(D2u)) = (x) 
+                                                                                    22
+                                 k=1
+
+Here u is a function on a domain in Rn and k(D2u) denote the eigenvalues of
+D2u. Equation (1), introduced in the seminal work of Harvey and Lawson [HL1],
+
+prescribes the mean curvature of the gradient graph of u in Rn × Rn. In particular,
+
+this graph is volume-minimizing when  is constant. The existence of continuous
+
+viscosity solutions to the Dirichlet problem for (1) is known in certain situations
+
+(see e.g. [HL2], [HL3], [CP] and [DDT] for results concerning the Dirichlet problem
+
+for viscosity solutions, and [CNS], [CPW], and [BMS] for cases in which classical
+
+solutions can be obtained), and there are many fascinating open questions concern-
+
+ing the regularity of these solutions. For example, is not known whether viscosity
+
+solutions   to   (1)  are  locally  Lipschitz       if  either      is  a  constant     with  ||  <  (n  -  2)  
+                                                                                                                2
+                                                                     
+(they  are   if    is  a   constant   with     ||         (n  -  2)  2  ,  see  [WY],   and   more   generally
+
+if      C2   and      ||     (n  -   2)     ,  see  [BMS])      or  if     is   Lipschitz.    Classical proofs
+                                         2
+
+of interior gradient estimates for elliptic PDEs involve differentiating the equation
+
+once, so is reasonable to ask if interior gradient estimates for (1) hold under such
+
+conditions on .
+
+    A first attempt to disprove the validity of such estimates could be to build a
+
+function u that is homogeneous of degree   (0, 1), smooth away from the origin,
+
+and has nowhere vanishing Hessian determinant. Then F (D2u) would behave near
+
+the  origin  like  a  multiple   of      plus  a    smooth      function       on  the  sphere   times  |x|2-,
+                                      2
+which is C1, while u has unbounded gradient. More precisely, if D2u has k negative
+
+eigenvalues, then using the homogeneity of u and the expansion of tan-1 at ±
+
+we calculate
+
+    F (D2u(x)) = (n - 2k)  -                   (-1)j n-1[(D2u(x/|x|))2j+1]                    |x|(2-)(2j+1)
+                                  2            2j + 1 det[(D2u(x/|x|))2j+1]
+                                      j=0
+
+near the origin. Here k(D2u) denotes the kth symmetric polynomial of the eigen-
+values of D2u. Taking u = |x| appears to do the trick, but this function is not
+a viscosity solution at the origin; one needs u to change sign to prevent this issue.
+Theorem 1.2 precludes the existence of such functions, and hence can be viewed as
+evidence in favor of a positive result.
+
+Remark 1.4. The most general results concerning the solvability of the Dirichlet
+
+problem for (1) in the class of continuous viscosity solutions have been established
+for continuous phases  that avoid the special values {(n - 2k)/2}nk=-11 (see [HL3],
+[CP]). Moreover, it was recently shown that the comparison principle fails for
+
+certain continuous phases  that take a special value [Br]. In view of this one
+
+might expect weaker regularity results for solutions to (1) when the phase takes a
+
+special value. The possible examples we discussed above would have Lagrangian
+                NOWHERE VANISHING HESSIAN DETERMINANT            3
+
+phase (n - 2k)/2 at the origin for some k, in agreement with this expectation.
+However, in this work we rule out their existence.
+
+Remark 1.5. One might also try to build one-homogeneous functions u on Rn such
+that n-1(D2u) is nowhere vanishing, since in that case F (D2u) is Lipschitz. It is
+
+not hard to show that such functions are necessarily convex or concave (see Section
+
+2), and thus do not solve the equation at the origin. Interestingly, there exist
+nonlinear one-homogeneous functions u on R3 whose Hessians are either indefinite
+or 0 at every point (see [M1]), so that F (D2u) tends to zero at the origin along
+rays, but F (D2u) is not continuous at the origin for these examples.
+
+Remark 1.6. Theorem 1.2 can also be viewed as a rigidity result for homogeneous
+solutions to Monge-Amp`ere equations of mixed type. Such equations arise in chal-
+lenging geometric problems such as the Minkowski problem for hedgehogs, for which
+basic existence and uniqueness questions remain open [M2].
+
+Remark 1.7. Our results are also similar in spirit to those of H. Lewy about spherical
+harmonics in R3 [L1], [L2]. In those works Lewy first shows that a homogeneous
+polynomial P in R3 of degree d > 2 that has non-vanishing Hessian determinant
+away from the origin either doesn't change sign, or (up to multiplying by -1)
+
+the set {P > 0} consists of two diametrically opposed convex cones. He then
+uses this to prove that the Hessian determinant of a spherical harmonic in R3
+of degree > 2 must either vanish identically, or change sign. (Another proof of
+
+the latter result, using algebraic geometry, was given by Segre in [S]). Theorem
+
+1.2 says that a similar conclusion holds in any dimension for functions that are
+
+homogeneous of a fractional degree and change sign. Moreover, the first step in
+
+Lewy's argument involves analyzing the geometry of level sets of P by considering
+the one-homogeneous function P 1/d. Likewise, in this work we consider the one-
+homogeneous function u1/. However, we study the geometry of its gradient image.
+
+The author is grateful to a referee for bringing these results to his attention.
+
+The paper is organized as follows. In Section 2 we recall some preliminary results
+
+about one-homogeneous functions and about maps with integrable dilatation, which
+
+are natural analogues of quasi-conformal maps in higher dimensions. In Section 3 we
+
+prove Theorem 1.1. The idea of the proof is to study the geometry of the gradient
+
+image  of  the  one-homogeneous  function  u  1  .  Our analysis is partly inspired by
+                                              
+
+the beautiful arguments used in [HNY] to show the linearity of one-homogeneous
+
+functions on R3 that solve linear uniformly elliptic equations.
+
+                                        Acknowledgments
+
+   The author gratefully acknowledges the support of NSF grant DMS-1854788,
+NSF CAREER grant DMS-2143668, an Alfred P. Sloan Research Fellowship, and a
+UC Irvine Chancellor's fellowship, as well as the helpful comments by the referees.
+
+                                 2. Preliminaries
+
+   In this section we recall a few results about one-homogeneous functions and
+about maps with integrable dilatation.
+
+   Let v be a one-homogeneous function on Rn that, away from the origin, is locally
+W 2, p for some p  1. Euler's formula for homogeneous functions says that
+
+(2)                              v(x) = v(x) · x.
+4                             CONNOR MOONEY
+
+Here and below we let r := |x| and we denote points in Sn-1 by . Writing
+
+                                       v = r g()
+
+and choosing a coordinate system where  is the last direction, we have
+
+(3)                D2v() =             2        g  +  g  In-1×n-1  0      .
+                                                                   0
+                                          Sn-1
+
+                                                      0
+
+Here  and  below,  Sn-1  and  2        denote      the   usual  gradient  and  Hessian  operators
+
+                                 Sn-1
+
+on the sphere.
+
+    It is sometimes useful to represent v in {xn > 0} by a function v¯ on Rn-1 defined
+
+by
+
+                              v¯(y) := v(y, 1),
+
+so that                                               x
+Taking the Hessian yields     v(x , xn) = xnv¯ xn .
+
+(4)                D2v(y, 1) =            D2v¯            -D2v¯ · y       .
+                                       -D2v¯ · y         yT · D2v¯ · y
+
+Using this we calculate
+
+(5)        n-1(D2v)(y, 1) = tr(cof(D2v))(y, 1) = (1 + |y|2) det D2v¯(y).
+
+Here the operator k denotes the kth symmetric polynomial of the eigenvalues. It
+is easiest to verify this formula after rotating in the y variables so that D2v¯ is
+diagonal.
+
+   If v is C2 in a neighborhood of en and D2v¯(0) is nonsingular, then we can
+represent the gradient image of v near en as the graph of a function w using the
+relation
+
+                               w(v¯(y)) = nv(y, 1) = v¯ - y · v¯,
+
+i.e. w is the (negative) Legendre transform of v¯. One differentiation gives
+
+                              w(v¯(y)) = -y,
+
+and another gives          D2w(v¯(y)) = -(D2v¯)-1(y).
+(6)
+
+In particular, up to a sign, the second fundamental form at v(en) of the image
+under v of a small ball around en is (D2v¯)-1(0). From this it is easy to see that
+if v is locally C2 away from the origin and n-1(D2v) is nowhere vanishing, then
+v is either convex or concave. Indeed, it suffices to show that either D2v  0 or
+
+-D2v  0 at some point. By (6) and (4) this is true at the inverse image under
+
+v of any point on v(Sn-1) that is touched from one side by a hyperplane.
+
+    We now recall a few facts about maps of integrable dilatation. Let
+
+                               : U  Rn  Rn
+
+be a map in Wl1o,cn(U ) such that det D > 0 almost everywhere. The dilatation D
+
+of  is defined by the ratio
+
+                              D(x) :=              |D|n   .
+
+                                                   det D
+
+If D is bounded and n = 2 then  is quasi-conformal, hence continuous and open
+
+by classical results. Reshetnyak extended this result to mappings with bounded
+                      NOWHERE VANISHING HESSIAN DETERMINANT                                                    5
+
+dilatation in all dimensions [R]. The boundedness required in Reshetnyak's theorem
+has since been relaxed to integrability in certain Lp spaces:
+
+Theorem 2.1 (Iwaniec-Sver´ak, [IS]). If n = 2 and D  L1loc(U ), then  is
+continuous and open.
+
+Theorem 2.2 (Manfredi-Villamor, [MV]). If n  3 and D  Lploc(U ) for some
+p > n - 1, then  is continuous and open.
+
+It is conjectured that the latter result holds in the equality case p = n - 1 (see [IS]),
+and there are counterexamples when p < n - 1 due to Ball (see [B]).
+
+                                3. Proof of Theorem 1.1
+
+In this final section we prove the main theorem.
+
+Proof of Theorem 1.1. We write
+                                              u = rf ().
+
+In a coordinate system where the last direction is   , the Hessian of u at  can
+
+be written
+
+(7)                D2u =     2           f  +     f  In-1×n-1         ( - 1)Sn-1 f    .
+                                                                         ( - 1)f
+                                Sn-1
+
+                                      ( - 1)Sn-1 f
+
+Subtracting the       multiple  ( ) Sn-1 f k      of    the    last   row  from  the  kth  row  in  (7)     for
+
+                                      f
+
+k  n - 1 and taking the determinant we arrive at
+
+      det D2u = ( - 1)f 2-n·
+
+(8)             det       f  2        f  +     1         Sn-1 f  Sn-1 f + f 2In-1×n-1                    .
+                                                 -1
+                                Sn-1
+                                               
+
+Now let v be the one-homogeneous function on Rn defined by
+
+                                            (u(x))1/, x  
+                                v(x) =
+
+                                            0, otherwise.
+
+At    we compute the Hessian of v in the same coordinates as above, using the
+formula (3):
+
+(9)   D2v =  1  f  1  -2  f  2        f  +     1  -  1   Sn-1 f  Sn-1 f + f 2In-1×n-1               0       .
+                                                                                                    0
+                                Sn-1
+
+                                                                   0
+
+We conclude from (8) and (9) that
+
+                                                        f n-1   -n
+                                                              
+(10)                         n-1(D2v)             =                   det D2u
+                                                      n( - 1)
+
+on . In particular, either n-1(D2v) or -n-1(D2v) is locally strictly positive in
+
+. We also have by standard embeddings that v  Cl1oc (Rn\{0}). On Rn\ this
+
+follows from the fact that                            1
+
+                                            v     =      u  1  -1  u
+                                                            
+
+                                                      
+
+in , the facts that 1/ > 1 and u = 0 on , and the local Lipschitz regularity of
+
+u up to  away from the origin. In , we use the observation that by homogeneity
+
+v can be viewed as a function of n - 1 variables. When n  4 the Sobolev exponent
+
+pn is thus supercritical. In the case n = 3 it is critical and, denoting by v¯ the
+6                          CONNOR MOONEY
+
+restriction of v to a hyperplane tangent to Sn-1, we may apply the continuity
+
+assertion in Theorem 2.1 to either v¯ or its reflection over a line. Here we used the
+fact that n-1(D2v) or -n-1(D2v) is locally strictly positive in {v > 0} and the
+relation (5). In the case n = 2 we use that W 1, 1 embeds to continuous on the line.
+
+   Now let K := v Sn-1 . For   Sn-1, slide the hyperplane {x· = t} (starting
+
+with t large, and decreasing t) until it touches K at some point p. Since 0  K
+we have p ·   0. We claim that the following implication holds:
+
+(11)  p ·  > 0  (v)-1(p )  Sn-1 = {}.
+
+To show the implication (11) it suffices to show that if p ·  > 0 then (v)-1(p) 
+Sn-1  {, -}, since by (2) we have
+
+                           v() ·  = v()  0
+
+for all   Sn-1. Assume by way of contradiction that p ·  > 0 but (v)-1(p) 
+Sn-1 is not contained in {, -}. After a rotation we may assume that  = e1, and
+
+after another isometry in the x2, ..., xn variables we may assume that v(~) = p
+for some ~  Sn-1 such that ~n > 0. For y  Rn-1 we let
+
+                           v¯(y) = v(y, 1).
+
+By construction, 1v¯ has a local maximum at ~/~n (here we identify points on
+the hyperplane {xn = 1} with Rn-1), and v¯ > 0 at this point, since v(~) = p
+is nonzero. However, using (5) we see that either det D2v¯ or - det D2v¯ is locally
+strictly positive in {v¯ > 0}. Theorem 2.1 or 2.2, applied to either v¯ or its reflection
+over a hyperplane, implies that v¯ is an open mapping in {v¯ > 0}, which contradicts
+that 1v¯ has a local maximum in this set.
+
+   Finally, let co(K) denote the convex hull of K, and let w be the support function
+of co(K), that is,
+
+                                       w(x) := sup (y · x).
+
+                                                                         y co(K )
+
+The implication (11) implies that v = w. Indeed, it is clear that 0  v  w, and
+for   Sn-1  {w > 0} we have
+
+                                w() = p ·  = v() ·  = v().
+
+Because either n-1(D2v) or -n-1(D2v) is locally strictly positive in , the set
+co(K) has non-empty interior. Indeed, if not, then v = w is translation-invariant
+in some direction orthogonal to co(K), which along with the one-homogeneity of v
+implies that n-1(D2v)  0. We conclude that {v > 0}Sn-1 contains some closed
+hemisphere. Indeed, for some point z and some µ > 0 we have Bµ(z)  co(K), and
+by the definition of w we thus have
+
+                           {x · z  0}  Sn-1  {w  µ} = {v  µ}.
+
+This completes the proof.
+
+Remark 3.1. The proof in fact shows that u is the th power of the support function
+of a convex set that has nonempty interior and 0 in its boundary (note that if 0
+were not in the boundary of co(K) then w = v > 0 on all of Sn-1), and that Rn\
+is the reflection through the origin of the convex dual to the tangent cone of this
+set at the origin (see Figure 1).
+NOWHERE VANISHING HESSIAN DETERMINANT  7
+
+                                               Figure 1
+
+Remark 3.2. The convexity of v and relation (10) imply that - det D2u is locally
+strictly positive in . Moreover, D2u has exactly one negative eigenvalue. Indeed,
+one sees using expressions (7) and (9) that D2u can be written in appropriate
+coordinates at a point in  in the form
+
+                                          D2u = M - p  p,
+
+where M has n - 1 positive eigenvalues, Mnk = 0 for all k, and pn > 0. The
+conclusion is clear when p is a multiple of en. Since
+
+                              det(M - q  q) = -n-1(M )qn2 < 0
+for any q  Rn with qn = 0, the conclusion for general p with pn > 0 follows from
+the continuity of the eigenvalues of M - p  p as a function of p.
+
+                                             References
+
+[B] Ball, J. Global invertibility of Sobolev functions and the interpenetration of matter. Proc.
+         Roy. Soc. Edinburgh 88A (1981), 315-328.
+
+[BMS] Bhattacharya, A.; Mooney, C.; Shankar, R. Gradient estimates for the Lagrangian mean
+         curvature equation with critical and supercritical phase. Preprint 2022, arXiv:2205:13096.
+
+[Br] Brustad, K. Counterexamples to the comparison principle in the special Lagrangian po-
+         tential equation. Preprint 2022, arXiv:2206.09373.
+
+[CNS] Caffarelli, L.; Nirenberg, L.; Spruck, J. The Dirichlet problem for nonlinear second order
+         elliptic equations I: Monge-Amp`ere equation. Comm. Pure Appl. Math. 37 (1984), 369-402.
+8  CONNOR MOONEY
+
+[CP] Cirant, M.; Payne, K. Comparison principles for viscosity solutions of elliptic branches
+         of fully nonlinear equations independent of the gradient. Mathematics in Engineering 3
+         (2021), 1-45.
+
+[CPW] Collins, T.; Picard,S.; Wu, X. Concavity of the Lagrangian phase operator and applica-
+         tions. Calc. Var. Partial Differential Equations 56, Art. 89 (2017).
+
+[DDT] Dinew, S.; Do, H.-S.; T^o, T. D. A viscosity approach to the Dirichlet problem for degen-
+         erate complex Hessian-type equations. Anal. PDE 12 (2019), 505-535.
+
+[HNY] Han, Q.; Nadirashvili, N.; Yuan, Y. Linearity of homogeneous order one solutions to elliptic
+         equations in dimension three. Comm. Pure Appl. Math. 56 (2003), 425-432.
+
+[HL1] Harvey, R.; Lawson, B. Calibrated geometries. Acta Math. 148 (1982), 47-157.
+[HL2] Harvey, R.; Lawson, B. Dirichlet duality and the nonlinear Dirichlet problem. Comm. Pure
+
+         Appl. Math. 62 (2009), 396-443.
+[HL3] Harvey, R.; Lawson, B. Pseudoconvexity for the special Lagrangian potential equation.
+
+         Calc. Var. Partial Differential Equations 60 (2021), 1-37.
+[IS] Iwaniec, T.; Sver´ak, V. On mappings with integrable dilatation. Proc. Amer. Math Soc.
+
+         118 (1993), 181-188.
+[L1] Lewy, H. A property of spherical harmonics. Amer. J. Math 60 (1938), 555-560.
+[L2] Lewy, H. About the Hessian of a spherical harmonic. Amer. J. Math 91 (1969), 505-507.
+[MV] Manfredi, J.; Villamor, E. An extension of Reshetnyak's theorem. Indiana Univ. Math. J.
+
+         47 (1998), 1131-1145.
+[M1] Martinez-Maure, Y. Contre-exemple a` une caract´erisation conjectur´ee de la sph`ere. C. R.
+
+         Acad. Sci. Paris 332 (2001), 41-44.
+[M2] Martinez-Maure, Y. Uniqueness results for the Minkowski problem extended to hedgehogs.
+
+         Cent. Eur. J. Math. 10 (2012), 440-450.
+[R] Reshetnyak, G. Yu. Space mappings with bounded distortion. Transl. Math. Monographs,
+
+         Amer. Math. Soc., vol. 73, 1989.
+[S] Segre, B. Questioni di realta` sulle forme armoniche a sulle loro hessiane, I and II. Atti della
+
+         Accademia Nazionale dei Lincei 15 (1953), 237-242 and 339-344.
+[WY] Warren, M.; Yuan, Y. Hessian and gradient estimates for three dimensional special La-
+
+         grangian equations with large phase. Amer. J. Math. 132 (2010), 751-770.
+
+    Department of Mathematics, UC Irvine
+    Email address: mooneycr@math.uci.edu
+

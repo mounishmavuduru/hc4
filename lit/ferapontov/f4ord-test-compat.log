@@ -1,0 +1,920 @@
+FORM by J.Vermaseren,version 3.1(06/19/03) Run at: Tue Jul  6 18:52:02 2004
+    CFunctions f,D,diff;
+    Symbols xx,a,b,c,i,j,k,[1/Hess],[Hess],[1/f(2*b)];
+    L Hess:=(- (-(f(2*a)*f(2*b)*f(2*c)) + f(a + b)^2*f(2*c)
+     + f(2*b)*f(a + c)^2 - 2*f(a + b)*f(a + c)*f(b + c) + f(2*a)*f(b + c)^2) );
+    L dxxHess=diff(xx)*Hess;
+    repeat; 
+    id diff(i?)*f(j?)=f(j+i)+  D(f(j))*diff(i);
+    endrepeat;
+    id diff(?a)=0;
+    id D(a?)=a;
+    .sort
+
+Time =       0.00 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.00 sec    Generated terms =         15
+          dxxHess        Terms in output =         12
+                         Bytes used      =       1282
+    
+    #include- f4ord.frm;
+    .sort
+
+Time =       0.04 sec    Generated terms =          5
+             Hess        Terms in output =          5
+                         Bytes used      =        522
+
+Time =       0.04 sec    Generated terms =         12
+          dxxHess        Terms in output =         12
+                         Bytes used      =       1282
+
+Time =       0.04 sec    Generated terms =         29
+       [f(3*b+a)]        Terms in output =         29
+                         Bytes used      =       3260
+
+Time =       0.04 sec    Generated terms =         29
+       [f(3*a+c)]        Terms in output =         29
+                         Bytes used      =       3294
+
+Time =       0.04 sec    Generated terms =         38
+     [f(2*c+b+a)]        Terms in output =         38
+                         Bytes used      =       4318
+
+Time =       0.04 sec    Generated terms =         29
+       [f(3*c+a)]        Terms in output =         29
+                         Bytes used      =       3324
+
+Time =       0.04 sec    Generated terms =         21
+         [f(4*c)]        Terms in output =         21
+                         Bytes used      =       2564
+
+Time =       0.05 sec    Generated terms =         38
+     [f(2*b+a+c)]        Terms in output =         38
+                         Bytes used      =       4274
+
+Time =       0.06 sec    Generated terms =         38
+     [f(2*a+b+c)]        Terms in output =         38
+                         Bytes used      =       4402
+
+Time =       0.07 sec    Generated terms =         36
+     [f(2*a+2*b)]        Terms in output =         36
+                         Bytes used      =       4186
+
+Time =       0.07 sec    Generated terms =         29
+       [f(3*a+b)]        Terms in output =         29
+                         Bytes used      =       3294
+
+Time =       0.08 sec    Generated terms =         29
+       [f(3*c+b)]        Terms in output =         29
+                         Bytes used      =       3302
+
+Time =       0.09 sec    Generated terms =         21
+         [f(4*a)]        Terms in output =         21
+                         Bytes used      =       2446
+
+Time =       0.10 sec    Generated terms =         36
+     [f(2*b+2*c)]        Terms in output =         36
+                         Bytes used      =       4014
+
+Time =       0.10 sec    Generated terms =         21
+         [f(4*b)]        Terms in output =         21
+                         Bytes used      =       2518
+
+Time =       0.10 sec    Generated terms =         36
+     [f(2*a+2*c)]        Terms in output =         36
+                         Bytes used      =       4180
+
+Time =       0.10 sec    Generated terms =         29
+       [f(3*b+c)]        Terms in output =         29
+                         Bytes used      =       3286
+    
+    #define p1 "a"
+    #define p2 "b"
+    #define p3 "c"
+    
+    #$nmr=0;
+    
+    skip;
+    #do k ={3*a,3*b,3*c,2*a+b,2*a+c,2*b+a,2*b+c,2*c+a,2*c+b,a+b+c}
+    
+    #do i=1,2
+    #do j={`i'+1},3
+    #$nmr=`$nmr'+1;
+    L compat`$nmr' = diff(`p`j'')*f(`k'+`p`i'')-diff(`p`i'')*f(`k'+`p`j'');
+    #enddo
+    #enddo
+    #enddo
+    print;
+    .sort
+
+Time =       0.12 sec    Generated terms =          2
+          compat1        Terms in output =          2
+                         Bytes used      =        106
+
+Time =       0.12 sec    Generated terms =          2
+          compat2        Terms in output =          2
+                         Bytes used      =        106
+
+Time =       0.12 sec    Generated terms =          2
+          compat3        Terms in output =          2
+                         Bytes used      =         92
+
+Time =       0.12 sec    Generated terms =          2
+          compat4        Terms in output =          2
+                         Bytes used      =        106
+
+Time =       0.12 sec    Generated terms =          2
+          compat5        Terms in output =          2
+                         Bytes used      =        108
+
+Time =       0.12 sec    Generated terms =          2
+          compat6        Terms in output =          2
+                         Bytes used      =        106
+
+Time =       0.12 sec    Generated terms =          2
+          compat7        Terms in output =          2
+                         Bytes used      =        108
+
+Time =       0.12 sec    Generated terms =          2
+          compat8        Terms in output =          2
+                         Bytes used      =        106
+
+Time =       0.12 sec    Generated terms =          2
+          compat9        Terms in output =          2
+                         Bytes used      =        106
+
+Time =       0.12 sec    Generated terms =          2
+         compat10        Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.12 sec    Generated terms =          2
+         compat11        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.12 sec    Generated terms =          2
+         compat12        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.13 sec    Generated terms =          2
+         compat13        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.13 sec    Generated terms =          2
+         compat14        Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.13 sec    Generated terms =          2
+         compat15        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.13 sec    Generated terms =          2
+         compat16        Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.13 sec    Generated terms =          2
+         compat17        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.13 sec    Generated terms =          2
+         compat18        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat19        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat20        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat21        Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.14 sec    Generated terms =          2
+         compat22        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat23        Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.14 sec    Generated terms =          2
+         compat24        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat25        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat26        Terms in output =          2
+                         Bytes used      =        138
+
+Time =       0.14 sec    Generated terms =          2
+         compat27        Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.14 sec    Generated terms =          2
+         compat28        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.14 sec    Generated terms =          2
+         compat29        Terms in output =          2
+                         Bytes used      =        136
+
+Time =       0.14 sec    Generated terms =          2
+         compat30        Terms in output =          2
+                         Bytes used      =        120
+
+   compat1 =
+       - f(3*a + b)*diff(a) + f(4*a)*diff(b);
+
+   compat2 =
+       - f(3*a + c)*diff(a) + f(4*a)*diff(c);
+
+   compat3 =
+      f(3*a + b)*diff(c) - f(3*a + c)*diff(b);
+
+   compat4 =
+      f(a + 3*b)*diff(b) - f(4*b)*diff(a);
+
+   compat5 =
+      f(a + 3*b)*diff(c) - f(3*b + c)*diff(a);
+
+   compat6 =
+       - f(3*b + c)*diff(b) + f(4*b)*diff(c);
+
+   compat7 =
+      f(a + 3*c)*diff(b) - f(b + 3*c)*diff(a);
+
+   compat8 =
+      f(a + 3*c)*diff(c) - f(4*c)*diff(a);
+
+   compat9 =
+      f(b + 3*c)*diff(c) - f(4*c)*diff(b);
+
+   compat10 =
+       - f(2*a + 2*b)*diff(a) + f(3*a + b)*diff(b);
+
+   compat11 =
+       - f(2*a + b + c)*diff(a) + f(3*a + b)*diff(c);
+
+   compat12 =
+       - f(2*a + b + c)*diff(b) + f(2*a + 2*b)*diff(c);
+
+   compat13 =
+       - f(2*a + b + c)*diff(a) + f(3*a + c)*diff(b);
+
+   compat14 =
+       - f(2*a + 2*c)*diff(a) + f(3*a + c)*diff(c);
+
+   compat15 =
+      f(2*a + b + c)*diff(c) - f(2*a + 2*c)*diff(b);
+
+   compat16 =
+       - f(a + 3*b)*diff(a) + f(2*a + 2*b)*diff(b);
+
+   compat17 =
+       - f(a + 2*b + c)*diff(a) + f(2*a + 2*b)*diff(c);
+
+   compat18 =
+       - f(a + 2*b + c)*diff(b) + f(a + 3*b)*diff(c);
+
+   compat19 =
+      f(a + 2*b + c)*diff(b) - f(3*b + c)*diff(a);
+
+   compat20 =
+      f(a + 2*b + c)*diff(c) - f(2*b + 2*c)*diff(a);
+
+   compat21 =
+       - f(2*b + 2*c)*diff(b) + f(3*b + c)*diff(c);
+
+   compat22 =
+       - f(a + b + 2*c)*diff(a) + f(2*a + 2*c)*diff(b);
+
+   compat23 =
+       - f(a + 3*c)*diff(a) + f(2*a + 2*c)*diff(c);
+
+   compat24 =
+      f(a + b + 2*c)*diff(c) - f(a + 3*c)*diff(b);
+
+   compat25 =
+      f(a + b + 2*c)*diff(b) - f(2*b + 2*c)*diff(a);
+
+   compat26 =
+      f(a + b + 2*c)*diff(c) - f(b + 3*c)*diff(a);
+
+   compat27 =
+       - f(b + 3*c)*diff(b) + f(2*b + 2*c)*diff(c);
+
+   compat28 =
+       - f(a + 2*b + c)*diff(a) + f(2*a + b + c)*diff(b);
+
+   compat29 =
+       - f(a + b + 2*c)*diff(a) + f(2*a + b + c)*diff(c);
+
+   compat30 =
+       - f(a + b + 2*c)*diff(b) + f(a + 2*b + c)*diff(c);
+
+    
+    skip;
+    nskip 
+    #do i=1,`$nmr'
+    compat`i'
+    #enddo
+    ;
+    #do i ={f(4*a),f(4*b),f(4*c),f(3*a+b),f(3*a+c),f(3*b+a),f(3*b+c),f(3*c+a),f(3*c+
+    b),f(2*a+2*b),f(2*b+2*c),f(2*a+2*c),f(2*a+b+c),f(2*b+a+c),f(2*c+b+a)}
+    
+     id `i'=[`i'];
+    #enddo
+    .sort
+
+Time =       0.15 sec    Generated terms =         50
+          compat1        Terms in output =         50
+                         Bytes used      =       5494
+
+Time =       0.15 sec    Generated terms =         50
+          compat2        Terms in output =         50
+                         Bytes used      =       5594
+
+Time =       0.16 sec    Generated terms =         58
+          compat3        Terms in output =         58
+                         Bytes used      =       6042
+
+Time =       0.16 sec    Generated terms =         50
+          compat4        Terms in output =         50
+                         Bytes used      =       5516
+
+Time =       0.16 sec    Generated terms =         58
+          compat5        Terms in output =         58
+                         Bytes used      =       6216
+
+Time =       0.17 sec    Generated terms =         50
+          compat6        Terms in output =         50
+                         Bytes used      =       5600
+
+Time =       0.17 sec    Generated terms =         58
+          compat7        Terms in output =         58
+                         Bytes used      =       6188
+
+Time =       0.17 sec    Generated terms =         50
+          compat8        Terms in output =         50
+                         Bytes used      =       5748
+
+Time =       0.18 sec    Generated terms =         50
+          compat9        Terms in output =         50
+                         Bytes used      =       5750
+
+Time =       0.19 sec    Generated terms =         65
+         compat10        Terms in output =         65
+                         Bytes used      =       7058
+
+Time =       0.20 sec    Generated terms =         67
+         compat11        Terms in output =         67
+                         Bytes used      =       7460
+
+Time =       0.21 sec    Generated terms =         74
+         compat12        Terms in output =         74
+                         Bytes used      =       8188
+
+Time =       0.21 sec    Generated terms =         67
+         compat13        Terms in output =         67
+                         Bytes used      =       7486
+
+Time =       0.21 sec    Generated terms =         65
+         compat14        Terms in output =         65
+                         Bytes used      =       7014
+
+Time =       0.21 sec    Generated terms =         74
+         compat15        Terms in output =         74
+                         Bytes used      =       8074
+
+Time =       0.21 sec    Generated terms =         65
+         compat16        Terms in output =         65
+                         Bytes used      =       7000
+
+Time =       0.21 sec    Generated terms =         74
+         compat17        Terms in output =         74
+                         Bytes used      =       8182
+
+Time =       0.21 sec    Generated terms =         67
+         compat18        Terms in output =         67
+                         Bytes used      =       7138
+
+Time =       0.22 sec    Generated terms =         67
+         compat19        Terms in output =         67
+                         Bytes used      =       7228
+
+Time =       0.23 sec    Generated terms =         74
+         compat20        Terms in output =         74
+                         Bytes used      =       8034
+
+Time =       0.24 sec    Generated terms =         65
+         compat21        Terms in output =         65
+                         Bytes used      =       6772
+
+Time =       0.25 sec    Generated terms =         74
+         compat22        Terms in output =         74
+                         Bytes used      =       8226
+
+Time =       0.25 sec    Generated terms =         65
+         compat23        Terms in output =         65
+                         Bytes used      =       7042
+
+Time =       0.25 sec    Generated terms =         67
+         compat24        Terms in output =         67
+                         Bytes used      =       7200
+
+Time =       0.25 sec    Generated terms =         74
+         compat25        Terms in output =         74
+                         Bytes used      =       8004
+
+Time =       0.25 sec    Generated terms =         67
+         compat26        Terms in output =         67
+                         Bytes used      =       7382
+
+Time =       0.25 sec    Generated terms =         65
+         compat27        Terms in output =         65
+                         Bytes used      =       6770
+
+Time =       0.25 sec    Generated terms =         76
+         compat28        Terms in output =         76
+                         Bytes used      =       8426
+
+Time =       0.25 sec    Generated terms =         76
+         compat29        Terms in output =         76
+                         Bytes used      =       8394
+
+Time =       0.25 sec    Generated terms =         76
+         compat30        Terms in output =         76
+                         Bytes used      =       8164
+    
+    skip;
+    nskip 
+    #do i=1,`$nmr'
+    compat`i'
+    #enddo
+    ;
+    repeat; 
+    id diff(i?)*f(j?)=f(j+i)+  D(f(j))*diff(i);
+    id diff(i?)*[1/f(2*b)] = - [1/f(2*b)]^2*f(2*b+i) +  D([1/f(2*b)])*diff(i);
+    id diff(xx?)*[1/Hess] = - [1/Hess]^2*dxxHess +  D([1/Hess])*diff(xx);
+    endrepeat;
+    id diff(?a)=0;
+    id D(a?)=a;
+    .sort
+
+Time =       0.35 sec    Generated terms =        800
+          compat1        Terms in output =        404
+                         Bytes used      =      57240
+
+Time =       0.44 sec    Generated terms =        800
+          compat2        Terms in output =        404
+                         Bytes used      =      56796
+
+Time =       0.56 sec    Generated terms =        928
+          compat3        Terms in output =        436
+                         Bytes used      =      63450
+
+Time =       0.65 sec    Generated terms =        800
+          compat4        Terms in output =        404
+                         Bytes used      =      57780
+
+Time =       0.76 sec    Generated terms =        928
+          compat5        Terms in output =        436
+                         Bytes used      =      62470
+
+Time =       0.85 sec    Generated terms =        800
+          compat6        Terms in output =        404
+                         Bytes used      =      58414
+
+Time =       0.96 sec    Generated terms =        928
+          compat7        Terms in output =        436
+                         Bytes used      =      62142
+
+Time =       1.06 sec    Generated terms =        800
+          compat8        Terms in output =        404
+                         Bytes used      =      57804
+
+Time =       1.15 sec    Generated terms =        800
+          compat9        Terms in output =        404
+                         Bytes used      =      58292
+
+Time =       1.27 sec    Generated terms =       1040
+         compat10        Terms in output =        560
+                         Bytes used      =      78012
+
+Time =       1.41 sec    Generated terms =       1072
+         compat11        Terms in output =        611
+                         Bytes used      =      85282
+
+Time =       1.57 sec    Generated terms =       1184
+         compat12        Terms in output =        651
+                         Bytes used      =      92240
+
+Time =       1.69 sec    Generated terms =       1072
+         compat13        Terms in output =        611
+                         Bytes used      =      85190
+
+Time =       1.82 sec    Generated terms =       1040
+         compat14        Terms in output =        560
+                         Bytes used      =      77980
+
+Time =       1.97 sec    Generated terms =       1184
+         compat15        Terms in output =        651
+                         Bytes used      =      92390
+
+Time =       2.10 sec    Generated terms =       1040
+         compat16        Terms in output =        560
+                         Bytes used      =      78118
+
+Time =       2.24 sec    Generated terms =       1184
+         compat17        Terms in output =        651
+                         Bytes used      =      90470
+
+Time =       2.36 sec    Generated terms =       1072
+         compat18        Terms in output =        611
+                         Bytes used      =      86486
+
+Time =       2.48 sec    Generated terms =       1072
+         compat19        Terms in output =        611
+                         Bytes used      =      86326
+
+Time =       2.62 sec    Generated terms =       1184
+         compat20        Terms in output =        651
+                         Bytes used      =      90738
+
+Time =       2.74 sec    Generated terms =       1040
+         compat21        Terms in output =        560
+                         Bytes used      =      79014
+
+Time =       2.88 sec    Generated terms =       1184
+         compat22        Terms in output =        651
+                         Bytes used      =      90482
+
+Time =       3.00 sec    Generated terms =       1040
+         compat23        Terms in output =        560
+                         Bytes used      =      78724
+
+Time =       3.11 sec    Generated terms =       1072
+         compat24        Terms in output =        611
+                         Bytes used      =      87648
+
+Time =       3.26 sec    Generated terms =       1184
+         compat25        Terms in output =        651
+                         Bytes used      =      90870
+
+Time =       3.39 sec    Generated terms =       1072
+         compat26        Terms in output =        611
+                         Bytes used      =      87622
+
+Time =       3.52 sec    Generated terms =       1040
+         compat27        Terms in output =        560
+                         Bytes used      =      79604
+
+Time =       3.66 sec    Generated terms =       1216
+         compat28        Terms in output =        622
+                         Bytes used      =      87322
+
+Time =       3.80 sec    Generated terms =       1216
+         compat29        Terms in output =        622
+                         Bytes used      =      87532
+
+Time =       3.95 sec    Generated terms =       1216
+         compat30        Terms in output =        622
+                         Bytes used      =      87112
+    
+    skip;
+    nskip 
+    #do i=1,`$nmr'
+    compat`i'
+    #enddo
+    ;
+    repeat; 
+    #do i ={f(4*a),f(4*b),f(4*c),f(3*a+b),f(3*a+c),f(3*b+a),f(3*b+c),f(3*c+a),f(3*c+
+    b),f(2*a+2*b),f(2*b+2*c),f(2*a+2*c),f(2*a+b+c),f(2*b+a+c),f(2*c+b+a)}
+    
+     id `i'=[`i'];
+    #enddo
+    endrepeat;
+    .sort
+
+Time =       4.40 sec    Generated terms =       2385
+          compat1        Terms in output =        180
+                         Bytes used      =      28442
+
+Time =       4.86 sec    Generated terms =       2385
+          compat2        Terms in output =        180
+                         Bytes used      =      28656
+
+Time =       5.29 sec    Generated terms =       2344
+          compat3        Terms in output =        180
+                         Bytes used      =      29696
+
+Time =       5.74 sec    Generated terms =       2385
+          compat4        Terms in output =        180
+                         Bytes used      =      26940
+
+Time =       6.15 sec    Generated terms =       2344
+          compat5        Terms in output =        180
+                         Bytes used      =      29230
+
+Time =       6.60 sec    Generated terms =       2385
+          compat6        Terms in output =        180
+                         Bytes used      =      28928
+
+Time =       7.01 sec    Generated terms =       2344
+          compat7        Terms in output =        180
+                         Bytes used      =      29540
+
+Time =       7.43 sec    Generated terms =       2385
+          compat8        Terms in output =        180
+                         Bytes used      =      27588
+
+Time =       7.86 sec    Generated terms =       2385
+          compat9        Terms in output =        180
+                         Bytes used      =      28924
+
+Time =       8.44 sec    Generated terms =       3013
+         compat10        Terms in output =        204
+                         Bytes used      =      31586
+
+Time =       9.05 sec    Generated terms =       3369
+         compat11        Terms in output =        222
+                         Bytes used      =      36136
+
+Time =       9.67 sec    Generated terms =       3555
+         compat12        Terms in output =        270
+                         Bytes used      =      42094
+
+Time =      10.28 sec    Generated terms =       3369
+         compat13        Terms in output =        222
+                         Bytes used      =      36084
+
+Time =      10.83 sec    Generated terms =       3013
+         compat14        Terms in output =        204
+                         Bytes used      =      32020
+
+Time =      11.45 sec    Generated terms =       3555
+         compat15        Terms in output =        270
+                         Bytes used      =      42358
+
+Time =      12.00 sec    Generated terms =       3013
+         compat16        Terms in output =        204
+                         Bytes used      =      31672
+
+Time =      12.61 sec    Generated terms =       3555
+         compat17        Terms in output =        270
+                         Bytes used      =      42094
+
+Time =      13.21 sec    Generated terms =       3369
+         compat18        Terms in output =        222
+                         Bytes used      =      36454
+
+Time =      13.82 sec    Generated terms =       3369
+         compat19        Terms in output =        222
+                         Bytes used      =      35666
+
+Time =      14.44 sec    Generated terms =       3555
+         compat20        Terms in output =        270
+                         Bytes used      =      41350
+
+Time =      14.98 sec    Generated terms =       3013
+         compat21        Terms in output =        204
+                         Bytes used      =      32300
+
+Time =      15.56 sec    Generated terms =       3555
+         compat22        Terms in output =        270
+                         Bytes used      =      42358
+
+Time =      16.10 sec    Generated terms =       3013
+         compat23        Terms in output =        204
+                         Bytes used      =      31894
+
+Time =      16.68 sec    Generated terms =       3369
+         compat24        Terms in output =        222
+                         Bytes used      =      36874
+
+Time =      17.31 sec    Generated terms =       3555
+         compat25        Terms in output =        270
+                         Bytes used      =      41350
+
+Time =      17.90 sec    Generated terms =       3369
+         compat26        Terms in output =        222
+                         Bytes used      =      36584
+
+Time =      18.45 sec    Generated terms =       3013
+         compat27        Terms in output =        204
+                         Bytes used      =      32334
+
+Time =      19.08 sec    Generated terms =       3574
+         compat28        Terms in output =        216
+                         Bytes used      =      34568
+
+Time =      19.72 sec    Generated terms =       3574
+         compat29        Terms in output =        216
+                         Bytes used      =      34872
+
+Time =      20.33 sec    Generated terms =       3574
+         compat30        Terms in output =        216
+                         Bytes used      =      33938
+    
+    skip;
+    nskip 
+    #do i=1,`$nmr'
+    compat`i'
+    #enddo
+    ;
+    repeat; 
+    id [Hess]*[1/Hess]=1;
+    id f(a + b)^2*f(2*c) = -( - f(2*a)*f(2*b)*f(2*c) + f(2*b)*f(a + c)^2
+         - 2*f(a + b)*f(a + c)*f(b + c) + f(2*a)*f(b + c)^2) - [Hess];
+    id f(2*b)*[1/f(2*b)]=1;
+    endrepeat;
+    print;
+    .end
+
+Time =      20.35 sec    Generated terms =        300
+          compat1        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.37 sec    Generated terms =        300
+          compat2        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.38 sec    Generated terms =        300
+          compat3        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.39 sec    Generated terms =        300
+          compat4        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.41 sec    Generated terms =        300
+          compat5        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.44 sec    Generated terms =        300
+          compat6        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.45 sec    Generated terms =        300
+          compat7        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.46 sec    Generated terms =        300
+          compat8        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.49 sec    Generated terms =        300
+          compat9        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.51 sec    Generated terms =        340
+         compat10        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.53 sec    Generated terms =        370
+         compat11        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.56 sec    Generated terms =        450
+         compat12        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.58 sec    Generated terms =        370
+         compat13        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.60 sec    Generated terms =        340
+         compat14        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.62 sec    Generated terms =        450
+         compat15        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.64 sec    Generated terms =        340
+         compat16        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.66 sec    Generated terms =        450
+         compat17        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.68 sec    Generated terms =        370
+         compat18        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.71 sec    Generated terms =        370
+         compat19        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.73 sec    Generated terms =        450
+         compat20        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.75 sec    Generated terms =        340
+         compat21        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.78 sec    Generated terms =        450
+         compat22        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.80 sec    Generated terms =        340
+         compat23        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.83 sec    Generated terms =        370
+         compat24        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.86 sec    Generated terms =        450
+         compat25        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.88 sec    Generated terms =        370
+         compat26        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.91 sec    Generated terms =        340
+         compat27        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.93 sec    Generated terms =        360
+         compat28        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.96 sec    Generated terms =        360
+         compat29        Terms in output =          0
+                         Bytes used      =          2
+
+Time =      20.98 sec    Generated terms =        360
+         compat30        Terms in output =          0
+                         Bytes used      =          2
+
+   compat1 = 0;
+
+   compat2 = 0;
+
+   compat3 = 0;
+
+   compat4 = 0;
+
+   compat5 = 0;
+
+   compat6 = 0;
+
+   compat7 = 0;
+
+   compat8 = 0;
+
+   compat9 = 0;
+
+   compat10 = 0;
+
+   compat11 = 0;
+
+   compat12 = 0;
+
+   compat13 = 0;
+
+   compat14 = 0;
+
+   compat15 = 0;
+
+   compat16 = 0;
+
+   compat17 = 0;
+
+   compat18 = 0;
+
+   compat19 = 0;
+
+   compat20 = 0;
+
+   compat21 = 0;
+
+   compat22 = 0;
+
+   compat23 = 0;
+
+   compat24 = 0;
+
+   compat25 = 0;
+
+   compat26 = 0;
+
+   compat27 = 0;
+
+   compat28 = 0;
+
+   compat29 = 0;
+
+   compat30 = 0;
+

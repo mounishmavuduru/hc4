@@ -1,0 +1,264 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\kk}{\Bbbk}
+\newcommand{\Hess}{\operatorname{Hess}}
+\newcommand{\Jac}{\operatorname{Jac}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\JC}{\mathrm{JC}}
+\newcommand{\HC}{\mathrm{HC}}
+
+\title{The four-variable Hessian conjecture:\\ definitions, verified reductions, and the graded tower}
+\author{HC$_4$ research project\thanks{All literature claims verified against
+primary sources 2026-08-08/09 (see \texttt{status.md}); all computations in
+exact rational arithmetic with fail-closed certificates (see
+\texttt{certificates/}).}}
+\date{August 9, 2026}
+
+\begin{document}
+\maketitle
+
+\section{Definitions and precise problem statement}
+
+Throughout, $\kk$ is a field of characteristic zero; the target problem is
+over $\C$. For $f\in\kk[x_1,\dots,x_n]$ write $\Hess f=(\partial^2
+f/\partial x_i\partial x_j)$ and $\nabla f=(\partial f/\partial
+x_1,\dots,\partial f/\partial x_n)$. A polynomial map $F$ with $\Jac
+F:=\det DF\in\kk^\times$ is a \emph{Keller map}.
+
+\begin{definition}[formal Legendre transform; Meng 2006]
+Let $\det\Hess f\in\kk^\times$. After an affine normalization, $p=\nabla
+f(x)$ has a formal inverse $x(p)$ at the base point, and
+$f^L(p):=\langle p,x(p)\rangle-f(x(p))$; equivalently $\nabla
+f^L=(\nabla f)^{-1}$ as formal maps.
+\end{definition}
+
+\begin{conjecture}[$\HC_n$; Meng 2006]
+If $f\in\kk[x_1,\dots,x_n]$ has $\det\Hess f\in\kk^\times$, then $f^L$ is a
+polynomial.
+\end{conjecture}
+
+By the injectivity theorem below, over $\C$ this is equivalent to: every
+\emph{gradient Keller map} $\nabla f$ is injective, equivalently a polynomial
+automorphism. $\HC_4$ is the target problem.
+
+\begin{remark}[a different ``Hessian conjecture'']
+de Bondt--van den Essen (Proc.\ AMS 133 (2005) 2201--2205) use ``HC$(n)$''
+for the \emph{nilpotent} statement ($\Hess f$ nilpotent $\Rightarrow$
+$x+\nabla f$ invertible). Their Theorem~1.1 proves nilpotent-HC$(2n)$
+$\Rightarrow$ $\JC_n$ for nilpotent Keller maps, and the nilpotent
+\emph{symmetric} case is settled for $n\le4$ (any $H$) and $n=5$
+homogeneous (JPAA 196 (2005) 135--148). None of this settles Meng's
+$\HC_4$.
+\end{remark}
+
+\subsection{Classical inputs (all source-verified)}
+
+\begin{theorem}[injectivity $\Rightarrow$ automorphism; BBR 1962, Ax 1969,
+Cynk--Rusek 1991, BCW Thm 2.1]\label{thm:inj}
+An injective polynomial map $\C^n\to\C^n$ is bijective and its inverse is
+polynomial.
+\end{theorem}
+
+\begin{theorem}[Wang 1980; proof of Oda, cf.\ BCW Thm 2.4]\label{thm:wang}
+Every Keller map of degree $\le2$ (any $n$, char $\ne2$, not necessarily
+homogeneous) is invertible.
+\end{theorem}
+
+\begin{theorem}[Dillen 1991 ($n\le2$); de Bondt, JPAA 219 (2015), Thm 2.1
+($n\le3$)]\label{thm:hc3}
+For $\kk$ of characteristic zero and $f\in\kk[x_1,\dots,x_n]$ with $n\le3$:
+$\nabla f$ satisfies the Jacobian conjecture; in the Keller case the inverse
+is polynomial. Moreover if $3\le d=\deg f$ and $\det\Hess f\in\kk$, some
+$T\in GL_n(\kk)$ makes $\Hess(f(Tx))$ vanish below the anti-diagonal.
+Both structural tools (anti-triangularization and the weight theorem) fail
+for $n\ge4$ by explicit counterexamples in the same paper.
+\end{theorem}
+
+\begin{theorem}[Gordan--Noether 1876; Watanabe--de Bondt, arXiv:1703.07624]
+\label{thm:gn}
+A form in $n\le4$ variables (alg.\ closed, char $0$) with identically
+vanishing Hessian determinant becomes, after a linear change, a form in
+$\le n-1$ variables. For $n=5$ this fails (Perazzo cubic
+$x_1^2x_3+x_1x_2x_4+x_2^2x_5$); the $n=5$ vanishing-Hessian forms properly
+involving 5 variables are, after a linear change, the homogeneous elements
+of $K[x_1,x_2][\Delta]$, $\Delta=p_3(x_1,x_2)x_3+p_4(x_1,x_2)x_4+p_5(x_1,x_2)x_5$.
+\end{theorem}
+
+\section{The bridges and stabilization (proofs re-verified)}
+
+\begin{proposition}[Meng 2006]\label{prop:bridges}
+(i) $\JC_n\Rightarrow\HC_n$.
+(ii) $\HC_{2n}\Rightarrow\JC_n$: for a Keller map $F$, the doubling
+$\varphi(x,y)=\langle y,F(x)\rangle$ has
+$\det\Hess\varphi=(-1)^n(\Jac F)^2$ and $\nabla\varphi$ triangular, so a
+polynomial $\varphi^L$ yields a polynomial $F^{-1}$.
+(iii) If $\det\Hess f\in\kk^\times$ and $\nabla f$ is not injective, $f^L$
+is not a polynomial. In particular $\boxed{\HC_4\Rightarrow\JC_2}$.
+\end{proposition}
+
+\begin{lemma}[stabilization]\label{lem:stab}
+$\JC_n$ false $\Rightarrow\JC_{n+1}$ false (pad by identity); $\HC_n$ false
+$\Rightarrow\HC_{n+1}$ false ($f\oplus\tfrac12t^2$; the Legendre transform
+separates).
+\end{lemma}
+
+\section{Status inputs (independently machine-verified here)}
+
+Alp\"oge's $F$ ($\Jac\equiv-2$, three-point fiber) refutes $\JC_3$;
+Meng--Yang's $\Psi=A^2+13A+2B$ ($\deg 14$, $\det\Hess\Psi\equiv128$,
+gradient collision at $(\pm1,\mp\tfrac32,0,0,0)$) refutes $\HC_5$; the full
+Schur family satisfies $\det\Hess(B+\tfrac\lambda2A^2+\mu A)\equiv4\lambda$.
+Certificates: \texttt{verify\_alpoge\_3d.py},
+\texttt{verify\_meng\_yang\_hc5.py}, \texttt{verify\_mengyang\_fast.py}.
+With Lemma~\ref{lem:stab} and Theorem~\ref{thm:hc3} this leaves exactly
+$\JC_2$ and $\HC_4$ open.
+
+\section{The graded tower for $\det\Hess f\in\C^\times$}
+
+Let $f=\sum_k f_k$ (homogeneous parts), $d=\deg f$, $n=4$ unless stated.
+
+\begin{lemma}[T0]\label{lem:t0}
+$[\det\Hess f]_0=\det\Hess f_2$. Hence the quadratic part is nondegenerate:
+$\det\Hess f_2=c$.
+\end{lemma}
+
+\begin{lemma}[T1]\label{lem:t1}
+If $d\ge3$ then $\det\Hess f_d\equiv0$ (the top graded piece, degree
+$n(d-2)>0$, of a constant). With Theorem~\ref{thm:gn}: \emph{the leading
+form of any $\HC_4$ candidate is, WLOG, in $\C[x_1,x_2,x_3]$.}
+\end{lemma}
+
+\begin{lemma}[T3]\label{lem:t3}
+If $f_d\in\C[x_1,x_2,x_3]$, $d\ge3$, then
+$[\det\Hess f]_{4d-9}=\det{}_3(\Hess_3f_d)\cdot\partial^2f_{d-1}/\partial
+x_4^2=0$: either $f_d$ degenerates to $\C[x_1,x_2]$, or $f_{d-1}$ has
+$x_4$-degree $\le1$.
+\end{lemma}
+
+\begin{proof}[Proof sketch for T0/T1/T3]
+Each entry of $\Hess f_k$ is homogeneous of degree $k-2$; a permutation
+product mixes graded pieces additively. For T3: entries of $\Hess f_d$
+vanish in row/column 4, so a product of degree $3(d-2)+(d-3)$ must place
+its unique lower-degree entry at position $(4,4)$; summing over
+$3$-permutations of the upper block gives the $3\times3$ determinant.
+Machine spot-checks: \texttt{src/hc4lib.py} self-tests.
+\end{proof}
+
+\begin{lemma}[T4; midpoint identity, $\deg f\le4$; fully symbolic machine
+proof]\label{lem:t4}
+For $\deg f\le4$ and all $m,v$:
+$\nabla f(m+v)-\nabla f(m-v)=2[\Hess f(m)\,v+\nabla f_4(v)]$. Hence $\nabla
+f$ is non-injective iff $\exists\,v\ne0,m$ with $\Hess f(m)v=-\nabla
+f_4(v)$; and for $\deg f\le3$, $\HC_n$ holds for all $n$ (Wang's case:
+$\Hess f(m)v=0$ forces $v=0$).
+\end{lemma}
+
+\section{The quadratic-pivot theorem and the affine-pivot reduction}
+
+\begin{theorem}[Q2; proved here]\label{thm:q2}
+Let $f=e_0(x')+x_4e_1(x')+\tfrac\sigma2x_4^2$ with $x'=(x_1,x_2,x_3)$,
+$\sigma\in\C^\times$, $\deg e_1\le2$, and $\det\Hess f=c\in\C^\times$. Set
+$\tilde e_0:=e_0-e_1^2/(2\sigma)$ and $K:=\Hess_3e_1$ (constant). Then
+\[
+\det\Hess f=\sigma\,\det{}_3\!\bigl(\Hess_3\tilde e_0+(x_4+e_1(x')/\sigma)K\bigr),
+\]
+and since $u=x_4+e_1(x')/\sigma$ sweeps $\C$ for fixed $x'$, the pencil
+identity $\det_3(\Hess_3\tilde e_0+sK)\equiv c/\sigma$ holds for all
+$s\in\C$. Any collision $\nabla f(p)=\nabla f(q)$ forces a common
+$\lambda=p_4+e_1(p')/\sigma=q_4+e_1(q')/\sigma$ and a collision of
+$\nabla'(\tilde e_0+\lambda e_1)$; by the pencil identity and
+Theorem~\ref{thm:hc3} this map is injective, so $p=q$. \emph{Hence $\HC_4$
+holds for every polynomial that, in some affine coordinates, is quadratic
+in a variable with constant leading coefficient and $\deg e_1\le2$.}
+\end{theorem}
+
+\begin{theorem}[T5; affine-pivot reduction in degree 4 --- proved modulo the
+branch closures listed in \texttt{lemma\_ledger.md}]\label{thm:t5}
+Let $\deg f=4$, $\det\Hess f\in\C^\times$. Then, after an affine change,
+either $f$ satisfies the hypotheses of Theorem~\ref{thm:q2} (and $\HC_4$
+holds for it), or
+\[
+f=e_0(x_1,x_2,x_3)+x_4\,e_1(x_1,x_2,x_3)\qquad(\textbf{class } AP_4),
+\]
+with $\deg e_0\le4$, $\deg e_1\le2$, and, writing $g=\nabla'e_1$,
+$P=\Hess_3e_0$, $K=\Hess_3e_1$,
+\[
+\text{(c0) } g^\top(\adj P)g\equiv-c,\qquad
+\text{(c1) } g^\top L(P,K)g\equiv0,\qquad
+\text{(c2) } g^\top(\adj K)g\equiv0,
+\]
+where $\adj(P+tK)=\adj P+tL(P,K)+t^2\adj K$.
+\end{theorem}
+
+\begin{remark}
+The class $AP_4$ contains all Meng doublings
+$\langle(x_3,x_4),F(x_1,x_2)\rangle$ of planar Keller maps (e.g.\ de
+Bondt's anti-triangularization counterexample), whose injectivity is
+equivalent to $\JC_2$ instances. Thus the affine-pivot class is exactly
+where $\JC_2$ embeds into $\HC_4$, and no argument that closes all of
+$AP_4$ can avoid proving planar-Jacobian statements. This calibrates the
+difficulty: full $\HC_4$ likely requires either $\JC_2$ or a structure
+theory of $AP_4$ modulo doublings.
+\end{remark}
+
+\section{Obstruction results for the known counterexample mechanisms}
+
+\begin{theorem}[D1/D1$^+$; proved here, machine certificate]\label{thm:d1}
+For every $\lambda\ne0,\mu$, the Meng--Yang potential
+$\psi_{\lambda,\mu}=B+\tfrac\lambda2A^2+\mu A$ admits no $v\in\C^5\setminus
+\{0\}$ with $D_v^2\psi\equiv\gamma$ for any constant $\gamma$ (including
+$0$). Hence no affine coordinates exhibit an affine pivot (Schur descent)
+or a quadratic pivot on any member of the known $\HC_5$ counterexample
+family: \emph{the known descent mechanism cannot be iterated to reach
+$\HC_4$.} (Certificate: 95 homogeneous $v$-quadratics from the
+degree-$\ge6$ coefficients; Gr\"obner leading terms contain a pure power of
+each $v_i$.)
+\end{theorem}
+
+\begin{theorem}[G1; proved here, machine certificate]\label{thm:g1}
+For $F\in\{$Alp\"oge $F$, Gao $F_4$, Gao $F_5\}$ the space $\{W:W\cdot
+J_F(x)\text{ symmetric }\forall x\}$ is $\{0\}$. Since $L_1\circ F\circ
+L_2$ is a gradient map for affine $L_i$ iff some invertible $W$
+symmetrizes $J_F$ (take $W=(T^\top)^{-1}S$; conversely the polynomial
+Poincar\'e lemma), \emph{neither known dimension-4 Jacobian counterexample
+is affinely equivalent to a gradient map}. The Alp\"oge case is the
+consistency control demanded by Theorem~\ref{thm:hc3}.
+\end{theorem}
+
+\section{Dependency graph}
+
+\begin{verbatim}
+                    [BBR/Ax/Cynk-Rusek]   [Wang/Oda]     [Gordan-Noether]
+                          |                   |                |
+                        (L-INJ)             (T4)             (T2)
+                          |                   |                |
+ [de Bondt HC_3] ---------+---------+       (deg<=3 case)    (T1,T3 tower)
+        |                           |                          |
+      (Q2) <---- pencil identity ---+                        (T5 reduction)
+        |                                                      |
+        +------------------ HC_4(deg 4) = Q2-side + AP_4 -----+
+                                              |
+ [Meng doubling] --- AP_4 contains doubled planar Keller maps --- [JC_2]
+ [Meng-Yang Schur descent] --(D1/D1+: no pivot on known family)--X--> HC_4
+ [Gao F_4,F_5] -----(G1: not affinely gradient-equivalent)-----X--> HC_4
+\end{verbatim}
+
+Statements in square brackets are literature (source-verified); parenthesized
+statements are proved in this project (certificates in
+\texttt{certificates/}); X marks proved obstructions.
+
+\end{document}

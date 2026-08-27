@@ -1,0 +1,148 @@
+=== PDF page index 30 ===
+1.1 Polar hypersurfaces 19
+Let us see now when a nonsingular point a∈ X lies in its Hessian hyper-
+surface He(X).
+By Corollary 1.1.12, the inﬂection tangents inTa(X) sweep the intersection
+of Ta(X) with the polar quadric Pad−2(X). If a ∈ He(X), then the polar
+quadric is singular at some pointb.
+Ifn = 2, a singular quadric is the union of two lines, so this means that one
+of the lines is an inﬂection tangent. A point a of a plane curve X such that
+there exists an inﬂection tangent ata is called an inﬂection point ofX.
+Ifn> 2, the inﬂection tangent lines at a pointa∈X∩He(X) sweep a cone
+over a singular quadric in Pn−2 (or the whole Pn−2 if the point is singular).
+Such a point is called aparabolic pointofX. The closure of the set of parabolic
+points is the parabolic hypersurface inX (it could be the wholeX).
+Theorem 1.1.20 LetX be a hypersurface of degree d >2 in Pn. Ifn = 2,
+then He(X)∩X consists of inﬂection points ofX. In particular, each nonsin-
+gular curve of degree≥ 3 has an inﬂection point, and the number of inﬂections
+points is either inﬁnite or less than or equal to 3d(d− 2). If n >2, then the
+setX∩ He(X) consists of parabolic points. The parabolic hypersurface inX
+is either the wholeX or a subvariety of degree (n + 1)d(d− 2) in Pn.
+Example 1.1.21 Let X be a surface of degree d in P3. If a is a parabolic
+point of X, then Ta(X)∩X is a singular curve whose singularity at a is of
+multiplicity higher than 3 or it has only one branch. In fact, otherwise X has
+at least two distinct inﬂection tangent lines which cannot sweep a cone over a
+singular quadric in P1. The converse is also true. For example, a nonsingular
+quadric has no parabolic points, and all nonsingular points of a singular quadric
+are parabolic.
+A generalization of a quadratic cone is a developable surface. It is a special
+kind of a ruled surface which characterized by the condition that the tangent
+plane does not change along a ruling. We will discuss these surfaces later in
+Chapter 10. The Hessian surface of a developable surface contains this surface.
+The residual surface of degree 2d− 8 is called the pro-Hessian surface. An
+example of a developable surface is the quartic surface
+(t0t3−t1t2)2−4(t2
+1−t0t2)(t2
+2−t1t3) =−6t0t1t2t3+4t3
+1t3+4t0t3
+2+t2
+0t2
+3−3t2
+1t2
+2 = 0.
+It is the surface swept out by the tangent lines of a rational normal curve of
+degree 3. It is also the discriminant surface of a binary cubic, i.e. the surface
+parameterizing binary cubicsa0u3 + 3a1u2v + 3a2uv2 +a3v3 with a multiple
+root. The pro-Hessian of any quartic developable surface is the surface itself
+[84].
+=== PDF page index 31 ===
+20 Polarity
+Assume now that X is a curve. Let us see when it has inﬁnitely many in-
+ﬂection points. Certainly, this happens when X contains a line component;
+each of its points is an inﬂection point. It must be also an irreducible compo-
+nent of He(X). The set of inﬂection points is a closed subset of X. So, if X
+has inﬁnitely many inﬂection points, it must have an irreducible component
+consisting of inﬂection points. Each such component is contained in He (X).
+Conversely, each common irreducible component ofX and He(X) consists of
+inﬂection points.
+We will prove the converse in a little more general form taking care of not
+necessarily reduced curves.
+Proposition 1.1.22 A polynomialf(t0,t 1,t 2) divides its Hessian polynomial
+He(f) if and only if each of its multiple factors is a linear polynomial.
+Proof Since each point on a non-reduced component ofXred⊂V (f) is a sin-
+gular point (i.e. all the ﬁrst partials vanish), and each point on a line component
+is an inﬂection point, we see that the condition is sufﬁcient for X⊂ He(f).
+Suppose this happens and let R be a reduced irreducible component of the
+curveX which is contained in the Hessian. Take a nonsingular point ofR and
+consider an afﬁne equation of R with coordinates (x,y ). We may assume that
+OR,x is included in ˆOR,x∼= C[[t]] such thatx = t,y = trϵ, whereϵ(0) = 1.
+Thus the equation ofR looks like
+f(x,y ) =y−xr +g(x,y ), (1.22)
+whereg(x,y ) does not contain terms cy,c ∈ C. It is easy to see that (0, 0) is
+an inﬂection point if and only ifr> 2 with the inﬂection tangenty = 0.
+We use the afﬁne equation of the Hessian (1.21), and obtain that the image
+of
+h(x,y ) = det
+
+
+d
+d−1f f 1 f2
+f1 f11 f12
+f2 f21 f22
+
+
+in C[[t]] is equal to
+det
+
+
+0 −rtr−1 +g1 1 +g2
+−rtr−1 +g1 −r(r− 1)tr−2 +g11 g12
+1 +g2 g12 g22
+
+.
+Since every monomial entering in g is divisible by y2,xy orxi,i > r, we
+see that ∂g
+∂y is divisible by t and ∂g
+∂x is divisible by tr−1. Also g11 is divisible
+=== PDF page index 32 ===
+1.1 Polar hypersurfaces 21
+bytr−1. This shows that
+h(x,y ) = det
+
+
+0 atr−1 +··· 1 +···
+atr−1 +··· − r(r− 1)tr−2 +··· g12
+1 +··· g12 g22
+
+,
+where··· denotes terms of higher degree in t. We compute the determinant
+and see that it is equal to r(r− 1)tr−2 +··· . This means that its image in
+C[[t]] is not equal to zero, unless the equation of the curve is equal to y = 0,
+i.e. the curve is a line.
+In fact, we have proved more. We say that a nonsingular point ofX is an in-
+ﬂection point of orderr−2 and denote the order by ordﬂxX if one can choose
+an equation of the curve as in (1.22) with r≥ 3. It follows from the previous
+proof thatr− 2 is equal to the multiplicityi(X, He)x of the intersection of the
+curve and its Hessian at the point x. It is clear that ordﬂ xX = i(𝓁,X )x− 2,
+where𝓁 is the inﬂection tangent line ofX atx. IfX is nonsingular, we have
+∑
+x∈X
+i(X, He)x =
+∑
+x∈X
+ordﬂxX = 3d(d− 2). (1.23)
+1.1.6 The Steinerian hypersurface
+Recall that the Hessian hypersurface of a hypersurfaceX =V (f) is the locus
+of points a such that the polar quadric Pad−2(X) is singular. The Steinerian
+hypersurface St(X) ofX is the locus of singular points of the polar quadrics.
+Thus
+St(X) =
+⋃
+a∈He(X)
+Sing(Pad−2(X)). (1.24)
+The proof of Proposition 1.1.17 shows that it can be equivalently deﬁned as
+St(X) ={a∈ Pn :Pa(X) is singular}. (1.25)
+We also have
+He(X) =
+⋃
+a∈St(X)
+Sing(Pa(X)). (1.26)
+A pointb = [b0,...,b n]∈ St(X) satisﬁes the equation
+He(f)(a)·
+
+
+b0
+...
+bn
+
+ = 0, (1.27)
