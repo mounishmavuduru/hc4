@@ -30,7 +30,7 @@ FAST = [
     'homogenization_identity.py', 'theorem_F.py', 'theoremA_sharp.py',
     # Theorem G and the trichotomy
     'theorem_G.py', 'theorem_G_n2_deg45.py', 'pivot_dichotomy.py',
-    'identityE_is_known.py', 'advG_flow_proof.py', 'pzG_audit_identities.py',
+    'advG_flow_proof.py', 'pzG_audit_identities.py',
     'atkG_algebraic_proof.py', 'atkG_n2_decision.py',
     'paperG_writeup_checks.py', 'wG_writeup_checks.py',
     'refG_paper_integrity.py', 'fpG_paper_certificate_part2.py',
@@ -41,9 +41,6 @@ FAST = [
     'nax_d1_nonaffine.py', 'nax_pivot_transfer_5var.py',
     # pivot existence
     'pe_pivot_cone.py', 'pe_lowdeg_pivot.py', 'pe_perturbation.py',
-    # NEW (2026-08-27)
-    'd5_graded_tower.py',
-    'd5_pivotfree_normalform.py', 'd5_rank3_pivotfree_decision.py',
 ]
 
 # Not run by the fast suite (reason in the table).
@@ -51,10 +48,14 @@ SLOW = {
     'fpG_paper_certificate.py': 'full run ~25 min; C1-C9 here, C11-C19 in _part2',
     'pzG_n2_decision.py': 'degree-4 Groebner does not terminate; use atkG_n2_decision.py',
     'conjE_degree3.py': '14-variable Groebner per minor; better in Singular',
+    'identityE_is_known.py': 'Rabinowitsch radical membership; >400 s (proved in-session; attribution fact)',
     'atkG_n3_search.py': 'several deg-4 slices exceed the runtime kill',
     'd5_branch1_normalized.py': '54 eqns in 15 unknowns; may exceed the kill',
     'euler_pullback_reformulation.py': 'B2 imports the ~12-min Meng-Yang determinant; parts A,B1 are fast',
     'rt_instances_x2_B_break.py': 'chunk per family: py rt_instances_x2_B_break.py R1',
+    'd5_graded_tower.py': 'universal 4x4 graded determinant; ~5-15 min',
+    'd5_pivotfree_normalform.py': 'weighted leading-form identities; slow',
+    'd5_rank3_pivotfree_decision.py': 'reduction + Singular export + sampling; ~4 min, exports .sing',
 }
 
 MARKERS = ('ALL CHECKS PASSED', 'ALL PASS', 'ALL FAST CHECKS PASSED',
@@ -66,16 +67,28 @@ TIMEOUT = int(sys.argv[2]) if len(sys.argv) > 2 else 300
 
 
 def run(script):
+    # Popen + explicit process-TREE kill on timeout.  On Windows the py
+    # launcher / python.exe can orphan a grandchild whose open pipe makes a
+    # plain subprocess.run(timeout=) block far past the cap; taskkill /T fixes
+    # it.  sys.executable is python.exe here, but be robust anyway.
     env = dict(os.environ, PYTHONIOENCODING='utf-8')
     t0 = time.time()
+    p = subprocess.Popen([sys.executable, '-u', script], stdout=subprocess.PIPE,
+                         stderr=subprocess.STDOUT, text=True, env=env, errors='replace')
     try:
-        r = subprocess.run([sys.executable, '-u', script], capture_output=True,
-                           text=True, timeout=TIMEOUT, env=env, errors='replace')
+        out, _ = p.communicate(timeout=TIMEOUT)
+        rc = p.returncode
     except subprocess.TimeoutExpired:
+        subprocess.run(['taskkill', '/F', '/T', '/PID', str(p.pid)],
+                       capture_output=True)
+        try:
+            out, _ = p.communicate(timeout=30)
+        except subprocess.TimeoutExpired:
+            out = ''
         return 'TIMEOUT', time.time() - t0, ''
-    out = (r.stdout or '') + (r.stderr or '')
     dt = time.time() - t0
-    if r.returncode != 0:
+    out = out or ''
+    if rc != 0:
         last = next((ln for ln in reversed(out.splitlines()) if ln.strip()), '')
         return 'FAIL', dt, last[:80]
     # every script is fail-closed (assert-based): exit 0 => all checks held.

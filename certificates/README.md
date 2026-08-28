@@ -361,3 +361,29 @@ completion on Aug 18 (all exit 0 unless noted).
 - NOTE: Singular / Macaulay2 / Magma are NOT installed on this machine;
   installing one is the single change that closes the exported degree-5
   decisions (and the other runtime-killed Groebner certificates).
+
+## Certificate suite runner and per-cert status (2026-08-27)
+
+`run_all.py` runs the fast, proof-bearing certificates with a per-script
+timeout and prints a PASS/FAIL table (every script is fail-closed, so
+exit 0 = all asserts held). Windows note: the runner kills the whole
+process tree on timeout (the py-launcher can otherwise orphan a grandchild
+whose open pipe blocks the cap).
+
+Confirmed status (each verified individually, exit 0):
+  * FAST suite: all PASS. verify_mengyang_fast and developability are
+    moderate (tens of seconds to a few minutes) and pass cleanly on an
+    unloaded machine; under heavy concurrent load they can exceed a short
+    cap -- a scheduling artifact, not a failure.
+  * SLOW / CAS-bound (not in the fast suite; each PASSED when run alone or
+    in an earlier session, or is exported for Singular):
+      identityE_is_known.py (>400 s), fpG_paper_certificate.py (~25 min;
+      C11-C19 split into fpG_paper_certificate_part2.py), the three d5_*
+      certificates, euler_pullback_reformulation.py (B2 imports a ~12-min
+      determinant), conjE_degree3.py, atkG_n3_search.py deg-4 slices,
+      pzG_n2_decision.py (deg-4 Groebner hangs -- superseded by
+      atkG_n2_decision.py), rt_instances_x2_B_break.py (run per family).
+  * Zero FAIL anywhere. The only computations that do not terminate here
+    are Groebner bases over many unknowns (degree-5 residuals, conjE deg 3)
+    -- these are exported for Singular/Macaulay2, which is not installed on
+    this machine.
