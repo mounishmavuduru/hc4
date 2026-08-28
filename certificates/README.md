@@ -387,3 +387,12 @@ Confirmed status (each verified individually, exit 0):
     are Groebner bases over many unknowns (degree-5 residuals, conjE deg 3)
     -- these are exported for Singular/Macaulay2, which is not installed on
     this machine.
+
+## Suite result of record (2026-08-28)
+
+`py run_all.py x 600` on this machine: **PASS 35, FAIL 0, OTHER 1**. The
+single non-PASS is developability.py (moved to SLOW: it passes standalone
+in ~minutes but its grandchild process escapes the runner's tree-kill on
+Windows). Every SLOW/CAS-bound script has been confirmed exit 0 either
+standalone or in an earlier session, except the many-unknown Groebner
+bases exported for Singular (not installed here). No certificate fails.
