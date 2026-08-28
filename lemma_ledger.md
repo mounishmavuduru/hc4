@@ -676,3 +676,23 @@ pivot-free residual class (no v with D_v²f constant) should be attacked:
 a pivot is exactly a coordinate in which one W_i has an especially simple
 (triangular) form. Open: use (I3)'s commuting framing to force local
 nilpotency in the pivot-free case.
+
+**R-D5 (degree-5 y1-slice reduction) [proved here] [machine]** For the
+weighted leading form F = a5(y) + x4 b3(y) + (1/2)x4² y1 of a pivot-free
+degree-5 rank-3 potential (branch 1 of E4 = 0, c5 ≠ 0):
+det Hess₄ F ≡ 0 forces **a5|_{y1=0} to be a 5th power of a linear form**
+in (y2,y3). Proof (certified, `d5_y1slice_reduction.py`): (R1) the
+bordered-determinant identity det Hess₄F|_{y1=0} =
+−(c5 y3²+x4)²·[adj(Hess₃a5 + x4 Hess₃b3)]₁₁|_{y1=0} (fully generic a5 ⇒
+proof); (R2) its x4⁰ part equals det Hess₂(a5|_{y1=0}); so det Hess₂ of
+the binary quintic ā = a5|_{y1=0} vanishes; (R3) by Hesse (binary
+Gordan–Noether, certified via the apolar catalecticant radical test) ā is
+a 5th power. (R4, correction: the x4¹ part is identically 0 for branch 1 —
+Hess(b3)|_{y1=0} has (3,3) entry 2c5·y1 → 0 — so it gives nothing; an
+earlier draft wrongly concluded ā = κy3⁵.) Consequence: Hess₃(a5)|_{y1=0}
+has rank 1, so det₃ Hess₃ a5 vanishes on {y1=0}; the rank-3 hypothesis
+must be carried entirely by the y1-dependent part of a5. This is a sharp
+structural obstruction obtained WITHOUT a many-unknown Gröbner basis; the
+residual decision lives in the y1 ≥ 1 graded pieces of det Hess₄ F. Open:
+push the y1-graded chain (or the exported Singular decision) to close or
+populate the branch.

@@ -26,7 +26,7 @@ FAST = [
     't3_generic.py', 'verify_q2_core.py', 'ap4_rank_reduction.py',
     'ap4_pivot_closure.py', 'deg4_branch_closures.py', 'dillen4_ap4_control.py',
     # structure theorems
-    'doubling_structure.py', 'developability.py', 'cone_leading_form.py',
+    'doubling_structure.py', 'cone_leading_form.py',
     'homogenization_identity.py', 'theorem_F.py', 'theoremA_sharp.py',
     # Theorem G and the trichotomy
     'theorem_G.py', 'theorem_G_n2_deg45.py', 'pivot_dichotomy.py',
@@ -41,6 +41,7 @@ FAST = [
     'nax_d1_nonaffine.py', 'nax_pivot_transfer_5var.py',
     # pivot existence
     'pe_pivot_cone.py', 'pe_lowdeg_pivot.py', 'pe_perturbation.py',
+    'd5_y1slice_reduction.py',
 ]
 
 # Not run by the fast suite (reason in the table).
@@ -56,6 +57,7 @@ SLOW = {
     'd5_graded_tower.py': 'universal 4x4 graded determinant; ~5-15 min',
     'd5_pivotfree_normalform.py': 'weighted leading-form identities; slow',
     'd5_rank3_pivotfree_decision.py': 'reduction + Singular export + sampling; ~4 min, exports .sing',
+    'developability.py': 'passes standalone (~min) but its grandchild escapes the runner tree-kill on Windows',
 }
 
 MARKERS = ('ALL CHECKS PASSED', 'ALL PASS', 'ALL FAST CHECKS PASSED',
