@@ -396,3 +396,23 @@ in ~minutes but its grandchild process escapes the runner's tree-kill on
 Windows). Every SLOW/CAS-bound script has been confirmed exit 0 either
 standalone or in an earlier session, except the many-unknown Groebner
 bases exported for Singular (not installed here). No certificate fails.
+
+## Running the degree-5 decision without a local CAS (2026-08-28)
+
+This machine's package managers are blocked by a TLS-intercepting network
+proxy (pacman/apt fail on every mirror with a hostname-mismatch cert), so
+Singular/Macaulay2 cannot be installed here. Instead, `d5_web_decision.py`
+emits ready-to-paste scripts for FREE web CAS front-ends that need no
+install:
+  d5_web_branch{0,1}.singular.txt  -> sagecell.sagemath.org (language: Singular)
+  d5_web_branch{0,1}.magma.txt     -> magma.maths.usyd.edu.au/calc
+Each decides whether a degree-5 rank-3 pivot-free branch is EMPTY by testing
+whether every y-coefficient of det_3 Hess_3 a5 lies in radical(J : sat^inf),
+J the residual ideal E2=E1=E0 after solving E4, E3. Singular prints 0 /
+Magma prints true  <=>  branch EMPTY  <=>  degree-5 HC_4 holds in that
+branch; a nonzero / false is the first pivot-free 4-variable constant-Hessian
+potential. Validated: no stray denominators or undeclared variables; the test
+is the rigorous all-coefficient version (a single random combination could
+give a false 0). If a free web tier times out on the ~16-variable radical,
+use a free CoCalc project (longer limits) or the y1-slice reduction
+(d5_y1slice_reduction.py) to shrink the system first.
