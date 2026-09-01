@@ -19,6 +19,8 @@
 \newcommand{\adj}{\operatorname{adj}}
 \newcommand{\HC}{\mathrm{HC}}
 \newcommand{\JC}{\mathrm{JC}}
+\newcommand{\Jac}{\operatorname{Jac}}
+\newcommand{\rea}{\mathbb{R}}
 
 \title{Pivots, descents, and the four-variable Hessian conjecture:\\
 $\HC_4$ in degree at most four, and obstructions to the known
@@ -291,18 +293,30 @@ that is
 \]
 On a cone neighbourhood write $p=t\,\sigma(z)$ with $\sigma$ a local
 holomorphic section of the $\C^\times$-bundle; the displayed equation reads
-$t^2\partial_t^2L=0$, so $L$ is affine in $t$ along every ray. Hence
-$L=A+\widetilde B$ with $A,\widetilde B$ holomorphic and homogeneous of
-Euler-degree $0$ and $1$, and since any analytic continuation of $L$ solves
-the same equation, this expression \emph{is} the continuation of $L$ over
-the whole cone. As $\nabla A$ is homogeneous of degree $-1$ and
-$\nabla\widetilde B$ of degree $0$,
+$t^2\partial_t^2L=0$, so $L$ is affine in $t$ along every ray:
+$L=A(z)+t\,\widetilde B(z)$, where $A,\widetilde B$ are the Euler-degree $0$
+and $1$ components of $L$. The point now is to extend this off the local chart
+\emph{without} continuing the local inverse $\psi$ (which need not extend as an
+inverse across the branch locus --- this is where an earlier draft was
+defective; see the Remark below). One does not: $A$ and $\widetilde B$ are the
+$t^0$ and $t^1$ coefficients of the \emph{rational} function
+$L=\langle\psi,p\rangle-e\circ\psi$ in the chart, each annihilated by $E^2-E$
+and homogeneous of its Euler-degree, so each extends across the punctured cone
+by the identity theorem for the rational eigencomponents alone. The full
+argument (an Euler-eigenspace split with the extension justified this way) is
+carried out in the companion \texttt{theorem\_G\_paper.tex} (First proof,
+Steps~4--7 and Remark~``on the continuation step''); two further independent
+proofs --- an elementary local flow $x''+x'=0$, and a Puiseux-at-infinity
+argument over any characteristic-$0$ field --- are given there as well. With the
+components in hand, $\nabla A$ is homogeneous of degree $-1$ and
+$\nabla\widetilde B$ of degree $0$, so
 \[
-\psi(tp)=\nabla L(tp)=t^{-1}\nabla A(p)+\nabla\widetilde B(p)=:t^{-1}a+b .
+\psi(tp)=\nabla L(tp)=t^{-1}\nabla A(p)+\nabla\widetilde B(p)=:t^{-1}a+b ,
 \]
-The identity $\varphi(\psi(q))=q$ continues along the cone as well, so
+and the \emph{polynomial} identity $\nabla e(\nabla L)=\mathrm{id}$ --- valid
+wherever defined and hence everywhere --- gives
 \[
-\nabla e\bigl(t^{-1}a+b\bigr)=t\,p\qquad\text{for all }t .
+\nabla e\bigl(t^{-1}a+b\bigr)=t\,p\qquad\text{for all }t\in\C^\times .
 \]
 The left-hand side is a polynomial map evaluated at $t^{-1}a+b$, hence a
 polynomial in $t^{-1}$: it contains no positive power of $t$. Comparing the
