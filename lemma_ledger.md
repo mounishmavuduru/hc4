@@ -727,7 +727,10 @@ Z; the loci Z0, Z1 themselves are a finite stratification tail (R-D5-TAIL),
 and match exactly the y-degenerations b3 → (y1²)·(linear) reached there.
 
 **R-D5-TAIL (degree-5 rank-3 pivot-free, the exceptional-locus tail)
-[proved here; deductive core + multi-prime modular certificates]** The
+[machine-modular; deductive structural core S1–S4 (char-0) + multi-prime
+radical certificates]** (NOTE: R-D5-GEN above is an EXACT char-0 result — its
+modular caveats do NOT apply here; the caveats below are confined to this
+tail.) The
 recursive stratification of Z0, Z1 (`_d5_close.py`; each c-substratum decided
 by std(J) = (1) or a cone/isotropy test, Noetherian) closes every branch
 EMPTY, and every surviving leaf collapses to a SINGLE degenerate family
@@ -753,14 +756,32 @@ for this family). Decision of the a-system J = ⟨coeff_y E0,E1,E2,E3⟩
     `_iso_power.py`).
 CONCLUSION: every rank-3 solution of the E-system for b3 = y1²·(…) carries a
 linear direction v*, so it FAILS the branch's "f5 has no linear direction"
-hypothesis. **The degree-5 rank-3 NO-isotropic-direction pivot-free branch is
-therefore EMPTY.** Adversarial / honesty: the two radical facts are certified
-MODULARLY (multi-prime, unbiased full-variety Rabinowitsch) plus the char-0
-power certificate (v*ᵀAv*)² ∈ ⟨J⟩ over F_p; the char-0 PARAMETRIC lift over
-ℚ(c) is beyond this environment's compute ceiling (std/sat over ℚ(c) times
-out; long jobs are killed near 10 min), so it is recorded as machine-certified
-(modular) rather than a hand proof. What this does NOT do: it does not settle
-HC_4 (JC_2 remains the blocker via the trichotomy). UNIFICATION (added; scripts
+hypothesis. Hence the degree-5 rank-3 no-isotropic-direction pivot-free branch
+is **empty, conditional on the char-0 lift of the radical fact M2 below** (which
+alone suffices: a rank<3 "cone" solution is also excluded from a rank-3 branch,
+so M1 is NOT load-bearing for emptiness). Adversarial / honesty (the load-bearing
+LIMITATION): the decisive radical facts are certified only MODULARLY —
+  • M1: det Hess₃a5 ∉ √J — multi-prime, sampled-c, sampled-λ full-variety
+    Rabinowitsch; used only to say the survivors are genuine rank-3 forms.
+  • M2 (the one that closes the branch): D²_{v*}a5 = v*ᵀAv* ∈ √J — same
+    multi-prime Rabinowitsch, plus a single-prime/single-point F_p power
+    reduction (v*ᵀAv*)² ≡ 0 mod std(J) (`_iso_power.py`; NOT char-0).
+This is modular sampling, not a characteristic-0 proof: the char-0 parametric
+lift over ℚ(c) exceeds this environment's compute ceiling (std/sat over ℚ(c)
+times out; long jobs die near 10 min). Per the project's own standard a char-0
+theorem must NOT be inferred from finitely many primes/points — so the EMPTY
+conclusion is [machine-modular], pending a char-0 lift of M2. Only the
+structural core S1–S4 (and det Hess₃a5|_{y1=0} ∈ J) is char-0/deductive. A
+FURTHER completeness caveat: the stratification that reduces the tail to the
+single survivor family relies on `sp.solve` enumerating every c-stratum, which
+sympy does not guarantee — a missed stratum would be silently unvisited; this is
+mitigated by R-D5-GEN + the lindir unification but is not independently proved
+exhaustive. The sub-locus c0 = c1 = 0 (b3 = c2·y1³, where v* = (0,c1,−c0) = 0
+so the M2 exclusion is vacuous) is closed SEPARATELY (`_d5_surv_c0c1.py`): there
+Hess₃(b3) has rank 1 with kernel span{e2,e3}, and det Hess₃a5 ∈ √J (rank<3 cone;
+multi-prime full-variety Rabinowitsch, 3/3 primes) — so that sub-locus is EMPTY
+by rank collapse, covering the corner v* misses. What this does NOT do: it does
+not settle HC_4 (JC_2 remains the blocker because HC_4 ⟹ JC_2). UNIFICATION (added; scripts
 `d5_linear_direction_normalform.py`, `d5_lindir_decide.py`, `d5_lindir_verify.py`):
 a rank-3 f5 that HAS a linear direction has the normal form
 f5 = P(x2,x3) + x1 Q(x2,x3) (linear direction unique, det₃ = c0 − x1·cov(Q)),

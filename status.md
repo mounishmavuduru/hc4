@@ -213,14 +213,23 @@ Every claim below was checked against a primary source during this project
     isotropic/linear direction v*: **D²_{v*}a5 = v*ᵀ(Hess₃a5)v* ∈ √J**, with
     the explicit power certificate (v*ᵀAv*)² ∈ ⟨J⟩. Such a5 has a linear
     direction, so it FAILS the branch's "no-isotropic-direction" hypothesis —
-    it lies OUTSIDE this branch (which assumes no linear direction).
-    **Hence the rank-3, no-isotropic-direction, pivot-free branch is EMPTY.**
-    (Structural facts S1–S4 in `d5_survivor_family.py` are fully deductive;
-    the two radical facts are certified modularly, multi-prime — the char-0
-    parametric lift over ℚ(c) is compute-bound.) Ledger: R-D5-TAIL. NOTE:
-    closing this one branch does not settle HC_4 — the ultimate blocker
-    remains JC_2 (the pivot-free residual class is equivalent to it by the
-    trichotomy). The rank-3 f5 that HAS a linear direction is NOT a separate
+    it lies OUTSIDE this branch (which assumes no linear direction). Hence the
+    rank-3, no-isotropic-direction, pivot-free branch is **empty, conditional on
+    the char-0 lift of the modular fact D²_{v*}a5 ∈ √J** (which alone suffices;
+    a cone would also be excluded). LABEL: the structural core S1–S4
+    (`d5_survivor_family.py`) is fully deductive/char-0, but the two decisive
+    radical facts are certified only MODULARLY (multi-prime, sampled c and λ;
+    the single-prime F_p power reduction (v*ᵀAv*)² ≡ 0 mod std(J) is NOT char-0),
+    because the char-0 parametric lift over ℚ(c) is compute-bound. Per the
+    project's rule (no char-0 theorem from modular samples) the emptiness is
+    [machine-modular], not a hand proof; also the solve()-based stratification is
+    not independently proved exhaustive, and the c0=c1=0 sub-locus (b3=c2y1³,
+    v*=0) is closed separately as a rank-collapse cone, det Hess₃a5 ∈ √J
+    (`_d5_surv_c0c1.py`, 3/3 primes). Ledger: R-D5-TAIL. NOTE: closing this one branch
+    does not settle HC_4 — the ultimate blocker remains JC_2 because HC_4 ⟹ JC_2;
+    the WITH-pivot (affine-pivot) class is JC_2-equivalent by the trichotomy,
+    while the pivot-free residual is precisely the part NOT reduced to JC_2 (the
+    genuine open heart). The rank-3 f5 that HAS a linear direction is NOT a separate
     leading-form branch: its normal form f5 = P(x2,x3)+x1Q(x2,x3) pushed into
     the tower gives J = (1) at generic b3 (char 0; `d5_lindir_verify.py`),
     subsumed by R-D5-GEN — so its leading forms ARE the survivors above. The

@@ -55,12 +55,19 @@ def a5_form(sub):
 
 
 def s_poly_modp(expr, p, avars):
-    """Emit expr as a Singular poly string with every integer coefficient
-    reduced mod p (so no literal exceeds p -- large literals crash the parser)."""
+    """Emit expr as a Singular poly string with every coefficient reduced to its
+    field element in F_p (so no literal exceeds p -- large literals crash the
+    parser).  Coefficients can be RATIONAL (the E4=0 b3-branches carry
+    denominators like 1/(9 c9^2), 1/(4 c5) that random integer c does not clear),
+    so reduce n/m as n * m^{-1} mod p via Fermat, not int(n/m) (which truncates
+    and hands Singular a DIFFERENT ideal)."""
     P = sp.Poly(sp.expand(expr), *avars)
     terms = []
     for mon, co in P.terms():
-        c = int(co) % p
+        r = sp.Rational(co)
+        if r.q % p == 0:
+            raise ValueError(f'prime {p} divides denominator {r.q}; pick another prime')
+        c = (int(r.p) * pow(int(r.q), p - 2, p)) % p
         if c == 0:
             continue
         factors = [str(c)] + [f'{v}^{e}' if e > 1 else str(v)

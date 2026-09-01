@@ -562,18 +562,24 @@ Weighted leading form F = a5(y) + x4 b3(y) + (1/2) x4² y1:
   Independently certified by a Nullstellensatz witness Σ gᵢ Jᵢ = 1 (Singular
   `lift`, re-checked in sympy: `verify_paramcert.py`). Empty off
   Z0 = V(972 c8⁷c9⁴(3c0c9−c1c8)⁶), Z1 = V(3 c5(2c0c5−c1c4)⁵).
-- **R-D5-TAIL (closed; deductive core + multi-prime modular certificates).**
+- **R-D5-TAIL (machine-modular; deductive core + multi-prime radical certs).**
   Recursive stratification of Z0, Z1 (`_d5_close.py`) collapses every surviving
   leaf to ONE family b3 = y1²(c2y1+c0y2+c1y3). NOT a rank-collapse cone: the
   E-system HAS rank-3 solutions (det Hess₃a5 ∉ √J, unbiased full-variety
   Rabinowitsch 12/12 over 3 primes — a slice-only test gives a FALSE cone here,
   a trap worth remembering). But EVERY solution's a5 carries the isotropic
-  direction v* = (0,c1,−c0) (D²_{v*}a5 ∈ √J, power certificate (v*ᵀAv*)² ∈ ⟨J⟩),
-  so it fails the branch's no-linear-direction hypothesis. Hence the branch is
-  EMPTY. Structural facts (adjB = −4y1²v*v*ᵀ, v*·q = 0, det Hess₃a5|_{y1=0} ∈ J)
-  are deductive (`d5_survivor_family.py` S1–S4). The char-0 parametric lift of
-  the two radical facts over ℚ(c) is compute-bound (std/sat over ℚ(c) times out;
-  jobs die ~10 min), so they are machine-certified modularly, not by hand.
+  direction v* = (0,c1,−c0) (D²_{v*}a5 ∈ √J, plus a single-prime F_p power
+  reduction (v*ᵀAv*)² ≡ 0 mod std(J) — NOT char-0), so it fails the branch's
+  no-linear-direction hypothesis. Hence the branch is empty **conditional on the
+  char-0 lift of D²_{v*}a5 ∈ √J** (which alone suffices; a cone is also excluded).
+  Structural facts (adjB = −4y1²v*v*ᵀ, v*·q = 0, det Hess₃a5|_{y1=0} ∈ J) ARE
+  deductive/char-0 (`d5_survivor_family.py` S1–S4); the c0=c1=0 corner (v*=0) is
+  closed separately as a cone (`_d5_surv_c0c1.py`). But the two radical facts M1/M2
+  are certified only MODULARLY: the char-0 parametric lift over ℚ(c) is
+  compute-bound (std/sat over ℚ(c) times out; jobs die ~10 min), and per the
+  project's rule a char-0 theorem is NOT to be inferred from sampled primes/points
+  — so the emptiness is machine-modular, not a hand proof. (Also: the stratification's
+  exhaustiveness rests on sympy `solve` completeness, not independently proved.)
 
 **Rank-3 f5 WITH a linear direction — leading-form level RESOLVED; the frontier
 moves up to lifting.** Normal form (verified, `d5_linear_direction_normalform.py`):
