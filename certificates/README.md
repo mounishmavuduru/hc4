@@ -358,9 +358,10 @@ completion on Aug 18 (all exit 0 unless noted).
   perfect square, so its linear form can be set to y3 without loss),
   shrinking the parameter count enough to attempt the radical-membership
   test directly in sympy.
-- NOTE: Singular / Macaulay2 / Magma are NOT installed on this machine;
-  installing one is the single change that closes the exported degree-5
-  decisions (and the other runtime-killed Groebner certificates).
+- NOTE [SUPERSEDED 2026-08-31 — see the "Degree-5 decided locally" section
+  below]: this said Singular / Macaulay2 / Magma were NOT installed. Singular
+  4.3.2 is now installed in WSL Ubuntu-24.04, and the degree-5 decisions were
+  run locally (R-D5-GEN / R-D5-TAIL). This note is kept only for chronology.
 
 ## Certificate suite runner and per-cert status (2026-08-27)
 
@@ -388,16 +389,29 @@ Confirmed status (each verified individually, exit 0):
     -- these are exported for Singular/Macaulay2, which is not installed on
     this machine.
 
-## Suite result of record (2026-08-28)
+## Suite result of record
 
-`py run_all.py x 600` on this machine: **PASS 35, FAIL 0, OTHER 1**. The
-single non-PASS is developability.py (moved to SLOW: it passes standalone
-in ~minutes but its grandchild process escapes the runner's tree-kill on
-Windows). Every SLOW/CAS-bound script has been confirmed exit 0 either
-standalone or in an earlier session, except the many-unknown Groebner
-bases exported for Singular (not installed here). No certificate fails.
+The runner (`run_all.py`) was updated 2026-09-01: `developability.py` is in
+SLOW (its grandchild escapes the Windows tree-kill), `d5_y1slice_reduction.py`
+and the three sympy-only degree-5 closure certificates (`verify_paramcert.py`,
+`d5_survivor_family.py`, `d5_linear_direction_normalform.py`) are in FAST. The
+older "PASS 35 / OTHER 1" transcript predates that move (it ran developability
+in FAST) and no longer matches the committed runner, so it has been retired.
+Regenerate with `py run_all.py x 600`; the FAST set is all sympy-only and
+fail-closed, so the expected outcome is PASS = |FAST|, FAIL 0, OTHER 0 (the
+only OTHER historically was developability, now SLOW). Singular is now
+installed in WSL, so the CAS-bound SLOW scripts (and the degree-5 modular
+certs `d5_lindir_verify.py`, `_d5_surv_target.py`, `_d5_surv_c0c1.py`) can be
+run with `--all` from within WSL. NOTE: `_d5_surv_rabin.py` and `_iso_power.py`
+are decision scripts (exit code = verdict, not pass/fail) and are deliberately
+NOT in the runner — see ledger R-D5-TAIL.
 
-## Running the degree-5 decision without a local CAS (2026-08-28)
+## Running the degree-5 decision without a local CAS (2026-08-28) [SUPERSEDED]
+
+[SUPERSEDED 2026-08-31: Singular 4.3.2 was installed in WSL Ubuntu-24.04 (apt
+as root reaches the mirrors pacman/MSYS2 could not); the degree-5 decisions now
+run locally — see the "Degree-5 decided locally" section further below. This
+web-CAS route is kept for reference only.]
 
 This machine's package managers are blocked by a TLS-intercepting network
 proxy (pacman/apt fail on every mirror with a hostname-mismatch cert), so

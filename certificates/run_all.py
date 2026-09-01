@@ -42,6 +42,10 @@ FAST = [
     # pivot existence
     'pe_pivot_cone.py', 'pe_lowdeg_pivot.py', 'pe_perturbation.py',
     'd5_y1slice_reduction.py',
+    # degree-5 rank-3 closure -- sympy-only, fail-closed (no CAS needed)
+    'verify_paramcert.py',            # R-D5-GEN: Nullstellensatz witness, re-derived + checked
+    'd5_survivor_family.py',          # R-D5-TAIL: deductive structural core S1-S4
+    'd5_linear_direction_normalform.py',  # linear-direction normal form N1-N3
 ]
 
 # Not run by the fast suite (reason in the table).
@@ -58,6 +62,14 @@ SLOW = {
     'd5_pivotfree_normalform.py': 'weighted leading-form identities; slow',
     'd5_rank3_pivotfree_decision.py': 'reduction + Singular export + sampling; ~4 min, exports .sing',
     'developability.py': 'passes standalone (~min) but its grandchild escapes the runner tree-kill on Windows',
+    # degree-5 R-D5-TAIL certificates that PASS with exit 0 on their expected
+    # outcome -- all need WSL Singular
+    'd5_lindir_verify.py': 'needs WSL Singular; linear-direction tower J=(1) over F_p and Q',
+    '_d5_surv_target.py': 'needs WSL Singular; M2 isotropy radical test (v*^T A v* in radical J -> exit 0)',
+    '_d5_surv_c0c1.py': 'needs WSL Singular; c0=c1=0 sub-locus (b3=c2 y1^3) is a rank<3 cone -> exit 0',
+    # NOTE: _d5_surv_rabin.py (M1) and _iso_power.py are DECISION scripts whose
+    # exit code / stdout is the verdict, not a pass/fail -- see ledger R-D5-TAIL
+    # and README; not listed here so --all does not misreport them.
 }
 
 MARKERS = ('ALL CHECKS PASSED', 'ALL PASS', 'ALL FAST CHECKS PASSED',

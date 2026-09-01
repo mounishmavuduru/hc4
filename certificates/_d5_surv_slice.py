@@ -1,3 +1,11 @@
+# ############################################################################
+# # SUPERSEDED -- DO NOT USE.  This sliced test gives a FALSE cone on the      #
+# # survivor family: the det A != 0 (rank-3) locus is a LOWER-dimensional      #
+# # component of V(J), which a generic codim-6 slice misses, so the slice      #
+# # wrongly reports CONE.  Use the full-variety Rabinowitsch instead           #
+# # (_d5_surv_rabin.py / _d5_surv_target.py) or the exact char-0 sat test      #
+# # (clean_cone_test in _d5_survivors.py).  Kept only as a documented pitfall. #
+# ############################################################################
 # _d5_surv_slice.py -- FALLBACK survivor test if sat(J,detA) over F_p is too
 # heavy on the dim-6 variety.  Slice V(J) (dim 6 in 21 a-vars, fixed c mod p)
 # by 6 GENERIC linear forms -> a 0-dimensional ideal J' with V(J') subset V(J).
