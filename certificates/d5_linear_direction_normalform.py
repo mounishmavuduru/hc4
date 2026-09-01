@@ -81,7 +81,14 @@ if fails:
     print('FAILED:', fails)
     sys.exit(1)
 print('ALL NORMAL-FORM CHECKS PASSED (N1-N3).')
-print('Open: the det Hess_4 f = const tower for f5 = P(x2,x3) + x1 Q(x2,x3); '
-      'decide whether pivot-free members exist.  See research_log Phase 20, '
-      'ledger R-D5-TAIL.')
+print('Leading-form level: RESOLVED. Pushed into the weighted tower '
+      '(d5_lindir_decide.py / d5_lindir_verify.py), the a-system with a5 in '
+      'this 11-param normal form is the unit ideal (1) at generic b3 over F_p '
+      'AND over Q -- subsumed by R-D5-GEN. So the rank-3-with-linear-direction '
+      'leading forms coincide with the R-D5-TAIL survivors (b3 = y1^2*(...), '
+      'a5 rank-3 with isotropic v*); there is NO separate leading-form branch.')
+print('OPEN FRONTIER: LIFTING -- does a survivor leading form extend to a full '
+      'quintic f with det Hess_4 f == const in C^x, and is it pivot-free? '
+      '(A linear direction of f5 does NOT give a pivot of f, so NOT covered by '
+      'Theorem A.)  See research_log Phase 20.')
 sys.exit(0)

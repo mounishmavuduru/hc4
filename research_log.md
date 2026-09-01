@@ -575,19 +575,29 @@ Weighted leading form F = a5(y) + x4 b3(y) + (1/2) x4² y1:
   the two radical facts over ℚ(c) is compute-bound (std/sat over ℚ(c) times out;
   jobs die ~10 min), so they are machine-certified modularly, not by hand.
 
-**Next degree-5 target — isolated this phase (open).** The residual branch is
-rank-3 f5 that HAS a linear direction. Normal form (verified in sympy): a
-linear direction (WLOG e1) forces f5 = P(x2,x3) + x1·Q(x2,x3) (homogeneous,
-deg P = 5, deg Q = 4), and this linear direction is UNIQUE for generic P,Q
-(only v ∝ e1 solves D²_v f5 ≡ 0) — mirroring the unique pivot e4 of the
-no-linear-direction case. The rank-3 obstruction: det₃ Hess₃ f5 = c0(x2,x3) +
-x1·(−cov(Q)) with cov = Q₃²Q₂₂ − 2Q₂Q₃Q₂₃ + Q₂²Q₃₃ (the second derivative of Q
-along ⊥∇Q; a classical binary-quartic covariant), and rank 3 needs det₃ ≢ 0.
-OPEN: derive the det Hess₄ f = const tower for this normal form (analog of the
-E4=0 chain) and decide whether pivot-free members exist. CAUTION recorded in
-the ledger: a linear direction of f5 does NOT by itself give a pivot of f
-(D²_{e1} f = D²_{e1}(f4+f3+f2) is degree 2, not constant), so this branch is
-NOT covered by Theorem A.
+**Rank-3 f5 WITH a linear direction — leading-form level RESOLVED; the frontier
+moves up to lifting.** Normal form (verified, `d5_linear_direction_normalform.py`):
+a linear direction (WLOG e1) forces f5 = P(x2,x3) + x1·Q(x2,x3) (deg 5, deg 4),
+UNIQUE for generic P,Q; det₃ Hess₃ f5 = c0(x2,x3) − x1·cov(Q),
+cov = Q₃²Q₂₂ − 2Q₂Q₃Q₂₃ + Q₂²Q₃₃ (a binary-quartic covariant). Pushing this into
+the weighted tower (`d5_lindir_decide.py`, `d5_lindir_verify.py`): with a5
+constrained to the linear-direction normal form (only 11 a-params) and b3 on
+either E4=0 branch, the a-system J = ⟨coeff_y E0..E3⟩ is the UNIT ideal (1) at
+generic b3 — confirmed over F_p (multi-prime) AND over ℚ (char 0; 11 vars is
+tractable, unlike the 21-var generic case). This is SUBSUMED by R-D5-GEN (the
+generic 21-param a5 already gives J=(1), and linear-direction a5 is a
+subvariety), so it is a cross-check, not a new theorem. Its real value is the
+**unification**: the ONLY degree-5 rank-3 weighted leading forms live at the
+exceptional locus b3 = y1²(c2y1+c0y2+c1y3), and there a5 is rank-3 with the
+isotropic direction v* = (0,c1,−c0) — i.e. the R-D5-TAIL survivors ARE the
+rank-3-with-linear-direction leading forms. There is no separate leading-form
+branch. **THE OPEN FRONTIER is now one level up — LIFTING:** does a survivor
+leading form F = a5 + x4 b3 + ½x4²y1 (b3 = y1²ℓ, a5 rank-3 with isotropic v*)
+extend to a FULL quintic f with det Hess₄ f ≡ const ∈ ℂ^×, and is such an f
+pivot-free? A linear direction of f5 does NOT by itself give a pivot of f
+(D²_v f = D²_v(f4+f3+f2) is degree 2, not constant), so this is NOT covered by
+Theorem A. This lifting question — all lower-weight terms included — is the
+genuine next problem; the leading-form program for degree-5 rank-3 is complete.
 
 ## Insight log
 

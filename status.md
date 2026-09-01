@@ -220,7 +220,11 @@ Every claim below was checked against a primary source during this project
     parametric lift over ℚ(c) is compute-bound.) Ledger: R-D5-TAIL. NOTE:
     closing this one branch does not settle HC_4 — the ultimate blocker
     remains JC_2 (the pivot-free residual class is equivalent to it by the
-    trichotomy), and a genuinely separate, NOT-yet-analyzed degree-5 branch
-    remains: rank-3 f5 that HAS a linear direction (a linear direction of f5
-    does NOT by itself give a pivot of f — D²_v f = D²_v(f4+f3+f2) is degree 2,
-    not constant in general — so it is not covered by Theorem A).
+    trichotomy). The rank-3 f5 that HAS a linear direction is NOT a separate
+    leading-form branch: its normal form f5 = P(x2,x3)+x1Q(x2,x3) pushed into
+    the tower gives J = (1) at generic b3 (char 0; `d5_lindir_verify.py`),
+    subsumed by R-D5-GEN — so its leading forms ARE the survivors above. The
+    genuine open frontier is one level up — LIFTING a survivor leading form to
+    a full quintic f with det Hess f ∈ C^× and deciding pivot-freeness (NOT
+    covered by Theorem A: a linear direction of f5 gives D²_v f = D²_v(f4+f3+f2),
+    degree 2, not a pivot).

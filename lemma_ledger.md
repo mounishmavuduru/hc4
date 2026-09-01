@@ -760,11 +760,19 @@ power certificate (v*ᵀAv*)² ∈ ⟨J⟩ over F_p; the char-0 PARAMETRIC lift 
 ℚ(c) is beyond this environment's compute ceiling (std/sat over ℚ(c) times
 out; long jobs are killed near 10 min), so it is recorded as machine-certified
 (modular) rather than a hand proof. What this does NOT do: it does not settle
-HC_4 (JC_2 remains the blocker via the trichotomy), and it leaves a GENUINELY
-SEPARATE, not-yet-analyzed degree-5 branch: rank-3 f5 that HAS a linear
-direction v. CAUTION: a linear direction of f5 does NOT by itself produce a
-pivot of f — D²_v f = D²_v(f4+f3+f2) is a degree-2 polynomial, constant only
-if the lower storeys also degenerate along v — so this residual branch is NOT
-covered by Theorem A and remains open. Scripts: `_d5_close.py`,
+HC_4 (JC_2 remains the blocker via the trichotomy). UNIFICATION (added; scripts
+`d5_linear_direction_normalform.py`, `d5_lindir_decide.py`, `d5_lindir_verify.py`):
+a rank-3 f5 that HAS a linear direction has the normal form
+f5 = P(x2,x3) + x1 Q(x2,x3) (linear direction unique, det₃ = c0 − x1·cov(Q)),
+and forcing it into the weighted tower gives the UNIT ideal J = (1) at generic
+b3 — over F_p AND over ℚ (only 11 a-params; char-0 confirmed) — which is
+subsumed by R-D5-GEN's 21-param J = (1). So the rank-3-with-linear-direction
+LEADING FORMS coincide with the survivors above; there is NO separate
+leading-form branch. What is genuinely OPEN is one level up — LIFTING: does a
+survivor leading form F = a5 + x4 y1²ℓ + ½x4²y1 (a5 rank-3 with isotropic v*)
+extend to a full quintic f with det Hess₄ f ∈ ℂ^×, and is such f pivot-free? A
+linear direction of f5 does NOT by itself give a pivot of f
+(D²_v f = D²_v(f4+f3+f2), degree 2), so this is NOT covered by Theorem A.
+Scripts: `_d5_close.py`,
 `_d5_survivors.py`, `_d5_surv_rabin.py`, `_d5_surv_target.py`, `_iso_power.py`,
 `d5_survivor_family.py`.
