@@ -696,3 +696,72 @@ structural obstruction obtained WITHOUT a many-unknown Gröbner basis; the
 residual decision lives in the y1 ≥ 1 graded pieces of det Hess₄ F. Open:
 push the y1-graded chain (or the exported Singular decision) to close or
 populate the branch.
+
+**R-D5-GEN (degree-5 rank-3 pivot-free, generic-b3 emptiness) [proved here]
+[machine, independently certified]** For the weighted leading form
+F = a5(y) + x4·b3(y) + (1/2)x4²·y1 of the degree-5 rank-3
+no-isotropic-direction pivot-free branch, E4 = 0 splits the generic cubic b3
+into exactly two rational families (branch 0, branch 1; `d5_rank3_pivotfree_
+decision.py`). Treat the free cubic coefficients c = (c0,…,c9) as PARAMETERS
+in the field ℚ(c); the a5-system
+    J = ⟨ coeff_y(E0), coeff_y(E1), coeff_y(E2), coeff_y(E3) ⟩ ⊆ ℚ(c)[a0..a20]
+(21 unknowns) satisfies **std(J) = (1) for each branch** — the unit ideal
+over ℚ(c), computed instantly (whereas the same system over ℚ with c as
+unknowns is out of Gröbner reach). Hence for GENERIC b3 there is NO a5
+solving the graded system at all: **both branches are empty off a proper
+closed c-locus.** The emptiness was made independently checkable by extracting
+a Nullstellensatz representation Σ gᵢ·Jᵢ = 1 via Singular `lift(J, ideal(1))`
+and re-verifying Σ gᵢ·Jᵢ == 1 exactly in sympy (`verify_paramcert.py`). The
+denominators of the lift are the exceptional loci off which emptiness holds:
+    Z0 = V( 972·c8⁷·c9⁴·(3c0c9 − c1c8)⁶ )   [branch 0],
+    Z1 = V( 3·c5·(2c0c5 − c1c4)⁵ )            [branch 1],
+i.e. branch 0 is empty whenever c8·c9·(3c0c9−c1c8) ≠ 0, branch 1 whenever
+c5·(2c0c5−c1c4) ≠ 0. Scripts: `_d5_param.py` (parametric std over 𝔽_p(c) and
+ℚ(c)), `_d5_paramcert.py` (lift → `cert_b{0,1}_gens.txt`), `verify_paramcert.py`
+(independent sympy check).
+Adversarial: std(J) = (1) over ℚ(c) is a fully rigorous characteristic-0
+statement (Gröbner over the transcendental field ℚ(c0,…,c9)); the extracted
+certificate removes any need to trust Singular's std — a single sympy
+polynomial identity Σ gᵢJᵢ = 1 witnesses 1 ∈ J. What remains is EMPTINESS OFF
+Z; the loci Z0, Z1 themselves are a finite stratification tail (R-D5-TAIL),
+and match exactly the y-degenerations b3 → (y1²)·(linear) reached there.
+
+**R-D5-TAIL (degree-5 rank-3 pivot-free, the exceptional-locus tail)
+[proved here; deductive core + multi-prime modular certificates]** The
+recursive stratification of Z0, Z1 (`_d5_close.py`; each c-substratum decided
+by std(J) = (1) or a cone/isotropy test, Noetherian) closes every branch
+EMPTY, and every surviving leaf collapses to a SINGLE degenerate family
+    b3 = y1²·(c2 y1 + c0 y2 + c1 y3).
+Structure (DEDUCTIVE, fully generic; `d5_survivor_family.py` S1–S4):
+B := Hess₃ b3 has det B ≡ 0 and constant kernel v* = (0,c1,−c0); adj B ≡
+−4y1²·v*v*ᵀ; with q = ∇b3 one has v*·q ≡ 0, hence qᵀadjB q ≡ 0 and
+tr(A·adjB) ≡ −4y1²·(v*ᵀA v*) = −4y1²·D²_{v*}a5 where A := Hess₃ a5; and the
+y1⁰-piece det A|_{y1=0} equals the y1¹-part of E0 coefficient-by-coefficient,
+so det Hess₃a5 vanishes on {y1=0} over V(J) (the R-D5 obstruction, recovered
+for this family). Decision of the a-system J = ⟨coeff_y E0,E1,E2,E3⟩
+(the E3 coefficients are ≡ 0 here):
+  • det Hess₃a5 ∉ √J — the family is NOT a rank-collapse cone; the E-system
+    genuinely HAS rank-3 solutions (unbiased full-variety single-combination
+    Rabinowitsch 1 ∈ ⟨J, (Σλᵢ Tᵢ)w − 1⟩, 12/12 across primes 32003, 40009,
+    15013 and independent λ; `_d5_surv_rabin.py`). A slice-only test gives a
+    FALSE cone here — the det A ≠ 0 locus is a lower-dimensional component
+    that generic slicing misses.
+  • D²_{v*}a5 = v*ᵀA v* ∈ √J — EVERY solution's a5 has the isotropic/linear
+    direction v* (full-variety radical test, all VANISH across the three
+    primes, `_d5_surv_target.py iso`), with the explicit power certificate
+    (v*ᵀA v*)² ∈ ⟨J⟩ (reduces to 0 mod std(J); v*ᵀA v* itself ∉ J;
+    `_iso_power.py`).
+CONCLUSION: every rank-3 solution of the E-system for b3 = y1²·(…) carries a
+linear direction v*, so it FAILS the branch's "f5 has no linear direction"
+hypothesis. **The degree-5 rank-3 NO-isotropic-direction pivot-free branch is
+therefore EMPTY.** Adversarial / honesty: the two radical facts are certified
+MODULARLY (multi-prime, unbiased full-variety Rabinowitsch) plus the char-0
+power certificate (v*ᵀAv*)² ∈ ⟨J⟩ over F_p; the char-0 PARAMETRIC lift over
+ℚ(c) is beyond this environment's compute ceiling (std/sat over ℚ(c) times
+out; long jobs are killed near 10 min), so it is recorded as machine-certified
+(modular) rather than a hand proof. What this does NOT do: it does not settle
+HC_4 (JC_2 remains the blocker via the trichotomy), and the residual
+"rank-3 WITH a linear direction" degree-5 case — where such a5 route to the
+pivot theorem (Theorem A) — is a separate branch. Scripts: `_d5_close.py`,
+`_d5_survivors.py`, `_d5_surv_rabin.py`, `_d5_surv_target.py`, `_iso_power.py`,
+`d5_survivor_family.py`.

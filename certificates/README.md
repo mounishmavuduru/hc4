@@ -416,3 +416,50 @@ is the rigorous all-coefficient version (a single random combination could
 give a false 0). If a free web tier times out on the ~16-variable radical,
 use a free CoCalc project (longer limits) or the y1-slice reduction
 (d5_y1slice_reduction.py) to shrink the system first.
+
+## Degree-5 decided locally — parametric route + tail closure (2026-08-31)
+
+UPDATE to the section above: Singular 4.3.2 IS now installed locally, inside
+WSL Ubuntu-24.04 (apt as root reaches the mirrors that pacman/MSYS2 could
+not — it does not go through the same TLS-intercepting proxy). Scripts drive
+it from Windows sympy via `wsl -d Ubuntu-24.04 -- bash -c 'Singular -q < file'`
+(stdin, not file-as-arg; keep write+run in one `wsl` call — the distro
+auto-terminates between invocations and wipes /tmp). `PYTHONIOENCODING=utf-8`.
+
+The 16–17-unknown radical the web route punted on turned out to be
+UNNECESSARY. Making the cubic coefficients c parameters collapses the
+decision:
+
+- `_d5_param.py` — parametric std over ℚ(c) (and 𝔽_p(c)): std(J) = (1) in
+  BOTH E4-branches, instantly. Generic-b3 emptiness. (Ledger R-D5-GEN.)
+- `_d5_paramcert.py` — extracts the Nullstellensatz witness Σ gᵢ·Jᵢ = 1 via
+  Singular `lift(J, ideal(1))`, writes `cert_b{0,1}_gens.txt`.
+- `verify_paramcert.py` — INDEPENDENT sympy re-check of Σ gᵢ·Jᵢ == 1 (exact),
+  and factors the lift denominators into the exceptional loci
+  Z0 = V(972 c8⁷c9⁴(3c0c9−c1c8)⁶), Z1 = V(3 c5(2c0c5−c1c4)⁵). PASSES.
+- `_d5_close.py` — recursive closure of the tail (the loci Z0, Z1). At each
+  c-substratum: std(J) = (1) ⇒ empty; else a cone/isotropy decision.
+  Noetherian, so finite. Every surviving leaf collapses to ONE degenerate
+  family b3 = y1²·(c2y1+c0y2+c1y3) (`_d5_survivors.py` reconstructs it;
+  det B ≡ 0, Hess b3 rank 2, kernel v* = (0,c1,−c0)).
+- `d5_survivor_family.py` — the deductive structure of that family (S1–S4,
+  fully generic sympy): adj B = −4y1² v*v*ᵀ, v*·q = 0, tr(A adjB) =
+  −4y1² D²_{v*}a5, and det Hess₃a5|_{y1=0} ∈ J.
+- `_d5_surv_rabin.py` / `_d5_surv_target.py` / `_iso_power.py` — the family is
+  NOT a rank-collapse cone: det Hess₃a5 ∉ √J (rank-3 solutions exist,
+  unbiased full-variety Rabinowitsch, 12/12 over primes 32003/40009/15013);
+  but D²_{v*}a5 = v*ᵀ(Hess₃a5)v* ∈ √J (all solutions carry the isotropic
+  direction v*), with power certificate (v*ᵀAv*)² ∈ ⟨J⟩. So every rank-3
+  solution has a LINEAR DIRECTION and fails the branch's no-isotropic
+  hypothesis ⟹ the rank-3 no-isotropic pivot-free branch is EMPTY. NB a
+  slice-only test gives a FALSE cone here (the det A ≠ 0 locus is a lower-dim
+  component slicing misses) — the full-variety Rabinowitsch is the right test.
+  The two radical facts are certified modularly (multi-prime); the char-0
+  parametric lift over ℚ(c) is compute-bound (std/sat over ℚ(c) times out).
+  `_d5_close2.py` (single-shot `sat(J,detA)` cone closer) and the sliced
+  `_d5_surv_slice.py` are kept but SUPERSEDED — both mis-handle this family
+  (sat over ℚ(c) times out; slicing reports a false cone).
+
+Reproduce: `py -u d5_survivor_family.py` + `py -u verify_paramcert.py` (sympy
+only, no CAS) for the deductive parts; `_d5_surv_rabin.py`, `_d5_surv_target.py`,
+`_iso_power.py` need WSL Singular for the modular radical certificates.

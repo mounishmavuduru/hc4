@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 *.out.txt
 *.output
+# long-job scratch dir (Singular node files, streaming closelogs) — volatile
+certificates/_lean/

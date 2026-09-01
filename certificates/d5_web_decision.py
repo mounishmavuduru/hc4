@@ -91,7 +91,9 @@ def emit(k, unknowns, Jpolys, sat, dcomb, dcoeffs):
         f.write(f'ring R = 0,({ring}),dp;\n')
         f.write('ideal J = ' + ',\n  '.join(s_poly(p) for p in Jpolys) + ';\n')
         if sat != 1:
-            f.write(f'poly sat = {s_poly(sat)};\n  J = sat(J, sat)[1];\n')
+            # NB: 'sat' is a reserved proc name in elim.lib (pulled in by
+            # primdec.lib); name the saturation poly 'satp' to avoid shadowing.
+            f.write(f'poly satp = {s_poly(sat)};\n  J = sat(J, satp)[1];\n')
         f.write('ideal Jr = radical(J);\n')
         # RIGOROUS: reduce EVERY y-coefficient of det_3 Hess_3 a5; branch is
         # EMPTY iff all reduce to 0.  (A single random combination could give a

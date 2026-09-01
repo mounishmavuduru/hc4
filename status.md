@@ -189,9 +189,36 @@ Every claim below was checked against a primary source during this project
   (both 0), so fibre-constancy alone does not witness it — necessary, not
   sufficient (self-corrected, caught by a fail-closed assert).
 - Cert: `euler_pullback_reformulation.py`. Ledger entry: §R.
-- Degree-5 attack in progress: `d5_rank3_pivotfree_decision.py` decides
-  whether the rank-3, no-isotropic-direction, pivot-free branch of degree 5
-  is empty, by solving the five closed-form graded equations E4…E0 of the
-  weighted leading form. The remaining branch is a finite saturated
-  polynomial system (17 unknowns) — at the edge of sympy's Gröbner reach;
-  a Singular/Macaulay2 run would close it.
+- Degree-5 attack (rank-3, no-isotropic-direction, pivot-free branch),
+  weighted leading form F = a5(y) + x4·b3(y) + ½x4²·y1, five closed-form
+  graded equations E4…E0:
+  - **Generic-b3 emptiness — PROVED and independently certified.** E4 = 0
+    splits the cubic b3 into two rational families. Treating the cubic
+    coefficients c as PARAMETERS over ℚ(c), the 21-unknown a5-system
+    J = ⟨coeff_y E0…E3⟩ has std(J) = (1) in each branch — the unit ideal
+    over ℚ(c) (instant in Singular; out of sympy Gröbner reach with c as
+    unknowns). A Nullstellensatz certificate Σgᵢ·Jᵢ = 1 was extracted
+    (Singular `lift`) and re-verified exactly in sympy
+    (`verify_paramcert.py`). So both branches are EMPTY off the exceptional
+    c-loci Z0 = V(972 c8⁷c9⁴(3c0c9−c1c8)⁶), Z1 = V(3 c5(2c0c5−c1c4)⁵).
+    Ledger: R-D5-GEN.
+  - **Tail (the loci Z0, Z1) — closed by a finite recursive stratification**
+    (`_d5_close.py`): each c-substratum is decided by std(J) (= (1) ⇒ empty)
+    or a cone test; the recursion is Noetherian and every branch reduces to a
+    single degenerate family, to which every survivor leaf collapses:
+    **b3 = y1²·(c2y1 + c0y2 + c1y3)** (det B ≡ 0, Hess b3 rank 2, kernel
+    v* = (0,c1,−c0)). This family is NOT a rank-collapse cone — the E-system
+    genuinely has rank-3 solutions (det Hess₃a5 ∉ √J, unbiased full-variety
+    Rabinowitsch, 12/12 across 3 primes). BUT every solution's a5 carries the
+    isotropic/linear direction v*: **D²_{v*}a5 = v*ᵀ(Hess₃a5)v* ∈ √J**, with
+    the explicit power certificate (v*ᵀAv*)² ∈ ⟨J⟩. Such a5 has a linear
+    direction, so it FAILS the branch's "no-isotropic-direction" hypothesis —
+    it belongs to the pivot analysis (Theorem A), not the pivot-free branch.
+    **Hence the rank-3, no-isotropic-direction, pivot-free branch is EMPTY.**
+    (Structural facts S1–S4 in `d5_survivor_family.py` are fully deductive;
+    the two radical facts are certified modularly, multi-prime — the char-0
+    parametric lift over ℚ(c) is compute-bound.) Ledger: R-D5-TAIL. NOTE:
+    closing this one branch does not settle HC_4 — the ultimate blocker
+    remains JC_2 (the pivot-free residual class is equivalent to it by the
+    trichotomy), and the residual "rank-3 WITH a linear direction" degree-5
+    case (routing to pivots) is separate.
