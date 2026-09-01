@@ -213,12 +213,14 @@ Every claim below was checked against a primary source during this project
     isotropic/linear direction v*: **D²_{v*}a5 = v*ᵀ(Hess₃a5)v* ∈ √J**, with
     the explicit power certificate (v*ᵀAv*)² ∈ ⟨J⟩. Such a5 has a linear
     direction, so it FAILS the branch's "no-isotropic-direction" hypothesis —
-    it belongs to the pivot analysis (Theorem A), not the pivot-free branch.
+    it lies OUTSIDE this branch (which assumes no linear direction).
     **Hence the rank-3, no-isotropic-direction, pivot-free branch is EMPTY.**
     (Structural facts S1–S4 in `d5_survivor_family.py` are fully deductive;
     the two radical facts are certified modularly, multi-prime — the char-0
     parametric lift over ℚ(c) is compute-bound.) Ledger: R-D5-TAIL. NOTE:
     closing this one branch does not settle HC_4 — the ultimate blocker
     remains JC_2 (the pivot-free residual class is equivalent to it by the
-    trichotomy), and the residual "rank-3 WITH a linear direction" degree-5
-    case (routing to pivots) is separate.
+    trichotomy), and a genuinely separate, NOT-yet-analyzed degree-5 branch
+    remains: rank-3 f5 that HAS a linear direction (a linear direction of f5
+    does NOT by itself give a pivot of f — D²_v f = D²_v(f4+f3+f2) is degree 2,
+    not constant in general — so it is not covered by Theorem A).

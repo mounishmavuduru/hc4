@@ -40,8 +40,10 @@
 #   CONSEQUENCE: every rank-3 solution of the E-system for b3 = y1^2*(...) has a
 #   LINEAR DIRECTION v*, so it FAILS the branch's "no linear direction of f5"
 #   hypothesis.  The rank-3, NO-isotropic-direction, pivot-free branch is
-#   therefore EMPTY on this family too.  (Such a5 route to the pivot analysis /
-#   the rank-3-with-linear-direction case, not to a pivot-free counterexample.)
+#   therefore EMPTY on this family too.  (Such a5 lie OUTSIDE this branch: they
+#   fall into the separate, not-yet-analyzed "rank-3 f5 WITH a linear direction"
+#   case -- NOT covered by Theorem A, since a linear direction of f5 gives
+#   D^2_v f = D^2_v(f4+f3+f2), degree 2, not a pivot in general.)
 #   The char-0 parametric lift of (M1),(M2) over Q(c) exceeds this environment's
 #   compute ceiling; the facts are certified modularly (multi-prime) + the
 #   iso^2-in-J power certificate.  A slice-only test gives a FALSE cone here

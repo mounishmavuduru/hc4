@@ -760,8 +760,11 @@ power certificate (v*ᵀAv*)² ∈ ⟨J⟩ over F_p; the char-0 PARAMETRIC lift 
 ℚ(c) is beyond this environment's compute ceiling (std/sat over ℚ(c) times
 out; long jobs are killed near 10 min), so it is recorded as machine-certified
 (modular) rather than a hand proof. What this does NOT do: it does not settle
-HC_4 (JC_2 remains the blocker via the trichotomy), and the residual
-"rank-3 WITH a linear direction" degree-5 case — where such a5 route to the
-pivot theorem (Theorem A) — is a separate branch. Scripts: `_d5_close.py`,
+HC_4 (JC_2 remains the blocker via the trichotomy), and it leaves a GENUINELY
+SEPARATE, not-yet-analyzed degree-5 branch: rank-3 f5 that HAS a linear
+direction v. CAUTION: a linear direction of f5 does NOT by itself produce a
+pivot of f — D²_v f = D²_v(f4+f3+f2) is a degree-2 polynomial, constant only
+if the lower storeys also degenerate along v — so this residual branch is NOT
+covered by Theorem A and remains open. Scripts: `_d5_close.py`,
 `_d5_survivors.py`, `_d5_surv_rabin.py`, `_d5_surv_target.py`, `_iso_power.py`,
 `d5_survivor_family.py`.
