@@ -211,16 +211,18 @@ The completeness critic's top item, flagged by no single dimension:
 ## P5 — Frontier extension (honest classes; do not mis-scope)
 
 **(A) Achievable / compute-bounded — legitimate new work:**
-- **P5.A0 — the ≥108 deductive shortcut (try FIRST, before brute lifting).**
-  HC_4 ⟹ JC_2 via an *explicit* doubling (Meng 2006 Prop 1.4; `doubling_structure.py`),
-  and every JC_2 counterexample has degree ≥ 108 (Guccione et al., cited). A
-  pivot-free degree-d constant-Hessian potential induces a JC_2 counterexample of
-  a **computable** degree; if that induced degree is < 108 for d = 5 (and small
-  d), **no such object can exist** — closing the degree-5 lifting problem by a
-  *known theorem* rather than by infeasible elimination. This is degree
-  bookkeeping against a cited bound, not an invented lemma — verify it before
-  banking on computation.
-- **P5.A1 Degree-5 LIFTING decision** (if A0 doesn't close it): impose det Hess₄f
+- **P5.A0 — the ≥108 deductive shortcut: REFUTED (2026-09-01; research_log Phase
+  21).** The proposed shortcut ("a pivot-free degree-5 potential induces a JC_2
+  counterexample of degree < 108, so none can exist") does NOT hold: (1) the
+  doubling bridge runs JC_2-map → HC_4-*doubling* (a WITH-PIVOT potential);
+  pivot-free potentials are the residual class that is NOT a doubling, so there
+  is no reduction to a JC_2 map and the ≥108 bound constrains nothing. (2) It
+  conflates bounds — the operative fact for the *with-pivot* degree-5 case is
+  MOH's ≤100 (JC_2 *true*, so the degree-≤4 doubling map is invertible → HC_4
+  *holds*), already in ledger E1, conditional on the tower. So the degree-5 crux
+  is the LIFTING/TOWER for both sub-cases; the ≥108 bound gives no shortcut and
+  the pivot-free residual stays beyond JC_2. No closure manufactured.
+- **P5.A1 Degree-5 LIFTING decision** (the genuine bottleneck): impose det Hess₄f
   ≡ const on the full quintic f = f5+f4+f3+f2, solve for the lower-weight
   coefficients, decide solvability and pivot-freeness. Nominally finite
   elimination but likely beyond the local ceiling (export to a bigger CAS); a

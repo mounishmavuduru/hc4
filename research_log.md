@@ -605,6 +605,47 @@ pivot-free? A linear direction of f5 does NOT by itself give a pivot of f
 Theorem A. This lifting question — all lower-weight terms included — is the
 genuine next problem; the leading-form program for degree-5 rank-3 is complete.
 
+## Phase 21 — the "≥108 doubling" shortcut is refuted; degree-5 crux is the lifting/tower (2026-09-01)
+
+A proposed deductive shortcut (from the endgame-audit completeness critic) was
+scrutinised: "a pivot-free degree-5 constant-Hessian potential would, through the
+explicit HC_4⟹JC_2 doubling, induce a JC_2 counterexample of a computable
+degree; since every JC_2 counterexample has degree ≥ 108 (Guccione et al.), if
+the induced degree is < 108 no such degree-5 object can exist." **This does NOT
+hold, for two independent reasons — recorded so it is not mistaken for progress.**
+
+1. WRONG DIRECTION / WRONG CLASS. The doubling bridge runs JC_2-map → HC_4-
+   potential: a planar Keller map (b,e) doubles to f = a + x3 b + x4 e with
+   det Hess f = (Jac(b,e))^2 (Theorem C / `doubling_structure.py`), a WITH-PIVOT
+   potential (trichotomy case γ=0, deg e1≥2). Pivot-FREE potentials are exactly
+   the residual class that is NOT a doubling, so there is no map taking a pivot-
+   free HC_4 potential to a JC_2 map, and the ≥108 counterexample bound places
+   no constraint on them. The pivot-free residual is precisely the part of HC_4
+   NOT reduced to JC_2 (the genuine open heart); a JC_2 degree bound cannot
+   settle it.
+
+2. CONFLATED BOUNDS. For the WITH-PIVOT degree-5 case the operative known theorem
+   is MOH'S ≤100 (JC_2 is TRUE up to degree 100), not the ≥108 counterexample
+   bound: a degree-5 doubling's planar Keller map (b,e) has degree ≤ 4, hence is
+   invertible by Moh, so HC_4 HOLDS there — a POSITIVE conclusion, not an
+   emptiness one. The ≥108 figure (where a hypothetical JC_2 counterexample could
+   live) is irrelevant to this. This positive reduction is already recorded
+   (ledger E1): Theorem A settles γ≠0 and deg e1≤2; for deg e1=3, Theorem D′
+   makes the pivot coefficient's leading form a cone and the now-PROVED
+   Conjecture E (a corollary of Theorem G — 3-var vanishing-bordered-Hessian ⟹
+   affinely planar) sends it into the doubling class, where Moh finishes —
+   CONDITIONAL on the tower/lifting.
+
+NET. The ≥108 bound yields no shortcut. Degree-5 HC_4's genuine open content is
+the LIFTING / TOWER, and it is the bottleneck for BOTH sub-cases: (a) the
+with-pivot deg e1=3 case (reduces, via Conjecture E + Moh, once the tower lifts
+the leading-form doubling structure to the full potential), and (b) the
+pivot-free residual (the rank-3 survivor leading forms of R-D5-TAIL — which do
+NOT reduce to JC_2 — plus the still-unaddressed rank≤2 pivot-free branches). No
+closure is manufactured: the lifting decision (ROADMAP P5.A1) still needs the
+direct det Hess_4 f = const computation (likely beyond the local ceiling) or a
+new structural idea, and the pivot-free existence question remains the hard heart.
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of
