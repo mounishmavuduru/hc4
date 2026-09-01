@@ -549,6 +549,46 @@ left its work on disk, and it is the sharpest pass yet:
   they attacked is now Theorem G + Theorem F, and `theorem_G.py`'s
   three-variable radical test covers the same ground.
 
+## Phase 20 — degree-5 rank-3 no-isotropic pivot-free branch CLOSED; next branch isolated (2026-08-30/31)
+
+Local Singular 4.3.2 installed in WSL Ubuntu-24.04 (apt as root bypasses the
+TLS proxy that blocked pacman/MSYS2), ending the "no local CAS" era. Driven
+from Windows sympy over stdin; scratch in the now-gitignored `certificates/_lean/`.
+
+Weighted leading form F = a5(y) + x4 b3(y) + (1/2) x4² y1:
+- **R-D5-GEN (proved, certified).** E4 = 0 splits the cubic b3 into two rational
+  families; with the cubic coefficients c as parameters over ℚ(c), the
+  21-unknown a5-system J = ⟨coeff_y E0..E3⟩ has std(J) = (1) in BOTH branches.
+  Independently certified by a Nullstellensatz witness Σ gᵢ Jᵢ = 1 (Singular
+  `lift`, re-checked in sympy: `verify_paramcert.py`). Empty off
+  Z0 = V(972 c8⁷c9⁴(3c0c9−c1c8)⁶), Z1 = V(3 c5(2c0c5−c1c4)⁵).
+- **R-D5-TAIL (closed; deductive core + multi-prime modular certificates).**
+  Recursive stratification of Z0, Z1 (`_d5_close.py`) collapses every surviving
+  leaf to ONE family b3 = y1²(c2y1+c0y2+c1y3). NOT a rank-collapse cone: the
+  E-system HAS rank-3 solutions (det Hess₃a5 ∉ √J, unbiased full-variety
+  Rabinowitsch 12/12 over 3 primes — a slice-only test gives a FALSE cone here,
+  a trap worth remembering). But EVERY solution's a5 carries the isotropic
+  direction v* = (0,c1,−c0) (D²_{v*}a5 ∈ √J, power certificate (v*ᵀAv*)² ∈ ⟨J⟩),
+  so it fails the branch's no-linear-direction hypothesis. Hence the branch is
+  EMPTY. Structural facts (adjB = −4y1²v*v*ᵀ, v*·q = 0, det Hess₃a5|_{y1=0} ∈ J)
+  are deductive (`d5_survivor_family.py` S1–S4). The char-0 parametric lift of
+  the two radical facts over ℚ(c) is compute-bound (std/sat over ℚ(c) times out;
+  jobs die ~10 min), so they are machine-certified modularly, not by hand.
+
+**Next degree-5 target — isolated this phase (open).** The residual branch is
+rank-3 f5 that HAS a linear direction. Normal form (verified in sympy): a
+linear direction (WLOG e1) forces f5 = P(x2,x3) + x1·Q(x2,x3) (homogeneous,
+deg P = 5, deg Q = 4), and this linear direction is UNIQUE for generic P,Q
+(only v ∝ e1 solves D²_v f5 ≡ 0) — mirroring the unique pivot e4 of the
+no-linear-direction case. The rank-3 obstruction: det₃ Hess₃ f5 = c0(x2,x3) +
+x1·(−cov(Q)) with cov = Q₃²Q₂₂ − 2Q₂Q₃Q₂₃ + Q₂²Q₃₃ (the second derivative of Q
+along ⊥∇Q; a classical binary-quartic covariant), and rank 3 needs det₃ ≢ 0.
+OPEN: derive the det Hess₄ f = const tower for this normal form (analog of the
+E4=0 chain) and decide whether pivot-free members exist. CAUTION recorded in
+the ledger: a linear direction of f5 does NOT by itself give a pivot of f
+(D²_{e1} f = D²_{e1}(f4+f3+f2) is degree 2, not constant), so this branch is
+NOT covered by Theorem A.
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of

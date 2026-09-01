@@ -463,3 +463,10 @@ decision:
 Reproduce: `py -u d5_survivor_family.py` + `py -u verify_paramcert.py` (sympy
 only, no CAS) for the deductive parts; `_d5_surv_rabin.py`, `_d5_surv_target.py`,
 `_iso_power.py` need WSL Singular for the modular radical certificates.
+
+- `d5_linear_direction_normalform.py` (sympy only) — the NEXT degree-5 branch,
+  isolated by the above: a rank-3 f5 that HAS a linear direction. Proves the
+  normal form f5 = P(x2,x3) + x1 Q(x2,x3) (deg 5, deg 4), that its linear
+  direction e1 is unique, and that det₃ Hess₃ f5 = c0(x2,x3) − x1·cov(Q) with
+  cov(Q) = Q₃²Q₂₂ − 2Q₂Q₃Q₂₃ + Q₂²Q₃₃. The det Hess₄ f = const tower for this
+  form is OPEN (research_log Phase 20). This branch is NOT covered by Theorem A.
