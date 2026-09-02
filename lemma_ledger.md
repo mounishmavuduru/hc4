@@ -674,6 +674,18 @@ automorphism and Ψ ∉ C[∇Ψ] by (a)⇔(b). CAUTION (self-corrected
 failure — it is necessary but not sufficient, and a given collision need
 not detect it. Cert: `euler_pullback_reformulation.py` (B2).
 
+**Novelty of Lemma R (checked 2026-09-01, web sweep — not exhaustive).** The
+direction (d)⇔(a) is CLASSICAL — the LND criterion for the Keller map g
+(van den Essen, *Polynomial Automorphisms and the Jacobian Conjecture*,
+Birkhäuser 2000, Ch. 1), already credited above; adjacent is Zhao's LND /
+image-conjecture / Hessian-nilpotent circle (arXiv:math/0409534 and later).
+What was NOT located in the sweep is a prior statement, FOR GRADIENT MAPS, of
+criterion (b) "f ∈ C[∇f]" as an HC-equivalence, or of the commuting framing
+(I3) ([W_i,W_j]=0, [V,W_i]=−W_i with W_i=adj(Hess f)e_i). These remain
+[flagged for expert review]; do NOT claim (b)/(I3) as new until a zbMATH /
+MathSciNet search and a referee confirm. The equivalence is publishable as a
+reformulation regardless of settling HC_4, with this hedge intact.
+
 **Why Lemma R matters for HC_4.** It turns HC_4 into: *every
 f ∈ C[x_1..x_4] with det Hess f ∈ C^× is a polynomial in its four first
 partials.* This is a membership question in the subalgebra C[∇f] ⊆ C[x],
@@ -733,6 +745,14 @@ certificate removes any need to trust Singular's std — a single sympy
 polynomial identity Σ gᵢJᵢ = 1 witnesses 1 ∈ J. What remains is EMPTINESS OFF
 Z; the loci Z0, Z1 themselves are a finite stratification tail (R-D5-TAIL),
 and match exactly the y-degenerations b3 → (y1²)·(linear) reached there.
+METHOD PROVENANCE (checked 2026-09-01): treating the cubic coefficients c as
+parameters and computing a Gröbner basis over the transcendental field ℚ(c),
+then reading off the specialization loci (here the denominators Z0, Z1), is the
+classical technique of COMPREHENSIVE / PARAMETRIC Gröbner bases — Weispfenning,
+J. Symbolic Comput. 14 (1992) 1–29; independently Kapur 1995; improved by
+Suzuki–Sato 2006 and Kapur–Sun–Wang 2010. Only the HC_4 APPLICATION (and the
+extracted, independently re-verified Nullstellensatz witness) is claimed as
+new; the parametric-Gröbner method itself is NOT.
 
 **R-D5-TAIL (degree-5 rank-3 pivot-free, the exceptional-locus tail)
 [machine-modular; deductive structural core S1–S4 (char-0) + multi-prime
