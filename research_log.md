@@ -646,6 +646,36 @@ closure is manufactured: the lifting decision (ROADMAP P5.A1) still needs the
 direct det Hess_4 f = const computation (likely beyond the local ceiling) or a
 new structural idea, and the pivot-free existence question remains the hard heart.
 
+## Phase 22 — degree-5 rank-2 branch: first graded reduction (2026-09-01, PARTIAL)
+
+Started the degree-5 rank ≤ 2 leading-form branches (ROADMAP P5.A2), which the
+rank-3 program (R-D5) does not cover. RANK 2: f5 ∈ C[x1,x2] a binary quintic with
+det₂Hess₂f5 ≠ 0; f = f5 + f4 + f3 + f2, det Hess₄ f ∈ C^×.
+
+RESULT (proved; cert `d5_rank2_toppiece.py`). The top graded piece of the 4×4
+Hessian determinant is
+    [det Hess₄ f]_10 = det₂(Hess_{x1,x2} f5) · det₂(Hess_{x3,x4} f4),
+by a generalized Laplace expansion along the first two rows plus a degree bound:
+only the {1,2}×{1,2} minor pair keeps both columns in the degree-3 P-block, so
+only it reaches degree 10; every other term drops to ≤ 9 by trading a degree-3
+column for a degree-≤2 Q-column. Machine-corroborated on 5 exact-integer
+instances (the fully symbolic 4×4 det is out of local reach; the Laplace-degree
+argument is the proof). Hence det Hess f ∈ C^× FORCES det₂(Hess_{x3,x4} f4) ≡ 0.
+This is the degree-5 analogue of the degree-4 identity [det]_6 =
+det₂(Hess₂f4)·det₂(Hess_{x3,x4}f3) (Theorem B, r=2).
+
+OPEN (the genuinely new degree-5 structure). In degree 4 the analogous condition
+had Hess_{x3,x4}f3 with LINEAR entries, so det ≡ 0 ⟹ = ℓ·uuᵀ with u CONSTANT ⟹
+the u-perp direction is a pivot. In degree 5 the entries of Hess_{x3,x4}f4 are
+QUADRATIC, so det ≡ 0 ⟹ rank ≤ 1 = ℓ·uuᵀ with ℓ,u of complementary degree: the
+u-CONSTANT sub-case (ℓ degree 2) yields a pivot as before, but the u-LINEAR
+sub-case (ℓ degree 0) does not force a constant pivot direction and is unsettled.
+The rank-1 branch (f5 = x1⁵) is not started. So P5.A2 is PARTIAL: the first
+graded reduction is proved; the pivot-forcing completion (u-linear case) and the
+r=1 branch remain. If both close, the degree-5 rank ≤ 2 forms are all
+with-pivot (⟹ JC_2 class, invertible by Moh in this degree range), leaving the
+pivot-free residual concentrated entirely in the rank-3 survivor lifting.
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of

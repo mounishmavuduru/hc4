@@ -228,10 +228,15 @@ The completeness critic's top item, flagged by no single dimension:
   elimination but likely beyond the local ceiling (export to a bigger CAS); a
   NEGATIVE answer closes degree-5 HC_4, a pivot-free YES is the first pivot-free
   4-var constant-Hessian potential. Do **not** assume it is mechanical.
-- **P5.A2 Degree-5 rank ≤ 2 leading-form branches** — not yet addressed; by
-  analogy with degree 4 (S1/S2/S3 force a pivot) they are expected to land in the
-  with-pivot (JC_2) class, but the degree-5 graded formulas must be derived.
-  Required before any "degree-5 leading-form classification complete" statement.
+- **P5.A2 Degree-5 rank ≤ 2 leading-form branches** — STARTED (research_log
+  Phase 22, cert `d5_rank2_toppiece.py`). Rank 2: the first graded reduction is
+  PROVED — `[det Hess₄ f]_10 = det₂(Hess₂f5)·det₂(Hess_{x3,x4}f4)` (Laplace-degree
+  argument), so `det Hess f∈ℂ^× ⟹ det₂(Hess_{x3,x4}f4)≡0`. OPEN: the completion
+  needs the u-LINEAR sub-case of `Hess_{x3,x4}f4 = ℓ·uuᵀ` (degree-4's u was
+  constant → pivot; degree-5's may be linear → no forced pivot), plus the r=1
+  branch (`f5=x1⁵`). If both close, degree-5 rank≤2 is entirely with-pivot
+  (Moh-invertible here), concentrating the pivot-free residual in the rank-3
+  survivor lifting.
 - **P5.A3 char-0 upgrade of M1/M2** — re-run the two full-variety radical tests
   over ℚ(c), or extend the exact lift certificate (as done for R-D5-GEN), on a
   machine without the ~10-min kill. Pure compute-ceiling limitation.

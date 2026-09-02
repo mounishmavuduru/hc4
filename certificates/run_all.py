@@ -46,6 +46,7 @@ FAST = [
     'verify_paramcert.py',            # R-D5-GEN: Nullstellensatz witness, re-derived + checked
     'd5_survivor_family.py',          # R-D5-TAIL: deductive structural core S1-S4
     'd5_linear_direction_normalform.py',  # linear-direction normal form N1-N3
+    'd5_rank2_toppiece.py',           # degree-5 rank-2 first graded reduction
 ]
 
 # Not run by the fast suite (reason in the table).
