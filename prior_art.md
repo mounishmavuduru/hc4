@@ -111,3 +111,23 @@ solutions of det D²u = 1 are quadratic) does **not** apply — it needs
 convexity/reality, and over C there are many non-quadratic polynomial
 solutions (every Meng doubling). de Bondt's Theorem 4.2 is the algebraic
 analogue and holds only for n ≤ 3 or K = R.
+
+**Targeted web sweep (2026-09-01, for Theorem G).** A focused web-search sweep
+was run over the specific bodies the earlier agents missed: (i) the projective
+vanishing-Hessian corpus (Gordan–Noether; cubic-hypersurfaces-with-vanishing-
+Hessian; wild forms / minimal border rank), (ii) affine differential geometry
+(Li–Simon–Zhao–Hu, *Global Affine Differential Geometry of Hypersurfaces*;
+developable / zero-Gaussian-curvature hypersurfaces), (iii) degenerate /
+parabolic Monge–Ampère and improper affine spheres (Cheng–Yau; classification
+of improper affine spheres with singularities; Bernstein-type theorems for
+zero-Gaussian-curvature hypersurfaces, e.g. arXiv:2601.08124), and (iv) recent
+HC/JC arXiv + MathWorld (confirming HC: true n=1, false n≥5, open n=4). RESULT:
+**nothing subsuming Theorem G's inhomogeneous statement was located.** The
+homogeneous case matches Identity E (known); the nonvanishing case is the
+affine-sphere / Reilly–Fox / Mooney complement; the degenerate real Monge–
+Ampère results are convex-analytic (not the complex-algebraic implication
+B≡0 ⟹ det Hess≡0, which is even FALSE for non-polynomial algebraic functions,
+so cannot live in the smooth/analytic corpus). CAVEAT: a web sweep is NOT
+exhaustive — a zbMATH Open / MathSciNet search (MSC 53A15, 35J96) and an expert
+referee pass are still required before Theorem G is claimed new. The
+"no prior art located; pending expert review" hedge STANDS.
