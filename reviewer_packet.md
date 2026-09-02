@@ -12,10 +12,11 @@ n ≥ 5), the surviving open statements are JC_2 and HC_4, with
 HC_4 ⇒ JC_2. This project (i) independently machine-verified all four
 underlying 2026 counterexamples — for the Meng–Yang HC_5 polynomial
 apparently the first third-party verification; (ii) proved a **pivot
-theorem**: HC_4 holds for every potential that, in some affine
-coordinates, is quadratic in a variable with constant leading coefficient
-and pivot coefficient e1 of degree ≤ 2 — with a complete classification
-in the affine-pivot case; (iii) proved **HC_4 for all f of degree ≤ 4**;
+theorem** (sharp): HC_4 holds for every potential that, in some affine
+coordinates, is quadratic in a variable with NONZERO constant leading
+coefficient σ — for a pivot coefficient e1 of ANY degree — or with σ = 0
+and pivot coefficient e1 of degree ≤ 2 (with a complete classification in
+that affine-pivot case); (iii) proved **HC_4 for all f of degree ≤ 4**;
 (iv) proved the Meng–Yang counterexample family admits **no pivot of
 either kind in any affine coordinates** (their Remark 4.2, made rigorous
 for the known family), so the Schur descent self-terminates on known
@@ -130,7 +131,9 @@ Certificates: `theorem_G.py`, `theorem_G_n2_elementary.py`,
   affine-pivot constraint (c2) says the pivot coefficient has identically
   vanishing bordered Hessian: its level surfaces are developable.
   Nondegenerate quadric pivots are impossible.
-- **Identity E.** For homogeneous e of degree d ≥ 2 (any n):
+- **Identity E** [KNOWN — Nagaoka–Yazawa, J. Algebra 577 (2021) 175–202,
+  Prop. 2.3; also Fox 2017, Del Pia et al. 1408.4711 Lem. 5.2, Hemmer 1995].
+  For homogeneous e of degree d ≥ 2 (any n):
   ∇eᵀ adj(Hess e) ∇e = (d/(d−1))·e·det Hess e (Euler + H·adjH·H = detH·H).
 - **Theorem D′ (cone leading form).** Hence the leading form of any pivot
   coefficient has vanishing Hessian determinant and is, by Gordan–Noether

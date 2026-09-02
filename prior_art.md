@@ -9,6 +9,12 @@ any stronger claim made elsewhere in the project.
 
 **Identity E (Euler contraction).** ∇eᵀadj(Hess e)∇e = (d/(d−1))·e·det Hess e
 for e homogeneous of degree d ≥ 2, any n.
+- S. Nagaoka, S. Yazawa, *...*, J. Algebra 577 (2021) 175–202
+  (arXiv:1904.01800), Prop. 2.3 — source-verified verbatim at
+  `lit/nagaoka-yazawa`; this is the attribution the companion
+  (`theorem_G_paper.tex`) leads with. (Note the identity is older: Hemmer
+  1995 for n = 2, and the general form is in Del Pia et al. 2014 / Fox 2017
+  below, so Hemmer 1995 has priority.)
 - D. J. F. Fox, *Equiaffine geometry of level sets and ruled hypersurfaces
   with equiaffine mean curvature zero*, Math. Nachr. 290 (2017) 293–320
   (arXiv:1503.09108), §3 — verbatim, with the same proof (Euler +

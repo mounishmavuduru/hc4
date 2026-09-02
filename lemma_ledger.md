@@ -39,7 +39,8 @@ Adversarial: "det Hess ∈ k^×" ✓ (128 ≠ 0); collision points distinct ✓.
 (i) JC_n ⟹ HC_n. (ii) HC_2n ⟹ JC_n via the doubling
 φ(x,y) = ⟨y, F(x)⟩, det Hess φ = (−1)^n (Jac F)², and triangularity of ∇φ.
 (iii) If det Hess f ∈ k^× and ∇f not injective, f^L is not a polynomial.
-Source: Meng 2006 (statement; provenance check in progress), full proofs in
+Source: Meng 2006 (statement; original TeX on disk at
+`lit/meng/HessianConjecture.tex`), full proofs in
 arXiv:2607.22198 §2, each step re-verified by hand here (block-swap sign
 (−1)^{n²} = (−1)^n; lower-block-triangular determinant; formal-identity
 globalization). Dependencies: none.
@@ -124,7 +125,7 @@ f_{d−1} has x4-degree ≤ 1.**
 Proof: in a permutation product of degree 3(d−2)+(d−3), exactly three entries
 come from Hess f_d; since row 4 and column 4 of Hess f_d vanish, the fourth
 entry must occupy position (4,4); summing over the 3-permutations gives the
-3×3 determinant as stated. ∎ (Machine spot-check planned in hc4lib tests.)
+3×3 determinant as stated. ∎ (Machine-certified: `t3_generic.py`, fully generic.)
 
 **T4 [proved here] (midpoint identity, deg ≤ 4)** For deg f ≤ 4 and any
 m, v: ∇f(m+v) − ∇f(m−v) = 2[Hess f(m)·v + ∇f_4(v)].
@@ -134,7 +135,8 @@ det Hess f(m) = c ≠ 0 forces v = 0 — **HC_n holds for deg f ≤ 3, all n**.
 Proof: gradient components have degree ≤ 3; odd part of a cubic map at m ± v
 is JG(m)v + (cubic-in-v term), and the pure v³-term of ∇f(m+v) is ∇f_4(v)
 (compare weights; machine-verified with fully symbolic coefficients —
-planned in hc4lib test, linear in coefficients hence a proof for all f). ∎
+certified in `src/hc4lib.py` self-tests, linear in coefficients hence a proof
+for all f). ∎
 Adversarial: the identity is specific to deg ≤ 4 ✓; injectivity ⟹ HC uses
 L-INJ ✓.
 
@@ -225,8 +227,8 @@ x4²-coefficient are both used ✓; deg e1 ≤ 2 needed so that K is constant an
 ẽ0 + λe1 has constant Hessian for a SCALAR λ ✓; over non-closed char-0
 fields the argument survives since HC_3 is stated over any char-0 field ✓.
 
-**T5 [proved here, pending agent re-verification] (deg-4 affine-pivot
-reduction)** For deg f = 4 with det Hess f ∈ C^×:
+**T5 [proved here] (deg-4 affine-pivot reduction)** For deg f = 4 with
+det Hess f ∈ C^×:
 (a) if the leading form f4 has essential rank 3, then T3 forces
 (f3)_{x4x4} = 0 and the x4²-coefficient of f is the constant S44/2; hence f
 is covered by Q2 (S44 ≠ 0) or is affine in x4 (S44 = 0);
@@ -241,8 +243,11 @@ det₃(Hess_{(x2,x3,x4)}f3) ≡ 0; constant-pivot existence under analysis
 **Consequence (modulo (c) and branch closures): every degree-4
 counterexample to HC_4 must be, after an affine change, of the affine-pivot
 form f = e0(x1,x2,x3) + x4·e1(x1,x2,x3) (class AP4).**
-Status: (a) proved here (T3 + Q2); (b) proved modulo the 2×2 lemma
-(agent BR2 verifying); (c) in progress (agent BR1).
+Status: all three branches CLOSED and folded into THEOREM B (deg ≤ 4): (a) via
+T3 + Theorem A; (b) via S2 + S1 (the 2×2 lemma, `deg4_branch_closures.py`(i));
+(c) via S2 + S3 (isotropic-vector lemma, `deg4_branch_closures.py`(iii),
+ledger lines above). The earlier "agent BR1/BR2 in progress" note is stale —
+see THEOREM B.
 
 **G1 [proved here] [machine]** For F ∈ {Alpöge F, Gao F₄, Gao F₅}:
 the space {W ∈ C^{n×n} : W·J_F(x) symmetric for all x} is {0}. Hence
@@ -418,10 +423,13 @@ vanishing bordered Hessian, i.e. all its level surfaces are developable**
 pivots (e.g. e1 = x1x2 + x3, bordered Hessian ≡ 1) are impossible.
 Cert: `developability.py`.
 
-**IDENTITY E [KNOWN — cite, do not claim]** Fox, Math. Nachr. 290 (2017)
-293–320 (arXiv:1503.09108) §3, verbatim and with our proof; also Del Pia–
-Hildebrand–Weismantel–Zemmer arXiv:1408.4711 Lemma 5.2 (any C² homogeneous
-function), attributed there to Hemmer 1995. See `prior_art.md`.
+**IDENTITY E [KNOWN — cite, do not claim]** Nagaoka–Yazawa, J. Algebra 577
+(2021) 175–202 (arXiv:1904.01800) Prop. 2.3 (source-verified verbatim at
+`lit/nagaoka-yazawa`, certs `identityE_is_known.py`,
+`gcv_ny_homogeneous_converse.py`); also Fox, Math. Nachr. 290 (2017) 293–320
+(arXiv:1503.09108) §3; Del Pia–Hildebrand–Weismantel–Zemmer arXiv:1408.4711
+Lemma 5.2 (any C² homogeneous function), attributed there to Hemmer 1995. See
+`prior_art.md`.
 For e homogeneous of degree d ≥ 2 in
 any number of variables, ∇eᵀ adj(Hess e) ∇e = (d/(d−1))·e·det Hess e.
 Proof: Euler ((Hess e)x = (d−1)∇e, ∇e·x = de) plus H·adj(H)·H = det(H)·H.

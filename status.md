@@ -1,4 +1,4 @@
-# Status of the Jacobian and Hessian conjectures — verified as of 2026-08-08/09
+# Status of the Jacobian and Hessian conjectures — verified 2026-08-08 through 2026-09-01
 
 Every claim below was checked against a primary source during this project
 (downloads under `lit/`; extract files cited). Machine verifications are in

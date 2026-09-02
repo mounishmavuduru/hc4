@@ -30,11 +30,12 @@ rational arithmetic with fail-closed certificate scripts
 (\texttt{certificates/}); every literature input was verified against a
 primary source (\texttt{status.md}, \texttt{lit/}). Novelty caveat: the
 results below were obtained and verified within this project during
-2026-08-08/10; a novelty search (documented in \texttt{status.md} and the
+2026-08 through 2026-09 (see \texttt{status.md} for the full timeline); a
+novelty search (documented in \texttt{status.md} and the
 reviewer packet) found no prior statements, but expert referees should
 check Theorem~\ref{thm:pivot} in particular against the unpublished
 folklore of the polynomial-automorphism community.}}
-\date{August 10, 2026}
+\date{September 2026}
 
 \begin{document}
 \maketitle
@@ -347,12 +348,16 @@ On the proof of Theorem~\ref{thm:G} itself: an earlier version of the
 argument continued $\psi$ analytically along the punctured ray and
 justified this by an ODE argument; an independent audit rejected that
 justification as written ($\psi$ is only a local inverse and the ray may
-meet the branch locus). Three repaired proofs now stand, none continuing
-$\psi$: the Euler-eigensplit extension (in
-\texttt{theorem\_G\_paper.tex}), an elementary local-flow argument
-($x''+x'=0$; \texttt{advG\_flow\_proof.py}), and a purely algebraic
-Puiseux-series-at-infinity argument valid over any field of
-characteristic $0$ (\texttt{pzG\_audit\_identities.py}).
+meet the branch locus). \emph{Four} independent proofs now stand, none
+continuing $\psi$ as an inverse: (i) the Euler-eigensplit extension and
+(ii) a purely algebraic derivation-eigenvector proof, both written in full
+in \texttt{theorem\_G\_paper.tex} (certs
+\texttt{atkG\_algebraic\_proof.py} for (ii)); (iii) a
+Puiseux-series-at-infinity argument valid over any field of characteristic
+$0$ (\texttt{pzG\_audit\_identities.py}); and (iv) an elementary local-flow
+argument $x''+x'=0$ (\texttt{advG\_flow\_proof.py}, given as a remark in the
+companion). Three of the four were written by independent auditors
+instructed to refute the theorem.
 \end{remark}
 
 \begin{lemma}[affine equation of the Hessian; \emph{known}]\label{lem:hom}
