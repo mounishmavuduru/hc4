@@ -151,8 +151,14 @@ Every claim below was checked against a primary source during this project
   isotropic cone is a single line — certificate W13); (iii) γ = 0 and
   deg e1 ≥ 2 — exactly a Meng doubling of a planar Keller map plus an
   inert planar potential. **Hence HC_4 restricted to potentials admitting
-  a pivot is EQUIVALENT to JC_2.** The remaining open case is potentials
-  with no pivot at all.
+  a pivot is EQUIVALENT to JC_2 — unconditionally for deg e1 ≤ 2, and for
+  general deg e1 CONDITIONAL on Corollary E / Theorem G.** (Core re-audit,
+  2026-09-02: cases (i),(ii) and the deg e1 ≤ 2 part of (iii) are
+  Theorem-G-independent and were independently re-derived sound; case (iii)
+  in ALL degrees needs the reduction of a degree-≥3 pivot coefficient to
+  affinely 2-variable = Corollary E → Theorem G, which was NOT independently
+  re-derived — see the caveat under Theorem G below.) The remaining open case
+  is potentials with no pivot at all.
 - **Theorem G now has FOUR proofs** — the eigensplit proof (paper), the
   flow proof (advG), a Puiseux-at-infinity proof (pzG) and a
   derivation-eigenvector proof (atkG, shortest, purely algebraic) — three

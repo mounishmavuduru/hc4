@@ -218,14 +218,22 @@ affine coordinates, quadratic in a variable with NONZERO constant leading
 coefficient — with no hypothesis on deg e1.**
 For deg f = 4 the tower (T3) automatically puts every essential-ternary-
 leading-form candidate in this shape with deg e1 ≤ 2 (see T5 below).
-Dependencies: L-HC3 (de Bondt), L-INJ. Certificate:
-`verify_q2_core.py` (Schur identity on 3 instance classes incl. nontrivial
-pencil; symbolic collision-transfer step). Hand proof: `src/deg4_tree_notes.md`
-§1a.
+Dependencies: L-HC3 (de Bondt), L-INJ. Certificate: the GENERIC (proof-grade)
+machine checks are `theoremA_sharp.py` (block + gradient identities fully
+symbolic for generic degree-4 e0,e1 with non-constant K; Gröbner injectivity on
+deg-3,4 instances), `deg4_q2v_bordered_schur.py` (bordered form linear-in-coeffs
+= proof; Schur determinant identity fully symbolic), and
+`deg4_q2v_pencil_forcing.py` ([s³]det = det K; triangular mutual-inverse).
+`verify_q2_core.py` is a CONSISTENCY CHECK only (Schur identity on 3 instance
+classes, all deg e1 ≤ 2; it does not exercise the any-degree Q2-SHARP claim).
+Hand proof: `src/deg4_tree_notes.md` §1a.
 Adversarial: "u sweeps C for fixed x'" is where σ ≠ 0 and CONSTANCY of the
-x4²-coefficient are both used ✓; deg e1 ≤ 2 needed so that K is constant and
-ẽ0 + λe1 has constant Hessian for a SCALAR λ ✓; over non-closed char-0
-fields the argument survives since HC_3 is stated over any char-0 field ✓.
+x4²-coefficient are both used ✓; over non-closed char-0 fields the argument
+survives since HC_3 is stated over any char-0 field ✓. (OBSOLETE — an earlier
+version of this note claimed "deg e1 ≤ 2 needed so that K is constant"; that is
+exactly what Q2-SHARP above REFUTES: the pencil forcing is per-fixed-x', where
+K(x') is automatically constant, so ẽ0 + λe1 has constant Hessian for a scalar
+λ at ANY degree of e1. The deg e1 ≤ 2 hypothesis is NOT needed when σ ≠ 0.)
 
 **T5 [proved here] (deg-4 affine-pivot reduction)** For deg f = 4 with
 det Hess f ∈ C^×:
@@ -315,12 +323,16 @@ map x3 ↦ (∂3e0, ∂1e0 − x1∂2e0) non-injective on the (x1,x2)-fiber).**
 
 ## S. Branch-closing lemmas and the degree-4 theorem
 
-**S1 [proved here] [machine] (2×2 lemma)** A symmetric 2×2 matrix of linear
-forms over C with det ≡ 0 equals ℓ(x)·uu^T for a linear form ℓ and a
-CONSTANT vector u. Proof: l11l22 = l12² in the UFD C[x]; if l12 = 0 one
-diagonal entry vanishes; if l12 ≠ 0, the factorizations of l12² force
-{l11,l22} = {γl12, γ⁻¹l12}, so M = (l12/γ)·(γ,1)(γ,1)^T.
-Cert: `deg4_branch_closures.py` (ii).
+**S1 [proved here (hand/UFD); KNOWN as r=1 Meshulam/Loewy–Radwan] (2×2 lemma)**
+A symmetric 2×2 matrix of linear forms over C with det ≡ 0 equals ℓ(x)·uu^T for
+a linear form ℓ and a CONSTANT vector u. Proof: l11l22 = l12² in the UFD C[x];
+if l12 = 0 one diagonal entry vanishes; if l12 ≠ 0, the factorizations of l12²
+force {l11,l22} = {γl12, γ⁻¹l12}, so M = (l12/γ)·(γ,1)(γ,1)^T.
+Cert: `deg4_branch_closures.py` (ii) — CONSISTENCY CHECK ONLY: it verifies the
+ℓuu^T normal form has det 0, but ASSUMES the proportionality (sets l11=γl12,
+l22=l12/γ); it does NOT machine-derive det≡0 ⟹ proportionality. The forcing is
+the UFD hand proof above (and the cited Meshulam/Loewy–Radwan). So this is not a
+"[machine]"-proved forcing — the hand/UFD argument is the certificate of record.
 
 **S2 [proved here] [machine] (branch graded formulas)** For f = f4+f3+f2:
 if f4 ∈ C[x1,x2]: [det Hess f]_6 = det₂(Hess₂f4)·det₂(Hess_{(x3,x4)}f3);
@@ -392,8 +404,12 @@ injective IF AND ONLY IF (b,e) is injective, for EVERY inert a — the
 converse direction solves the linear system Bqᵀw = ∇a(p) − ∇a(q) + Bpᵀu
 (cert (W12) in `paperG_writeup_checks.py`). **Hence HC_4
 restricted to this class is EQUIVALENT to JC_2.**
-Cert: `doubling_structure.py` (jet-level determinant identity = proof;
-plus fully generic polynomial check and a collision-Gröbner instance).
+Cert: `doubling_structure.py` (jet-level determinant identity det Hess =
+Jac(b,e)² = proof; plus a fully generic polynomial check and a collision-Gröbner
+INSTANCE for injectivity). The GENERIC injectivity equivalence (both directions,
+every inert a) is `paperG_writeup_checks.py` (W12), fully symbolic — that is the
+cert of record for the equivalence; doubling_structure.py's Claim 2 is an
+instance consistency check.
 **RETRACTED SIDE-CLAIM (Aug 18):** an earlier draft asserted the
 affine-pivot class is *exhausted* by these doublings. FALSE — witness
 w = x1²/2 + x1x2(1+x3) + x2²(2x3+x3²)/2 + x3x4, det Hess w = 1, affine
@@ -571,7 +587,15 @@ det Hess e ≡ 0 alone: de Bondt–van den Essen's n = 3 classification
 contains zero-Hessian polynomials that are not affinely 2-variable
 (h = x1x2 + x1²x3), and indeed B(h) = −x1⁴ ≠ 0 as it must be.
 
-**MAIN THEOREM (pivot trichotomy) [proved here] [machine]** Let
+**MAIN THEOREM (pivot trichotomy) [proved here for deg e1 ≤ 2 and for
+homogeneous e1; the ALL-DEGREE JC_2-equivalence is CONDITIONAL on Corollary E =
+Theorem G + F]** (Core re-audit 2026-09-02: cases (i),(ii) and the deg e1 ≤ 2
+part of (iii) were independently re-derived and are Theorem-G-INDEPENDENT and
+sound; the reduction of a general degree-≥3 pivot coefficient e1 to affinely
+2-variable — the only step that makes (iii) hold in ALL degrees — rests on
+Corollary E / Theorem G, which was NOT independently re-derived and whose
+original proof was a documented non-sequitur now carried by four replacements.
+So the all-degree equivalence inherits Theorem G's residual risk.) Let
 f ∈ C[x1..x4] with det Hess f ∈ C^× admit a pivot v; put γ = D_v²f,
 e1 = D_vf. Then exactly one of (the cases are indexed by the invariants
 (γ, deg e1) of the pair (f,v), hence genuinely exclusive):
@@ -584,12 +608,19 @@ f = a(x1,x2) + x3·b(x1,x2) + x4·e(x1,x2) — a Meng doubling of the planar
 Keller map (b,e) plus an inert planar potential — with ∇f injective iff
 (b,e) is.
 **Hence HC_4 restricted to potentials admitting a pivot is EQUIVALENT to
-JC_2.** The only case left open is potentials with no pivot at all.
-Proof: (c2) + Corollary E make e1 = e(x1,x2); then
-det Hess f is affine in x4 with
+JC_2 — unconditionally for deg e1 ≤ 2, and for general deg e1 CONDITIONAL on
+Corollary E / Theorem G** (see the header caveat). The only case left open is
+potentials with no pivot at all.
+Proof: (c2) + Corollary E make e1 = e(x1,x2) — THIS STEP presupposes Corollary E
+(equivalently Theorem G); without it det Hess f need not even be affine in x4
+(e.g. e1 = x1² + x2x3 gives det Hess f of x4-degree 2, coeff 4(x1²+x2x3) ≠ 0).
+Once e1 = e(x1,x2), det Hess f is affine in x4 with
 [x4]det Hess f = −(e0)_{x3x3}·B₂(e), B₂ the 2-variable bordered Hessian of
-e. Constancy forces (e0)_{x3x3}·B₂(e) ≡ 0. If B₂(e) ≡ 0 then by Theorem G
-in 2 variables e = φ(L); then det Hess f = −φ′(x1)²·det₂Hess_{(x2,x3)}e0,
+e. Constancy forces (e0)_{x3x3}·B₂(e) ≡ 0. If B₂(e) ≡ 0 then, since a vanishing
+2-variable bordered Hessian means every level curve of e is a line (developable)
+so e is a function of a single linear form, e = φ(L) (the n = 2 planarity /
+Corollary-E-in-two-variables statement — NOT "Theorem G ⟹ det Hess e ≡ 0",
+which alone does not give e = φ(L)); then det Hess f = −φ′(x1)²·det₂Hess_{(x2,x3)}e0,
 so φ′² divides a nonzero constant, φ is affine, deg e1 = 1: case (ii). If
 deg e1 ≥ 2 then B₂(e) ≢ 0, so (e0)_{x3x3} ≡ 0 ⟹ doubling: case (iii).
 NOTE (earlier drafts): the first write-up asserted (e0)_{x3x3} ≡ 0
@@ -597,7 +628,13 @@ outright (missing case ii); a later one claimed the affine-pivot class
 equals the doublings (false, witness w — see Theorem C entry). Both
 corrections are unconditional-side, so the JC_2 equivalence is unchanged.
 Cert: `pivot_dichotomy.py` (both identities fully symbolic + an instance of
-each branch).
+each branch). CAVEAT (core re-audit): this cert PRESUPPOSES Corollary E — it
+builds e as a 2-variable polynomial from the outset, so its "det Hess f affine
+in x4" and "[x4]det Hess f = −(e0)_{x3x3}·B₂(e)" pillars hold only AFTER the
+e1 → e(x1,x2) reduction and do NOT themselves establish that reduction; and the
+instances are at fixed degree 3. It verifies the branch logic GIVEN Corollary E,
+not Corollary E. The Corollary-E-independent verification lives (only) in the
+Theorem G / F certs, which the re-audit did not independently re-derive.
 Adversarial note: branch (iii) was MISSED in the first write-up, which
 asserted (e0)_{x3x3} ≡ 0 outright. It does not weaken the equivalence
 (being unconditional) but its omission was a real gap in the argument as

@@ -10,10 +10,14 @@
 # planar potential a(x1,x2), and det Hess f is constant iff (b,e) is a planar
 # KELLER map.
 #
-# Claim 2 (injectivity): grad f is injective  <==  (b,e) is injective; and if
-# a = 0 the converse holds too. Hence HC_4 restricted to this class is
-# EQUIVALENT to JC_2: this is exactly where the planar Jacobian conjecture
-# sits inside HC_4.
+# Claim 2 (injectivity): grad f is injective  <==>  (b,e) is injective, for
+# EVERY inert a (not just a = 0): components 3,4 of grad f are literally b and e,
+# so any (b,e)-collision lifts to a grad f-collision by solving a 2x2 linear
+# system whose determinant is det B_q != 0 (the Keller condition). The fully
+# generic converse is certified in paperG_writeup_checks.py block (W12); the
+# instance check below (Claim 2) is a consistency spot-check, not the general
+# proof. Hence HC_4 restricted to this class is EQUIVALENT to JC_2: this is
+# exactly where the planar Jacobian conjecture sits inside HC_4.
 #
 # Claim 3 (the AP1 case of Theorem A is the sub-case e = x1^2/2 + x2):
 # planar Keller maps (b, e) with e = x1^2/2 + x2 are exactly

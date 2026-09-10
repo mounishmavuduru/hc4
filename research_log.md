@@ -676,6 +676,63 @@ r=1 branch remain. If both close, the degree-5 rank ≤ 2 forms are all
 with-pivot (⟹ JC_2 class, invertible by Moh in this degree range), leaving the
 pivot-free residual concentrated entirely in the rank-3 survivor lifting.
 
+## Phase 23 — independent adversarial re-audit of the CORE (2026-09-02)
+
+Ran a 7-dimension ultracode workflow (wf_d6ff521f-d41) re-deriving, from scratch
+and with intent to DISPROVE, the load-bearing PUBLISHED core that the earlier
+audit had not touched: Theorem A (γ≠0 sharp / γ=0 AP4), Theorem B (deg ≤ 4), the
+pivot trichotomy, Q2, foundations/scope, and a core code-review. 8 agents, 0
+errors, 0 verifiers triggered (no critical/high defect surfaced).
+
+RESULT — the unconditional core is SOUND and, importantly, Theorem-G-INDEPENDENT:
+- Theorem A, γ≠0 (Q2-SHARP): re-derived by hand + sympy. The Schur reduction
+  det Hess f = σ·det₃(Hess₃ẽ0 + uK), u=x4+e1/σ, the per-fixed-x' pencil forcing
+  (so the "deg e1 ≤ 2" hypothesis is genuinely unnecessary when σ≠0), and the
+  single-common-λ collision transfer into de Bondt HC_3 all check out. Sound.
+- Theorem A, γ=0 (AP0 / AP1–AP3): re-derived independently (not reusing the
+  (c0)-(c2) framework); the (c0)/(c1)/(c2) split is an exact iff (det has
+  x4-degree ≤ 2), the rank-collapse and the deg-e1=2 classification are
+  exhaustive, injectivity of the classified family is a general argument. Sound.
+- Theorem B (deg ≤ 4): all three graded pieces ([det]_7,[det]_6,[det]_5) and S3
+  re-derived; each essential rank r∈{1,2,3} forces a pivot with pivot-coefficient
+  degree ≤ 2, so Theorem A applies; WLOGs are affine; exhaustive. Sound — and it
+  does NOT depend on Theorem G.
+- Q2 core, foundations/scope: re-derived; KNOWN inputs (HC_3, Gordan–Noether,
+  Wang, L-INJ) used within scope; no circular dependency.
+
+THE ONE REAL GAP (completeness critic, high): the ALL-DEGREE pivot trichotomy /
+"HC_4-with-a-pivot ⟺ JC_2" hinges on reducing a degree-≥3 pivot coefficient e1
+to affinely 2-variable = COROLLARY E → THEOREM G. No dimension independently
+re-derived Corollary E or Theorem G (they were only read); pivot_dichotomy.py
+PRESUPPOSES the reduction (it builds e as 2-variable, and its "det Hess f affine
+in x4" pillar is FALSE for a genuine 3-variable e1 — verified: e1=x1²+x2x3 gives
+x4-degree 2, coeff 4(x1²+x2x3)≠0). Theorem G is also historically defective (its
+original proof was a withdrawn non-sequitur, now carried by four replacements),
+and the "structural pillars ⟹ det Hess e ≡ 0" CLOSURE step of those four proofs
+was not machine- or hand-verified in this pass. So the all-degree equivalence is
+CONDITIONAL on Theorem G and inherits its residual risk; deg e1 ≤ 2 and deg ≤ 4
+stand unconditionally.
+
+ACTIONS TAKEN (honesty relabel, this phase): the MAIN THEOREM (ledger), the
+status.md trichotomy bullet, and main_result.tex Theorem thm:main now state the
+all-degree equivalence as CONDITIONAL on Corollary E / Theorem G; the branch-(b)
+citation was corrected (B₂≡0 ⟹ e=φ(L) is the n=2 developability/planarity fact,
+NOT "Theorem G ⟹ det Hess e≡0"); the Q2 stale "deg e1 ≤ 2 needed" adversarial
+note was marked obsolete and the Q2 cert citation repointed to the generic
+proof scripts (theoremA_sharp.py, deg4_q2v_bordered_schur.py,
+deg4_q2v_pencil_forcing.py) with verify_q2_core.py relabeled a consistency
+check; S1's "[machine]" tag relabeled (the cert is a normal-form consistency
+check; the forcing is the UFD hand proof + Meshulam/Loewy–Radwan);
+pivot_dichotomy.py and doubling_structure.py cert notes corrected (presuppose
+Cor E; injectivity converse is the generic W12, for every inert a).
+
+STILL OPEN (the single most load-bearing unverified link): an INDEPENDENT
+re-derivation of Theorem G — the atkG derivation-eigenvector proof or the advG
+flow proof (x''+x'=0) — including the pillars ⟹ conclusion CLOSURE, plus a
+scope-check of the de Bondt–van den Essen n=3 route to Corollary E that would
+give a Theorem-G-independent path. Until then the all-degree trichotomy is
+labeled conditional, not proved. This is the top remaining verification priority.
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of
