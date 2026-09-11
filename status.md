@@ -198,6 +198,13 @@ Every claim below was checked against a primary source during this project
   (both 0), so fibre-constancy alone does not witness it — necessary, not
   sufficient (self-corrected, caught by a fail-closed assert).
 - Cert: `euler_pullback_reformulation.py`. Ledger entry: §R.
+- Degree-5 rank ≤ 2 leading forms (ledger R-D5-R2, cert `d5_rank2_deg9.py`,
+  fully symbolic): formal closed forms for [det]_10/9/8; rank 2 forces
+  Hess_{x3,x4}f4 = ℓ·uuᵀ; the **u-linear sub-case is EMPTY**; the u-constant
+  sub-case has [det]_9 = ℓ(D·f3_x4x4 − ∇Bᵀadj(H5)∇B), so f3_x4x4 =: λ is a
+  binary linear form with D·λ = ∇Bᵀadj(H5)∇B — λ ≠ 0 admissible, hence NO
+  forced pivot at this stage (corrects Phase 22); N4 = 0 and r = 1 branches
+  reduced one step each, all three residuals OPEN.
 - Degree-5 attack (rank-3, no-isotropic-direction, pivot-free branch),
   weighted leading form F = a5(y) + x4·b3(y) + ½x4²·y1, five closed-form
   graded equations E4…E0:

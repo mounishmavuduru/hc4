@@ -19,7 +19,7 @@ PAT = re.compile(r'\b([A-Za-z0-9_\-.]+?\.(?:py|sing|sh))\b')
 # names that are templates/placeholders, not real files
 PLACEHOLDERS = {'d5_branchK_famM.sing', 'hc4-backup.bundle'}
 # search roots for existence
-SEARCH = [HERE, os.path.join(ROOT, 'src'), ROOT]
+SEARCH = [HERE, os.path.join(HERE, 'experimental'), os.path.join(ROOT, 'src'), ROOT]
 
 
 def _all_scripts():

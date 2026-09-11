@@ -889,3 +889,59 @@ linear direction of f5 does NOT by itself give a pivot of f
 Scripts: `_d5_close.py`,
 `_d5_survivors.py`, `_d5_surv_rabin.py`, `_d5_surv_target.py`, `_iso_power.py`,
 `d5_survivor_family.py`.
+
+**R-D5-R2 (degree-5 leading forms of essential rank ≤ 2: graded pieces
+[det]_10/9/8 and the rank-1 shapes of Hess_{x3,x4}f4) [proved here; fully
+symbolic — formal matrix identities + symbolic-coefficient specializations,
+no instance sampling in the proof; cert `d5_rank2_deg9.py`]**
+Setting: f = f5 + f4 + f3 + f2 + (affine), f5 ∈ C[x1,x2] (binary quintic),
+H5 = Hess f5 (supported in the (x1,x2) block, entries deg 3), H4 = Hess f4,
+H3 = Hess f3, H2 = Hess f2; D = det₂Hess₂f5; N4 = Hess_{x3,x4}f4,
+R3 = Hess_{x3,x4}f3, R2 = Hess_{x3,x4}f2; cof_ij = 4×4 cofactor.
+(F) FORMAL identities in the 33 matrix entries (Hess f(tx) = t³H5+t²H4+tH3+H2):
+[det]_d = 0 for d > 10; [det]_10 = D·det N4;
+[det]_9 = D·tr(adj(N4)R3) + Σ_{i,j≤2}(H5)_ij·cof_ij(H4);
+[det]_8 = D(det R3 + tr(adj(N4)R2)) + Σ_{i,j≤2}(H5)_ij·∂_ε cof_ij(H4+εH3)|₀
++ det H4. (Upgrades the instance-corroborated Laplace proof of [det]_10 in
+`d5_rank2_toppiece.py` to an exact formal proof.)
+(R1) If N4 = ℓ·uuᵀ, w := (u4, −u3) (adj N4 = ℓ wwᵀ), g_i := u4(H4)_{i3} −
+u3(H4)_{i4} (i = 1,2): **[det]_9 = ℓ·(D·wᵀR3w − gᵀ adj(H5) g)**.
+Rank 2 (D ≠ 0): [det]_10 = 0 forces det N4 = 0, so N4 = ℓuuᵀ (UFD) with
+(u constant, ℓ quadratic) or (u linear, ℓ constant):
+(b) u = (L1,L2) LINEAR, L1,L2 independent: **EMPTY.** Integrability of
+N4 = Hess_{x3,x4}f4 (∂₄N33 = ∂₃N34, ∂₃N44 = ∂₄N34; 24 Rabinowitsch certs)
+forces L1, L2 ∈ C[x1,x2]; then f4 = (α/2)(L1x3+L2x4)² + x3C + x4D′ + E and
+the (x3,x4)-degree-2 part of [det]_9 is **−20α³δ²·f5·(L1x3+L2x4)²** (δ =
+det[L1;L2] ≠ 0; Euler xᵀH5x = 20f5), which is ≠ 0. So no such f has
+det Hess f ∈ C^×. (L2 ∥ L1 is sub-case (a) with ℓ = αL1².)
+(a) u CONSTANT (WLOG u = e3; f4 = A(x1,x2,x3) + x4·B(x1,x2), ℓ = A_x3x3 ≠ 0):
+**[det]_9 = ℓ·(D·f3_x4x4 − ∇Bᵀ adj(H5) ∇B)**. Hence λ := f3_x4x4 ∈ C[x1,x2]
+(f3 has no x3x4², x4³ terms) and D·λ = ∇Bᵀadj(H5)∇B, i.e. ∇Bᵀ H5⁻¹ ∇B is a
+polynomial (a linear form). This is a CONSTRAINT, not a contradiction, and
+λ ≠ 0 is admissible: witness f5 = x1⁵+x2⁵, B = x1³+x2³, λ = (9/20)(x1+x2)
+(λ = 0 witness: f5 = x1⁴x2, B = x1³). Since D²_{e4}f = λ + const, **e4 is a
+pivot iff λ = 0** — so, UNLIKE degree 4 (T5(b)/Theorem B), the u-constant
+sub-case does NOT force a pivot from [det]_9. This CORRECTS the Phase-22 /
+`d5_rank2_toppiece.py` remark "u constant yields a pivot as before" (the
+degree-4 argument used that f3's (x3,x4)-Hessian had rank 1; in degree 5 the
+rank-1 matrix is f4's and f3's (x3,x4)-Hessian is unconstrained by [det]_10).
+Context: "quadratic in x4 with a LINEAR x4²-coefficient" is a nonempty class in
+general — f = x1x4²/2 + x2x4 + x1x3 has det Hess f = 1 (checked) — so no
+general emptiness argument exists; that example has a pivot in ANOTHER
+direction (e3), which is the natural hope for sub-case (a).
+(c) N4 = 0 (f4 = x3C + x4D′ + E): [det]_10 = [det]_9 = 0 automatically;
+[det]_8 = D·det R3 − tr(adj(H5)·Q·adj(R3)·Qᵀ) + (det Q)² with
+Q = [(H4)_ij]_{i≤2, j≥3}; its (x3,x4)-bidegree-2 part is D·det Hess₂(f3″),
+f3″ = pure-(x3,x4) part of f3, so **f3″ is the cube of a linear form** (Hesse,
+binary cubics [known]). Rest OPEN.
+(r = 1) f5 = x1⁵ (H5 = 20x1³e1e1ᵀ): [det]_10 = 0,
+**[det]_9 = 20x1³·det₃Hess_{x2,x3,x4}f4**, [det]_8 = 20x1³·tr(adj(Hess_{234}f4)
+Hess_{234}f3) + det Hess f4. So det Hess f ∈ C^× forces det₃Hess_{x2,x3,x4}f4
+≡ 0 (QUADRATIC entries — the degree-4 S3 argument does not transfer). OPEN.
+Experimental (NOT a theorem; `experimental/d5r2a_probe8.py`, mod 32003): the
+[det]_8 = 0 system in the 41 lower coefficients is CONSISTENT for the λ = 0
+witness (dim 9, 2 components — expected, it is the with-pivot class) and
+ALSO for the λ ≠ 0 witness (dim 12): [det]_8 does not exclude λ ≠ 0 either.
+Status of P5.A2 after R-D5-R2: rank-2 tree = {N4 rank 2: impossible; (b):
+EMPTY; (a): open beyond [det]_9, pivot criterion λ = 0; (c): open beyond the
+first [det]_8 consequence}; r = 1: open beyond the first reduction.

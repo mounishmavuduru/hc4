@@ -4,3 +4,6 @@ __pycache__/
 *.output
 # long-job scratch dir (Singular node files, streaming closelogs) — volatile
 certificates/_lean/
+# experimental probes: Singular scratch only (scripts, outputs, points are tracked)
+certificates/experimental/**/*.sing
+certificates/experimental/probe8/

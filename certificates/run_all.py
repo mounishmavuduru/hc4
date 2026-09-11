@@ -47,6 +47,7 @@ FAST = [
     'd5_survivor_family.py',          # R-D5-TAIL: deductive structural core S1-S4
     'd5_linear_direction_normalform.py',  # linear-direction normal form N1-N3
     'd5_rank2_toppiece.py',           # degree-5 rank-2 first graded reduction
+    'd5_rank2_deg9.py',               # degree-5 rank<=2: formal [det]_10/9/8, sub-case (b) EMPTY, (a)/(c)/r=1 reductions
     'theorem_G_closure_reaudit.py',   # Theorem G closure re-derivation (pillars + eigendecomp + sharpness)
     'check_xrefs.py',                 # P2.4: every script cited in the docs exists on disk
 ]

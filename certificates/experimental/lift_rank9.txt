@@ -1,0 +1,6 @@
+point: c=(5406,13697,22603), 21 a-values mod 32003
+weight-9 system: 32 equations in 22 unknowns (mod 32003)
+rank = 13;  null-space dim = 9  (admissible weight-4 perturbations F')
+gauge directions (3 translations + 3 shears) in the null space? True  => non-gauge null dim = 3
+NOTE: weight-9 is homogeneous-linear, so F'=0 always works; the obstruction (if any) sits in the lower weights where the nonzero constant must appear. This rank is the first structural datum of the lifting tower at a genuine survivor point.
+exit=0

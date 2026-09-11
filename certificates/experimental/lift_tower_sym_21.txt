@@ -1,0 +1,13 @@
+c=(5406,13697,22603) mod 32003; symbolic survivor (21 a-vars) + 41 lower unknowns + 2 Rabinowitsch
+  DETTERMS = 99054
+  NMONO = 536
+  NEQ = 656
+  DIM = ?
+  (no DIM: timeout or error)
+DETTERMS 99054
+NMONO 536
+NEQ 656
+
+halt 1
+
+exit=0

@@ -1,0 +1,8 @@
+r=1 trial 0: [det]_9 == 20*x1^3*det3(Hess_(x2,x3,x4) f4)?  True
+   [det]_10 == 0? True
+r=1 trial 1: [det]_9 == 20*x1^3*det3(Hess_(x2,x3,x4) f4)?  True
+   [det]_10 == 0? True
+r=1 trial 2: [det]_9 == 20*x1^3*det3(Hess_(x2,x3,x4) f4)?  True
+   [det]_10 == 0? True
+ALL MATCH: True
+exit=0

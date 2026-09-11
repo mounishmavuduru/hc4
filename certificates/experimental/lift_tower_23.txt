@@ -1,0 +1,8 @@
+survivor point c=(30306,25539,31084) mod 32003; 41 unknowns
+  DETTERMS = 35839
+  NMONO = 295
+  NEQ = 295
+  DIM = -1
+  VDIM = ?
+  NCOMP = ?
+exit=0

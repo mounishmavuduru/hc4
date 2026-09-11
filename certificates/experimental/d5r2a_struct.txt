@@ -1,0 +1,8 @@
+trial 0: [det]_9 divisible by l=A_x3x3? True
+   S7 := [det]_9/l - det2Hess2f5*f3_x4x4 : in C[x1,x2] only? True, degree 7
+   S7 depends only on (f5,B) [same for different A,f3]? True
+trial 1: [det]_9 divisible by l=A_x3x3? True
+   S7 := [det]_9/l - det2Hess2f5*f3_x4x4 : in C[x1,x2] only? True, degree 7
+   S7 depends only on (f5,B) [same for different A,f3]? True
+STRUCTURE CONFIRMED: True
+exit=0

@@ -676,6 +676,12 @@ r=1 branch remain. If both close, the degree-5 rank ≤ 2 forms are all
 with-pivot (⟹ JC_2 class, invertible by Moh in this degree range), leaving the
 pivot-free residual concentrated entirely in the rank-3 survivor lifting.
 
+CORRECTION (Phase 26): the sentence "the u-CONSTANT sub-case (ℓ degree 2)
+yields a pivot as before" above is WRONG — see Phase 26 / ledger R-D5-R2: the
+u-constant sub-case only forces f3_x4x4 = λ ∈ C[x1,x2] with D·λ =
+∇Bᵀadj(H5)∇B, and λ ≠ 0 is admissible; it is the u-LINEAR sub-case that is
+EMPTY. The picture inverted relative to this Phase's expectation.
+
 ## Phase 23 — independent adversarial re-audit of the CORE (2026-09-02)
 
 Ran a 7-dimension ultracode workflow (wf_d6ff521f-d41) re-deriving, from scratch
@@ -806,6 +812,96 @@ tolerant of line-wrapped names (the one hit, "decision.py", was the wrapped
   3×3 minor), not an instance sample — noted in the ledger.
 - (S1 machine-forcing upgrade left as a relabel only: the UFD hand proof is the
   cert of record; a Gröbner decision of the coefficient variety is optional.)
+
+## Phase 26 — degree-5 rank ≤ 2: formal graded pieces, u-linear sub-case EMPTY, u-constant does NOT force a pivot; first lifting data (2026-09-11)
+
+Frontier work on ROADMAP P5.A2 and P5.A1 (the user's "start with all this"
+directive). Everything proved here is in `certificates/d5_rank2_deg9.py`
+(fully symbolic, fail-closed, in run_all FAST); ledger entry R-D5-R2.
+
+**Method upgrade.** Instead of Laplace-expanding by hand and corroborating on
+instances, treat Hess f(tx) = t³H5 + t²H4 + tH3 + H2 with FORMAL symmetric
+matrices (H5 supported in the (x1,x2) block, 33 entries) and read the graded
+pieces [det]_d off the coefficient of t^d. This gives EXACT closed forms:
+[det]_10 = D·det N4, [det]_9 = D·tr(adj(N4)R3) + Σ_{i,j≤2}(H5)_ij cof_ij(H4),
+[det]_8 = D(det R3 + tr(adj(N4)R2)) + Σ(H5)_ij ∂_ε cof_ij(H4+εH3)|₀ + det H4
+(D = det₂Hess₂f5, N4/R3/R2 the (x3,x4)-blocks of Hess f4/f3/f2). The Phase-22
+[det]_10 identity is thereby re-proved formally.
+
+**Rank 2, N4 = ℓuuᵀ, u LINEAR (independent L1, L2): EMPTY.** Integrability of
+N4 as a Hessian block forces L1, L2 ∈ C[x1,x2] (24 Rabinowitsch certs over the
+integrability ideal); with f4 = (α/2)(L1x3+L2x4)² + x3C + x4D′ + E the rank-1
+formula [det]_9 = ℓ(D·wᵀR3w − gᵀadj(H5)g) has (x3,x4)-quadratic part
+−20α³δ²·f5·(L1x3+L2x4)² ≠ 0 (Euler xᵀH5x = 20f5). So this sub-case admits no
+constant-Hessian f at all.
+
+**Rank 2, u CONSTANT (f4 = A(x1,x2,x3) + x4B(x1,x2), ℓ = A_x3x3): the [det]_9
+constraint is D·f3_x4x4 = ∇Bᵀadj(H5)∇B, with f3_x4x4 =: λ ∈ C[x1,x2].** This
+is NOT a contradiction and NOT a pivot: e4 is a pivot iff λ = 0, and λ ≠ 0 is
+admissible (witness f5 = x1⁵+x2⁵, B = x1³+x2³, λ = (9/20)(x1+x2)). This
+CORRECTS Phase 22's "u constant yields a pivot as before" — the degree-4
+argument used that the rank-1 (x3,x4)-block belonged to f3 (so D²_v f was
+constant); in degree 5 the rank-1 block belongs to f4 and f3's block is free.
+The expectation inverted: the sub-case thought harmless is the open one, the
+sub-case thought new is empty. Context check (in the cert): the class
+"quadratic in x4 with a linear x4²-coefficient" is nonempty in general
+(f = x1x4²/2 + x2x4 + x1x3, det Hess = 1, pivot e3), so any closure of
+sub-case (a) must find a pivot in ANOTHER direction or use the deeper tower.
+
+**N4 = 0** (f4 linear in (x3,x4)): [det]_10 = [det]_9 = 0 automatically;
+[det]_8 = D·det R3 − tr(adj(H5)Q adj(R3)Qᵀ) + (det Q)²; its (x3,x4)-bidegree-2
+part is D·det Hess₂(f3″), so the pure-(x3,x4) part of f3 is a cube of a linear
+form (Hesse). **r = 1** (f5 = x1⁵): [det]_9 = 20x1³·det₃Hess_{x2,x3,x4}f4, so
+det₃Hess_{x2,x3,x4}f4 ≡ 0 is forced (quadratic entries; the degree-4 S3 route
+does not transfer). Both residuals OPEN; recorded as such.
+
+**Experimental (mod 32003, not theorems).**
+- `experimental/d5r2a_probe8.py`: the [det]_8 = 0 system at the λ = 0 witness is
+  consistent (dim 9, 2 components; expected — it is the with-pivot class);
+  at the λ ≠ 0 witness it is ALSO consistent (dim 12; 25 equations in the 22
+  lower coefficients that occur) — so [det]_8 does not kill λ ≠ 0 either, in
+  line with the nonemptiness of the "linear x4²-coefficient" class; sub-case
+  (a) needs a genuinely different idea (a pivot in another direction, or the
+  full tower), not more graded pieces.
+- P5.A1 lifting data at an explicit survivor point (b3 = y1²(c2y1+c0y2+c1y3),
+  c = (5406, 13697, 22603)): a generic 6-plane slice of V(J) is ONE rational
+  point of multiplicity 7 with det Hess₃a5 = 0 there — the top-dimensional
+  (dim-6) part of V(J) is rank-deficient; the rank-3 survivors (M1) form a
+  locus of dimension 3 (Rabinowitsch localisation `experimental/survivor_point_r3.py`),
+  and a rational rank-3 point was extracted. (The earlier "extension-field
+  points" reading was an artifact of a regex that only accepted generators
+  a_i − const; corrected.) At that point the weight-9 lifting piece
+  tr(adj(Hess F)·Hess F′) is a 32×22 linear system of rank 13: null space of
+  dimension 9 for the weight-4 completion F′, of which 6 are gauge (the three
+  y-translations ∂_{y_i}F and the three shears y_j·∂_{x4}F, verified to lie in
+  the null space after fixing a rationals-mod-p bug in the check), so 3
+  non-gauge directions. Full tower `experimental/lift_tower.py` (41 unknowns
+  F4+F3+F2; Singular computes det Hess f directly — 35 839 terms, 294
+  positive-weight coefficient equations + Rabinowitsch for the weight-0
+  constant): **the system is INCONSISTENT (dim −1) at this point** — this
+  rank-3 survivor leading form does NOT lift to a constant-Hessian quintic mod
+  32003. Repeated with two further random seeds (c = (31399, 29733, 4600) and
+  (30306, 25539, 31084), fresh slices, rank-3 locus again of dimension 3, one
+  rational point each): INCONSISTENT both times (`experimental/lift_tower_2{2,3}.txt`).
+  Scope: one prime, three c's, one point each of a 3-dim rank-3 locus;
+  sanity-checked (`experimental/lift_debug.py`: det Hess F ≡ 0 and J = 0 at the
+  point, gauge traces vanish). NOT a theorem; it is the first direct evidence
+  on P5.A1's question, and it points toward "rank-3 survivors do not lift".
+  Upgrading this to a mod-p theorem for fixed c by leaving the survivor point
+  symbolic (`experimental/lift_tower_sym.py`: J + tower + two Rabinowitsch
+  units, 64 unknowns, 656 equations, det with 99 054 terms) did NOT finish:
+  Singular's std exceeded the 570 s local budget. So P5.A1's status is:
+  three independent rank-3 survivor points, all non-liftable mod 32003;
+  the symbolic/char-0 version is an external-machine computation (P5.A3-type
+  ceiling), and the question "do ANY rank-3 survivors lift?" stays formally
+  OPEN.
+
+**Honest status.** P5.A2: rank-2 tree = {N4 rank 2: impossible; u-linear:
+EMPTY [proved]; u-constant: open beyond [det]_9 with the pivot criterion
+λ = 0; N4 = 0: open beyond the first [det]_8 consequence}; r = 1: open beyond
+the first reduction. P5.A1: first explicit survivor point and first tower
+data obtained; no lifting decision yet. Conjecture C2 / Lemma R: no bounded
+computation identified — still "needs a new idea"; nothing was manufactured.
 
 ## Insight log
 

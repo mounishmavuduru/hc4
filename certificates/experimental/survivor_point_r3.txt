@@ -1,0 +1,5 @@
+c=(5406,13697,22603); rank-3 locus (Rabinowitsch) dim = 3
+attempt 0: dim=0 vdim=1 ncomp=1
+   RATIONAL rank-3 point: det Hess3(a5) nonzero mod p? True; J vanishes? True
+saved survpt/survivor_point.json
+exit=0

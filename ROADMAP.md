@@ -228,15 +228,21 @@ The completeness critic's top item, flagged by no single dimension:
   elimination but likely beyond the local ceiling (export to a bigger CAS); a
   NEGATIVE answer closes degree-5 HC_4, a pivot-free YES is the first pivot-free
   4-var constant-Hessian potential. Do **not** assume it is mechanical.
-- **P5.A2 Degree-5 rank ≤ 2 leading-form branches** — STARTED (research_log
-  Phase 22, cert `d5_rank2_toppiece.py`). Rank 2: the first graded reduction is
-  PROVED — `[det Hess₄ f]_10 = det₂(Hess₂f5)·det₂(Hess_{x3,x4}f4)` (Laplace-degree
-  argument), so `det Hess f∈ℂ^× ⟹ det₂(Hess_{x3,x4}f4)≡0`. OPEN: the completion
-  needs the u-LINEAR sub-case of `Hess_{x3,x4}f4 = ℓ·uuᵀ` (degree-4's u was
-  constant → pivot; degree-5's may be linear → no forced pivot), plus the r=1
-  branch (`f5=x1⁵`). If both close, degree-5 rank≤2 is entirely with-pivot
-  (Moh-invertible here), concentrating the pivot-free residual in the rank-3
-  survivor lifting.
+- **P5.A2 Degree-5 rank ≤ 2 leading-form branches** — ADVANCED (research_log
+  Phases 22, 26; certs `d5_rank2_toppiece.py`, `d5_rank2_deg9.py`; ledger
+  R-D5-R2). PROVED (formal identities, fully symbolic): `[det]_10 =
+  D·det₂(Hess_{x3,x4}f4)`, `[det]_9`, `[det]_8` in closed form; rank 2 ⟹
+  `Hess_{x3,x4}f4 = ℓ·uuᵀ`; the **u-LINEAR sub-case is EMPTY** (the
+  (x3,x4)-quadratic part of `[det]_9` is `−20α³δ²·f5·m² ≠ 0`); the u-CONSTANT
+  sub-case gives `[det]_9 = ℓ(D·f3_x4x4 − ∇Bᵀadj(H5)∇B)`, so `λ := f3_x4x4 ∈
+  ℂ[x1,x2]` with `D·λ = ∇Bᵀadj(H5)∇B` — and λ ≠ 0 IS admissible, so e4 is a
+  pivot iff λ = 0 (Phase-22's "u constant ⟹ pivot as in degree 4" was wrong,
+  corrected). N4 = 0: `f3`'s pure-(x3,x4) part is a cube. r = 1:
+  `det₃Hess_{x2,x3,x4}f4 ≡ 0` forced. OPEN: (a) beyond `[det]_9` (does the
+  tower force λ = 0, or a pivot in another direction?), (c) N4 = 0 beyond the
+  first `[det]_8` consequence, r = 1 classification of quartics with vanishing
+  partial Hessian. Experimental foothold: `experimental/d5r2a_probe8.py` (the
+  `[det]_8 = 0` system at explicit witnesses, mod p).
 - **P5.A3 char-0 upgrade of M1/M2** — re-run the two full-variety radical tests
   over ℚ(c), or extend the exact lift certificate (as done for R-D5-GEN), on a
   machine without the ~10-min kill. Pure compute-ceiling limitation.

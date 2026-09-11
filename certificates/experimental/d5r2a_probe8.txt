@@ -1,0 +1,8 @@
+guard: c8 formula == [det Hess f]_8 ? True
+lambda=0: x4-degree of [det]_8 = 0; #eqs=15, #unknowns=18
+   [det]_8 = 0 system mod 32003: dim = 9; ncomp = 2
+   comp 1 (dim 9): 45 gens; first: ['-2*A14*k14+A13*k17', '8000*A13*k14+A12*k17', '4000*A13^2+A12*A14', '-10668*A12*k14+A11*k17', '-5334*A12*A13+A11*A14', '-14224*A12^2+A11*A13']
+   comp 2 (dim 8): 50 gens; first: ['-2*A14*k14+A13*k17', '8000*A13*k14+A12*k17', '4000*A13^2+A12*A14', '-10668*A12*k14+A11*k17', '-5334*A12*A13+A11*A14', '-14224*A12^2+A11*A13']
+lambda!=0: x4-degree of [det]_8 = 0; #eqs=25, #unknowns=22
+   [det]_8 = 0 system mod 32003: dim = 12; ncomp = ?
+exit=0

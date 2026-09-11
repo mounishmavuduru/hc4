@@ -31,10 +31,15 @@
 #
 # SCOPE (honest): this is only the FIRST reduction of the rank-2 branch.  The
 # completion -- det2(Hess_{x3,x4} f4) == 0 (QUADRATIC entries) => rank <= 1
-# => Hess_{x3,x4} f4 = l * u u^T -- has u of degree 0 OR 1.  For u constant it
-# yields a pivot exactly as in degree 4 (Theorem B, r=2); the u-LINEAR sub-case
-# is the genuinely new degree-5 structure and is NOT settled here.  The rank-1
-# branch (f5 = x1^5) is not addressed here either.  See research_log Phase 22.
+# => Hess_{x3,x4} f4 = l * u u^T -- has u of degree 0 OR 1.
+# CORRECTION (Phase 26, cert d5_rank2_deg9.py): the original remark here, "for u
+# constant it yields a pivot exactly as in degree 4", was WRONG -- in degree 5
+# the u-perp direction e4 has D_{e4}^2 f = f3_x4x4 + const, and [det]_9 only
+# forces f3_x4x4 =: lambda in C[x1,x2] with D*lambda = grad(B)^T adj(H5) grad(B);
+# lambda =/= 0 is admissible (witness f5 = x1^5+x2^5, B = x1^3+x2^3).  Conversely
+# the u-LINEAR sub-case is EMPTY.  The rank-1 branch (f5 = x1^5) reduces to
+# det3 Hess_{x2,x3,x4} f4 == 0.  d5_rank2_deg9.py also re-proves the [det]_10
+# identity below as a FORMAL identity (no instance sampling).
 #
 #   py -u d5_rank2_toppiece.py
 import itertools, random, sys
