@@ -762,6 +762,51 @@ status.md, main_result.tex remains conditional-on-G (correct — it uses G). The
 remaining Theorem-G-independent route (de Bondt–vdE n=3 → Corollary E,
 tgc_debondt_chain.py) is a nice-to-have, not required.
 
+## Phase 25 — mechanical bucket: P1.3a sharpened, P2.4, optional certs (2026-09-11)
+
+**P1.3a (solve()-exhaustiveness) — SHARPENED, not discharged.** New cert
+`d5_e4_exhaustive.py` (Singular minAssGTZ over ℚ on the 6 E4-equations in the 10
+cubic coefficients): the root E4=0 locus is ONE irreducible component of
+dimension 6. So `sp.solve`'s "two branches" are two rational CHARTS of a single
+variety (generic c9≠0; the c9=0,c5≠0 boundary), not two components — the
+"2 solve branches vs N components" comparison the roadmap suggested was the
+wrong question. Decisively: sp.solve DID miss. The closelog's two
+"[…|c9] no b3 (constraints inconsistent)" nodes are NONEMPTY loci (on V(E4),
+c9=0 forces c8=c6=0 with c5·c7=0 and c0..c3 free). Those misses are provably
+subsumed: c9=0 ⟹ c8³=27c7c9²=0 ⟹ c8=0 on V(E4) (verified as c8 ∈ √⟨E4,c9⟩), so
+the missed points lie inside the explored c8=0 subtree, which the closer did
+descend (root.0|c8.0|c9.0|…). Coverage therefore held IN FACT, and the survivor
+family is independently reproduced by R-D5-GEN + the lindir unification — but
+the METHOD (sp.solve per node) is not exhaustiveness-guaranteed, and a partial-
+chart miss at a deeper node is not excluded by this check. Full closure needs an
+ideal-theoretic (minAssGTZ-per-node) re-run of the tail closer. Tail stays
+[machine-modular]. Ledger R-D5-TAIL caveat rewritten to this sharper statement.
+
+**P2.2 — bounded part done; full regen blocked.** The five sympy-only degree-5 /
+Theorem-G certs in run_all FAST re-confirmed green individually. A full
+`run_all.py` regeneration of the suite record is NOT feasible here: ~50 scripts ×
+up-to-600 s each far exceeds the ~10-minute background-job kill in this
+environment, so the README keeps its honest "regenerate on a machine without the
+kill; expected PASS=|FAST|" note. (External-machine item, like P3.6/P4.4.)
+
+**P2.4 — done.** `check_xrefs.py` (in run_all FAST) greps all nine docs for cited
+*.py/*.sing/*.sh and asserts each exists (89 distinct names, 0 dangling); it is
+tolerant of line-wrapped names (the one hit, "decision.py", was the wrapped
+`d5_rank3_pivotfree_decision.py`, not a real dangling reference).
+
+**Optional certs — done.**
+- `_iso_power.py` upgraded from a single-prime/single-point print-only probe to a
+  multi-prime (32003/40009/15013), multi-point, fail-closed certificate: at all 6
+  (prime, point) tests (v*ᵀAv*)² ∈ ⟨J⟩ while v*ᵀAv* ∉ J — the M2 power certificate
+  now stands on its own; added to run_all SLOW (needs WSL).
+- `verify_q2_core.py` now exercises the Q2-SHARP degrees: added deg e1 = 3 and
+  deg e1 = 4 instances with NON-constant K; the Schur identity holds (ALL PASS).
+- `conjE_degree3.py` inspected and confirmed to be a GENERIC parametric
+  Rabinowitsch decision (13 symbolic coefficients; radical membership of every
+  3×3 minor), not an instance sample — noted in the ledger.
+- (S1 machine-forcing upgrade left as a relabel only: the UFD hand proof is the
+  cert of record; a Gröbner decision of the coefficient variety is optional.)
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of

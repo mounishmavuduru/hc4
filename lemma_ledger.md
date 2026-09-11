@@ -658,7 +658,9 @@ first stated. Found by re-deriving the proof from scratch.
 Proved for: deg e1 ≤ 2 (AP1–AP3); e1 homogeneous of any degree (Identity E
 + Gordan–Noether n = 3, since then (c2) ⟺ det Hess e1 ≡ 0 ⟺ cone).
 Degree 3 tested by radical-membership certificates
-(`conjE_degree3.py`). **If true, the affine-pivot class is exactly the
+(`conjE_degree3.py` — confirmed 2026-09-11 to be a GENERIC parametric
+Rabinowitsch decision over the 13 symbolic coefficients of a cubic pivot
+coefficient, NOT an instance sample). **If true, the affine-pivot class is exactly the
 Meng-doubling class and HC_4 restricted to it is EQUIVALENT to JC_2** — an
 exact localization of the planar Jacobian conjecture inside HC_4.
 Route to a proof: the homogenization identity (derived and used here)
@@ -855,9 +857,18 @@ conclusion is [machine-modular], pending a char-0 lift of M2. Only the
 structural core S1–S4 (and det Hess₃a5|_{y1=0} ∈ J) is char-0/deductive. A
 FURTHER completeness caveat: the stratification that reduces the tail to the
 single survivor family relies on `sp.solve` enumerating every c-stratum, which
-sympy does not guarantee — a missed stratum would be silently unvisited; this is
-mitigated by R-D5-GEN + the lindir unification but is not independently proved
-exhaustive. The sub-locus c0 = c1 = 0 (b3 = c2·y1³, where v* = (0,c1,−c0) = 0
+sympy does not guarantee. SHARPENED 2026-09-11 (`d5_e4_exhaustive.py`, Singular
+minAssGTZ): the root E4=0 locus is ONE irreducible component of dimension 6, so
+sp.solve's "two branches" are two rational CHARTS of it (generic c9≠0; the
+c9=0,c5≠0 boundary), not two components; and sp.solve DID miss — the two
+closelog nodes "[…|c9] no b3 (inconsistent)" are nonempty loci. Those misses are
+PROVABLY subsumed (on V(E4), c9=0 ⟹ c8³=27c7c9²=0 ⟹ c8=0, verified as
+c8 ∈ √⟨E4,c9⟩, so they lie inside the explored c8=0 subtree), and the survivor
+family is independently reproduced by R-D5-GEN + the lindir unification. But a
+partial-chart miss at a deeper node is NOT excluded by this: full method-
+exhaustiveness still needs an ideal-theoretic (minAssGTZ-per-node) re-run of the
+closer. The tail therefore stays [machine-modular]; this caveat is sharpened, not
+discharged. The sub-locus c0 = c1 = 0 (b3 = c2·y1³, where v* = (0,c1,−c0) = 0
 so the M2 exclusion is vacuous) is closed SEPARATELY (`_d5_surv_c0c1.py`): there
 Hess₃(b3) has rank 1 with kernel span{e2,e3}, and det Hess₃a5 ∈ √J (rank<3 cone;
 multi-prime full-variety Rabinowitsch, 3/3 primes) — so that sub-locus is EMPTY

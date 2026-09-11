@@ -48,6 +48,7 @@ FAST = [
     'd5_linear_direction_normalform.py',  # linear-direction normal form N1-N3
     'd5_rank2_toppiece.py',           # degree-5 rank-2 first graded reduction
     'theorem_G_closure_reaudit.py',   # Theorem G closure re-derivation (pillars + eigendecomp + sharpness)
+    'check_xrefs.py',                 # P2.4: every script cited in the docs exists on disk
 ]
 
 # Not run by the fast suite (reason in the table).
@@ -69,9 +70,12 @@ SLOW = {
     'd5_lindir_verify.py': 'needs WSL Singular; linear-direction tower J=(1) over F_p and Q',
     '_d5_surv_target.py': 'needs WSL Singular; M2 isotropy radical test (v*^T A v* in radical J -> exit 0)',
     '_d5_surv_c0c1.py': 'needs WSL Singular; c0=c1=0 sub-locus (b3=c2 y1^3) is a rank<3 cone -> exit 0',
-    # NOTE: _d5_surv_rabin.py (M1) and _iso_power.py are DECISION scripts whose
-    # exit code / stdout is the verdict, not a pass/fail -- see ledger R-D5-TAIL
-    # and README; not listed here so --all does not misreport them.
+    '_iso_power.py': 'needs WSL Singular; M2 power cert (v*^T A v*)^2 in <J>, multi-prime, fail-closed -> exit 0',
+    'd5_e4_exhaustive.py': 'needs WSL Singular; root E4-locus = 1 component (minAssGTZ) + c9=0=>c8=0 subsumption -> exit 0',
+    # NOTE: _d5_surv_rabin.py (M1) is a DECISION script whose exit code / stdout
+    # is the verdict (exit 2 = "rank-3 solutions exist", the expected answer),
+    # not a pass/fail -- see ledger R-D5-TAIL; not listed so --all does not
+    # misreport it.
 }
 
 MARKERS = ('ALL CHECKS PASSED', 'ALL PASS', 'ALL FAST CHECKS PASSED',

@@ -58,6 +58,18 @@ e1r = sum(sp.Rational(random.randint(-5, 5), random.randint(1, 3)) *
           m for m in [x1**2, x1*x3, x2**2, x2, x3, sp.Integer(1)])
 check_instance(sp.expand(e0r), sp.expand(e1r), sp.Rational(7, 2), tag='random')
 
+# instances 4,5 (added 2026-09-11, endgame audit): deg e1 = 3 and 4 with
+# NON-constant K, exercising the Q2-SHARP "any degree of e1" claim. The Schur
+# identity is degree-free, so it must hold here too (no expect_const: these are
+# generic non-solutions; only the identity is being certified).
+random.seed(7)
+e1c = sum(sp.Rational(random.randint(-4, 4), random.randint(1, 3)) *
+          m for m in [x1**3, x1**2*x2, x1*x2*x3, x2**2*x3, x3**3, x1*x3, x2, sp.Integer(1)])
+check_instance(sp.expand(e0r), sp.expand(e1c), sp.Rational(5, 3), tag='deg e1=3, K nonconst')
+e1q = sum(sp.Rational(random.randint(-4, 4), random.randint(1, 3)) *
+          m for m in [x1**4, x1**2*x2*x3, x2**3*x3, x1*x3**3, x2**2, x1*x2, x3, sp.Integer(1)])
+check_instance(sp.expand(e0r), sp.expand(e1q), sp.Rational(-2, 1), tag='deg e1=4, K nonconst')
+
 # fully-symbolic (linear-in-coefficients) step: grad'(e1^2/(2 sigma)) == (e1/sigma) grad' e1
 cs = sp.symbols('a0:10')
 sigS = sp.Symbol('sigma')
