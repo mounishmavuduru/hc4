@@ -571,6 +571,18 @@ only as finiteness of the expansion. `atkG_algebraic_proof.py` (pillars
 fully generic, ALL PASS). Also confirms the paper's eigensplit proof
 line by line and classifies the original defect as expositional.
 FOUR proofs, three of them by independent auditors instructed to refute.
+CLOSURE RE-AUDIT (2026-09-02, `theorem_G_closure_reaudit.py`, ALL PASS): the
+derivation-eigenvector proof's CLOSURE — the step the pillar-certs did not cover
+— was independently re-derived and machine-confirmed: (a) δg = g holds
+identically (generic e, n = 2,3); (b) on the sharpness witness
+e = x1 − √(x1²−2x2) (B ≡ 0, det Hess ≠ 0, NON-polynomial) both pillars hold
+(δg = g, δV = −V, δ(x+V) = 0) and δV = −V ⇔ δ(H)V = 2g was verified; (c) the
+eigendecomposition argument (g_i = Σ_k c_{i,k}, δc_{i,k} = −k c_{i,k}; δg = g +
+uniqueness ⟹ (k+1)c_{i,k} = 0 ⟹ g = 0) is sound, with POLYNOMIALITY entering
+ONLY as finiteness of the expansion — the witness satisfies every pillar yet
+escapes via an infinite expansion. So Theorem G's closure is now independently
+verified, not merely pillar-checked; the earlier "closure unverified" caveat is
+DISCHARGED.
 n = 2 COMPLETELY DECIDED by machine for degree ≤ 5 over ALL polynomials
 (linear terms included), via a certified normalisation e = x2^d + lower
 terms — `atkG_n2_decision.py`; this supersedes both earlier n = 2 scans,
@@ -593,9 +605,13 @@ Theorem G + F]** (Core re-audit 2026-09-02: cases (i),(ii) and the deg e1 ≤ 2
 part of (iii) were independently re-derived and are Theorem-G-INDEPENDENT and
 sound; the reduction of a general degree-≥3 pivot coefficient e1 to affinely
 2-variable — the only step that makes (iii) hold in ALL degrees — rests on
-Corollary E / Theorem G, which was NOT independently re-derived and whose
-original proof was a documented non-sequitur now carried by four replacements.
-So the all-degree equivalence inherits Theorem G's residual risk.) Let
+Corollary E / Theorem G. UPDATE 2026-09-02: Theorem G's derivation-eigenvector
+proof, INCLUDING its previously-unverified closure step, has now been
+independently re-derived and machine-confirmed (`theorem_G_closure_reaudit.py`),
+so that dependency is on verified footing — the earlier "closure unverified"
+risk is discharged. The all-degree equivalence still DEPENDS on Theorem G
+(+ Theorem F for the n=3 Corollary E); it is not unconditional, but Theorem G is
+no longer an unverified link.) Let
 f ∈ C[x1..x4] with det Hess f ∈ C^× admit a pivot v; put γ = D_v²f,
 e1 = D_vf. Then exactly one of (the cases are indexed by the invariants
 (γ, deg e1) of the pair (f,v), hence genuinely exclusive):

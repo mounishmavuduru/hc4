@@ -733,6 +733,35 @@ scope-check of the de Bondt–van den Essen n=3 route to Corollary E that would
 give a Theorem-G-independent path. Until then the all-degree trichotomy is
 labeled conditional, not proved. This is the top remaining verification priority.
 
+## Phase 24 — Theorem G closure independently re-derived (2026-09-02)
+
+Acted on Phase 23's top priority: independently re-derived Theorem G's CLOSURE
+step (the part the pillar-certs did not cover), via the derivation-eigenvector
+(atkG) proof, and machine-confirmed it (`theorem_G_closure_reaudit.py`, ALL
+PASS, added to run_all FAST):
+- PILLAR 1 δg = g is an IDENTITY (no hypothesis): (δg)_i = ∇g_i·V = (HV)_i = g_i
+  for V = H⁻¹g. Verified symbolically, generic e, n = 2,3.
+- On the sharpness witness e = x1 − √(x1²−2x2) (B ≡ 0, det Hess ≠ 0,
+  NON-polynomial): both pillars hold — δg = g, δV = −V, δ(x+V) = 0 — and the
+  equivalence δV = −V ⇔ δ(H)V = 2g was confirmed. So the pillars and the whole
+  eigenstructure are genuine and do NOT use polynomiality.
+- CLOSURE (re-derived by hand): a := V (δa = −a), b := x+V (δb = 0); a POLYNOMIAL
+  g_i has a FINITE expansion g_i = g_i(b−a) = Σ_k c_{i,k} into δ-eigencomponents
+  (δc_{i,k} = −k c_{i,k}); uniqueness of the eigendecomposition + δg_i = g_i give
+  −k c_{i,k} = c_{i,k}, i.e. (k+1)c_{i,k} = 0, so every c_{i,k} = 0 (k ≥ 0),
+  whence g = 0 ⟹ H = 0 ⟹ det H = 0, contradicting det H ≢ 0. POLYNOMIALITY is
+  used ONLY as finiteness of the expansion — the witness satisfies every pillar
+  yet, being non-polynomial, has an INFINITE expansion and so escapes the
+  contradiction (exactly why the theorem is sharp / fails off polynomials).
+
+CONSEQUENCE: Theorem G is no longer an unverified link. The "closure unverified"
+caveat is DISCHARGED; the all-degree pivot trichotomy still DEPENDS on Theorem G
+(+ Theorem F for the n=3 Corollary E) but that dependency now rests on an
+independently re-derived, machine-confirmed proof. Labels updated in the ledger,
+status.md, main_result.tex remains conditional-on-G (correct — it uses G). The
+remaining Theorem-G-independent route (de Bondt–vdE n=3 → Corollary E,
+tgc_debondt_chain.py) is a nice-to-have, not required.
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of

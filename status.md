@@ -156,9 +156,12 @@ Every claim below was checked against a primary source during this project
   2026-09-02: cases (i),(ii) and the deg e1 ≤ 2 part of (iii) are
   Theorem-G-independent and were independently re-derived sound; case (iii)
   in ALL degrees needs the reduction of a degree-≥3 pivot coefficient to
-  affinely 2-variable = Corollary E → Theorem G, which was NOT independently
-  re-derived — see the caveat under Theorem G below.) The remaining open case
-  is potentials with no pivot at all.
+  affinely 2-variable = Corollary E → Theorem G. UPDATE 2026-09-02: Theorem G's
+  derivation-eigenvector proof, incl. its closure step, is now independently
+  re-derived + machine-confirmed (`theorem_G_closure_reaudit.py`), discharging
+  the "closure unverified" risk; the all-degree equivalence still depends on
+  Theorem G but that link is now verified.) The remaining open case is
+  potentials with no pivot at all.
 - **Theorem G now has FOUR proofs** — the eigensplit proof (paper), the
   flow proof (advG), a Puiseux-at-infinity proof (pzG) and a
   derivation-eigenvector proof (atkG, shortest, purely algebraic) — three
