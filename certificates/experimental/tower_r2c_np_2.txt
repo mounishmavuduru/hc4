@@ -1,0 +1,11 @@
+r2c_np: N4 = 0, f5 random, C/D'/E/f3/f2 unknown, no pivot in span(e3,e4); p=32003, seed=2; unknowns=43
+  DETTERMS = 35884
+  NMONO = 291
+  NEQ = 292
+  DIM = -1
+  VDIM = ?
+  SDIM = ?
+  SVDIM = ?
+  NCOMP = ?
+  => INCONSISTENT: no constant-Hessian completion mod p for this leading structure
+exit=0

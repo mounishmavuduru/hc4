@@ -1,0 +1,10 @@
+r1: f5 = x1^5, random f4 in C[x1,x2,x3]; p=32003, seed=1; unknowns=30; INCREMENTAL depth scan
+  [det]_k = 0 for k >= 8: 36 equations, dim = 31
+  [det]_k = 0 for k >= 7: 106 equations, dim = 25
+  [det]_k = 0 for k >= 6: 171 equations, dim = 24
+  [det]_k = 0 for k >= 5: 223 equations, dim = 22
+  [det]_k = 0 for k >= 4: 258 equations, dim = 21
+  [det]_k = 0 for k >= 3: 278 equations, dim = 21
+  [det]_k = 0 for k >= 2: 288 equations, dim = 21
+  [det]_k = 0 for k >= 1: 292 equations, dim = 21
+exit=0

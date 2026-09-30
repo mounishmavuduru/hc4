@@ -1,0 +1,17 @@
+r2a witness f5=x1**4*x2, B=x1**3, lambda=0; p=32003, seed=1; unknowns=41
+  DETTERMS = 16222
+  NMONO = 195
+  NEQ = 195
+  DIM = ?
+  VDIM = ?
+  SDIM = ?
+  SVDIM = ?
+  NCOMP = ?
+  (no DIM: timeout/error)
+DETTERMS 16222
+NMONO 195
+NEQ 195
+
+halt 1
+
+exit=2

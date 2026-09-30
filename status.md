@@ -1,4 +1,4 @@
-# Status of the Jacobian and Hessian conjectures — verified 2026-08-08 through 2026-09-01
+# Status of the Jacobian and Hessian conjectures — verified 2026-08-08 through 2026-09-01 (project status updated 2026-09-30)
 
 Every claim below was checked against a primary source during this project
 (downloads under `lit/`; extract files cited). Machine verifications are in
@@ -205,6 +205,10 @@ Every claim below was checked against a primary source during this project
   binary linear form with D·λ = ∇Bᵀadj(H5)∇B — λ ≠ 0 admissible, hence NO
   forced pivot at this stage (corrects Phase 22); N4 = 0 and r = 1 branches
   reduced one step each, all three residuals OPEN.
+  EXPERIMENTAL (research_log Phase 27, mod p, instance-level): the full
+  lifting tower is inconsistent at 5/5 rank-3 survivor points over two primes
+  (p = 32003, 40009) — evidence that rank-3 survivors do not lift, not a proof;
+  the informative N4 = 0 and λ ≠ 0 rank-2 towers are unrun or compute-bound.
 - Degree-5 attack (rank-3, no-isotropic-direction, pivot-free branch),
   weighted leading form F = a5(y) + x4·b3(y) + ½x4²·y1, five closed-form
   graded equations E4…E0:

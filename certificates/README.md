@@ -484,3 +484,15 @@ only, no CAS) for the deductive parts; `_d5_surv_rabin.py`, `_d5_surv_target.py`
   direction e1 is unique, and that det₃ Hess₃ f5 = c0(x2,x3) − x1·cov(Q) with
   cov(Q) = Q₃²Q₂₂ − 2Q₂Q₃Q₂₃ + Q₂²Q₃₃. The det Hess₄ f = const tower for this
   form is OPEN (research_log Phase 20). This branch is NOT covered by Theorem A.
+
+## Degree-5 rank ≤ 2 and rank-3 lifting (2026-09-11 → 2026-09-30)
+
+- `d5_rank2_deg9.py` (FAST, fully symbolic, ledger R-D5-R2): formal graded
+  pieces [det]_10/9/8 for rank ≤ 2 leading forms; the u-linear sub-case is
+  EMPTY; the u-constant sub-case does NOT force a pivot (λ ≠ 0 witness);
+  N4 = 0 and r = 1 reduced one step. research_log Phase 26.
+- `experimental/` — probes, NOT certificates (mod p, instance-level): rank-3
+  survivor points and their lifting towers (inconsistent at 5/5 points over
+  p = 32003, 40009), and `graded_tower.py` for the rank ≤ 2 ordinary-degree
+  towers. See `experimental/README.md` and research_log Phase 27 (which opens
+  with the current HANDOFF list).

@@ -1,0 +1,3 @@
+r2a witness f5=x1**5 + x2**5, B=x1**3 + x2**3, lambda=9*x1/20 + 9*x2/20; p=32003, seed=1; unknowns=41; INCREMENTAL depth scan
+  [det]_k = 0 for k >= 8: 25 equations, dim = 36
+exit=0

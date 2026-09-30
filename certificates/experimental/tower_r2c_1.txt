@@ -1,0 +1,11 @@
+r2c: N4 = 0, random f5, C, D', E; p=32003, seed=1; unknowns=30
+  DETTERMS = 26973
+  NMONO = 291
+  NEQ = 291
+  DIM = -1
+  VDIM = ?
+  SDIM = ?
+  SVDIM = ?
+  NCOMP = ?
+  => INCONSISTENT: no constant-Hessian completion mod p for this leading structure
+exit=0

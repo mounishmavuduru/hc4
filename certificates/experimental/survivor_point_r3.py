@@ -12,7 +12,7 @@ import _d5_close as base
 from _d5_close import Y, a5, as_, E_components, coeffs_in_y, AV, s_poly
 y1,y2,y3 = Y
 ND = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'survpt'); os.makedirs(ND, exist_ok=True)
-p = 32003
+p = int(os.environ.get("HC4_P", 32003))
 rng = random.Random(int(sys.argv[1]) if len(sys.argv)>1 else 21)
 C0,C1,C2 = (rng.randrange(1,p) for _ in range(3))
 b3 = C2*y1**3 + C0*y1**2*y2 + C1*y1**2*y3

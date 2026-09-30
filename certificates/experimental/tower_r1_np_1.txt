@@ -1,0 +1,17 @@
+r1_np: f5 = x1^5, f4 in C[x1,x2,x3] unknown, f3/f2 unknown, e4 not a pivot; p=32003, seed=1; unknowns=45
+  DETTERMS = 30163
+  NMONO = 293
+  NEQ = 294
+  DIM = ?
+  VDIM = ?
+  SDIM = ?
+  SVDIM = ?
+  NCOMP = ?
+  (no DIM: timeout/error)
+DETTERMS 30163
+NMONO 293
+NEQ 294
+
+halt 1
+
+exit=2

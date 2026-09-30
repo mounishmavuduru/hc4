@@ -903,6 +903,93 @@ the first reduction. P5.A1: first explicit survivor point and first tower
 data obtained; no lifting decision yet. Conjecture C2 / Lemma R: no bounded
 computation identified — still "needs a new idea"; nothing was manufactured.
 
+## Phase 27 — ordinary-degree towers mod p; P5.A1 at a second prime; memory-killed jobs (2026-09-11 → 2026-09-30)
+
+> **HANDOFF (2026-09-30, written for session 2b12535a).** Repo state: this
+> phase is committed on top of `d6db13d` (Phase 26); branch
+> `d5-rank3-pivotfree-closure` = `master` = origin. Open threads, in order:
+> 1. **Re-run the memory-killed tower jobs** (see "Killed jobs" below), at most
+>    TWO Singular processes at a time (five concurrent jobs drove the machine
+>    out of memory; one process reached ~1.4 GB). Commands, from
+>    `certificates/experimental/`:
+>    `py -u graded_tower.py --mode r2c_np1 --seed 1`,
+>    `py -u graded_tower.py --mode r2c_np0 --seed 1`,
+>    `py -u graded_tower.py --mode r1_np --seed 1 --x4incr`,
+>    `py -u graded_tower.py --mode r2a --seed 1 --x4incr`,
+>    `py -u graded_tower.py --mode r2a --seed 1 --lam0 --x4incr`
+>    (each writes `tower_<mode>_<seed>[_suffix].txt`; ~570 s Singular budget,
+>    background jobs die at ~10 min). If any is CONSISTENT: extract f,
+>    re-verify det Hess f = const independently, compute the pivot cone — a
+>    pivot-free constant-Hessian quintic mod p would be the headline, then
+>    repeat at a second prime and attempt a char-0 lift. If all INCONSISTENT:
+>    locate the killing stage and try a symbolic proof (as for sub-case (b)).
+> 2. **Phase 27 residuals:** the λ ≠ 0 sub-case (a) tower is compute-bound
+>    locally (needs staged elimination, a smaller ansatz, or an external
+>    machine); the symbolic-survivor P5.A1 tower (`lift_tower_sym.py`) is an
+>    external-machine item.
+> 3. **Close degree-5 rank-3 pivot-free** (P5.A1): does ANY rank-3 survivor
+>    leading form F = a5 + x4·b3 + ½x4²y1 (b3 = y1²(c2y1+c0y2+c1y3)) lift to a
+>    constant-Hessian quintic? Evidence says no (5/5 points, 2 primes); no
+>    proof. Conjecture C2 / Lemma R still "needs a new idea".
+> Rules unchanged: exact arithmetic only; mod-p / instance results are
+> EXPERIMENTAL evidence, never theorems; fail-closed; report negatives plainly.
+
+**Nothing in this phase is proved.** Everything below is experimental
+(exact arithmetic over F_p, one instance or a few random instances).
+
+**New tool.** `experimental/graded_tower.py` sets up the FULL ordinary-degree
+tower for a degree-5 potential f = f5 + f4 + f3 + f2 with a prescribed
+rank ≤ 2 leading structure and unknown lower-degree coefficients: Singular
+computes det Hess f, the ideal of ALL nonconstant coefficients plus a
+Rabinowitsch unit for the constant coefficient (and optionally a second unit
+`w2` encoding a "no pivot" condition), then `std`/`dim`. If consistent it
+slices to a rational point and re-checks det Hess f independently in sympy
+and computes the pivot cone {v : D_v²f constant}. Options: `--incremental`
+(impose [det]_k = 0 for k ≥ m, m = 8…1, report the first inconsistency),
+`--x4incr` (stage by x4-degree). Modes: `r2a` (sub-case (a) witness
+f5 = x1⁵+x2⁵, B = x1³+x2³, λ = (9/20)(x1+x2); `--lam0` uses the λ = 0
+witness), `r2c` (N4 = 0, random C, D′, E), `r1` (f5 = x1⁵, random
+f4 ∈ ℂ[x1,x2,x3]), `r2c_np` / `r2c_np1` / `r2c_np0` (N4 = 0, f4 unknown, three
+different "no pivot in span(e3,e4)" conditions), `r1_np` (r = 1, f4 unknown,
+f3_44 ≠ 0 via a random combination).
+
+**Results (p = 32003, seed 1 unless stated).**
+- `r2c`: INCONSISTENT; depth scan shows the first inconsistency already at
+  k ≥ 8 (46 equations). Random (C, D′, E) already violate [det]_8, so this is
+  UNINFORMATIVE about the N4 = 0 branch — motivated the f4-unknown modes.
+- `r1`: full system INCONSISTENT, but the positive-degree-only depth scan has
+  dims 31, 25, 24, 22, 21, 21, 21, 21 (k ≥ 8 … 1): the positive-degree system
+  is solvable and the inconsistency comes only from the unit condition (every
+  solution has det Hess f ≡ 0). One instance.
+- `r2c_np` seeds 1, 2 (43 unknowns): INCONSISTENT. **Caveat:** the "no pivot"
+  condition there is a random 3×3 minor ≠ 0 of the q_k rows, which may be
+  trivially incompatible with the forced cube structure of f3″ (Phase 26:
+  f3″ is a cube by Hesse), so these two results must NOT be read as evidence
+  about the branch. `r2c_np1` (cube chart f3″ = (γ/6)(x3+u2x4)³ with
+  μ = wᵀR3w ≠ 0) and `r2c_np0` (f3″ = 0, Res(q1,q2) ≠ 0) were written to fix
+  this; they have NOT run to completion (killed, below).
+- `r2a` (λ ≠ 0, 41 unknowns, 294 equations, 28 126 det terms): full tower
+  timed out (Singular `halt 1` at the budget); incremental: k ≥ 8 has dim 36,
+  then timed out. `r2a --lam0` (195 equations): timed out.
+- `r1_np` (294 equations, 30 163 det terms): timed out.
+- **P5.A1 at a second prime.** `survivor_point_r3.py` now takes the prime from
+  `HC4_P`; at p = 40009, seeds 24 and 25: rank-3 locus of dimension 3, one
+  rational rank-3 point each (det Hess₃a5 ≠ 0, J = 0), and the full lifting
+  tower (`lift_tower.py`, 41 unknowns, 295 equations) is INCONSISTENT at both.
+  Total: **5/5 rank-3 survivor points over 2 primes do not lift**
+  (`lift_tower{,_22,_23}.txt`, `lift_tower_2{4,5}_40009.txt`). Still evidence,
+  not a theorem.
+
+**Killed jobs.** Five background jobs launched concurrently (`r2c_np1`,
+`r2c_np0`, `r1_np --x4incr`, `r2a --x4incr`, `r2a --lam0 --x4incr`) were all
+killed by the host for low memory before producing output; their empty output
+files were deleted. No result exists for them — see HANDOFF item 1.
+
+**Honest status after Phase 27.** Unchanged at the level of theorems (Phase 26
+tree). Experimental picture: rank-3 survivors do not lift (5/5, 2 primes);
+r = 1 with a random f4 fails only at the unit condition (1 instance); the
+informative N4 = 0 and λ ≠ 0 towers are either not yet run or compute-bound.
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of

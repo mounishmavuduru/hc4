@@ -1,0 +1,3 @@
+r2c: N4 = 0, random f5, C, D', E; p=32003, seed=1; unknowns=30; INCREMENTAL depth scan
+  [det]_k = 0 for k >= 8: 46 equations, dim = -1  <== first inconsistency
+exit=0

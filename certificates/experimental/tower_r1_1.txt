@@ -1,0 +1,11 @@
+r1: f5 = x1^5, random f4 in C[x1,x2,x3]; p=32003, seed=1; unknowns=30
+  DETTERMS = 22218
+  NMONO = 293
+  NEQ = 293
+  DIM = -1
+  VDIM = ?
+  SDIM = ?
+  SVDIM = ?
+  NCOMP = ?
+  => INCONSISTENT: no constant-Hessian completion mod p for this leading structure
+exit=0
