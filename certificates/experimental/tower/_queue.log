@@ -1,0 +1,12 @@
+QUEUE START 14:14:16
+--- r2a_1_32003_lam0_x4incr.sing budget=600s START 14:14:16 ---
+    r2a_1_32003_lam0_x4incr.sing DONE rc=124 [no DIM]
+--- r2a_1_32003_x4incr.sing budget=600s START 20:34:42 ---
+    r2a_1_32003_x4incr.sing DONE rc=124 [no DIM]
+--- r1_np_1_32003_x4incr.sing budget=600s START 20:44:44 ---
+    r1_np_1_32003_x4incr.sing DONE rc=124 [no DIM]
+--- r2c_np1_1_32003.sing budget=1200s START 00:46:27 ---
+    r2c_np1_1_32003.sing DONE rc=14 [no DIM]
+--- r2c_np0_1_32003.sing budget=1200s START 00:58:05 ---
+    r2c_np0_1_32003.sing DONE rc=124 [no DIM]
+QUEUE DONE 11:32:01

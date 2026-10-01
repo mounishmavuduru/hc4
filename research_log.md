@@ -990,6 +990,42 @@ tree). Experimental picture: rank-3 survivors do not lift (5/5, 2 primes);
 r = 1 with a random f4 fails only at the unit condition (1 instance); the
 informative N4 = 0 and λ ≠ 0 towers are either not yet run or compute-bound.
 
+## Phase 28 — the five memory-killed towers re-run serially; all compute-bound (2026-10-01)
+
+Resumed in session 2b12535a. HANDOFF item 1 (re-run the five jobs the host
+killed for low memory in Phase 27) was executed, but this time ONE Singular at
+a time via a serial queue runner (`certificates/experimental/tower/_run_queue.sh`
+→ `_run_one.sh`), each capped at `ulimit -v 12.5 GB` so a runaway fails cleanly
+instead of taking down the box, and `setsid`-detached so the host's ~10-min job
+kill cannot reap it. p = 32003, seed 1. The queue ran across a laptop sleep/wake
+(14:14 → 11:32 next day) and completed; the detached design survived suspend.
+
+**Nothing new is proved. No job produced a DIM — every one hit a compute wall
+before the final std/unit check. All five are now confirmed compute-bound on
+this machine (14 GB RAM).** Per-job (from `*_result.txt`, `_queue.log`):
+
+| job | det terms | eqns | wall hit | class |
+|---|---|---|---|---|
+| `r2c_np1` | 34024 | 236 | `Singular error: no more memory` (hit the 12.5 GB cap), halt 14 | MEMORY-bound |
+| `r2c_np0` | 20112 | 176 | timeout at 1200 s (halt 1) | time-bound |
+| `r2a --x4incr` | 28126 | 294 | solved x4-stages 4 (dim 45) and 3 (dim 35), then timeout 600 s | time-bound |
+| `r2a --lam0 --x4incr` | 16222 | 195 | solved x4-stage 3 (dim 46), then timeout 600 s | time-bound |
+| `r1_np --x4incr` | 30163 | 293 | solved x4-stage 4 (dim 50), then timeout 600 s | time-bound |
+
+The `--x4incr` partial per-stage dims (46, 45/35, 50) are positive, i.e. the
+*staged* ideals are consistent at the top x4-degrees computed — but this is NOT
+a verdict on the branch: the full system plus the Rabinowitsch unit (the step
+that would decide EMPTY vs. survivor) never ran to completion. Treat the partial
+dims as progress markers only, EXPERIMENTAL.
+
+**Decisive takeaway for scope.** `r2c_np1` — the informative N4 = 0 / no-pivot
+case with f3″ a genuine cube — is MEMORY-bound: a single `std` exceeded 12.5 GB.
+So the limiting resource is RAM, not core count. These five towers need a
+high-RAM machine (see `certificates/experimental/CLOUD_PLAN.md`); they are not
+closable locally. Reproducible outputs tracked: `tower/_run_one.sh`,
+`tower/_run_queue.sh`, `tower/*_result.txt`, `tower/_queue.log` (the `.sing`
+inputs stay gitignored as scratch).
+
 ## Insight log
 
 - AP4 contains all Meng doublings of planar Keller maps ⇒ closing all of

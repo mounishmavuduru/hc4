@@ -1,0 +1,10 @@
+START 00:46:27 budget=1200s
+DETTERMS 34024
+NMONO 235
+NEQ 236
+
+Singular error: no more memory
+System 12465674k:12466411k Appl 12269010k/196663k Malloc 8558k/0k Valloc 12457116k/196663k Pages 3114279/0 Regions 6377:6377 Internal: 755128
+
+halt 14
+DONE rc=14 00:58:05
